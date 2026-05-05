@@ -10,14 +10,14 @@
 import { useEffect, useRef } from "react";
 
 // ── Tuning constants ─────────────────────────────────────────────────────────
-const GAP    = 38;   // px between dot origins
-const R0     = 1.5;  // base dot radius
-const R1     = 6.5;  // max dot radius when cursor is closest
-const FIELD  = 95;   // repulsion radius in px
-const PUSH   = 24;   // max push distance in px
-const SPD    = 0.14; // lerp coefficient per frame (0–1)
-const O0     = 0.14; // base dot opacity
-const O1     = 0.52; // max dot opacity when cursor is closest
+const GAP    = 36;   // px between dot origins
+const R0     = 1.8;  // base dot radius
+const R1     = 8.5;  // max dot radius when cursor is closest
+const FIELD  = 120;  // repulsion radius in px
+const PUSH   = 30;   // max push distance in px
+const SPD    = 0.12; // lerp coefficient per frame (0–1)
+const O0     = 0.18; // base dot opacity
+const O1     = 0.65; // max dot opacity when cursor is closest
 
 interface Dot {
   ox: number; oy: number;  // origin

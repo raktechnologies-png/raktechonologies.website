@@ -48,7 +48,7 @@ const pillars = [
 
 export default function TrustSection() {
   return (
-    <section className="py-28 md:py-36 relative bg-slate-50">
+    <section className="py-16 md:py-36 relative bg-slate-50">
       <div className="section-divider absolute top-0 inset-x-0" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -70,14 +70,14 @@ export default function TrustSection() {
               <span className="gradient-text">scalable systems.</span>
             </AnimatedHeading>
             <ScrollReveal delay={0.22}>
-              <p className="text-slate-500 text-lg md:text-xl leading-relaxed max-w-lg">
+              <p className="hidden md:block text-slate-500 text-lg md:text-xl leading-relaxed max-w-lg">
                 Every business problem has a technology solution. We partner with
                 organisations to understand the challenge, architect the right approach,
                 and build systems that deliver measurable results.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.32}>
-              <div className="flex items-center gap-4 pt-2">
+              <div className="hidden md:flex items-center gap-4 pt-2">
                 <div className="flex -space-x-2">
                   {["A", "B", "C"].map((l) => (
                     <div
@@ -112,7 +112,7 @@ export default function TrustSection() {
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <h3 className="text-slate-900 text-base font-600">{pillar.title}</h3>
-                  <p className="text-slate-500 text-base leading-relaxed">{pillar.description}</p>
+                  <p className="hidden md:block text-slate-500 text-base leading-relaxed">{pillar.description}</p>
                 </div>
               </AnimatedCard>
             ))}

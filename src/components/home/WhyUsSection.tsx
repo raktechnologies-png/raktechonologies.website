@@ -54,12 +54,12 @@ const stats = [
 
 export default function WhyUsSection() {
   return (
-    <section className="py-28 md:py-36 relative bg-slate-50 overflow-hidden">
+    <section className="py-16 md:py-36 relative bg-slate-50 overflow-hidden">
       <div className="section-divider absolute top-0 inset-x-0" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-10 md:mb-20">
           <ScrollReveal>
             <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-4">
               Why RAK Technologies
@@ -76,7 +76,7 @@ export default function WhyUsSection() {
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mb-10 md:mb-20">
           {differentiators.map((d, i) => (
             <AnimatedCard
               key={i}
@@ -96,7 +96,7 @@ export default function WhyUsSection() {
                 <h3 className="font-display text-slate-900 font-700 text-[1.15rem] leading-snug">
                   {d.title}
                 </h3>
-                <p className="text-slate-500 text-base leading-relaxed">{d.description}</p>
+                <p className="hidden md:block text-slate-500 text-base leading-relaxed">{d.description}</p>
               </div>
 
               <div className="mt-auto w-8 h-0.5 bg-slate-100 group-hover:w-14 group-hover:bg-indigo-400 transition-all duration-400" />

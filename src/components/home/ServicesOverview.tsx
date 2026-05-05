@@ -71,7 +71,7 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section className="py-28 md:py-36 relative bg-white">
+    <section className="py-16 md:py-36 relative bg-white">
       <div className="section-divider absolute top-0 inset-x-0" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -117,7 +117,7 @@ export default function ServicesOverview() {
                 className={`group relative bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm card-ring card-shimmer ${
                   isWide ? "md:col-span-7" : "md:col-span-5"
                 }`}
-                style={{ minHeight: isWide ? "320px" : "280px" }}
+                style={{ minHeight: isWide ? "clamp(160px, 25vw, 320px)" : "clamp(140px, 22vw, 280px)" }}
               >
                 {/* Corner glow */}
                 <div
@@ -153,7 +153,7 @@ export default function ServicesOverview() {
                     >
                       {svc.title}
                     </h3>
-                    <p className="text-slate-500 text-base leading-relaxed">{svc.description}</p>
+                    <p className="hidden md:block text-slate-500 text-base leading-relaxed">{svc.description}</p>
                   </div>
 
                   {/* Outcomes */}
