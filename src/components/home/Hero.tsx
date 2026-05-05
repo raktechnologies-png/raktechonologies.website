@@ -94,7 +94,7 @@ export default function Hero() {
             If it&apos;s tech,{" "}
             <span className="gradient-text">trust us</span>
             <br />
-            <span className="text-slate-900">— we can </span>
+            <span className="text-slate-900">we can </span>
             <span className="gradient-text">build it.</span>
           </motion.h1>
 

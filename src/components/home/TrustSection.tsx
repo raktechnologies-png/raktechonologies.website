@@ -4,6 +4,7 @@ import AnimatedCard from "@/components/ui/AnimatedCard";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import MagneticSection from "@/components/ui/MagneticSection";
+import LiquidButton from "@/components/ui/LiquidButton";
 
 const pillars = [
   {
@@ -93,6 +94,11 @@ export default function TrustSection() {
                   Trusted by <span className="text-slate-900 font-600">50+ clients</span> across industries
                 </p>
               </div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.4}>
+              <LiquidButton href="/contact">
+                Start Your Project →
+              </LiquidButton>
             </ScrollReveal>
           </MagneticSection>
 

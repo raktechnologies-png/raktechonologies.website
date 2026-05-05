@@ -82,7 +82,7 @@ export default function SolutionsPage() {
   return (
     <div className="pt-[68px] bg-white">
       {/* ── Hero ── */}
-      <section className="relative py-24 md:py-32 overflow-hidden bg-white">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-white">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -116,9 +116,17 @@ export default function SolutionsPage() {
                 Great technology solutions don&apos;t happen by accident. They happen through a structured,
                 collaborative process that keeps your business goals at the centre of every decision.
               </p>
-              <LiquidButton href="/contact">
-                Start the Process →
-              </LiquidButton>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <LiquidButton href="/contact">
+                  Start the Process →
+                </LiquidButton>
+                <a
+                  href="/services"
+                  className="flex items-center justify-center gap-2 border border-slate-200 text-slate-600 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 hover:bg-slate-50 transition-all duration-200"
+                >
+                  Explore Services
+                </a>
+              </div>
             </motion.div>
 
             {/* Right — Abstract 3D illustration */}
@@ -157,7 +165,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* ── Case types ── */}
-      <section className="py-20 md:py-28 relative bg-slate-50">
+      <section className="py-14 md:py-20 relative bg-slate-50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="mb-14">
@@ -203,7 +211,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* ── Process ── */}
-      <section className="py-20 md:py-28 relative bg-white">
+      <section className="py-14 md:py-20 relative bg-white">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="mb-14">
@@ -277,7 +285,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-20 md:py-28 relative bg-slate-50">
+      <section className="py-14 md:py-20 relative bg-slate-50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
           <ScrollReveal>

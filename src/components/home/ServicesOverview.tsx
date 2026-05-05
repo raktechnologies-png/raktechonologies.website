@@ -5,6 +5,7 @@ import Link from "next/link";
 import AnimatedCard from "@/components/ui/AnimatedCard";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import LiquidButton from "@/components/ui/LiquidButton";
 
 const services = [
   {
@@ -94,13 +95,18 @@ export default function ServicesOverview() {
             </AnimatedHeading>
           </div>
           <ScrollReveal delay={0.15} direction="left">
-            <Link
-              href="/services"
-              className="group flex items-center gap-2 border border-slate-200 text-slate-500 hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50 font-500 px-6 py-3 rounded-xl text-sm transition-all duration-200 shrink-0"
-            >
-              View All Services
-              <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
-            </Link>
+            <div className="flex items-center gap-3">
+              <LiquidButton href="/contact" className="shrink-0">
+                Get Started →
+              </LiquidButton>
+              <Link
+                href="/services"
+                className="group flex items-center gap-2 border border-slate-200 text-slate-500 hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50 font-500 px-6 py-3 rounded-xl text-sm transition-all duration-200 shrink-0"
+              >
+                View All
+                <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+              </Link>
+            </div>
           </ScrollReveal>
         </div>
 

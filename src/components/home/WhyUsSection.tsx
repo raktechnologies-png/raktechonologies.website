@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import AnimatedCard from "@/components/ui/AnimatedCard";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import LiquidButton from "@/components/ui/LiquidButton";
 import { EASE } from "@/lib/motion";
 
 const differentiators = [
@@ -136,6 +137,20 @@ export default function WhyUsSection() {
                 <span className="relative text-slate-500 text-sm">{s.l}</span>
               </motion.div>
             ))}
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.15}>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <LiquidButton href="/contact">
+              Work With Us →
+            </LiquidButton>
+            <a
+              href="/about"
+              className="flex items-center gap-2 border border-slate-200 text-slate-500 hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50 font-500 px-6 py-4 rounded-xl text-sm transition-all duration-200"
+            >
+              Learn About Us
+            </a>
           </div>
         </ScrollReveal>
       </div>

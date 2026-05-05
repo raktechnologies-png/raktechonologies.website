@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import AnimatedCard from "@/components/ui/AnimatedCard";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PebbleGrid from "@/components/ui/PebbleGrid";
@@ -135,7 +134,7 @@ export default function ServicesPage() {
   return (
     <div className="pt-[68px] bg-white">
       {/* ── Hero ── */}
-      <section className="relative py-24 md:py-32 overflow-hidden bg-white">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-white">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -212,7 +211,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Service list ── */}
-      <section className="relative pb-28 md:pb-36 bg-slate-50">
+      <section className="relative pb-16 md:pb-24 bg-slate-50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-12 flex flex-col gap-4">
           {services.map((svc) => (
@@ -247,13 +246,9 @@ export default function ServicesPage() {
                         {svc.subtitle}
                       </p>
                       <p className="text-slate-500 text-sm leading-relaxed mt-1">{svc.description}</p>
-                      <Link
-                        href="/contact"
-                        className="mt-4 inline-flex items-center gap-2 text-sm font-600 px-5 py-2.5 rounded-xl text-white transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] w-fit shadow-sm"
-                        style={{ background: `linear-gradient(135deg, ${svc.accent}CC, ${svc.accent}99)` }}
-                      >
-                        Discuss this service →
-                      </Link>
+                      <LiquidButton href="/contact" className="mt-4">
+                        Get Started →
+                      </LiquidButton>
                     </div>
 
                     {/* Right */}
@@ -293,7 +288,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section className="py-20 md:py-28 relative bg-white">
+      <section className="py-14 md:py-20 relative bg-white">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
           <ScrollReveal>

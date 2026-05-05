@@ -59,7 +59,7 @@ export default function AboutPage() {
   return (
     <div className="pt-[68px] bg-white">
       {/* ── Hero ── */}
-      <section className="relative py-28 md:py-36 overflow-hidden bg-white">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-white">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -99,7 +99,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story */}
-      <section className="py-20 md:py-28 relative bg-slate-50">
+      <section className="py-14 md:py-20 relative bg-slate-50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
@@ -156,7 +156,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-20 md:py-28 relative bg-white">
+      <section className="py-14 md:py-20 relative bg-white">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="text-center mb-16">
@@ -198,7 +198,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-28 relative bg-slate-50">
+      <section className="py-14 md:py-20 relative bg-slate-50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <ScrollReveal>

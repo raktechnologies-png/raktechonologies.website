@@ -9,7 +9,7 @@ export default function CTABanner() {
   return (
     /* Dark-inverse section for maximum contrast after a light page */
     <section
-      className="py-28 md:py-36 relative overflow-hidden"
+      className="py-16 md:py-24 relative overflow-hidden"
       style={{ background: "#0B0F1A" }}
     >
       {/* Live pebble grid — light lavender dots on dark bg */}
