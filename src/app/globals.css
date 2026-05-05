@@ -1,26 +1,190 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* ─── Light design system ─── */
+
+  /* Backgrounds */
+  --color-bg:        #FFFFFF;
+  --color-surface:   #F8FAFC;
+  --color-surface-2: #F1F5F9;
+
+  /* Borders */
+  --color-border:    #E2E8F0;
+  --color-border-2:  #CBD5E1;
+
+  /* Accent — indigo → violet */
+  --color-accent:    #4F46E5;
+  --color-accent-2:  #7C3AED;
+  --color-accent-light: #EEF2FF;
+
+  /* Typography */
+  --color-foreground: #0F172A;
+  --color-muted:      #64748B;
+  --color-muted-2:    #94A3B8;
+
+  /* Dark inverse (CTA banner) */
+  --color-dark-bg:      #0B0F1A;
+  --color-dark-surface: #111827;
+  --color-dark-border:  #1E293B;
+
+  /* ── Typography — Plus Jakarta Sans body, DM Sans display ── */
+  --font-sans:    var(--font-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, Roboto, sans-serif;
+  --font-display: var(--font-dm), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  /* ── 17px base — matches iOS/macOS SF Pro defaults ── */
+  html {
+    font-size: 17px;
+    scroll-behavior: smooth;
+    background: #FFFFFF;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: #FFFFFF;
+    color: #0F172A;
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Heading defaults — tight kerning, clean geometric ── */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+    color: #0F172A;
+  }
+
+  p {
+    line-height: 1.68;
+    letter-spacing: -0.005em;
+  }
+
+  /* ── Custom cursor: hide default on mouse devices ── */
+  @media (pointer: fine) {
+    *, *::before, *::after {
+      cursor: none !important;
+    }
+  }
+
+  /* ── Film grain noise overlay — subtle premium texture ── */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.028;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    background-repeat: repeat;
+  }
+
+  ::selection {
+    background: #EEF2FF;
+    color: #4F46E5;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #F1F5F9; }
+  ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+  /* ── Mobile base ── */
+  @media (max-width: 640px) {
+    html { font-size: 16px; }
+    body { overflow-x: hidden; }
+    /* Headings: ease off tracking slightly on very small screens */
+    h1 { letter-spacing: -0.03em; line-height: 1.02; }
+    h2 { letter-spacing: -0.025em; }
+  }
+
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+
+  /* Accent gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Dark inverse sections */
+  .gradient-text-dark {
+    background: linear-gradient(160deg, #FFFFFF 30%, #A5B4FC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Section separator */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #E2E8F0 30%, #E2E8F0 70%, transparent);
+  }
+
+  /* Card hover ring — gradient border on hover */
+  .card-ring {
+    position: relative;
+  }
+  .card-ring::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(79,70,229,0.25), rgba(124,58,237,0.12), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .card-ring:hover::before {
+    opacity: 1;
+  }
+
+  /* Card shimmer — diagonal light sweep on hover */
+  .card-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .card-shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 35%,
+      rgba(79, 70, 229, 0.055) 50%,
+      transparent 65%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .card-shimmer:hover::after {
+    transform: translateX(120%);
+  }
 }
