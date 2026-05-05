@@ -48,16 +48,20 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 h-[68px] flex items-center justify-between">
 
           {/* ── Logo ── */}
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <motion.img
-              src="/rak-logo.png"
-              alt="RAK Technologies Logo"
-              className="h-10 w-auto"
+          <Link href="/" className="flex items-center gap-2.5 shrink-0">
+            <motion.div
+              className="w-12 h-12 rounded-full overflow-hidden border border-slate-200 bg-white shadow-sm shrink-0"
               initial={{ opacity: 0, y: -6 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, ease: EASE, delay: 0.1 }}
               whileHover={{ scale: 1.07 }}
-            />
+            >
+              <img
+                src="/rak-logo.png"
+                alt="RAK Technologies Logo"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
             <motion.span
               className="font-display font-700 text-slate-900 text-[15px] tracking-tight hidden sm:inline"
               initial={{ opacity: 0, x: -8 }}

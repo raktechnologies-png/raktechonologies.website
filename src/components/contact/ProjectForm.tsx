@@ -49,9 +49,11 @@ const empty: FormData = {
 };
 
 export default function ProjectForm() {
-  const [form, setForm] = useState<FormData>(empty);
+  const [form, setForm]           = useState<FormData>(empty);
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading]     = useState(false);
+  const [error, setError]         = useState<string | null>(null);
+  const [calAdded, setCalAdded]   = useState(false);
 
   const set = (field: keyof FormData) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -60,17 +62,27 @@ export default function ProjectForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 500));
-    const subject = encodeURIComponent(`Project Request — ${form.solutionType || "General"} | ${form.name}`);
-    const body = encodeURIComponent(
-      `Hi RAK Technologies,\n\nI'd like to discuss a project.\n\n` +
-      `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company || "N/A"}\n` +
-      `Solution Type: ${form.solutionType || "Not specified"}\nBudget Range: ${form.budget || "Not specified"}\n` +
-      `Timeline: ${form.timeline || "Not specified"}\n\nProblem / Idea:\n${form.description}`
-    );
-    window.open(`mailto:info@raktechnologies.co.za?subject=${subject}&body=${body}`);
-    setLoading(false);
-    setSubmitted(true);
+    setError(null);
+
+    try {
+      const res  = await fetch("/api/contact", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify(form),
+      });
+      const json = await res.json() as { success: boolean; error?: string };
+
+      if (!json.success) throw new Error(json.error ?? "Unknown error");
+      setSubmitted(true);
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again or reach us on WhatsApp."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass =
@@ -89,18 +101,74 @@ export default function ProjectForm() {
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col items-center justify-center text-center gap-5 py-16 px-8"
         >
-          <div className="w-16 h-16 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center">
+          {/* Checkmark */}
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.1, type: "spring", stiffness: 200, damping: 14 }}
+            className="w-16 h-16 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center"
+          >
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
               <path d="M5 12l4.5 4.5 9-9" stroke="#4F46E5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </div>
+          </motion.div>
+
           <div className="flex flex-col gap-2">
-            <h3 className="font-display text-slate-900 font-700 text-xl">Request Submitted!</h3>
+            <h3 className="font-display text-slate-900 font-700 text-xl">Request Received!</h3>
             <p className="text-slate-500 text-sm max-w-xs leading-relaxed">
-              Your email client should have opened. We&apos;ll respond with a tailored technical
-              approach within 24 hours.
+              Your request has been sent directly to our team. We&apos;ll respond with a tailored technical
+              approach within <span className="text-slate-700 font-600">24 hours</span>.
             </p>
           </div>
+
+          {/* Calendar nudge — only show when a specific timeline was chosen */}
+          {form.timeline && form.timeline !== "Flexible / Not sure" && !calAdded && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+              className="flex flex-col items-center gap-2 p-4 rounded-xl border border-indigo-100 bg-indigo-50 max-w-xs w-full"
+            >
+              <p className="text-indigo-700 text-xs font-600">A calendar invite was emailed to us.</p>
+              <p className="text-indigo-500 text-xs leading-relaxed">
+                Want to add the project deadline to your own calendar too?
+              </p>
+              <button
+                onClick={() => {
+                  const days: Record<string, number> = {
+                    "As soon as possible": 7,
+                    "Within 1 month": 30,
+                    "1 – 3 months": 60,
+                    "3 – 6 months": 120,
+                    "6+ months": 180,
+                  };
+                  const offset = days[form.timeline] ?? 30;
+                  const due    = new Date();
+                  due.setDate(due.getDate() + offset);
+                  const fmt = (d: Date) =>
+                    `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2,"0")}${String(d.getDate()).padStart(2,"0")}`;
+                  const title = encodeURIComponent(`RAK Project: ${form.solutionType || "New Project"}`);
+                  window.open(
+                    `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${fmt(due)}/${fmt(due)}&details=${encodeURIComponent(`Project with RAK Technologies\nTimeline: ${form.timeline}\nBudget: ${form.budget}`)}`,
+                    "_blank"
+                  );
+                  setCalAdded(true);
+                }}
+                className="flex items-center gap-1.5 text-xs font-600 text-indigo-600 hover:text-indigo-800 transition-colors cursor-pointer"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <path d="M16 2v4M8 2v4M3 10h18" />
+                </svg>
+                Add to Google Calendar →
+              </button>
+            </motion.div>
+          )}
+
+          {calAdded && (
+            <p className="text-indigo-500 text-xs">Event opened in Google Calendar ✓</p>
+          )}
+
           <a
             href="https://wa.link/d8eib5"
             target="_blank"
@@ -112,8 +180,9 @@ export default function ProjectForm() {
             </svg>
             Or chat on WhatsApp
           </a>
+
           <button
-            onClick={() => { setForm(empty); setSubmitted(false); }}
+            onClick={() => { setForm(empty); setSubmitted(false); setCalAdded(false); }}
             className="text-slate-300 text-xs hover:text-slate-500 transition-colors cursor-pointer"
           >
             Submit another request
@@ -182,6 +251,16 @@ export default function ProjectForm() {
             </div>
           </div>
 
+          {error && (
+            <motion.p
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-red-500 text-sm text-center bg-red-50 border border-red-100 rounded-xl px-4 py-3"
+            >
+              {error}
+            </motion.p>
+          )}
+
           <motion.button
             type="submit"
             disabled={loading}
@@ -197,7 +276,7 @@ export default function ProjectForm() {
                   transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
                   className="block w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
                 />
-                Preparing…
+                Sending…
               </span>
             ) : (
               "Submit Project Request →"
@@ -205,7 +284,7 @@ export default function ProjectForm() {
           </motion.button>
 
           <p className="text-slate-400 text-xs text-center leading-relaxed">
-            We respond with a tailored technical approach within 24 hours.{" "}
+            Your request is sent directly to our team — no middleman.{" "}
             Budget information is confidential and never shared.
           </p>
         </motion.form>
