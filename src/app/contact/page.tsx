@@ -10,25 +10,13 @@ import PebbleGrid from "@/components/ui/PebbleGrid";
 const contactDetails = [
   {
     label: "Email",
-    value: "agreementkgoane@gmail.com",
-    href: "mailto:agreementkgoane@gmail.com",
+    value: "info@raktechnologies.co.za",
+    href: "mailto:info@raktechnologies.co.za",
     accent: "#4F46E5",
     accentLight: "#EEF2FF",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="4" width="20" height="16" rx="2" /><path d="m2 7 10 7 10-7" />
-      </svg>
-    ),
-  },
-  {
-    label: "Phone",
-    value: "+27 60 639 6756",
-    href: "tel:+27606396756",
-    accent: "#7C3AED",
-    accentLight: "#F5F3FF",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.32 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
       </svg>
     ),
   },

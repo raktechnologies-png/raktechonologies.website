@@ -68,7 +68,7 @@ export default function ProjectForm() {
       `Solution Type: ${form.solutionType || "Not specified"}\nBudget Range: ${form.budget || "Not specified"}\n` +
       `Timeline: ${form.timeline || "Not specified"}\n\nProblem / Idea:\n${form.description}`
     );
-    window.open(`mailto:agreementkgoane@gmail.com?subject=${subject}&body=${body}`);
+    window.open(`mailto:info@raktechnologies.co.za?subject=${subject}&body=${body}`);
     setLoading(false);
     setSubmitted(true);
   };

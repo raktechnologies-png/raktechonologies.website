@@ -202,12 +202,8 @@ export default function Navbar() {
                   Request a Solution
                 </Link>
                 <div className="flex flex-wrap items-center gap-3 text-slate-400 text-[13px]">
-                  <a href="mailto:agreementkgoane@gmail.com" className="hover:text-indigo-500 transition-colors duration-200 truncate">
-                    agreementkgoane@gmail.com
-                  </a>
-                  <span className="w-1 h-1 rounded-full bg-slate-200 shrink-0" />
-                  <a href="tel:+27606396756" className="hover:text-indigo-500 transition-colors duration-200">
-                    +27 60 639 6756
+                  <a href="mailto:info@raktechnologies.co.za" className="hover:text-indigo-500 transition-colors duration-200 truncate">
+                    info@raktechnologies.co.za
                   </a>
                 </div>
               </motion.div>

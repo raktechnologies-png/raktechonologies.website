@@ -57,8 +57,7 @@ const footerLinks: Record<string, FooterLink[]> = {
   ],
   Connect: [
     { label: "Request a Solution",        href: "/contact",                        icon: <ArrowIcon /> },
-    { label: "agreementkgoane@gmail.com", href: "mailto:agreementkgoane@gmail.com", external: true, icon: <EmailIcon /> },
-    { label: "+27 60 639 6756",           href: "tel:+27606396756",                external: true, icon: <PhoneIcon /> },
+    { label: "info@raktechnologies.co.za", href: "mailto:info@raktechnologies.co.za", external: true, icon: <EmailIcon /> },
     { label: "WhatsApp",                  href: "https://wa.link/d8eib5",          external: true, icon: <WhatsAppIcon /> },
   ],
 };
