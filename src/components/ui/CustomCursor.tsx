@@ -38,7 +38,12 @@ export default function CustomCursor() {
       return false;
     };
 
+    // Track latest viewport coords so scroll handler can reuse them
+    const lastPos = { x: -200, y: -200 };
+
     const onMove = (e: MouseEvent) => {
+      lastPos.x = e.clientX;
+      lastPos.y = e.clientY;
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
 
@@ -50,8 +55,19 @@ export default function CustomCursor() {
       }
     };
 
+    // Reposition dot/ring when page scrolls without mouse movement
+    const onScroll = () => {
+      if (lastPos.x === -200) return;
+      mouseX.set(lastPos.x);
+      mouseY.set(lastPos.y);
+    };
+
     window.addEventListener("mousemove", onMove, { passive: true });
-    return () => window.removeEventListener("mousemove", onMove);
+    window.addEventListener("scroll",    onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("scroll",    onScroll);
+    };
   }, [mouseX, mouseY]);
 
   if (!mounted || isTouch) return null;

@@ -68,13 +68,6 @@
     letter-spacing: -0.005em;
   }
 
-  /* ── Custom cursor: hide default on mouse devices ── */
-  @media (pointer: fine) {
-    *, *::before, *::after {
-      cursor: none !important;
-    }
-  }
-
   /* ── Film grain noise overlay — subtle premium texture ── */
   body::before {
     content: "";
