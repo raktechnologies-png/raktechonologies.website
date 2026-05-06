@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import { Resend } from "resend";
 
 // ── Timeline → days offset ──────────────────────────────────────────────────
