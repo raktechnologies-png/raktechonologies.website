@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import AnimatedCard from "@/components/ui/AnimatedCard";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -102,7 +103,7 @@ export default function AboutPage() {
       <section className="py-14 md:py-20 relative bg-slate-50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
+          <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
             <ScrollReveal>
               <div className="flex flex-col gap-6">
                 <AnimatedHeading
@@ -115,8 +116,9 @@ export default function AboutPage() {
                 <div className="flex flex-col gap-4 text-slate-500 text-lg leading-relaxed">
                   <p>
                     We started RAK Technologies with a straightforward premise: South African businesses
-                    deserve access to world-class technology consulting without the world-class price tag
-                    that often comes with it.
+                    deserve access to world-class technology consulting — without the world-class price
+                    tag that often comes with it. Founded in 2024 and based in Pretoria, we serve
+                    clients across South Africa and beyond.
                   </p>
                   <p>
                     Our team brings together expertise across software engineering, data science,
@@ -131,24 +133,49 @@ export default function AboutPage() {
                 </div>
                 <div className="flex items-center gap-3 pt-2">
                   <div className="w-8 h-0.5" style={{ background: "linear-gradient(90deg, #4F46E5, #7C3AED)" }} />
-                  <span className="text-slate-400 text-sm">Est. 2021 · Johannesburg, South Africa</span>
+                  <span className="text-slate-400 text-sm">Est. 2024 · Pretoria, South Africa</span>
                 </div>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.15} direction="left">
-              <div className="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm">
-                <p className="text-slate-400 text-xs font-600 tracking-[0.15em] uppercase mb-6">
-                  What we&apos;re capable of
-                </p>
-                <ul className="flex flex-col gap-3">
-                  {capabilities.map((cap, i) => (
-                    <li key={i} className="flex items-center gap-3 text-base text-slate-600">
-                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />
-                      {cap}
-                    </li>
-                  ))}
-                </ul>
+              <div className="flex flex-col gap-5">
+                {/* Server rack image */}
+                <div className="relative">
+                  <div
+                    className="absolute -inset-3 rounded-3xl pointer-events-none"
+                    style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(79,70,229,0.08) 0%, transparent 70%)", filter: "blur(20px)" }}
+                  />
+                  <motion.div
+                    whileHover={{ scale: 1.015 }}
+                    transition={{ duration: 0.5 }}
+                    className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-100"
+                    style={{ aspectRatio: "4/3" }}
+                  >
+                    <Image
+                      src="/Organized Server Rack.png"
+                      alt="RAK Technologies infrastructure and engineering capability"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(255,255,255,0.12) 0%, transparent 60%)" }} />
+                  </motion.div>
+                </div>
+
+                {/* Capabilities list below the image */}
+                <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+                  <p className="text-slate-400 text-xs font-600 tracking-[0.15em] uppercase mb-4">
+                    What we&apos;re capable of
+                  </p>
+                  <ul className="grid grid-cols-2 gap-2">
+                    {capabilities.map((cap, i) => (
+                      <li key={i} className="flex items-center gap-2.5 text-sm text-slate-600">
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />
+                        {cap}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </ScrollReveal>
           </div>

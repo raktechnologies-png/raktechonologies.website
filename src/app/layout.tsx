@@ -3,6 +3,7 @@ import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/ui/CustomCursor";
+import PageLoader from "@/components/ui/PageLoader";
 import "./globals.css";
 
 // Plus Jakarta Sans → body copy
@@ -40,6 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSans.variable} ${jakarta.variable}`} suppressHydrationWarning>
       <body className="min-h-screen antialiased" suppressHydrationWarning>
+        <PageLoader />
         <CustomCursor />
         <Navbar />
         <main>{children}</main>

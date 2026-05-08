@@ -38,17 +38,17 @@ interface FooterLink {
 
 const footerLinks: Record<string, FooterLink[]> = {
   Company: [
-    { label: "About Us",    href: "/about" },
-    { label: "Services",    href: "/services" },
-    { label: "Solutions",   href: "/solutions" },
-    { label: "Contact",     href: "/contact" },
+    { label: "About Us",   href: "/about" },
+    { label: "Solutions",  href: "/solutions" },
+    { label: "Analytics",  href: "/analytics" },
+    { label: "Contact",    href: "/contact" },
   ],
-  Services: [
-    { label: "Web Development",   href: "/services#web" },
-    { label: "Software Systems",  href: "/services#software" },
-    { label: "Data & Analytics",  href: "/services#data" },
-    { label: "Automation & AI",   href: "/services#automation" },
-    { label: "IT Consulting",     href: "/services#consulting" },
+  Solutions: [
+    { label: "Web Development",   href: "/solutions#web" },
+    { label: "Software Systems",  href: "/solutions#software" },
+    { label: "Data & Analytics",  href: "/solutions#data" },
+    { label: "Automation & AI",   href: "/solutions#automation" },
+    { label: "IT Consulting",     href: "/solutions#consulting" },
   ],
   Connect: [
     { label: "Request a Solution",        href: "/contact",                        icon: <ArrowIcon /> },
@@ -103,7 +103,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-2 mt-1">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
-              <span className="text-slate-400 text-xs">Johannesburg, South Africa</span>
+              <span className="text-slate-400 text-xs">Pretoria, South Africa</span>
             </div>
           </div>
 

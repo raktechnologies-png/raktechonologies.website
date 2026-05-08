@@ -6,10 +6,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { EASE } from "@/lib/motion";
 
-const navLinks = [
+const navLinks: { label: string; href: string; branded?: boolean }[] = [
   { label: "About",     href: "/about" },
-  { label: "Services",  href: "/services" },
   { label: "Solutions", href: "/solutions" },
+  { label: "Analytics", href: "/analytics", branded: true },
 ];
 
 export default function Navbar() {
@@ -81,12 +81,23 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={`relative px-4 py-2 text-sm rounded-lg transition-all duration-200 ${
-                    active
-                      ? "text-indigo-600 bg-indigo-50 font-500"
-                      : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"
+                    link.branded
+                      ? active
+                        ? "bg-indigo-50 font-600"
+                        : "hover:bg-indigo-50/60 font-500"
+                      : active
+                        ? "text-indigo-600 bg-indigo-50 font-500"
+                        : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"
                   }`}
                 >
-                  {link.label}
+                  {link.branded ? (
+                    <span className="font-display font-700">
+                      RAK<span className="gradient-text">lytics</span>
+                      <sup style={{ fontSize: "0.6em", verticalAlign: "super", lineHeight: 0 }} className="text-slate-400 font-normal ml-[0.04em]">™</sup>
+                    </span>
+                  ) : (
+                    link.label
+                  )}
                   {active && (
                     <motion.span
                       layoutId="nav-indicator"
@@ -162,7 +173,7 @@ export default function Navbar() {
 
             {/* Nav items */}
             <div className="flex flex-col justify-center h-full px-6 sm:px-12 gap-1 pt-16">
-              {[...navLinks, { label: "Contact", href: "/contact" }].map((link, i) => (
+              {[...navLinks, { label: "Contact", href: "/contact", branded: false }].map((link, i) => (
                 <motion.div
                   key={link.href}
                   initial={{ opacity: 0, x: 48 }}
@@ -176,13 +187,17 @@ export default function Navbar() {
                   >
                     <span
                       className={`font-display font-800 leading-tight tracking-tight transition-all duration-300 ${
-                        link.href === "/contact"
+                        link.branded || link.href === "/contact"
                           ? "gradient-text"
                           : "text-slate-800 group-hover:gradient-text"
                       }`}
                       style={{ fontSize: "clamp(1.75rem, 9vw, 3.25rem)" }}
                     >
-                      {link.label}
+                      {link.branded ? (
+                        <>RAK<span>lytics</span><sup style={{ fontSize: "0.45em", verticalAlign: "super", lineHeight: 0 }} className="font-normal ml-[0.04em]">™</sup></>
+                      ) : (
+                        link.label
+                      )}
                     </span>
                     <span className="text-slate-200 group-hover:text-indigo-400 text-2xl ml-4 transition-all duration-200 group-hover:translate-x-1.5">
                       →
