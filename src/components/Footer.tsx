@@ -159,9 +159,24 @@ export default function Footer() {
           <p className="text-slate-400 text-xs">
             © {year} RAK Technologies. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            <span className="text-slate-400 text-xs">Privacy Policy</span>
-            <span className="text-slate-400 text-xs">Terms of Service</span>
+          <div className="flex items-center gap-1">
+            {[
+              { label: "Privacy Policy",    href: "/privacy" },
+              { label: "Cookie Policy",     href: "/cookies" },
+              { label: "Terms & Conditions", href: "/terms" },
+            ].map((link, i, arr) => (
+              <span key={link.href} className="flex items-center gap-1">
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 text-xs hover:text-indigo-500 transition-colors duration-200 px-1.5"
+                >
+                  {link.label}
+                </a>
+                {i < arr.length - 1 && <span className="text-slate-200 text-xs select-none">·</span>}
+              </span>
+            ))}
           </div>
         </div>
       </div>
