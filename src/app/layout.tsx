@@ -1,3 +1,18 @@
+import type { AppProps } from 'next/app';
+import { Analytics } from '@vercel/analytics/next';
+ 
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <>
+      <Component {...pageProps} />
+      <Analytics />
+    </>
+  );
+}
+ 
+export default MyApp;
+
+
 import type { Metadata } from "next";
 import Script from "next/script";
 import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
