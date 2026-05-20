@@ -20,6 +20,10 @@ import {
 } from "@/email";
 
 export async function GET(request: Request) {
+  if (process.env.NODE_ENV === "production") {
+    return Response.json({ error: "Not found" }, { status: 404 });
+  }
+
   if (!process.env.RESEND_API_KEY) {
     return Response.json({ error: "RESEND_API_KEY not set in .env.local" }, { status: 500 });
   }
