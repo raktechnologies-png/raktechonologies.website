@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
@@ -132,19 +131,27 @@ export default function RecentProjects() {
                     </div>
                   </div>
 
-                  {/* ── Right: Logo ── */}
+                  {/* ── Right: Brand Visual ── */}
                   <motion.div
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ scale: 1.01 }}
                     transition={{ duration: 0.5 }}
-                    className="relative flex items-center justify-center min-h-[320px] lg:min-h-0 bg-white"
+                    className="relative flex flex-col items-center justify-center min-h-[320px] lg:min-h-0 gap-4"
+                    style={{ background: project.accent }}
                   >
-                    <div className="relative" style={{ width: 260, height: 260 }}>
-                      <Image
-                        src={project.logo}
-                        alt={`${project.client} logo`}
-                        fill
-                        className="object-contain"
-                      />
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,0,0,0.08) 0%, transparent 70%)" }}
+                    />
+                    <div className="relative z-10 text-center px-10">
+                      <p
+                        className="font-display font-900 leading-none mb-3"
+                        style={{ fontSize: "clamp(2.8rem, 5vw, 4rem)", letterSpacing: "-0.04em", color: "#0A0A0A" }}
+                      >
+                        RAK&apos;ENG
+                      </p>
+                      <p className="text-xs font-600 tracking-widest uppercase" style={{ color: "rgba(0,0,0,0.45)" }}>
+                        Est. 2021 · Limpopo, South Africa
+                      </p>
                     </div>
                   </motion.div>
 
