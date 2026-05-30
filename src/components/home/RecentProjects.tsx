@@ -136,23 +136,14 @@ export default function RecentProjects() {
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.5 }}
-                    className="relative flex items-center justify-center min-h-[320px] lg:min-h-0"
-                    style={{ background: project.bg }}
+                    className="relative flex items-center justify-center min-h-[320px] lg:min-h-0 bg-white"
                   >
-                    {/* Subtle radial glow behind logo */}
-                    <div
-                      className="absolute inset-0 pointer-events-none"
-                      style={{ background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,0,0,0.12) 0%, transparent 70%)" }}
-                    />
-
-                    {/* Logo — mix-blend-mode:multiply removes white background */}
-                    <div className="relative z-10" style={{ width: 260, height: 260 }}>
+                    <div className="relative" style={{ width: 260, height: 260 }}>
                       <Image
                         src={project.logo}
                         alt={`${project.client} logo`}
                         fill
                         className="object-contain"
-                        style={{ mixBlendMode: "multiply" }}
                       />
                     </div>
                   </motion.div>
