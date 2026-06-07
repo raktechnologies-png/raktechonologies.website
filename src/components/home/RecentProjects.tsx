@@ -8,7 +8,6 @@ import LiquidButton from "@/components/ui/LiquidButton";
 const projects = [
   {
     client:     "RAK'ENG",
-    logo:       "/RAK'ENG.jpeg",
     url:        "https://www.rakeng.co.za",
     displayUrl: "www.rakeng.co.za",
     industry:   "Food & Beverage",
@@ -18,7 +17,20 @@ const projects = [
     description:
       "RAK'ENG is a bold seasonal pop-up restaurant bringing street food culture to rural Limpopo. We designed and built their full website — giving them a strong online presence and a way to reach customers and event bookings across the region.",
     accent: "#D4FF00",
-    bg:     "#D4FF00",
+    status: "Live",
+  },
+  {
+    hidden:     true,
+    client:     "SonKhoz Advisory",
+    url:        "",
+    displayUrl: "",
+    industry:   "Financial Advisory",
+    location:   "Sandton, Johannesburg",
+    year:       "2025",
+    tagline:    "Where Data Meets Strategic Foresight.",
+    description:
+      "SonKhoz Advisory is a Sandton-based financial consulting firm delivering institutional-grade financial modelling, business valuation, pricing strategy, and data analytics to start-ups, SMEs, and financial services firms.",
+    accent: "#C2A476",
     status: "Live",
   },
 ];
@@ -36,7 +48,7 @@ export default function RecentProjects() {
       <div className="max-w-7xl mx-auto px-6 md:px-10">
 
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-10">
           <ScrollReveal>
             <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-4">
               Recent Work
@@ -60,78 +72,91 @@ export default function RecentProjects() {
         </div>
 
         {/* Cards */}
-        <div className="flex flex-col gap-6">
-          {projects.map((project, i) => (
+        <div className="grid md:grid-cols-2 gap-5">
+          {projects.filter(p => !p.hidden).map((project, i) => (
             <ScrollReveal key={i} delay={i * 0.08}>
               <motion.div
                 whileHover={{ scale: 1.003 }}
                 transition={{ duration: 0.3 }}
-                className="group relative bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm card-ring"
+                className="group relative bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm card-ring flex flex-col"
               >
                 {/* Top accent bar */}
                 <div
-                  className="absolute top-0 left-0 right-0 h-0.5"
+                  className="absolute top-0 left-0 right-0 h-0.5 z-10"
                   style={{ background: `linear-gradient(90deg, ${project.accent}, transparent)` }}
                 />
 
-                <div>
+                {/* Website preview screenshot */}
+                {project.url && (
+                  <div className="relative w-full overflow-hidden bg-slate-100" style={{ height: "200px" }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`/api/screenshot?url=${encodeURIComponent(project.url)}`}
+                      alt={`${project.client} website preview`}
+                      className="w-full h-full object-cover object-top"
+                      style={{ display: "block" }}
+                    />
+                    {/* Fade bottom edge */}
+                    <div
+                      className="absolute inset-x-0 bottom-0 h-12 pointer-events-none"
+                      style={{ background: "linear-gradient(to bottom, transparent, white)" }}
+                    />
+                  </div>
+                )}
 
-                  {/* ── Info ── */}
-                  <div className="p-8 md:p-12 flex flex-col justify-between gap-8">
-                    <div className="flex flex-col gap-5">
+                {/* Info */}
+                <div className="p-7 md:p-8 flex flex-col gap-5 flex-1">
 
-                      {/* Meta */}
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span
-                          className="text-xs font-700 px-2.5 py-1 rounded-full"
-                          style={{ background: project.accent, color: "#0A0A0A" }}
-                        >
-                          {project.status}
-                        </span>
-                        <span className="text-slate-400 text-xs">{project.industry}</span>
-                        <span className="text-slate-300">·</span>
-                        <span className="text-slate-400 text-xs">{project.location}</span>
-                        <span className="text-slate-300">·</span>
-                        <span className="text-slate-400 text-xs">{project.year}</span>
-                      </div>
+                  {/* Meta */}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span
+                      className="text-xs font-700 px-2.5 py-1 rounded-full"
+                      style={{ background: project.accent, color: "#0A0A0A" }}
+                    >
+                      {project.status}
+                    </span>
+                    <span className="text-slate-400 text-xs">{project.industry}</span>
+                    <span className="text-slate-300">·</span>
+                    <span className="text-slate-400 text-xs">{project.location}</span>
+                    <span className="text-slate-300">·</span>
+                    <span className="text-slate-400 text-xs">{project.year}</span>
+                  </div>
 
-                      {/* Name */}
-                      <div>
-                        <h3
-                          className="font-display text-slate-900 font-800 mb-2"
-                          style={{ fontSize: "clamp(2rem, 3vw, 2.8rem)", letterSpacing: "-0.04em", lineHeight: 1 }}
-                        >
-                          {project.client}
-                        </h3>
-                        <p className="text-sm text-slate-400 italic">
-                          &ldquo;{project.tagline}&rdquo;
-                        </p>
-                      </div>
+                  {/* Name + tagline */}
+                  <div>
+                    <h3
+                      className="font-display text-slate-900 font-800 mb-1.5"
+                      style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.04em", lineHeight: 1.05 }}
+                    >
+                      {project.client}
+                    </h3>
+                    <p className="text-sm text-slate-400 italic">
+                      &ldquo;{project.tagline}&rdquo;
+                    </p>
+                  </div>
 
-                      {/* Description */}
-                      <p className="text-slate-500 text-base leading-relaxed">
-                        {project.description}
-                      </p>
-                    </div>
+                  {/* Description */}
+                  <p className="text-slate-500 text-sm leading-relaxed flex-1">
+                    {project.description}
+                  </p>
 
-                    {/* CTA */}
-                    <div className="flex items-center gap-3">
+                  {/* CTA */}
+                  {project.url && (
+                    <div className="flex items-center gap-3 pt-1">
                       <motion.a
                         href={project.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.04 }}
                         whileTap={{ scale: 0.97 }}
-                        className="inline-flex items-center gap-2 text-sm font-700 px-6 py-3 rounded-xl"
+                        className="inline-flex items-center gap-2 text-sm font-700 px-5 py-2.5 rounded-xl"
                         style={{ background: project.accent, color: "#0A0A0A" }}
                       >
                         Visit Website <ArrowUpRight />
                       </motion.a>
                       <span className="text-slate-300 text-xs">{project.displayUrl}</span>
                     </div>
-                  </div>
-
-
+                  )}
                 </div>
               </motion.div>
             </ScrollReveal>

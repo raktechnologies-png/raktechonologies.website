@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import AnimatedCard from "@/components/ui/AnimatedCard";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
@@ -12,10 +11,9 @@ const services = [
     id: "01",
     slug: "web",
     title: "Web Development",
-    tagline: "Digital presence that converts",
+    tagline: "Websites that work for your business",
     description:
-      "From high-performance marketing sites to complex web applications, we engineer online platforms that are fast, accessible, and built to grow.",
-    outcomes: ["Scalable architecture", "SEO-optimised", "Mobile-first"],
+      "Business websites, e-commerce stores, booking platforms, and web apps — designed to look great, load fast, and bring in clients.",
     accent: "#4F46E5",
     accentBg: "#EEF2FF",
     accentBorder: "#C7D2FE",
@@ -24,10 +22,9 @@ const services = [
     id: "02",
     slug: "software",
     title: "Software Systems",
-    tagline: "Custom-built, business-fit",
+    tagline: "Built the way your business works",
     description:
-      "Off-the-shelf software rarely fits perfectly. We design and develop bespoke systems tailored to your exact operational requirements.",
-    outcomes: ["Process automation", "System integration", "API development"],
+      "Custom tools, dashboards, and platforms built from scratch — when off-the-shelf software doesn't fit your workflow.",
     accent: "#7C3AED",
     accentBg: "#F5F3FF",
     accentBorder: "#DDD6FE",
@@ -36,10 +33,9 @@ const services = [
     id: "03",
     slug: "data",
     title: "Data & Analytics",
-    tagline: "Intelligence from your data",
+    tagline: "Know your numbers, make better decisions",
     description:
-      "Transform raw data into actionable intelligence. We build analytics pipelines, dashboards, and reporting systems that surface the insights you need.",
-    outcomes: ["Real-time dashboards", "Predictive analytics", "Data pipelines"],
+      "We turn your raw data into clear dashboards and reports so you always know how your business is performing.",
     accent: "#0284C7",
     accentBg: "#E0F2FE",
     accentBorder: "#BAE6FD",
@@ -48,10 +44,9 @@ const services = [
     id: "04",
     slug: "automation",
     title: "Automation & AI",
-    tagline: "Work smarter, not harder",
+    tagline: "Cut manual work, work smarter",
     description:
-      "Eliminate repetitive tasks and accelerate decision-making with intelligent automation and AI-powered solutions tailored to your workflows.",
-    outcomes: ["Process automation", "AI integrations", "Workflow optimisation"],
+      "We automate the repetitive tasks your team handles daily and add AI features that make your business faster and smarter.",
     accent: "#9333EA",
     accentBg: "#FAF5FF",
     accentBorder: "#E9D5FF",
@@ -60,10 +55,9 @@ const services = [
     id: "05",
     slug: "consulting",
     title: "IT Consulting",
-    tagline: "Strategy before execution",
+    tagline: "Expert advice before you spend a cent",
     description:
-      "Before writing a line of code, we align on strategy. Our consultants help you choose the right technologies, plan migrations, and optimise existing systems.",
-    outcomes: ["Tech stack advisory", "System audits", "Digital roadmaps"],
+      "Not sure what technology to use? We give you honest advice and a clear plan before you commit to building anything.",
     accent: "#059669",
     accentBg: "#ECFDF5",
     accentBorder: "#A7F3D0",
@@ -72,22 +66,22 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section className="py-16 md:py-36 relative bg-white">
+    <section className="py-12 md:py-20 relative bg-white">
       <div className="section-divider absolute top-0 inset-x-0" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 md:mb-10">
           <div>
             <ScrollReveal>
-              <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-4">
+              <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-3">
                 What We Build
               </p>
             </ScrollReveal>
             <AnimatedHeading
               delay={0.1}
               className="font-display text-slate-900 leading-[1.03] tracking-tight"
-              style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)", fontWeight: 800 }}
+              style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)", fontWeight: 800 }}
             >
               End-to-End Technology
               <br />
@@ -100,8 +94,8 @@ export default function ServicesOverview() {
                 Get Started →
               </LiquidButton>
               <Link
-                href="/services"
-                className="group flex items-center gap-2 border border-slate-200 text-slate-500 hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50 font-500 px-6 py-3 rounded-xl text-sm transition-all duration-200 shrink-0"
+                href="/solutions"
+                className="group flex items-center gap-2 border border-slate-200 text-slate-500 hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50 font-500 px-5 py-3 rounded-xl text-sm transition-all duration-200 shrink-0"
               >
                 View All
                 <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
@@ -111,40 +105,25 @@ export default function ServicesOverview() {
         </div>
 
         {/* Services grid */}
-        <div className="grid md:grid-cols-12 gap-4">
+        <div className="grid md:grid-cols-12 gap-3">
           {services.map((svc, i) => {
             const isWide = i === 0 || i === 3;
             return (
               <AnimatedCard
                 key={svc.id}
                 delay={i * 0.07}
-                hoverY={-6}
+                hoverY={-4}
                 hoverScale={1.01}
                 className={`group relative bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm card-ring card-shimmer ${
                   isWide ? "md:col-span-7" : "md:col-span-5"
                 }`}
-                style={{ minHeight: isWide ? "clamp(160px, 25vw, 320px)" : "clamp(140px, 22vw, 280px)" }}
               >
-                {/* Corner glow */}
-                <div
-                  className="absolute top-0 right-0 w-40 h-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{
-                    background: `radial-gradient(circle, ${svc.accent}12, transparent 70%)`,
-                    transform: "translate(30%, -30%)",
-                    filter: "blur(20px)",
-                  }}
-                />
-
-                <div className="relative z-10 p-8 flex flex-col gap-5 h-full">
+                <div className="relative z-10 p-5 md:p-7 flex flex-col gap-3">
                   {/* Top row */}
                   <div className="flex items-center justify-between">
                     <span
-                      className="text-xs font-600 tracking-wide uppercase px-3 py-1 rounded-full border"
-                      style={{
-                        color: svc.accent,
-                        background: svc.accentBg,
-                        borderColor: svc.accentBorder,
-                      }}
+                      className="text-xs font-600 tracking-wide px-3 py-1 rounded-full border"
+                      style={{ color: svc.accent, background: svc.accentBg, borderColor: svc.accentBorder }}
                     >
                       {svc.tagline}
                     </span>
@@ -152,43 +131,20 @@ export default function ServicesOverview() {
                   </div>
 
                   {/* Title + description */}
-                  <div className="flex flex-col gap-2.5">
+                  <div className="flex flex-col gap-1.5">
                     <h3
                       className="font-display text-slate-900 font-700 leading-tight"
-                      style={{ fontSize: "clamp(1.2rem, 2.5vw, 1.6rem)" }}
+                      style={{ fontSize: "clamp(1.1rem, 2vw, 1.45rem)" }}
                     >
                       {svc.title}
                     </h3>
-                    <p className="hidden md:block text-slate-500 text-base leading-relaxed">{svc.description}</p>
-                  </div>
-
-                  {/* Outcomes */}
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {svc.outcomes.map((o) => (
-                      <span
-                        key={o}
-                        className="text-xs px-2.5 py-1 rounded-full bg-slate-50 text-slate-500 border border-slate-100"
-                      >
-                        {o}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Learn more */}
-                  <div className="flex items-center gap-2 text-slate-300 group-hover:text-slate-700 transition-colors duration-300 mt-1">
-                    <Link href={`/services#${svc.slug}`} className="text-sm font-500">
-                      Learn more
-                    </Link>
-                    <span className="text-sm group-hover:translate-x-1 transition-transform duration-200">→</span>
+                    <p className="text-slate-500 text-sm leading-relaxed">{svc.description}</p>
                   </div>
                 </div>
 
-                {/* Bottom accent line */}
-                <motion.div
-                  className="absolute bottom-0 left-0 h-0.5"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                {/* Bottom accent line on hover */}
+                <div
+                  className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-400"
                   style={{ background: `linear-gradient(90deg, ${svc.accent}, transparent)` }}
                 />
               </AnimatedCard>

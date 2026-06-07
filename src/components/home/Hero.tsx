@@ -56,7 +56,7 @@ export default function Hero() {
       {/* ── Main grid: text left, image right ── */}
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 w-full grid lg:grid-cols-2 gap-8 lg:gap-8 items-center pt-24 sm:pt-28 md:pt-36 pb-8 md:pb-12"
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 w-full grid lg:grid-cols-2 gap-8 lg:gap-8 items-center pt-20 sm:pt-24 md:pt-28 pb-8 md:pb-12"
       >
         {/* ── Left: copy ── */}
         <div className="flex flex-col items-start text-left">
@@ -106,8 +106,8 @@ export default function Hero() {
             className="text-slate-500 text-base sm:text-lg md:text-xl leading-relaxed max-w-xl mb-8 sm:mb-10"
             style={{ fontWeight: 400, letterSpacing: "-0.01em" }}
           >
-            Custom software, automation, data analytics, and digital transformation —
-            engineered for businesses that demand results.
+            From websites and online stores to custom software, automation, and AI —
+            we build the technology your business needs to grow.
           </motion.p>
 
           {/* CTAs */}

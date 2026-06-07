@@ -13,16 +13,10 @@ const metrics = [
   { value: "Real-time", label: "Live Analytics",    color: "#059669" },
 ];
 
-const highlights = [
-  { icon: "📊", text: "Graduate outcome dashboards" },
-  { icon: "🎯", text: "Employment & progression tracking" },
-  { icon: "💬", text: "Alumni engagement & lifecycle CRM" },
-  { icon: "📄", text: "Sponsor-ready impact reports" },
-];
 
 export default function RAKlyticsSection() {
   return (
-    <section className="py-16 md:py-28 relative overflow-hidden bg-white">
+    <section className="py-12 md:py-20 relative overflow-hidden bg-white">
       <div className="section-divider absolute top-0 inset-x-0" />
 
       {/* Subtle background tint */}
@@ -67,21 +61,10 @@ export default function RAKlyticsSection() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.14}>
-              <p className="text-slate-500 text-lg leading-relaxed max-w-lg mb-3" style={{ letterSpacing: "-0.01em" }}>
-                A centralised intelligence platform that helps institutions track graduate outcomes,
-                engagement, career progression, and institutional impact — in one unified system.
+              <p className="text-slate-500 text-lg leading-relaxed max-w-lg mb-8" style={{ letterSpacing: "-0.01em" }}>
+                Track graduate outcomes, career progression, and institutional impact — all in one platform.
+                Built for universities, bursaries, and NGOs.
               </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.18}>
-              <div className="flex flex-col gap-2.5 mb-8">
-                {highlights.map((h) => (
-                  <div key={h.text} className="flex items-center gap-3">
-                    <span className="text-base shrink-0">{h.icon}</span>
-                    <span className="text-slate-600 text-sm">{h.text}</span>
-                  </div>
-                ))}
-              </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.22}>

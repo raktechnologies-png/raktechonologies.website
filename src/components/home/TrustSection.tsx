@@ -49,7 +49,7 @@ const pillars = [
 
 export default function TrustSection() {
   return (
-    <section className="py-16 md:py-36 relative bg-slate-50">
+    <section className="py-12 md:py-20 relative bg-slate-50">
       <div className="section-divider absolute top-0 inset-x-0" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10">

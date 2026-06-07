@@ -10,6 +10,7 @@ const navLinks: { label: string; href: string; branded?: boolean }[] = [
   { label: "About",     href: "/about" },
   { label: "Solutions", href: "/solutions" },
   { label: "Analytics", href: "/analytics", branded: true },
+  { label: "Contact",   href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -173,7 +174,7 @@ export default function Navbar() {
 
             {/* Nav items */}
             <div className="flex flex-col justify-center h-full px-6 sm:px-12 gap-1 pt-16">
-              {[...navLinks, { label: "Contact", href: "/contact", branded: false }].map((link, i) => (
+              {navLinks.map((link, i) => (
                 <motion.div
                   key={link.href}
                   initial={{ opacity: 0, x: 48 }}
