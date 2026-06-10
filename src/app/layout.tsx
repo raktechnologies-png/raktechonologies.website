@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/ui/CustomCursor";
 import PageLoader from "@/components/ui/PageLoader";
 import CookieConsent from "@/components/ui/CookieConsent";
+import { ThemeProvider } from "@/context/ThemeContext";
 import "./globals.css";
 
 // Plus Jakarta Sans → body copy
@@ -86,7 +87,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${dmSans.variable} ${jakarta.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Anti-FOUC: apply saved theme before React hydrates */}
+        <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem('rak-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}` }} />
+      </head>
       <body className="min-h-screen antialiased" suppressHydrationWarning>
+        <ThemeProvider>
         {/* GTM noscript fallback — must be first child of body */}
         <noscript>
           <iframe
@@ -185,6 +191,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','${GTM_ID}');`}
         </Script>
+        </ThemeProvider>
       </body>
     </html>
   );

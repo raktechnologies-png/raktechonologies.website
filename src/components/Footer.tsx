@@ -75,7 +75,7 @@ export default function Footer() {
   useEffect(() => { setYear(new Date().getFullYear()); }, []);
 
   return (
-    <footer className="relative border-t border-slate-100 bg-white">
+    <footer className="relative border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-[#0B0F1A]">
       {/* Top accent line */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px"
@@ -91,26 +91,26 @@ export default function Footer() {
           {/* Brand col */}
           <div className="flex flex-col gap-5">
             <Link href="/" className="flex items-center gap-2.5 w-fit">
-              <div className="w-10 h-10 rounded-full overflow-hidden border border-slate-200 bg-white shadow-sm shrink-0">
+              <div className="w-10 h-10 rounded-full overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm shrink-0">
                 <img src="/rak-logo.png" alt="RAK Technologies Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="font-display font-700 text-slate-900 text-[15px] tracking-tight">
+              <span className="font-display font-700 text-slate-900 dark:text-slate-50 text-[15px] tracking-tight">
                 RAK<span className="gradient-text">Technologies</span>
               </span>
             </Link>
-            <p className="text-slate-500 text-sm leading-relaxed max-w-[220px]">
+            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-[220px]">
               If it&apos;s tech, trust us — we can build it. Premium IT consulting &amp; software solutions from South Africa.
             </p>
             <div className="flex items-center gap-2 mt-1">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
-              <span className="text-slate-400 text-xs">Pretoria, South Africa</span>
+              <span className="text-slate-400 dark:text-slate-500 text-xs">Pretoria, South Africa</span>
             </div>
           </div>
 
           {/* Link columns */}
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section} className="flex flex-col gap-4">
-              <h4 className="text-slate-900 text-xs font-600 tracking-widest uppercase">
+              <h4 className="text-slate-900 dark:text-slate-100 text-xs font-600 tracking-widest uppercase">
                 {section}
               </h4>
               <ul className="flex flex-col gap-1">
@@ -126,7 +126,7 @@ export default function Footer() {
                     <motion.div
                       variants={pebble}
                       transition={{ duration: 0.22, ease: "easeOut" }}
-                      className="absolute -inset-x-2.5 -inset-y-1.5 rounded-full bg-indigo-50 -z-10 pointer-events-none flex items-center justify-end pr-2.5"
+                      className="absolute -inset-x-2.5 -inset-y-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/50 -z-10 pointer-events-none flex items-center justify-end pr-2.5"
                     >
                       {link.icon && (
                         <motion.span
@@ -143,7 +143,7 @@ export default function Footer() {
                       href={link.href}
                       target={link.external ? "_blank" : undefined}
                       rel={link.external ? "noopener noreferrer" : undefined}
-                      className="relative block text-slate-500 text-sm hover:text-indigo-600 transition-colors duration-200 py-1.5 break-all"
+                      className="relative block text-slate-500 dark:text-slate-400 text-sm hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 py-1.5 break-all"
                     >
                       {link.label}
                     </Link>
@@ -155,8 +155,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-slate-100 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-slate-400 text-xs">
+        <div className="border-t border-slate-100 dark:border-slate-800 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-slate-400 dark:text-slate-500 text-xs">
             © {year} RAK Technologies. All rights reserved.
           </p>
           <div className="flex items-center gap-1">
@@ -170,11 +170,11 @@ export default function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 text-xs hover:text-indigo-500 transition-colors duration-200 px-1.5"
+                  className="text-slate-400 dark:text-slate-500 text-xs hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-200 px-1.5"
                 >
                   {link.label}
                 </a>
-                {i < arr.length - 1 && <span className="text-slate-200 text-xs select-none">·</span>}
+                {i < arr.length - 1 && <span className="text-slate-200 dark:text-slate-700 text-xs select-none">·</span>}
               </span>
             ))}
           </div>

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { EASE } from "@/lib/motion";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const navLinks: { label: string; href: string; branded?: boolean }[] = [
   { label: "About",     href: "/about" },
@@ -35,8 +36,8 @@ export default function Navbar() {
   }, [menuOpen]);
 
   const headerBg = mounted && scrolled
-    ? "bg-white/95 backdrop-blur-xl border-b border-slate-100 shadow-sm"
-    : "bg-white/0";
+    ? "bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800 shadow-sm"
+    : "";
 
   return (
     <>
@@ -51,7 +52,7 @@ export default function Navbar() {
           {/* ── Logo ── */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0">
             <motion.div
-              className="w-12 h-12 rounded-full overflow-hidden border border-slate-200 bg-white shadow-sm shrink-0"
+              className="w-12 h-12 rounded-full overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm shrink-0"
               initial={{ opacity: 0, y: -6 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, ease: EASE, delay: 0.1 }}
@@ -64,7 +65,7 @@ export default function Navbar() {
               />
             </motion.div>
             <motion.span
-              className="font-display font-700 text-slate-900 text-[15px] tracking-tight hidden sm:inline"
+              className="font-display font-700 text-slate-900 dark:text-slate-50 text-[15px] tracking-tight hidden sm:inline"
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, ease: EASE, delay: 0.25 }}
@@ -84,11 +85,11 @@ export default function Navbar() {
                   className={`relative px-4 py-2 text-sm rounded-lg transition-all duration-200 ${
                     link.branded
                       ? active
-                        ? "bg-indigo-50 font-600"
-                        : "hover:bg-indigo-50/60 font-500"
+                        ? "bg-indigo-50 dark:bg-indigo-950 font-600"
+                        : "hover:bg-indigo-50/60 dark:hover:bg-indigo-950/60 font-500"
                       : active
-                        ? "text-indigo-600 bg-indigo-50 font-500"
-                        : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"
+                        ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 font-500"
+                        : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800"
                   }`}
                 >
                   {link.branded ? (
@@ -110,8 +111,9 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* CTA + Burger */}
-          <div className="flex items-center gap-3">
+          {/* CTA + Toggle + Burger */}
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
             <Link
               href="/contact"
               className="hidden md:flex items-center gap-2 text-sm font-500 px-5 py-2.5 rounded-xl text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-md active:scale-[0.97] shadow-sm"
@@ -123,12 +125,12 @@ export default function Navbar() {
             {/* Burger */}
             <button
               onClick={() => setMenuOpen((v) => !v)}
-              className="md:hidden flex flex-col gap-[5px] p-2.5 rounded-lg hover:bg-slate-50 transition-colors"
+              className="md:hidden flex flex-col gap-[5px] p-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
               aria-label="Toggle menu"
             >
-              <span className={`block w-[22px] h-[1.5px] bg-slate-800 transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-[6.5px]" : ""}`} />
-              <span className={`block w-[22px] h-[1.5px] bg-slate-800 transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
-              <span className={`block w-[22px] h-[1.5px] bg-slate-800 transition-all duration-300 origin-center ${menuOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`} />
+              <span className={`block w-[22px] h-[1.5px] bg-slate-800 dark:bg-slate-200 transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-[6.5px]" : ""}`} />
+              <span className={`block w-[22px] h-[1.5px] bg-slate-800 dark:bg-slate-200 transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
+              <span className={`block w-[22px] h-[1.5px] bg-slate-800 dark:bg-slate-200 transition-all duration-300 origin-center ${menuOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`} />
             </button>
           </div>
         </div>
@@ -142,7 +144,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: EASE }}
-            className="fixed inset-0 z-40 bg-white"
+            className="fixed inset-0 z-40 bg-white dark:bg-slate-900"
           >
             <div
               className="absolute inset-0 pointer-events-none"
@@ -165,7 +167,7 @@ export default function Navbar() {
               initial={{ opacity: 0, rotate: -90 }}
               animate={{ opacity: 1, rotate: 0 }}
               transition={{ delay: 0.18, duration: 0.35, ease: EASE }}
-              className="absolute top-5 right-4 sm:right-6 p-2 text-slate-400 hover:text-slate-900 transition-colors z-50"
+              className="absolute top-5 right-4 sm:right-6 p-2 text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors z-50"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
                 <path d="M18 6L6 18M6 6l12 12" />
@@ -184,13 +186,13 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className="group flex items-baseline justify-between py-4 border-b border-slate-50 hover:border-indigo-100 transition-colors duration-200"
+                    className="group flex items-baseline justify-between py-4 border-b border-slate-50 dark:border-slate-800 hover:border-indigo-100 dark:hover:border-indigo-900 transition-colors duration-200"
                   >
                     <span
                       className={`font-display font-800 leading-tight tracking-tight transition-all duration-300 ${
                         link.branded || link.href === "/contact"
                           ? "gradient-text"
-                          : "text-slate-800 group-hover:gradient-text"
+                          : "text-slate-800 dark:text-slate-100 group-hover:gradient-text"
                       }`}
                       style={{ fontSize: "clamp(1.75rem, 9vw, 3.25rem)" }}
                     >
@@ -200,7 +202,7 @@ export default function Navbar() {
                         link.label
                       )}
                     </span>
-                    <span className="text-slate-200 group-hover:text-indigo-400 text-2xl ml-4 transition-all duration-200 group-hover:translate-x-1.5">
+                    <span className="text-slate-200 dark:text-slate-700 group-hover:text-indigo-400 text-2xl ml-4 transition-all duration-200 group-hover:translate-x-1.5">
                       →
                     </span>
                   </Link>

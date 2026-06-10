@@ -58,9 +58,9 @@ const capabilities = [
 
 export default function AboutPage() {
   return (
-    <div className="pt-[68px] bg-white">
+    <div className="pt-[68px] bg-white dark:bg-[#0B0F1A]">
       {/* ── Hero ── */}
-      <section className="relative py-16 md:py-24 overflow-hidden bg-white">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-white dark:bg-[#0B0F1A]">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -73,11 +73,11 @@ export default function AboutPage() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-4xl"
           >
-            <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-5">
+            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-5">
               About RAK Technologies
             </p>
             <h1
-              className="font-display text-slate-900 mb-8"
+              className="font-display text-slate-900 dark:text-slate-100 mb-8"
               style={{
                 fontSize: "clamp(2.8rem, 7vw, 6.5rem)",
                 fontWeight: 900,
@@ -89,7 +89,7 @@ export default function AboutPage() {
               <span className="gradient-text">people and purpose.</span>
             </h1>
             <p
-              className="text-slate-500 text-xl md:text-2xl leading-relaxed max-w-2xl"
+              className="text-slate-500 dark:text-slate-400 text-xl md:text-2xl leading-relaxed max-w-2xl"
               style={{ fontWeight: 400, letterSpacing: "-0.015em" }}
             >
               RAK Technologies is a South African IT consulting and software development firm
@@ -100,20 +100,20 @@ export default function AboutPage() {
       </section>
 
       {/* Story */}
-      <section className="py-14 md:py-20 relative bg-slate-50">
+      <section className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
             <ScrollReveal>
               <div className="flex flex-col gap-6">
                 <AnimatedHeading
-                  className="font-display text-slate-900"
+                  className="font-display text-slate-900 dark:text-slate-100"
                   style={{ fontSize: "clamp(2rem, 3.5vw, 3.25rem)", fontWeight: 800, lineHeight: 1.06, letterSpacing: "-0.035em" }}
                 >
                   A firm built on outcomes,{" "}
                   <span className="gradient-text">not outputs.</span>
                 </AnimatedHeading>
-                <div className="flex flex-col gap-4 text-slate-500 text-lg leading-relaxed">
+                <div className="flex flex-col gap-4 text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
                   <p>
                     We started RAK Technologies with a straightforward premise: South African businesses
                     deserve access to world-class technology consulting — without the world-class price
@@ -133,7 +133,7 @@ export default function AboutPage() {
                 </div>
                 <div className="flex items-center gap-3 pt-2">
                   <div className="w-8 h-0.5" style={{ background: "linear-gradient(90deg, #4F46E5, #7C3AED)" }} />
-                  <span className="text-slate-400 text-sm">Est. 2024 · Pretoria, South Africa</span>
+                  <span className="text-slate-400 dark:text-slate-500 text-sm">Est. 2024 · Pretoria, South Africa</span>
                 </div>
               </div>
             </ScrollReveal>
@@ -149,7 +149,7 @@ export default function AboutPage() {
                   <motion.div
                     whileHover={{ scale: 1.015 }}
                     transition={{ duration: 0.5 }}
-                    className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-100"
+                    className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-100 dark:border-slate-700"
                     style={{ aspectRatio: "4/3" }}
                   >
                     <Image
@@ -163,13 +163,13 @@ export default function AboutPage() {
                 </div>
 
                 {/* Capabilities list below the image */}
-                <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
-                  <p className="text-slate-400 text-xs font-600 tracking-[0.15em] uppercase mb-4">
+                <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
+                  <p className="text-slate-400 dark:text-slate-500 text-xs font-600 tracking-[0.15em] uppercase mb-4">
                     What we&apos;re capable of
                   </p>
                   <ul className="grid grid-cols-2 gap-2">
                     {capabilities.map((cap, i) => (
-                      <li key={i} className="flex items-center gap-2.5 text-sm text-slate-600">
+                      <li key={i} className="flex items-center gap-2.5 text-sm text-slate-600 dark:text-slate-400">
                         <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />
                         {cap}
                       </li>
@@ -183,18 +183,18 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-14 md:py-20 relative bg-white">
+      <section className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="text-center mb-16">
             <ScrollReveal>
-              <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-4">
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">
                 What We Stand For
               </p>
             </ScrollReveal>
             <AnimatedHeading
               delay={0.1}
-              className="font-display text-slate-900 leading-[1.05] tracking-tight"
+              className="font-display text-slate-900 dark:text-slate-100 leading-[1.05] tracking-tight"
               style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 800 }}
             >
               Our <span className="gradient-text">Values</span>
@@ -206,7 +206,7 @@ export default function AboutPage() {
                 key={i}
                 delay={i * 0.08}
                 hoverY={-5}
-                className="group bg-white border border-slate-100 rounded-2xl p-7 flex flex-col gap-4 shadow-sm card-ring"
+                className="group bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-7 flex flex-col gap-4 shadow-sm card-ring"
               >
                 <span
                   className="text-2xl w-11 h-11 rounded-xl flex items-center justify-center border"
@@ -215,8 +215,8 @@ export default function AboutPage() {
                   {v.icon}
                 </span>
                 <div className="flex flex-col gap-2.5">
-                  <h3 className="font-display text-slate-900 font-700 text-[1.1rem]">{v.title}</h3>
-                  <p className="text-slate-500 text-base leading-relaxed">{v.description}</p>
+                  <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 text-[1.1rem]">{v.title}</h3>
+                  <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed">{v.description}</p>
                 </div>
               </AnimatedCard>
             ))}
@@ -225,18 +225,18 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-14 md:py-20 relative bg-slate-50">
+      <section className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <ScrollReveal>
-            <div className="bg-white border border-slate-100 rounded-2xl p-10 md:p-14 text-center shadow-sm">
+            <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-10 md:p-14 text-center shadow-sm">
               <h2
-                className="font-display text-slate-900 leading-[1.05] tracking-tight mb-5"
+                className="font-display text-slate-900 dark:text-slate-100 leading-[1.05] tracking-tight mb-5"
                 style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 800 }}
               >
                 Work with a team that <span className="gradient-text">cares.</span>
               </h2>
-              <p className="text-slate-500 text-lg mb-8 max-w-lg mx-auto">
+              <p className="text-slate-500 dark:text-slate-400 text-lg mb-8 max-w-lg mx-auto">
                 Let&apos;s discuss your project and show you what thoughtful technology consulting looks like.
               </p>
               <div className="flex justify-center">

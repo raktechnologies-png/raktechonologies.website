@@ -49,7 +49,7 @@ const pillars = [
 
 export default function TrustSection() {
   return (
-    <section className="py-12 md:py-20 relative bg-slate-50">
+    <section className="py-12 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
       <div className="section-divider absolute top-0 inset-x-0" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -58,20 +58,20 @@ export default function TrustSection() {
           {/* Left — headline */}
           <MagneticSection className="flex flex-col gap-6" maxX={12} maxY={6}>
             <ScrollReveal>
-              <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase">
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase">
                 Our Commitment
               </p>
             </ScrollReveal>
             <AnimatedHeading
               delay={0.1}
-              className="font-display leading-[1.06] tracking-tight text-slate-900"
+              className="font-display leading-[1.06] tracking-tight text-slate-900 dark:text-slate-100"
               style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)", fontWeight: 800 }}
             >
               We turn ideas into{" "}
               <span className="gradient-text">scalable systems.</span>
             </AnimatedHeading>
             <ScrollReveal delay={0.22}>
-              <p className="hidden md:block text-slate-500 text-lg md:text-xl leading-relaxed max-w-lg">
+              <p className="hidden md:block text-slate-500 dark:text-slate-400 text-lg md:text-xl leading-relaxed max-w-lg">
                 Every business problem has a technology solution. We partner with
                 organisations to understand the challenge, architect the right approach,
                 and build systems that deliver measurable results.
@@ -90,8 +90,8 @@ export default function TrustSection() {
                     </div>
                   ))}
                 </div>
-                <p className="text-slate-500 text-base">
-                  Trusted by <span className="text-slate-900 font-600">50+ clients</span> across industries
+                <p className="text-slate-500 dark:text-slate-400 text-base">
+                  Trusted by <span className="text-slate-900 dark:text-slate-50 font-600">50+ clients</span> across industries
                 </p>
               </div>
             </ScrollReveal>
@@ -111,14 +111,14 @@ export default function TrustSection() {
                 direction="left"
                 hoverY={-3}
                 hoverScale={1.005}
-                className="group flex items-start gap-4 bg-white border border-slate-100 rounded-xl p-6 shadow-sm card-ring"
+                className="group flex items-start gap-4 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl p-6 shadow-sm card-ring"
               >
-                <div className="w-11 h-11 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-500 group-hover:text-violet-600 group-hover:bg-violet-50 group-hover:border-violet-100 transition-all duration-300 shrink-0">
+                <div className="w-11 h-11 rounded-lg bg-indigo-50 dark:bg-indigo-950 border border-indigo-100 dark:border-indigo-900 flex items-center justify-center text-indigo-500 group-hover:text-violet-600 group-hover:bg-violet-50 group-hover:border-violet-100 transition-all duration-300 shrink-0">
                   {pillar.icon}
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <h3 className="text-slate-900 text-base font-600">{pillar.title}</h3>
-                  <p className="hidden md:block text-slate-500 text-base leading-relaxed">{pillar.description}</p>
+                  <h3 className="text-slate-900 dark:text-slate-100 text-base font-600">{pillar.title}</h3>
+                  <p className="hidden md:block text-slate-500 dark:text-slate-400 text-base leading-relaxed">{pillar.description}</p>
                 </div>
               </AnimatedCard>
             ))}

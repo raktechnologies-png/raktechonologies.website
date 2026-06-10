@@ -87,9 +87,9 @@ export default function ProjectForm() {
   };
 
   const inputClass =
-    "w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm placeholder:text-slate-300 focus:outline-none focus:border-indigo-300 focus:ring-2 focus:ring-indigo-50 transition-all duration-200";
+    "w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-slate-100 text-sm placeholder:text-slate-300 dark:placeholder:text-slate-600 focus:outline-none focus:border-indigo-300 dark:focus:border-indigo-600 focus:ring-2 focus:ring-indigo-50 dark:focus:ring-indigo-950 transition-all duration-200";
 
-  const labelClass = "text-slate-600 text-xs font-600 tracking-wide block mb-2";
+  const labelClass = "text-slate-600 dark:text-slate-400 text-xs font-600 tracking-wide block mb-2";
 
   return (
     <AnimatePresence mode="wait">
@@ -115,10 +115,10 @@ export default function ProjectForm() {
           </motion.div>
 
           <div className="flex flex-col gap-2">
-            <h3 className="font-display text-slate-900 font-700 text-xl">Request Received!</h3>
-            <p className="text-slate-500 text-sm max-w-xs leading-relaxed">
+            <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 text-xl">Request Received!</h3>
+            <p className="text-slate-500 dark:text-slate-400 text-sm max-w-xs leading-relaxed">
               Your request has been sent directly to our team. We&apos;ll respond with a tailored technical
-              approach within <span className="text-slate-700 font-600">24 hours</span>.
+              approach within <span className="text-slate-700 dark:text-slate-300 font-600">24 hours</span>.
             </p>
           </div>
 

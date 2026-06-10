@@ -16,7 +16,7 @@ const metrics = [
 
 export default function RAKlyticsSection() {
   return (
-    <section className="py-12 md:py-20 relative overflow-hidden bg-white">
+    <section className="py-12 md:py-20 relative overflow-hidden bg-white dark:bg-[#0B0F1A]">
       <div className="section-divider absolute top-0 inset-x-0" />
 
       {/* Subtle background tint */}
@@ -34,7 +34,7 @@ export default function RAKlyticsSection() {
           {/* Left — copy */}
           <div>
             <ScrollReveal>
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-200 bg-indigo-50 text-indigo-600 text-xs font-600 tracking-wide mb-5">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-200 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 text-xs font-600 tracking-wide mb-5">
                 <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse shrink-0" />
                 Flagship Platform
               </span>
@@ -42,7 +42,7 @@ export default function RAKlyticsSection() {
 
             <ScrollReveal delay={0.08}>
               <h2
-                className="font-display text-slate-900 mb-5"
+                className="font-display text-slate-900 dark:text-slate-100 mb-5"
                 style={{
                   fontSize: "clamp(2rem, 4.5vw, 3.75rem)",
                   fontWeight: 900,
@@ -61,7 +61,7 @@ export default function RAKlyticsSection() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.14}>
-              <p className="text-slate-500 text-lg leading-relaxed max-w-lg mb-8" style={{ letterSpacing: "-0.01em" }}>
+              <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed max-w-lg mb-8" style={{ letterSpacing: "-0.01em" }}>
                 Track graduate outcomes, career progression, and institutional impact — all in one platform.
                 Built for universities, bursaries, and NGOs.
               </p>
@@ -74,7 +74,7 @@ export default function RAKlyticsSection() {
                 </LiquidButton>
                 <a
                   href="/contact"
-                  className="flex items-center justify-center gap-2 border border-slate-200 text-slate-600 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 hover:bg-slate-50 transition-all duration-200 w-full sm:w-auto"
+                  className="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200 w-full sm:w-auto"
                 >
                   Request a Demo
                 </a>
@@ -89,7 +89,7 @@ export default function RAKlyticsSection() {
                 key={m.label}
                 delay={i * 0.09}
                 hoverY={-5}
-                className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm card-ring flex flex-col gap-3"
+                className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 shadow-sm card-ring flex flex-col gap-3"
               >
                 <p
                   className="font-display font-800 leading-none"
@@ -97,7 +97,7 @@ export default function RAKlyticsSection() {
                 >
                   {m.value}
                 </p>
-                <p className="text-slate-500 text-sm leading-snug">{m.label}</p>
+                <p className="text-slate-500 dark:text-slate-400 text-sm leading-snug">{m.label}</p>
                 <div className="mt-auto h-0.5 w-8 rounded-full" style={{ background: m.color }} />
               </AnimatedCard>
             ))}
@@ -106,13 +106,13 @@ export default function RAKlyticsSection() {
             <AnimatedCard
               delay={0.36}
               hoverY={-4}
-              className="col-span-2 bg-white border border-slate-100 rounded-2xl p-6 shadow-sm card-ring card-shimmer flex items-center justify-between gap-4"
+              className="col-span-2 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 shadow-sm card-ring card-shimmer flex items-center justify-between gap-4"
             >
               <div className="flex flex-col gap-1">
-                <p className="font-display font-800 text-slate-900" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)", letterSpacing: "-0.02em" }}>
+                <p className="font-display font-800 text-slate-900 dark:text-slate-50" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)", letterSpacing: "-0.02em" }}>
                   Student & Alumni Intelligence
                 </p>
-                <p className="text-slate-400 text-sm">Built for universities, bursaries, NGOs & more</p>
+                <p className="text-slate-400 dark:text-slate-500 text-sm">Built for universities, bursaries, NGOs & more</p>
               </div>
               <motion.a
                 href="/analytics"

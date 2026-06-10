@@ -66,7 +66,7 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section className="py-12 md:py-20 relative bg-white">
+    <section className="py-12 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
       <div className="section-divider absolute top-0 inset-x-0" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -74,13 +74,13 @@ export default function ServicesOverview() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 md:mb-10">
           <div>
             <ScrollReveal>
-              <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-3">
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-3">
                 What We Build
               </p>
             </ScrollReveal>
             <AnimatedHeading
               delay={0.1}
-              className="font-display text-slate-900 leading-[1.03] tracking-tight"
+              className="font-display text-slate-900 dark:text-slate-100 leading-[1.03] tracking-tight"
               style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)", fontWeight: 800 }}
             >
               End-to-End Technology
@@ -114,7 +114,7 @@ export default function ServicesOverview() {
                 delay={i * 0.07}
                 hoverY={-4}
                 hoverScale={1.01}
-                className={`group relative bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm card-ring card-shimmer ${
+                className={`group relative bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm card-ring card-shimmer ${
                   isWide ? "md:col-span-7" : "md:col-span-5"
                 }`}
               >
@@ -133,12 +133,12 @@ export default function ServicesOverview() {
                   {/* Title + description */}
                   <div className="flex flex-col gap-1.5">
                     <h3
-                      className="font-display text-slate-900 font-700 leading-tight"
+                      className="font-display text-slate-900 dark:text-slate-50 font-700 leading-tight"
                       style={{ fontSize: "clamp(1.1rem, 2vw, 1.45rem)" }}
                     >
                       {svc.title}
                     </h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">{svc.description}</p>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{svc.description}</p>
                   </div>
                 </div>
 

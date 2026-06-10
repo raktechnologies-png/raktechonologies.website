@@ -55,20 +55,20 @@ const stats = [
 
 export default function WhyUsSection() {
   return (
-    <section className="py-12 md:py-20 relative bg-slate-50 overflow-hidden">
+    <section className="py-12 md:py-20 relative bg-slate-50 dark:bg-slate-900/50 overflow-hidden">
       <div className="section-divider absolute top-0 inset-x-0" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
           <ScrollReveal>
-            <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-4">
+            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">
               Why RAK Technologies
             </p>
           </ScrollReveal>
           <AnimatedHeading
             delay={0.1}
-            className="font-display text-slate-900 leading-[1.04] tracking-tight mx-auto"
+            className="font-display text-slate-900 dark:text-slate-100 leading-[1.04] tracking-tight mx-auto"
             style={{ fontSize: "clamp(2.25rem, 5vw, 4rem)", fontWeight: 800, maxWidth: "660px" }}
           >
             The consulting partner that{" "}
@@ -83,35 +83,35 @@ export default function WhyUsSection() {
               key={i}
               delay={i * 0.07}
               hoverY={-5}
-              className="group relative bg-white border border-slate-100 rounded-2xl p-8 flex flex-col gap-5 shadow-sm card-ring overflow-hidden"
+              className="group relative bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-8 flex flex-col gap-5 shadow-sm card-ring overflow-hidden"
             >
               {/* Ghost number */}
               <span
-                className="absolute -top-1 -right-2 font-display text-slate-100 select-none group-hover:text-slate-50 transition-colors duration-300"
+                className="absolute -top-1 -right-2 font-display text-slate-100 dark:text-slate-800 select-none group-hover:text-slate-50 dark:group-hover:text-slate-700 transition-colors duration-300"
                 style={{ fontSize: "5.5rem", fontWeight: 800, lineHeight: 1 }}
               >
                 {d.number}
               </span>
 
               <div className="relative z-10 flex flex-col gap-3">
-                <h3 className="font-display text-slate-900 font-700 text-[1.15rem] leading-snug">
+                <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 text-[1.15rem] leading-snug">
                   {d.title}
                 </h3>
-                <p className="hidden md:block text-slate-500 text-base leading-relaxed">{d.description}</p>
+                <p className="hidden md:block text-slate-500 dark:text-slate-400 text-base leading-relaxed">{d.description}</p>
               </div>
 
-              <div className="mt-auto w-8 h-0.5 bg-slate-100 group-hover:w-14 group-hover:bg-indigo-400 transition-all duration-400" />
+              <div className="mt-auto w-8 h-0.5 bg-slate-100 dark:bg-slate-700 group-hover:w-14 group-hover:bg-indigo-400 transition-all duration-400" />
             </AnimatedCard>
           ))}
         </div>
 
         {/* Stats band — pebble glow on hover */}
         <ScrollReveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-100 rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm">
             {stats.map((s, i) => (
               <motion.div
                 key={i}
-                className="relative bg-white px-6 py-7 overflow-hidden"
+                className="relative bg-white dark:bg-slate-900 px-6 py-7 overflow-hidden"
                 initial="rest"
                 whileHover="hover"
                 animate="rest"
@@ -134,7 +134,7 @@ export default function WhyUsSection() {
                 >
                   {s.v}
                 </span>
-                <span className="relative text-slate-500 text-sm">{s.l}</span>
+                <span className="relative text-slate-500 dark:text-slate-400 text-sm">{s.l}</span>
               </motion.div>
             ))}
           </div>
@@ -147,7 +147,7 @@ export default function WhyUsSection() {
             </LiquidButton>
             <a
               href="/about"
-              className="flex items-center gap-2 border border-slate-200 text-slate-500 hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50 font-500 px-6 py-4 rounded-xl text-sm transition-all duration-200"
+              className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-200 dark:hover:border-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-950 font-500 px-6 py-4 rounded-xl text-sm transition-all duration-200"
             >
               Learn About Us
             </a>

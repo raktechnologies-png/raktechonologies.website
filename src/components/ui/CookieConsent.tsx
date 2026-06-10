@@ -57,7 +57,7 @@ export default function CookieConsent() {
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="fixed bottom-5 left-1/2 -translate-x-1/2 z-[9998] w-full max-w-2xl px-4"
         >
-          <div className="bg-white border border-slate-200 rounded-2xl shadow-2xl p-5 md:p-6">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-2xl p-5 md:p-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
 
               {/* Icon */}
@@ -70,10 +70,10 @@ export default function CookieConsent() {
 
               {/* Text */}
               <div className="flex-1 min-w-0">
-                <p className="text-slate-900 font-600 text-sm mb-0.5">
+                <p className="text-slate-900 dark:text-slate-100 font-600 text-sm mb-0.5">
                   We use cookies
                 </p>
-                <p className="text-slate-500 text-xs leading-relaxed">
+                <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">
                   We use cookies to improve your browsing experience and understand how our site is used.
                   Read our{" "}
                   <Link
@@ -91,7 +91,7 @@ export default function CookieConsent() {
               <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
                 <button
                   onClick={decline}
-                  className="flex-1 sm:flex-none text-xs font-600 px-4 py-2.5 rounded-xl border border-slate-200 text-slate-500 hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 cursor-pointer"
+                  className="flex-1 sm:flex-none text-xs font-600 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-200 cursor-pointer"
                 >
                   Decline
                 </button>

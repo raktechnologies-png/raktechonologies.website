@@ -137,10 +137,10 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <div className="pt-[68px] bg-white">
+    <div className="pt-[68px] bg-white dark:bg-[#0B0F1A]">
 
       {/* ── Hero ── */}
-      <section className="relative py-16 md:py-24 overflow-hidden bg-white">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-white dark:bg-[#0B0F1A]">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -160,7 +160,7 @@ export default function TermsPage() {
               <span className="text-slate-400 text-xs">Last updated: {LAST_UPDATED}</span>
             </div>
             <h1
-              className="font-display text-slate-900 mb-6"
+              className="font-display text-slate-900 dark:text-slate-100 mb-6"
               style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)", fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.04em" }}
             >
               Terms &{" "}
@@ -175,7 +175,7 @@ export default function TermsPage() {
       </section>
 
       {/* ── Quick summary cards ── */}
-      <section className="py-12 relative bg-slate-50">
+      <section className="py-12 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-3xl mx-auto px-6 md:px-10">
           <ScrollReveal>
@@ -188,7 +188,7 @@ export default function TermsPage() {
               { icon: "⚖️", title: "South African Law", desc: "These terms are governed by South African law. Any disputes will be resolved under South African jurisdiction.", accent: "#059669", bg: "#ECFDF5", border: "#A7F3D0" },
             ].map((card) => (
               <ScrollReveal key={card.title} delay={0.07}>
-                <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-sm flex flex-col gap-3 card-ring h-full">
+                <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-5 shadow-sm flex flex-col gap-3 card-ring h-full">
                   <span
                     className="text-xl w-10 h-10 rounded-xl flex items-center justify-center border shrink-0"
                     style={{ background: card.bg, borderColor: card.border }}
@@ -196,7 +196,7 @@ export default function TermsPage() {
                     {card.icon}
                   </span>
                   <div>
-                    <p className="font-display text-slate-900 font-700 text-sm mb-1" style={{ letterSpacing: "-0.02em" }}>{card.title}</p>
+                    <p className="font-display text-slate-900 dark:text-slate-100 font-700 text-sm mb-1" style={{ letterSpacing: "-0.02em" }}>{card.title}</p>
                     <p className="text-slate-500 text-xs leading-relaxed">{card.desc}</p>
                   </div>
                 </div>
@@ -207,7 +207,7 @@ export default function TermsPage() {
       </section>
 
       {/* ── Full terms content ── */}
-      <section className="py-12 md:py-16 relative bg-white">
+      <section className="py-12 md:py-16 relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-3xl mx-auto px-6 md:px-10">
           <div className="flex flex-col gap-10">
@@ -215,7 +215,7 @@ export default function TermsPage() {
               <ScrollReveal key={section.id} delay={i * 0.04}>
                 <div id={section.id} className="flex flex-col gap-4">
                   <h2
-                    className="font-display text-slate-900 font-800"
+                    className="font-display text-slate-900 dark:text-slate-100 font-800"
                     style={{ fontSize: "1.2rem", letterSpacing: "-0.025em", lineHeight: 1.2 }}
                   >
                     {section.title}
@@ -234,14 +234,14 @@ export default function TermsPage() {
                     </ul>
                   )}
                   {"subsections" in section && section.subsections?.map((sub) => (
-                    <div key={sub.title} className="bg-slate-50 border border-slate-100 rounded-xl p-5 flex flex-col gap-2">
-                      <p className="font-display text-slate-900 font-700 text-sm" style={{ letterSpacing: "-0.02em" }}>{sub.title}</p>
+                    <div key={sub.title} className="bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl p-5 flex flex-col gap-2">
+                      <p className="font-display text-slate-900 dark:text-slate-100 font-700 text-sm" style={{ letterSpacing: "-0.02em" }}>{sub.title}</p>
                       <p className="text-slate-500 text-sm leading-relaxed">{sub.content}</p>
                     </div>
                   ))}
                 </div>
                 {i < sections.length - 1 && (
-                  <div className="mt-10 h-px bg-slate-100" />
+                  <div className="mt-10 h-px bg-slate-100 dark:bg-slate-800" />
                 )}
               </ScrollReveal>
             ))}
@@ -250,10 +250,10 @@ export default function TermsPage() {
       </section>
 
       {/* ── Footer note ── */}
-      <section className="py-12 bg-slate-50">
+      <section className="py-12 bg-slate-50 dark:bg-slate-900/50">
         <div className="max-w-3xl mx-auto px-6 md:px-10">
           <ScrollReveal>
-            <div className="bg-white border border-slate-100 rounded-2xl p-6 md:p-8 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 md:p-8 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                 style={{ background: "#EEF2FF", border: "1px solid #C7D2FE" }}
@@ -263,7 +263,7 @@ export default function TermsPage() {
                 </svg>
               </div>
               <div>
-                <p className="text-slate-900 font-600 text-sm mb-1">Have a question about our terms?</p>
+                <p className="text-slate-900 dark:text-slate-100 font-600 text-sm mb-1">Have a question about our terms?</p>
                 <p className="text-slate-500 text-sm leading-relaxed">
                   Contact us at{" "}
                   <a href="mailto:info@raktechnologies.co.za" className="text-indigo-600 hover:underline">

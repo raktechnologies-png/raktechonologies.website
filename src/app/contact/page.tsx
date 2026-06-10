@@ -44,9 +44,9 @@ const whyContact = [
 
 export default function ContactPage() {
   return (
-    <div className="pt-[68px] bg-white">
+    <div className="pt-[68px] bg-white dark:bg-[#0B0F1A]">
       {/* ── Hero ── */}
-      <section className="relative py-20 md:py-28 overflow-hidden bg-white">
+      <section className="relative py-20 md:py-28 overflow-hidden bg-white dark:bg-[#0B0F1A]">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -59,11 +59,11 @@ export default function ContactPage() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="text-center max-w-3xl mx-auto"
           >
-            <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-5">
+            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-5">
               Get In Touch
             </p>
             <h1
-              className="font-display text-slate-900 mb-6"
+              className="font-display text-slate-900 dark:text-slate-100 mb-6"
               style={{
                 fontSize: "clamp(2.25rem, 5vw, 4.5rem)",
                 fontWeight: 900,
@@ -75,7 +75,7 @@ export default function ContactPage() {
               <br />
               <span className="gradient-text">We build the solution.</span>
             </h1>
-            <p className="text-slate-500 text-lg leading-relaxed" style={{ letterSpacing: "-0.01em" }}>
+            <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed" style={{ letterSpacing: "-0.01em" }}>
               Submit your project request below and our team will respond with a
               tailored technical approach — no generic quotes, no templates.
             </p>
@@ -84,7 +84,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main content */}
-      <section className="pb-28 md:pb-36 relative bg-slate-50">
+      <section className="pb-28 md:pb-36 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-12">
           <div className="grid md:grid-cols-5 gap-8 items-start">
@@ -96,7 +96,7 @@ export default function ContactPage() {
                   key={c.label}
                   direction="right"
                   hoverY={-3}
-                  className="group flex items-center gap-4 bg-white border border-slate-100 rounded-xl p-5 shadow-sm card-ring"
+                  className="group flex items-center gap-4 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl p-5 shadow-sm card-ring"
                 >
                   <a
                     href={c.href}
@@ -111,22 +111,22 @@ export default function ContactPage() {
                       {c.icon}
                     </div>
                     <div className="flex flex-col min-w-0">
-                      <span className="text-slate-400 text-xs mb-0.5">{c.label}</span>
-                      <span className="text-slate-700 text-sm font-500 truncate">{c.value}</span>
+                      <span className="text-slate-400 dark:text-slate-500 text-xs mb-0.5">{c.label}</span>
+                      <span className="text-slate-700 dark:text-slate-300 text-sm font-500 truncate">{c.value}</span>
                     </div>
-                    <span className="ml-auto text-slate-300 group-hover:text-slate-500 group-hover:translate-x-1 transition-all duration-200 text-sm">→</span>
+                    <span className="ml-auto text-slate-300 dark:text-slate-600 group-hover:text-slate-500 dark:group-hover:text-slate-400 group-hover:translate-x-1 transition-all duration-200 text-sm">→</span>
                   </a>
                 </AnimatedCard>
               ))}
 
               <ScrollReveal delay={0.2} direction="right">
-                <div className="bg-white border border-slate-100 rounded-xl p-6 flex flex-col gap-4 shadow-sm">
-                  <p className="text-slate-900 text-xs font-600 tracking-widest uppercase">
+                <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl p-6 flex flex-col gap-4 shadow-sm">
+                  <p className="text-slate-900 dark:text-slate-100 text-xs font-600 tracking-widest uppercase">
                     What to expect
                   </p>
                   <ul className="flex flex-col gap-3">
                     {whyContact.map((w, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-sm text-slate-500">
+                      <li key={i} className="flex items-start gap-2.5 text-sm text-slate-500 dark:text-slate-400">
                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />
                         {w}
                       </li>
@@ -138,18 +138,18 @@ export default function ContactPage() {
 
             {/* Form */}
             <ScrollReveal className="md:col-span-3" delay={0.1}>
-              <motion.div className="bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm card-ring">
+              <motion.div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm card-ring">
                 <div className="px-8 pt-8 pb-0">
                   <AnimatedHeading
-                    className="font-display text-slate-900 font-700 text-xl mb-1"
+                    className="font-display text-slate-900 dark:text-slate-100 font-700 text-xl mb-1"
                   >
                     Project Request Form
                   </AnimatedHeading>
-                  <p className="text-slate-400 text-sm">
+                  <p className="text-slate-400 dark:text-slate-500 text-sm">
                     Fill in as much or as little as you know. We&apos;ll clarify the rest on a call.
                   </p>
                 </div>
-                <div className="h-px bg-slate-100 mt-6" />
+                <div className="h-px bg-slate-100 dark:bg-slate-800 mt-6" />
                 <ProjectForm />
               </motion.div>
             </ScrollReveal>

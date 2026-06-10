@@ -35,7 +35,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen overflow-hidden bg-white"
+      className="relative min-h-screen overflow-hidden bg-white dark:bg-[#0B0F1A]"
     >
       {/* ── Background ── */}
       <div className="absolute inset-0 pointer-events-none select-none">
@@ -65,14 +65,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.1, ease: EASE }}
-            className="mb-5 sm:mb-7 flex flex-col gap-2"
+            className="mb-5 sm:mb-7 flex flex-col gap-2 transition-colors"
           >
             {greeting && (
-              <p className="text-slate-400 text-xs tracking-[0.16em] uppercase">
+              <p className="text-slate-400 dark:text-slate-500 text-xs tracking-[0.16em] uppercase">
                 {greeting}
               </p>
             )}
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-200 bg-slate-50 text-slate-500 text-xs font-500 tracking-wide shadow-sm w-fit">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-500 tracking-wide shadow-sm w-fit">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse shrink-0" />
               South Africa&apos;s Premier IT Consulting Firm
             </span>
@@ -83,7 +83,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.18, ease: EASE }}
-            className="font-display text-slate-900 mb-5 sm:mb-7"
+            className="font-display text-slate-900 dark:text-slate-100 mb-5 sm:mb-7"
             style={{
               fontSize: "clamp(2rem, 7vw, 6.5rem)",
               fontWeight: 900,
@@ -94,7 +94,7 @@ export default function Hero() {
             If it&apos;s tech,{" "}
             <span className="gradient-text">trust us</span>
             <br />
-            <span className="text-slate-900">we can </span>
+            <span className="text-slate-900 dark:text-slate-100">we can </span>
             <span className="gradient-text">build it.</span>
           </motion.h1>
 
@@ -103,7 +103,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35, ease: EASE }}
-            className="text-slate-500 text-base sm:text-lg md:text-xl leading-relaxed max-w-xl mb-8 sm:mb-10"
+            className="text-slate-500 dark:text-slate-400 text-base sm:text-lg md:text-xl leading-relaxed max-w-xl mb-8 sm:mb-10"
             style={{ fontWeight: 400, letterSpacing: "-0.01em" }}
           >
             From websites and online stores to custom software, automation, and AI —
@@ -122,7 +122,7 @@ export default function Hero() {
             </LiquidButton>
             <Link
               href="/services"
-              className="flex items-center justify-center gap-2 border border-slate-200 text-slate-600 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 hover:bg-slate-50 transition-all duration-200 w-full sm:w-auto"
+              className="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200 w-full sm:w-auto"
             >
               Explore Services
             </Link>
@@ -149,7 +149,7 @@ export default function Hero() {
             <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.5 }}
-              className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100/60"
+              className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100/60 dark:border-slate-700/40"
               style={{ aspectRatio: "3/4", maxHeight: "60vh" }}
             >
               <Image
@@ -173,7 +173,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.85, ease: EASE }}
-              className="absolute -bottom-4 -left-4 sm:-bottom-5 sm:-left-6 bg-white border border-slate-100 rounded-xl px-3 py-2.5 sm:px-4 sm:py-3 shadow-lg flex items-center gap-3"
+              className="absolute -bottom-4 -left-4 sm:-bottom-5 sm:-left-6 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl px-3 py-2.5 sm:px-4 sm:py-3 shadow-lg flex items-center gap-3"
             >
               <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center shrink-0">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="2" strokeLinecap="round">
@@ -181,8 +181,8 @@ export default function Hero() {
                 </svg>
               </div>
               <div>
-                <p className="text-slate-900 text-xs font-600 leading-none mb-0.5">50+ Projects</p>
-                <p className="text-slate-400 text-[11px]">Delivered across Africa</p>
+                <p className="text-slate-900 dark:text-slate-50 text-xs font-600 leading-none mb-0.5">50+ Projects</p>
+                <p className="text-slate-400 dark:text-slate-500 text-[11px]">Delivered across Africa</p>
               </div>
             </motion.div>
           </div>
@@ -197,11 +197,11 @@ export default function Hero() {
         style={{ opacity: contentOpacity }}
         className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 pb-12 md:pb-16"
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-100 border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-100 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
           {metrics.map((m, i) => (
             <div
               key={i}
-              className="bg-white px-4 sm:px-6 py-5 sm:py-6 flex flex-col gap-1 hover:bg-slate-50 transition-colors duration-200"
+              className="bg-white dark:bg-slate-900 px-4 sm:px-6 py-5 sm:py-6 flex flex-col gap-1 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors duration-200"
             >
               <span
                 className="font-display gradient-text leading-none"
@@ -209,7 +209,7 @@ export default function Hero() {
               >
                 {m.value}
               </span>
-              <span className="text-slate-500 text-xs sm:text-sm">{m.label}</span>
+              <span className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm">{m.label}</span>
             </div>
           ))}
         </div>

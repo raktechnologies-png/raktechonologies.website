@@ -44,9 +44,9 @@ export default function LiquidButton({
   // ── Visual tokens ────────────────────────────────────────────────────────
   const wrapperBase = dark
     ? "border border-white/20 bg-transparent"
-    : "border border-indigo-200 bg-white shadow-sm";
+    : "border border-indigo-200 dark:border-indigo-800 bg-white dark:bg-slate-900 shadow-sm";
 
-  const textDefault = dark ? "text-white" : "text-indigo-600";
+  const textDefault = dark ? "text-white" : "text-indigo-600 dark:text-indigo-400";
   const fillGradient = "linear-gradient(135deg, #4F46E5, #7C3AED)";
 
   return (

@@ -43,7 +43,7 @@ const ArrowUpRight = () => (
 
 export default function RecentProjects() {
   return (
-    <section className="py-14 md:py-20 relative bg-slate-50">
+    <section className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
       <div className="section-divider absolute top-0 inset-x-0" />
       <div className="max-w-7xl mx-auto px-6 md:px-10">
 
@@ -57,7 +57,7 @@ export default function RecentProjects() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <AnimatedHeading
               delay={0.1}
-              className="font-display text-slate-900"
+              className="font-display text-slate-900 dark:text-slate-100"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
               Projects we&apos;ve{" "}
@@ -78,7 +78,7 @@ export default function RecentProjects() {
               <motion.div
                 whileHover={{ scale: 1.003 }}
                 transition={{ duration: 0.3 }}
-                className="group relative bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm card-ring flex flex-col"
+                className="group relative bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm card-ring flex flex-col"
               >
                 {/* Top accent bar */}
                 <div
@@ -88,7 +88,7 @@ export default function RecentProjects() {
 
                 {/* Website preview screenshot */}
                 {project.url && (
-                  <div className="relative w-full overflow-hidden bg-slate-100" style={{ height: "200px" }}>
+                  <div className="relative w-full overflow-hidden bg-slate-100 dark:bg-slate-800" style={{ height: "200px" }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={`/api/screenshot?url=${encodeURIComponent(project.url)}`}
@@ -115,28 +115,28 @@ export default function RecentProjects() {
                     >
                       {project.status}
                     </span>
-                    <span className="text-slate-400 text-xs">{project.industry}</span>
-                    <span className="text-slate-300">·</span>
-                    <span className="text-slate-400 text-xs">{project.location}</span>
-                    <span className="text-slate-300">·</span>
-                    <span className="text-slate-400 text-xs">{project.year}</span>
+                    <span className="text-slate-400 dark:text-slate-500 text-xs">{project.industry}</span>
+                    <span className="text-slate-300 dark:text-slate-600">·</span>
+                    <span className="text-slate-400 dark:text-slate-500 text-xs">{project.location}</span>
+                    <span className="text-slate-300 dark:text-slate-600">·</span>
+                    <span className="text-slate-400 dark:text-slate-500 text-xs">{project.year}</span>
                   </div>
 
                   {/* Name + tagline */}
                   <div>
                     <h3
-                      className="font-display text-slate-900 font-800 mb-1.5"
+                      className="font-display text-slate-900 dark:text-slate-50 font-800 mb-1.5"
                       style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.04em", lineHeight: 1.05 }}
                     >
                       {project.client}
                     </h3>
-                    <p className="text-sm text-slate-400 italic">
+                    <p className="text-sm text-slate-400 dark:text-slate-500 italic">
                       &ldquo;{project.tagline}&rdquo;
                     </p>
                   </div>
 
                   {/* Description */}
-                  <p className="text-slate-500 text-sm leading-relaxed flex-1">
+                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex-1">
                     {project.description}
                   </p>
 
@@ -154,7 +154,7 @@ export default function RecentProjects() {
                       >
                         Visit Website <ArrowUpRight />
                       </motion.a>
-                      <span className="text-slate-300 text-xs">{project.displayUrl}</span>
+                      <span className="text-slate-300 dark:text-slate-600 text-xs">{project.displayUrl}</span>
                     </div>
                   )}
                 </div>
@@ -166,7 +166,7 @@ export default function RecentProjects() {
         {/* Footer */}
         <ScrollReveal delay={0.1}>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 px-1">
-            <p className="text-slate-400 text-sm">
+            <p className="text-slate-400 dark:text-slate-500 text-sm">
               More client projects coming soon.
             </p>
             <LiquidButton href="/contact">Start Your Project →</LiquidButton>

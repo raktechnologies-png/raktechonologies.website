@@ -183,10 +183,10 @@ const phases = [
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function SolutionsPage() {
   return (
-    <div className="pt-[68px] bg-white">
+    <div className="pt-[68px] bg-white dark:bg-[#0B0F1A]">
 
       {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
-      <section className="relative py-16 md:py-24 overflow-hidden bg-white">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-white dark:bg-[#0B0F1A]">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -201,17 +201,17 @@ export default function SolutionsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: EASE }}
             >
-              <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-5">
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-5">
                 Services & Solutions
               </p>
               <h1
-                className="font-display text-slate-900 mb-6"
+                className="font-display text-slate-900 dark:text-slate-100 mb-6"
                 style={{ fontSize: "clamp(2.4rem, 5.5vw, 5rem)", fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.04em" }}
               >
                 Technology solutions,{" "}
                 <span className="gradient-text">built to solve.</span>
               </h1>
-              <p className="text-slate-500 text-lg leading-relaxed max-w-lg mb-8" style={{ letterSpacing: "-0.01em" }}>
+              <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed max-w-lg mb-8" style={{ letterSpacing: "-0.01em" }}>
                 Every service we offer is centred on outcomes — not deliverables. We measure success
                 by the problems we solve, the systems we ship, and the impact we create.
               </p>
@@ -219,7 +219,7 @@ export default function SolutionsPage() {
                 <LiquidButton href="/contact">Start a Project →</LiquidButton>
                 <a
                   href="#how-we-work"
-                  className="flex items-center justify-center gap-2 border border-slate-200 text-slate-600 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 hover:bg-slate-50 transition-all duration-200"
+                  className="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200"
                 >
                   How We Work
                 </a>
@@ -241,7 +241,7 @@ export default function SolutionsPage() {
                 <motion.div
                   whileHover={{ scale: 1.02, rotate: -1 }}
                   transition={{ duration: 0.5 }}
-                  className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-100"
+                  className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-700"
                   style={{ width: 440, height: 500 }}
                 >
                   <Image
@@ -259,7 +259,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* ══ SERVICE LIST ══════════════════════════════════════════════════════ */}
-      <section className="relative pb-16 md:pb-24 bg-slate-50">
+      <section className="relative pb-16 md:pb-24 bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-12 flex flex-col gap-4">
           {services.map((svc) => (
@@ -268,7 +268,7 @@ export default function SolutionsPage() {
                 id={svc.id}
                 whileHover={{ scale: 1.003 }}
                 transition={{ duration: 0.3 }}
-                className="group relative bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm card-ring"
+                className="group relative bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm card-ring"
               >
                 {/* Top accent on hover */}
                 <motion.div
@@ -280,27 +280,27 @@ export default function SolutionsPage() {
                     {/* Left */}
                     <div className="md:col-span-4 flex flex-col gap-4">
                       <div className="flex items-center gap-3">
-                        <span className="text-slate-300 font-600 text-sm font-display">{svc.number}</span>
+                        <span className="text-slate-300 dark:text-slate-600 font-600 text-sm font-display">{svc.number}</span>
                         <div className="w-8 h-px" style={{ background: svc.accent }} />
                       </div>
                       <h2
-                        className="font-display text-slate-900 font-800"
+                        className="font-display text-slate-900 dark:text-slate-100 font-800"
                         style={{ fontSize: "clamp(1.4rem, 2.2vw, 1.85rem)", lineHeight: 1.1, letterSpacing: "-0.03em" }}
                       >
                         {svc.title}
                       </h2>
                       <p className="text-sm font-600" style={{ color: svc.accent }}>{svc.subtitle}</p>
-                      <p className="text-slate-500 text-sm leading-relaxed mt-1">{svc.description}</p>
+                      <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mt-1">{svc.description}</p>
                       <LiquidButton href="/contact" className="mt-4">Get Started →</LiquidButton>
                     </div>
 
                     {/* Right */}
                     <div className="md:col-span-8 grid md:grid-cols-2 gap-6">
                       <div className="flex flex-col gap-3">
-                        <p className="text-slate-900 text-xs font-600 tracking-widest uppercase">What we deliver</p>
+                        <p className="text-slate-900 dark:text-slate-100 text-xs font-600 tracking-widest uppercase">What we deliver</p>
                         <ul className="flex flex-col gap-2.5">
                           {svc.outcomes.map((o, j) => (
-                            <li key={j} className="flex items-start gap-2.5 text-sm text-slate-600">
+                            <li key={j} className="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-400">
                               <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: svc.accent }} />
                               {o}
                             </li>
@@ -308,10 +308,10 @@ export default function SolutionsPage() {
                         </ul>
                       </div>
                       <div className="flex flex-col gap-3">
-                        <p className="text-slate-900 text-xs font-600 tracking-widest uppercase">Problems we solve</p>
+                        <p className="text-slate-900 dark:text-slate-100 text-xs font-600 tracking-widest uppercase">Problems we solve</p>
                         <ul className="flex flex-col gap-3">
                           {svc.problems.map((p, j) => (
-                            <AnimatedCard key={j} hoverY={-2} className="text-sm text-slate-500 italic leading-relaxed px-3 py-2 rounded-lg" style={{ background: svc.accentLight }}>
+                            <AnimatedCard key={j} hoverY={-2} className="text-sm text-slate-500 dark:text-slate-400 italic leading-relaxed px-3 py-2 rounded-lg" style={{ background: svc.accentLight }}>
                               &quot;{p}&quot;
                             </AnimatedCard>
                           ))}
@@ -327,23 +327,23 @@ export default function SolutionsPage() {
       </section>
 
       {/* ══ HOW WE WORK — CASE TYPES ═════════════════════════════════════════ */}
-      <section id="how-we-work" className="py-14 md:py-20 relative bg-white">
+      <section id="how-we-work" className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="mb-14">
             <ScrollReveal>
-              <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-4">How We Work</p>
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">How We Work</p>
             </ScrollReveal>
             <AnimatedHeading
               delay={0.1}
-              className="font-display text-slate-900"
+              className="font-display text-slate-900 dark:text-slate-100"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
               The challenges{" "}
               <span className="gradient-text">we take on.</span>
             </AnimatedHeading>
             <ScrollReveal delay={0.15}>
-              <p className="text-slate-500 text-base leading-relaxed mt-4 max-w-2xl">
+              <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-4 max-w-2xl">
                 Great technology solutions don&apos;t happen by accident. They come from a structured,
                 collaborative process that keeps your business goals at the centre of every decision.
               </p>
@@ -356,7 +356,7 @@ export default function SolutionsPage() {
                 key={i}
                 delay={i * 0.08}
                 hoverY={-5}
-                className="group bg-white border border-slate-100 rounded-2xl p-7 flex flex-col gap-4 shadow-sm card-ring"
+                className="group bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-7 flex flex-col gap-4 shadow-sm card-ring"
               >
                 <span
                   className="text-2xl w-10 h-10 rounded-xl flex items-center justify-center border"
@@ -365,10 +365,10 @@ export default function SolutionsPage() {
                   {ct.icon}
                 </span>
                 <div className="flex flex-col gap-2">
-                  <h3 className="font-display text-slate-900 font-700 leading-snug" style={{ fontSize: "1rem", letterSpacing: "-0.025em" }}>
+                  <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 leading-snug" style={{ fontSize: "1rem", letterSpacing: "-0.025em" }}>
                     {ct.title}
                   </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{ct.description}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{ct.description}</p>
                 </div>
                 <div className="mt-auto w-6 h-0.5 group-hover:w-12 transition-all duration-400" style={{ background: ct.accent }} />
               </AnimatedCard>
@@ -378,16 +378,16 @@ export default function SolutionsPage() {
       </section>
 
       {/* ══ PROCESS ══════════════════════════════════════════════════════════ */}
-      <section className="py-14 md:py-20 relative bg-slate-50">
+      <section className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="mb-14">
             <ScrollReveal>
-              <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-4">The Process</p>
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">The Process</p>
             </ScrollReveal>
             <AnimatedHeading
               delay={0.1}
-              className="font-display text-slate-900"
+              className="font-display text-slate-900 dark:text-slate-100"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
               From problem to{" "}
@@ -401,7 +401,7 @@ export default function SolutionsPage() {
                 <motion.div
                   whileHover={{ x: 4 }}
                   transition={{ duration: 0.25 }}
-                  className="group relative flex gap-6 bg-white border border-slate-100 rounded-2xl p-7 md:p-9 shadow-sm card-ring"
+                  className="group relative flex gap-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-7 md:p-9 shadow-sm card-ring"
                 >
                   {/* Phase bubble */}
                   <div
@@ -414,7 +414,7 @@ export default function SolutionsPage() {
                   <div className="flex-1 grid md:grid-cols-3 gap-6 items-start">
                     <div className="md:col-span-2 flex flex-col gap-2">
                       <div className="flex items-center gap-3 flex-wrap">
-                        <h3 className="font-display text-slate-900 font-700" style={{ fontSize: "1.05rem", letterSpacing: "-0.025em" }}>
+                        <h3 className="font-display text-slate-900 dark:text-slate-100 font-700" style={{ fontSize: "1.05rem", letterSpacing: "-0.025em" }}>
                           {phase.title}
                         </h3>
                         <span
@@ -424,13 +424,13 @@ export default function SolutionsPage() {
                           {phase.duration}
                         </span>
                       </div>
-                      <p className="text-slate-500 text-sm leading-relaxed">{phase.description}</p>
+                      <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{phase.description}</p>
                     </div>
                     <div className="flex flex-col gap-2">
-                      <p className="text-slate-900 text-xs font-600 tracking-widest uppercase">Deliverables</p>
+                      <p className="text-slate-900 dark:text-slate-100 text-xs font-600 tracking-widest uppercase">Deliverables</p>
                       <ul className="flex flex-col gap-1.5">
                         {phase.deliverables.map((d, j) => (
-                          <li key={j} className="flex items-center gap-2 text-xs text-slate-500">
+                          <li key={j} className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
                             <span className="w-1 h-1 rounded-full shrink-0" style={{ background: phase.accent }} />
                             {d}
                           </li>
@@ -446,17 +446,17 @@ export default function SolutionsPage() {
       </section>
 
       {/* ══ BOTTOM CTA ═══════════════════════════════════════════════════════ */}
-      <section className="py-14 md:py-20 relative bg-white">
+      <section className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
           <ScrollReveal>
             <h2
-              className="font-display text-slate-900 mb-4"
+              className="font-display text-slate-900 dark:text-slate-100 mb-4"
               style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.1 }}
             >
               Ready to <span className="gradient-text">start the process?</span>
             </h2>
-            <p className="text-slate-500 text-base mb-8 max-w-md mx-auto">
+            <p className="text-slate-500 dark:text-slate-400 text-base mb-8 max-w-md mx-auto">
               Submit your project request and we&apos;ll respond with a tailored technical approach within 24 hours.
             </p>
             <div className="flex justify-center">

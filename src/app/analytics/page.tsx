@@ -281,10 +281,10 @@ const customTech = [
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function RaklyticsPage() {
   return (
-    <div className="pt-[68px] bg-white">
+    <div className="pt-[68px] bg-white dark:bg-[#0B0F1A]">
 
       {/* ══ 1. HERO ══════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-white" style={{ minHeight: "88vh" }}>
+      <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A]" style={{ minHeight: "88vh" }}>
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -302,7 +302,7 @@ export default function RaklyticsPage() {
                 transition={{ duration: 0.55, delay: 0.1, ease: EASE }}
                 className="mb-6"
               >
-                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-200 bg-indigo-50 text-indigo-600 text-xs font-600 tracking-wide shadow-sm">
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-200 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 text-xs font-600 tracking-wide shadow-sm">
                   <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse shrink-0" />
                   Flagship Platform · RAK Technologies
                 </span>
@@ -312,7 +312,7 @@ export default function RaklyticsPage() {
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.85, delay: 0.2, ease: EASE }}
-                className="font-display text-slate-900 mb-6"
+                className="font-display text-slate-900 dark:text-slate-100 mb-6"
                 style={{ fontSize: "clamp(2.4rem, 5.5vw, 5rem)", fontWeight: 900, lineHeight: 1.0, letterSpacing: "-0.04em" }}
               >
                 Student & Alumni
@@ -325,10 +325,10 @@ export default function RaklyticsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.38, ease: EASE }}
-                className="text-slate-500 text-lg leading-relaxed max-w-lg mb-8"
+                className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed max-w-lg mb-8"
                 style={{ letterSpacing: "-0.01em" }}
               >
-                <span className="font-display font-800 text-slate-900">
+                <span className="font-display font-800 text-slate-900 dark:text-slate-100">
                   RAK<span className="gradient-text">lytics</span><TM />
                 </span>{" "}
                 is a centralised intelligence platform that helps organisations track student
@@ -347,7 +347,7 @@ export default function RaklyticsPage() {
                 </LiquidButton>
                 <a
                   href="#capabilities"
-                  className="flex items-center justify-center gap-2 border border-slate-200 text-slate-600 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 hover:bg-slate-50 transition-all duration-200 w-full sm:w-auto"
+                  className="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200 w-full sm:w-auto"
                 >
                   Explore Capabilities
                 </a>
@@ -368,23 +368,23 @@ export default function RaklyticsPage() {
       </section>
 
       {/* ══ 2. WHO IT'S BUILT FOR ═══════════════════════════════════════════ */}
-      <section className="py-14 md:py-20 relative bg-slate-50">
+      <section className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="mb-12">
             <ScrollReveal>
-              <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-4">Who It&apos;s Built For</p>
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Who It&apos;s Built For</p>
             </ScrollReveal>
             <AnimatedHeading
               delay={0.1}
-              className="font-display text-slate-900"
+              className="font-display text-slate-900 dark:text-slate-100"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
               Designed for organisations{" "}
               <span className="gradient-text">that shape futures.</span>
             </AnimatedHeading>
             <ScrollReveal delay={0.15}>
-              <p className="text-slate-500 text-base leading-relaxed max-w-2xl mt-4">
+              <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed max-w-2xl mt-4">
                 The platform can be fully tailored to fit the operational and reporting needs of each
                 organisation — regardless of size, structure, or sector.
               </p>
@@ -397,7 +397,7 @@ export default function RaklyticsPage() {
                 key={org.title}
                 delay={i * 0.07}
                 hoverY={-5}
-                className="group bg-white border border-slate-100 rounded-2xl p-6 flex flex-col gap-4 shadow-sm card-ring card-shimmer"
+                className="group bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 flex flex-col gap-4 shadow-sm card-ring card-shimmer"
               >
                 <span
                   className="text-2xl w-11 h-11 rounded-xl flex items-center justify-center border shrink-0"
@@ -406,10 +406,10 @@ export default function RaklyticsPage() {
                   {org.icon}
                 </span>
                 <div className="flex flex-col gap-2">
-                  <h3 className="font-display text-slate-900 font-700 leading-snug" style={{ fontSize: "0.95rem", letterSpacing: "-0.025em" }}>
+                  <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 leading-snug" style={{ fontSize: "0.95rem", letterSpacing: "-0.025em" }}>
                     {org.title}
                   </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{org.desc}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{org.desc}</p>
                 </div>
                 <div className="mt-auto w-6 h-0.5 group-hover:w-10 transition-all duration-400" style={{ background: org.accent }} />
               </AnimatedCard>
@@ -419,7 +419,7 @@ export default function RaklyticsPage() {
       </section>
 
       {/* ══ 3. THE CORE PROBLEM ══════════════════════════════════════════════ */}
-      <section className="py-14 md:py-20 relative bg-white">
+      <section className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
@@ -427,25 +427,25 @@ export default function RaklyticsPage() {
             {/* Left — headline */}
             <div>
               <ScrollReveal>
-                <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-4">The Problem</p>
+                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">The Problem</p>
               </ScrollReveal>
               <AnimatedHeading
                 delay={0.1}
-                className="font-display text-slate-900"
+                className="font-display text-slate-900 dark:text-slate-100"
                 style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
               >
                 Institutions are flying{" "}
                 <span className="gradient-text">blind.</span>
               </AnimatedHeading>
               <ScrollReveal delay={0.15}>
-                <p className="text-slate-500 text-base leading-relaxed mt-5 max-w-lg">
+                <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-5 max-w-lg">
                   Fragmented spreadsheets, disconnected systems, and outdated records make it nearly
                   impossible for organisations to understand what&apos;s happening with their students and
                   graduates — let alone report on it meaningfully.
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
-                <p className="text-slate-500 text-base leading-relaxed mt-3 max-w-lg">
+                <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-3 max-w-lg">
                   The result: poor engagement, missed opportunities, and impact reports that don&apos;t
                   tell the full story. RAK<span className="gradient-text font-display font-800">lytics</span><TM /> fixes this.
                 </p>
@@ -459,7 +459,7 @@ export default function RaklyticsPage() {
                   <motion.div
                     whileHover={{ x: 4 }}
                     transition={{ duration: 0.2 }}
-                    className="flex items-start gap-4 bg-white border border-slate-100 rounded-xl p-5 shadow-sm card-ring group"
+                    className="flex items-start gap-4 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl p-5 shadow-sm card-ring group"
                   >
                     <div
                       className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-all duration-300 group-hover:scale-110"
@@ -469,7 +469,7 @@ export default function RaklyticsPage() {
                         <circle cx="12" cy="12" r="10" /><path d="M12 8v4M12 16h.01" />
                       </svg>
                     </div>
-                    <p className="text-slate-600 text-sm leading-relaxed">{problem}</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{problem}</p>
                   </motion.div>
                 </ScrollReveal>
               ))}
@@ -479,16 +479,16 @@ export default function RaklyticsPage() {
       </section>
 
       {/* ══ 4. PLATFORM CAPABILITIES ═════════════════════════════════════════ */}
-      <section id="capabilities" className="py-14 md:py-20 relative bg-slate-50">
+      <section id="capabilities" className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="mb-12">
             <ScrollReveal>
-              <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-4">Platform Capabilities</p>
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Platform Capabilities</p>
             </ScrollReveal>
             <AnimatedHeading
               delay={0.1}
-              className="font-display text-slate-900"
+              className="font-display text-slate-900 dark:text-slate-100"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
               Everything your institution{" "}
@@ -502,7 +502,7 @@ export default function RaklyticsPage() {
                 key={cap.title}
                 delay={i * 0.06}
                 hoverY={-6}
-                className="group bg-white border border-slate-100 rounded-2xl p-6 flex flex-col gap-4 shadow-sm card-ring"
+                className="group bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 flex flex-col gap-4 shadow-sm card-ring"
               >
                 <div
                   className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border transition-all duration-300 group-hover:scale-110"
@@ -511,10 +511,10 @@ export default function RaklyticsPage() {
                   <div className="w-5 h-5">{cap.icon}</div>
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <h3 className="font-display text-slate-900 font-700 leading-snug" style={{ fontSize: "0.95rem", letterSpacing: "-0.025em" }}>
+                  <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 leading-snug" style={{ fontSize: "0.95rem", letterSpacing: "-0.025em" }}>
                     {cap.title}
                   </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{cap.desc}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{cap.desc}</p>
                 </div>
                 <div className="mt-auto w-6 h-0.5 group-hover:w-10 transition-all duration-400" style={{ background: cap.accent }} />
               </AnimatedCard>
@@ -524,7 +524,7 @@ export default function RaklyticsPage() {
       </section>
 
       {/* ══ 5. DASHBOARDS & REPORTING ════════════════════════════════════════ */}
-      <section className="py-14 md:py-20 relative bg-white">
+      <section className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
@@ -532,18 +532,18 @@ export default function RaklyticsPage() {
             {/* Left — features list */}
             <div>
               <ScrollReveal>
-                <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-4">Dashboards & Reporting</p>
+                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Dashboards & Reporting</p>
               </ScrollReveal>
               <AnimatedHeading
                 delay={0.1}
-                className="font-display text-slate-900"
+                className="font-display text-slate-900 dark:text-slate-100"
                 style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
               >
                 Real-time intelligence{" "}
                 <span className="gradient-text">at scale.</span>
               </AnimatedHeading>
               <ScrollReveal delay={0.15}>
-                <p className="text-slate-500 text-base leading-relaxed mt-5 max-w-lg">
+                <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-5 max-w-lg">
                   Stop guessing. RAK<span className="gradient-text font-display font-800">lytics</span><TM /> gives
                   leadership, administrators, and sponsors a clear, verified picture of institutional
                   impact — updated in real time.
@@ -559,8 +559,8 @@ export default function RaklyticsPage() {
                         style={{ background: f.accent }}
                       />
                       <div>
-                        <p className="text-slate-900 font-600 text-sm mb-0.5">{f.title}</p>
-                        <p className="text-slate-500 text-sm leading-relaxed">{f.desc}</p>
+                        <p className="text-slate-900 dark:text-slate-100 font-600 text-sm mb-0.5">{f.title}</p>
+                        <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{f.desc}</p>
                       </div>
                     </div>
                   </ScrollReveal>
@@ -657,23 +657,23 @@ export default function RaklyticsPage() {
       </section>
 
       {/* ══ 6. ENGAGEMENT & LIFECYCLE CRM ════════════════════════════════════ */}
-      <section className="py-14 md:py-20 relative bg-slate-50">
+      <section className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="mb-12">
             <ScrollReveal>
-              <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-4">Engagement & Lifecycle</p>
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Engagement & Lifecycle</p>
             </ScrollReveal>
             <AnimatedHeading
               delay={0.1}
-              className="font-display text-slate-900"
+              className="font-display text-slate-900 dark:text-slate-100"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
               More than a dashboard.{" "}
               <span className="gradient-text">A relationship engine.</span>
             </AnimatedHeading>
             <ScrollReveal delay={0.15}>
-              <p className="text-slate-500 text-base leading-relaxed mt-5 max-w-2xl">
+              <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-5 max-w-2xl">
                 RAK<span className="gradient-text font-display font-800">lytics</span><TM /> acts as an intelligent
                 institutional CRM layer — keeping your organisation connected with students and alumni at
                 every stage of their journey, automatically.
@@ -687,7 +687,7 @@ export default function RaklyticsPage() {
                 key={feature.title}
                 delay={i * 0.07}
                 hoverY={-5}
-                className="group bg-white border border-slate-100 rounded-2xl p-6 flex flex-col gap-4 shadow-sm card-ring card-shimmer"
+                className="group bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 flex flex-col gap-4 shadow-sm card-ring card-shimmer"
               >
                 <span
                   className="text-2xl w-11 h-11 rounded-xl flex items-center justify-center border shrink-0"
@@ -696,10 +696,10 @@ export default function RaklyticsPage() {
                   {feature.icon}
                 </span>
                 <div className="flex flex-col gap-1.5">
-                  <h3 className="font-display text-slate-900 font-700" style={{ fontSize: "0.95rem", letterSpacing: "-0.025em" }}>
+                  <h3 className="font-display text-slate-900 dark:text-slate-100 font-700" style={{ fontSize: "0.95rem", letterSpacing: "-0.025em" }}>
                     {feature.title}
                   </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{feature.desc}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{feature.desc}</p>
                 </div>
                 <div className="mt-auto w-6 h-0.5 group-hover:w-10 transition-all duration-400" style={{ background: feature.accent }} />
               </AnimatedCard>
@@ -709,32 +709,32 @@ export default function RaklyticsPage() {
       </section>
 
       {/* ══ 7. CUSTOM TECHNOLOGY ══════════════════════════════════════════════ */}
-      <section className="py-14 md:py-20 relative bg-white">
+      <section className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <ScrollReveal>
-                <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-4">Beyond RAKlytics™</p>
+                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Beyond RAKlytics™</p>
               </ScrollReveal>
               <AnimatedHeading
                 delay={0.1}
-                className="font-display text-slate-900"
+                className="font-display text-slate-900 dark:text-slate-100"
                 style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
               >
                 Need something{" "}
                 <span className="gradient-text">custom?</span>
               </AnimatedHeading>
               <ScrollReveal delay={0.15}>
-                <p className="text-slate-500 text-base leading-relaxed mt-5 max-w-lg">
+                <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-5 max-w-lg">
                   RAK Technologies also designs and develops fully custom technology solutions — from
                   internal portals to AI-enhanced business systems.{" "}
-                  <span className="text-slate-900 font-600">If it&apos;s tech, trust us — we can build it.</span>
+                  <span className="text-slate-900 dark:text-slate-100 font-600">If it&apos;s tech, trust us — we can build it.</span>
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
                 <div className="mt-8">
-                  <LiquidButton href="/services">Explore Our Services →</LiquidButton>
+                  <LiquidButton href="/solutions">Explore Our Services →</LiquidButton>
                 </div>
               </ScrollReveal>
             </div>
@@ -745,7 +745,7 @@ export default function RaklyticsPage() {
                   <motion.div
                     whileHover={{ x: 4 }}
                     transition={{ duration: 0.2 }}
-                    className="flex items-center gap-3 bg-white border border-slate-100 rounded-xl p-4 shadow-sm card-ring group"
+                    className="flex items-center gap-3 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl p-4 shadow-sm card-ring group"
                   >
                     <div
                       className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110"
@@ -755,7 +755,7 @@ export default function RaklyticsPage() {
                         <path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" />
                       </svg>
                     </div>
-                    <span className="text-slate-600 text-sm font-500 leading-snug">{item}</span>
+                    <span className="text-slate-600 dark:text-slate-400 text-sm font-500 leading-snug">{item}</span>
                   </motion.div>
                 </ScrollReveal>
               ))}
@@ -765,19 +765,19 @@ export default function RaklyticsPage() {
       </section>
 
       {/* ══ 8. CTA ═══════════════════════════════════════════════════════════ */}
-      <section className="py-16 md:py-24 relative bg-slate-50">
+      <section className="py-16 md:py-24 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
           <ScrollReveal>
-            <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-5">Get Started</p>
+            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-5">Get Started</p>
             <h2
-              className="font-display text-slate-900 mb-5 mx-auto"
+              className="font-display text-slate-900 dark:text-slate-100 mb-5 mx-auto"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08, maxWidth: "680px" }}
             >
               Ready to modernise student & alumni{" "}
               <span className="gradient-text">intelligence?</span>
             </h2>
-            <p className="text-slate-500 text-base leading-relaxed max-w-lg mx-auto mb-10">
+            <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed max-w-lg mx-auto mb-10">
               Book a demo and see how RAK<span className="gradient-text font-display font-800">lytics</span><TM /> can
               transform the way your organisation tracks, engages, and reports on student outcomes.
             </p>
@@ -785,7 +785,7 @@ export default function RaklyticsPage() {
               <LiquidButton href="/contact">Request a Demo →</LiquidButton>
               <a
                 href="/contact"
-                className="flex items-center justify-center gap-2 border border-slate-200 text-slate-600 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 hover:bg-white transition-all duration-200"
+                className="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 dark:hover:border-slate-600 hover:bg-white dark:hover:bg-slate-800 transition-all duration-200"
               >
                 Speak With Us
               </a>

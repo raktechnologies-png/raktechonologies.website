@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Class-based dark mode for Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   /* ─── Light design system ─── */
 
@@ -42,6 +45,11 @@
     background: #FFFFFF;
     text-rendering: optimizeLegibility;
     -webkit-text-size-adjust: 100%;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  html.dark {
+    background: #0B0F1A;
+    color: #F8FAFC;
   }
 
   body {
@@ -52,6 +60,11 @@
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  .dark body {
+    background: #0B0F1A;
+    color: #F8FAFC;
   }
 
   /* ── Heading defaults — tight kerning, clean geometric ── */
@@ -61,6 +74,7 @@
     letter-spacing: -0.035em;
     font-weight: 800;
     color: #0F172A;
+    transition: color 0.3s ease;
   }
 
   p {
@@ -85,11 +99,18 @@
     background: #EEF2FF;
     color: #4F46E5;
   }
+  .dark ::selection {
+    background: #312E81;
+    color: #A5B4FC;
+  }
 
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: #F1F5F9; }
   ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }
   ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+  .dark ::-webkit-scrollbar-track { background: #0F172A; }
+  .dark ::-webkit-scrollbar-thumb { background: #334155; }
+  .dark ::-webkit-scrollbar-thumb:hover { background: #475569; }
 
   /* ── Mobile base ── */
   @media (max-width: 640px) {
@@ -132,6 +153,9 @@
   .section-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, #E2E8F0 30%, #E2E8F0 70%, transparent);
+  }
+  .dark .section-divider {
+    background: linear-gradient(90deg, transparent, #1E293B 30%, #1E293B 70%, transparent);
   }
 
   /* Card hover ring — gradient border on hover */
@@ -180,4 +204,19 @@
   .card-shimmer:hover::after {
     transform: translateX(120%);
   }
+}
+
+/* ── Dark mode heading overrides (outside @layer so they beat Tailwind utilities) ── */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #E2E8F0; /* slate-200 — readable but not harsh white */
+}
+
+/* Body text in dark mode */
+.dark body {
+  color: #CBD5E1; /* slate-300 — easy on the eyes */
 }

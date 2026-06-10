@@ -124,10 +124,10 @@ const sections = [
 
 export default function CookiesPage() {
   return (
-    <div className="pt-[68px] bg-white">
+    <div className="pt-[68px] bg-white dark:bg-[#0B0F1A]">
 
       {/* ── Hero ── */}
-      <section className="relative py-16 md:py-24 overflow-hidden bg-white">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-white dark:bg-[#0B0F1A]">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -147,7 +147,7 @@ export default function CookiesPage() {
               <span className="text-slate-400 text-xs">Last updated: {LAST_UPDATED}</span>
             </div>
             <h1
-              className="font-display text-slate-900 mb-6"
+              className="font-display text-slate-900 dark:text-slate-100 mb-6"
               style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)", fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.04em" }}
             >
               Cookie{" "}
@@ -162,7 +162,7 @@ export default function CookiesPage() {
       </section>
 
       {/* ── Cookie type cards ── */}
-      <section className="py-12 relative bg-slate-50">
+      <section className="py-12 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-3xl mx-auto px-6 md:px-10">
           <ScrollReveal>
@@ -173,9 +173,9 @@ export default function CookiesPage() {
           <div className="flex flex-col gap-4">
             {cookieTypes.map((type, i) => (
               <ScrollReveal key={type.name} delay={i * 0.07}>
-                <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm card-ring">
+                <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 shadow-sm card-ring">
                   <div className="flex items-start justify-between gap-4 mb-3">
-                    <h3 className="font-display text-slate-900 font-700" style={{ fontSize: "1rem", letterSpacing: "-0.02em" }}>
+                    <h3 className="font-display text-slate-900 dark:text-slate-100 font-700" style={{ fontSize: "1rem", letterSpacing: "-0.02em" }}>
                       {type.name}
                     </h3>
                     <span
@@ -202,7 +202,7 @@ export default function CookiesPage() {
       </section>
 
       {/* ── Main content sections ── */}
-      <section className="py-12 md:py-16 relative bg-white">
+      <section className="py-12 md:py-16 relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-3xl mx-auto px-6 md:px-10">
           <div className="flex flex-col gap-10">
@@ -210,7 +210,7 @@ export default function CookiesPage() {
               <ScrollReveal key={section.id} delay={i * 0.04}>
                 <div id={section.id} className="flex flex-col gap-4">
                   <h2
-                    className="font-display text-slate-900 font-800"
+                    className="font-display text-slate-900 dark:text-slate-100 font-800"
                     style={{ fontSize: "1.2rem", letterSpacing: "-0.025em", lineHeight: 1.2 }}
                   >
                     {section.title}
@@ -233,7 +233,7 @@ export default function CookiesPage() {
                   ))}
                 </div>
                 {i < sections.length - 1 && (
-                  <div className="mt-10 h-px bg-slate-100" />
+                  <div className="mt-10 h-px bg-slate-100 dark:bg-slate-800" />
                 )}
               </ScrollReveal>
             ))}
@@ -242,10 +242,10 @@ export default function CookiesPage() {
       </section>
 
       {/* ── Footer note ── */}
-      <section className="py-12 bg-slate-50">
+      <section className="py-12 bg-slate-50 dark:bg-slate-900/50">
         <div className="max-w-3xl mx-auto px-6 md:px-10">
           <ScrollReveal>
-            <div className="bg-white border border-slate-100 rounded-2xl p-6 md:p-8 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 md:p-8 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                 style={{ background: "#EEF2FF", border: "1px solid #C7D2FE" }}
@@ -255,7 +255,7 @@ export default function CookiesPage() {
                 </svg>
               </div>
               <div>
-                <p className="text-slate-900 font-600 text-sm mb-1">Questions about cookies?</p>
+                <p className="text-slate-900 dark:text-slate-100 font-600 text-sm mb-1">Questions about cookies?</p>
                 <p className="text-slate-500 text-sm leading-relaxed">
                   Reach us at{" "}
                   <a href="mailto:info@raktechnologies.co.za" className="text-indigo-600 hover:underline">
