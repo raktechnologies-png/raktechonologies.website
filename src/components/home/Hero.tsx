@@ -3,10 +3,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { EASE } from "@/lib/motion";
 import PebbleGrid from "@/components/ui/PebbleGrid";
 import LiquidButton from "@/components/ui/LiquidButton";
+import { useSEOAudit } from "@/context/SEOAuditContext";
 
 const metrics = [
   { value: "50+",  label: "Projects Delivered" },
@@ -31,6 +31,7 @@ export default function Hero() {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
   const imageY         = useTransform(scrollYProgress, [0, 1], ["0%", "6%"]);
   const greeting = useTimeGreeting();
+  const { open: openAudit } = useSEOAudit();
 
   return (
     <section
@@ -120,12 +121,18 @@ export default function Hero() {
             <LiquidButton href="/#contact" className="w-full sm:w-auto justify-center">
               Request a Solution →
             </LiquidButton>
-            <Link
-              href="/services"
-              className="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200 w-full sm:w-auto"
+            <button
+              onClick={openAudit}
+              className="group flex items-center justify-center gap-2.5 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-500 px-7 py-4 rounded-xl text-base hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/30 transition-all duration-200 w-full sm:w-auto cursor-pointer"
             >
-              Explore Services
-            </Link>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+                <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+              </svg>
+              Free SEO Audit
+              <span className="text-[10px] font-700 px-1.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 leading-none">
+                FREE
+              </span>
+            </button>
           </motion.div>
         </div>
 
