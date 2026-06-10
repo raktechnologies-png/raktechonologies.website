@@ -89,7 +89,7 @@ export default function RootLayout({
     <html lang="en" className={`${dmSans.variable} ${jakarta.variable}`} suppressHydrationWarning>
       <head>
         {/* Anti-FOUC: apply saved theme before React hydrates */}
-        <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem('rak-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}` }} />
+        <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem('rak-theme');if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}` }} />
       </head>
       <body className="min-h-screen antialiased" suppressHydrationWarning>
         <ThemeProvider>
