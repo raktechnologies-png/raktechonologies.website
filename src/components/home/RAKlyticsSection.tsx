@@ -73,7 +73,7 @@ export default function RAKlyticsSection() {
                   Explore Analytics →
                 </LiquidButton>
                 <a
-                  href="/contact"
+                  href="/#contact"
                   className="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200 w-full sm:w-auto"
                 >
                   Request a Demo

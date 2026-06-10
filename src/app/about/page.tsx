@@ -7,6 +7,7 @@ import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PebbleGrid from "@/components/ui/PebbleGrid";
 import LiquidButton from "@/components/ui/LiquidButton";
+import WhyUsSection from "@/components/home/WhyUsSection";
 
 const values = [
   {
@@ -224,6 +225,9 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Why RAK Technologies */}
+      <WhyUsSection />
+
       {/* CTA */}
       <section className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
@@ -240,7 +244,7 @@ export default function AboutPage() {
                 Let&apos;s discuss your project and show you what thoughtful technology consulting looks like.
               </p>
               <div className="flex justify-center">
-                <LiquidButton href="/contact">
+                <LiquidButton href="/#contact">
                   Request a Solution →
                 </LiquidButton>
               </div>

@@ -169,7 +169,7 @@ export default function RecentProjects() {
             <p className="text-slate-400 dark:text-slate-500 text-sm">
               More client projects coming soon.
             </p>
-            <LiquidButton href="/contact">Start Your Project →</LiquidButton>
+            <LiquidButton href="/#contact">Start Your Project →</LiquidButton>
           </div>
         </ScrollReveal>
 

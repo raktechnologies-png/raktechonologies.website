@@ -15,16 +15,14 @@ const services = [
     id: "web",
     number: "01",
     title: "Web Development",
-    subtitle: "Websites and web apps that grow your business.",
+    subtitle: "Modern, fast, responsive websites built to perform.",
     description:
-      "Your website is often the first thing a potential client sees. We build business websites, e-commerce stores, booking platforms, and web apps that look great, load fast, and turn visitors into paying customers.",
+      "Modern, fast, responsive websites built with React and Tailwind CSS. From highly polished landing pages to robust multi-tier web applications — designed to look great, load instantly, and turn visitors into paying customers.",
     outcomes: [
-      "Business websites and landing pages",
-      "Online stores and e-commerce platforms",
-      "Booking and reservation systems",
-      "Client and customer portals",
-      "Web apps and admin dashboards",
-      "Website redesigns and speed improvements",
+      "Custom Design",
+      "Mobile-First Execution",
+      "SEO Optimised",
+      "Lightning Fast Core Web Vitals",
     ],
     problems: [
       "Our website looks outdated and we're losing clients because of it",
@@ -32,23 +30,49 @@ const services = [
       "We need a booking or appointment system on our site",
       "We're starting from scratch and need someone to build it",
     ],
+    pricePrefix: "From",
+    price: "R7,500",
+    priceNote: "Starter websites & landing pages",
     accent: "#4F46E5",
     accentLight: "#EEF2FF",
   },
   {
-    id: "software",
+    id: "crm",
     number: "02",
-    title: "Software Systems",
-    subtitle: "Custom software built the way your business works.",
+    title: "CRM & Internal Hubs",
+    subtitle: "Your entire business operation, in one interface.",
     description:
-      "Generic tools rarely fit the way your business actually operates. We build custom software — from internal tools to full platforms — so your team has exactly what they need, without the workarounds.",
+      "Purpose-built central management platforms designed to seamlessly control your customer flows, project tasks, automated invoicing, and business pipelines — completely in one interface.",
     outcomes: [
-      "Custom internal tools and dashboards",
-      "Stock and inventory management systems",
-      "CRM and customer management tools",
-      "SaaS platforms and subscription products",
-      "Old system upgrades and rebuilds",
-      "Connecting your apps and third-party services",
+      "Client Management Database",
+      "Direct Mobile Quote & Invoicing",
+      "Real-Time Project Tracking",
+      "Advanced Analytics & Operations Reports",
+    ],
+    problems: [
+      "Our sales team spends hours manually sending quotes and following up",
+      "We have no central system to track client projects and deadlines",
+      "We use five different tools that don't talk to each other",
+      "We can't see a clear overview of our business pipeline",
+    ],
+    pricePrefix: "From",
+    price: "R25,000",
+    priceNote: "Full business hub & CRM",
+    accent: "#0284C7",
+    accentLight: "#E0F2FE",
+  },
+  {
+    id: "software",
+    number: "03",
+    title: "Software Development",
+    subtitle: "Custom software architecture built for your workflows.",
+    description:
+      "Custom software architecture designed to fit your unique operational workflows. From internal administrative tools and data dashboards to full-stack systems — built from scratch so your team has exactly what they need.",
+    outcomes: [
+      "Custom Enterprise Applications",
+      "API Development & Architecture",
+      "Legacy System Integration",
+      "Highly Scalable Infrastructure",
     ],
     problems: [
       "We use too many tools that don't talk to each other",
@@ -56,89 +80,20 @@ const services = [
       "We want to build a software product but have no developers",
       "Our old system is slowing us down and needs replacing",
     ],
+    pricePrefix: null,
+    price: "Custom",
+    priceNote: "Scoped to your project",
     accent: "#7C3AED",
     accentLight: "#F5F3FF",
-  },
-  {
-    id: "data",
-    number: "03",
-    title: "Data & Analytics",
-    subtitle: "Make sense of your data and act on it faster.",
-    description:
-      "Your business generates data every day — but most of it just sits there. We build dashboards, reports, and analytics tools that show you exactly how your business is doing so you can make better decisions, faster.",
-    outcomes: [
-      "Live dashboards and reporting tools",
-      "Automated financial and business reports",
-      "Sales and performance tracking",
-      "Forecasting and trend analysis",
-      "Connecting data from multiple systems",
-      "Custom KPI and metrics monitoring",
-    ],
-    problems: [
-      "We have lots of data but no idea what it means",
-      "Our team spends hours every week doing manual reports",
-      "We can't see the full picture of how our business is doing",
-      "We need to track and measure our sales and performance",
-    ],
-    accent: "#0284C7",
-    accentLight: "#E0F2FE",
-  },
-  {
-    id: "automation",
-    number: "04",
-    title: "Automation & AI",
-    subtitle: "Cut the repetitive work. Let technology do it for you.",
-    description:
-      "If your team is spending hours on tasks that could be automated — data entry, sending reports, processing documents, responding to the same questions — we can fix that. We also add AI features that make your products and services smarter.",
-    outcomes: [
-      "Automated data entry and processing",
-      "AI chatbots and customer service tools",
-      "Automatic report generation and sending",
-      "AI-powered document reading and sorting",
-      "Workflow and approval automation",
-      "Smart connections between your systems",
-    ],
-    problems: [
-      "My team wastes hours every day on things a computer should do",
-      "We want to add a chatbot or AI feature to our product",
-      "Our customer support team is overwhelmed with the same questions",
-      "We do the same report manually every week",
-    ],
-    accent: "#9333EA",
-    accentLight: "#FAF5FF",
-  },
-  {
-    id: "consulting",
-    number: "05",
-    title: "IT Consulting",
-    subtitle: "Honest advice before you spend on technology.",
-    description:
-      "Not sure what technology to choose, whether your current systems are working, or how to plan your next move? We sit down with you, understand your business, and give you a clear and honest recommendation — before you commit to anything.",
-    outcomes: [
-      "Tech advice for startups and growing businesses",
-      "Choosing the right tools and platforms",
-      "Moving to better cloud or hosting infrastructure",
-      "Reviewing and auditing existing systems",
-      "Planning your technology roadmap",
-      "Help selecting and evaluating software vendors",
-    ],
-    problems: [
-      "We don't know which technology to use for our project",
-      "We want someone to honestly review what we already have",
-      "We're growing and need a plan for our technology",
-      "We got burned before and want expert guidance this time",
-    ],
-    accent: "#059669",
-    accentLight: "#ECFDF5",
   },
 ];
 
 // ── How we work data ───────────────────────────────────────────────────────────
 const caseTypes = [
-  { title: "Greenfield Build",              description: "You have an idea and need a technical team to bring it to life from scratch. We architect, design, build, and launch.", icon: "◎", accent: "#4F46E5", bg: "#EEF2FF" },
-  { title: "System Modernisation",          description: "You have a legacy system that's slowing you down. We audit, plan, and execute the migration to a modern architecture.", icon: "◈", accent: "#7C3AED", bg: "#F5F3FF" },
-  { title: "Scaling Existing Systems",      description: "Your system works but can't handle growth. We identify bottlenecks, redesign for scale, and implement without disruption.", icon: "◉", accent: "#0284C7", bg: "#E0F2FE" },
-  { title: "Automation of Manual Processes",description: "You have expensive, error-prone manual workflows. We map them, design the automation, and implement RPA or AI solutions.", icon: "◎", accent: "#059669", bg: "#ECFDF5" },
+  { title: "Build from Scratch",     description: "You have an idea and need a technical team to bring it to life. We architect, design, build, and launch from the ground up.", icon: "◎", accent: "#4F46E5", bg: "#EEF2FF" },
+  { title: "System Modernisation",   description: "You have a legacy system slowing you down. We audit, plan, and execute the migration to a modern, high-performance architecture.", icon: "◈", accent: "#7C3AED", bg: "#F5F3FF" },
+  { title: "Scale What You Have",    description: "Your system works but can't handle growth. We identify bottlenecks, redesign for scale, and implement without disrupting your operations.", icon: "◉", accent: "#0284C7", bg: "#E0F2FE" },
+  { title: "Replace Manual Work",    description: "Your team is spending hours on repetitive tasks. We map your workflows, automate the bottlenecks, and wire it into your existing systems.", icon: "◎", accent: "#059669", bg: "#ECFDF5" },
 ];
 
 const phases = [
@@ -208,15 +163,15 @@ export default function SolutionsPage() {
                 className="font-display text-slate-900 dark:text-slate-100 mb-6"
                 style={{ fontSize: "clamp(2.4rem, 5.5vw, 5rem)", fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.04em" }}
               >
-                Technology solutions,{" "}
-                <span className="gradient-text">built to solve.</span>
+                What we build,{" "}
+                <span className="gradient-text">and how we build it.</span>
               </h1>
               <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed max-w-lg mb-8" style={{ letterSpacing: "-0.01em" }}>
-                Every service we offer is centred on outcomes — not deliverables. We measure success
-                by the problems we solve, the systems we ship, and the impact we create.
+                Three focused service areas — websites, custom software, and CRM systems — delivered
+                with modern technology, full ownership, and zero vendor lock-in.
               </p>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <LiquidButton href="/contact">Start a Project →</LiquidButton>
+                <LiquidButton href="/#contact">Start a Project →</LiquidButton>
                 <a
                   href="#how-we-work"
                   className="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200"
@@ -291,7 +246,22 @@ export default function SolutionsPage() {
                       </h2>
                       <p className="text-sm font-600" style={{ color: svc.accent }}>{svc.subtitle}</p>
                       <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mt-1">{svc.description}</p>
-                      <LiquidButton href="/contact" className="mt-4">Get Started →</LiquidButton>
+
+                      {/* Price */}
+                      <div className="flex items-baseline gap-1.5 mt-3">
+                        {svc.pricePrefix && (
+                          <span className="text-slate-400 dark:text-slate-500 text-xs font-500">{svc.pricePrefix}</span>
+                        )}
+                        <span
+                          className="font-display font-800 leading-none tracking-tight"
+                          style={{ fontSize: "clamp(1.4rem, 2vw, 1.8rem)", color: svc.accent }}
+                        >
+                          {svc.price}
+                        </span>
+                      </div>
+                      <p className="text-slate-400 dark:text-slate-500 text-xs mb-1">{svc.priceNote}</p>
+
+                      <LiquidButton href="/#contact" className="mt-3">Get Started →</LiquidButton>
                     </div>
 
                     {/* Right */}
@@ -326,6 +296,38 @@ export default function SolutionsPage() {
         </div>
       </section>
 
+      {/* ══ IT CONSULTING CALLOUT ════════════════════════════════════════════ */}
+      <section className="pb-6 relative bg-slate-50 dark:bg-slate-900/50">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <ScrollReveal>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl px-6 py-5 shadow-sm">
+              <div className="flex items-start gap-4">
+                <span className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-900 flex items-center justify-center shrink-0 text-indigo-500 dark:text-indigo-400">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2a10 10 0 1 0 10 10" /><path d="M12 6v6l4 2" /><path d="M18 2v4h4" />
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-slate-800 dark:text-slate-200 text-sm font-600">
+                    We also offer IT Consulting &amp; Advisory
+                  </p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm mt-0.5 max-w-lg">
+                    Need a technology audit, a migration strategy, or just expert guidance on what to build?
+                    If you want something custom — reach out and let&apos;s talk.
+                  </p>
+                </div>
+              </div>
+              <a
+                href="/#contact"
+                className="shrink-0 text-sm font-600 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors whitespace-nowrap"
+              >
+                Let&apos;s Talk →
+              </a>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* ══ HOW WE WORK — CASE TYPES ═════════════════════════════════════════ */}
       <section id="how-we-work" className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
@@ -339,13 +341,13 @@ export default function SolutionsPage() {
               className="font-display text-slate-900 dark:text-slate-100"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
-              The challenges{" "}
-              <span className="gradient-text">we take on.</span>
+              Every situation{" "}
+              <span className="gradient-text">we handle.</span>
             </AnimatedHeading>
             <ScrollReveal delay={0.15}>
               <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-4 max-w-2xl">
-                Great technology solutions don&apos;t happen by accident. They come from a structured,
-                collaborative process that keeps your business goals at the centre of every decision.
+                Whether you&apos;re starting from zero, modernising a legacy system, or replacing hours
+                of manual work — we&apos;ve built the process to handle it cleanly and deliver on time.
               </p>
             </ScrollReveal>
           </div>
@@ -460,7 +462,7 @@ export default function SolutionsPage() {
               Submit your project request and we&apos;ll respond with a tailored technical approach within 24 hours.
             </p>
             <div className="flex justify-center">
-              <LiquidButton href="/contact">Request a Solution →</LiquidButton>
+              <LiquidButton href="/#contact">Request a Solution →</LiquidButton>
             </div>
           </ScrollReveal>
         </div>

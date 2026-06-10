@@ -13,8 +13,8 @@ const pillars = [
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
       </svg>
     ),
-    title: "Scalable Architecture",
-    description: "We architect systems that grow with your business — no costly rewrites as you scale.",
+    title: "Modern Tech",
+    description: "We use the latest high-performance frameworks and tools — no outdated, slow, or bloated templates.",
   },
   {
     icon: (
@@ -23,8 +23,8 @@ const pillars = [
         <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
       </svg>
     ),
-    title: "End-to-End Delivery",
-    description: "From requirement gathering to deployment and beyond — one team owns your entire project.",
+    title: "Partner, Not Vendor",
+    description: "We work integrated alongside your business workflow, not just for you. Your business goals guide our infrastructure.",
   },
   {
     icon: (
@@ -33,8 +33,8 @@ const pillars = [
         <path d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z" />
       </svg>
     ),
-    title: "Proven Outcomes",
-    description: "We measure success by the impact we create — not just the code we ship.",
+    title: "You Own Everything",
+    description: "Full source code access, secure direct database configurations, and absolute project ownership with zero vendor lock-in.",
   },
   {
     icon: (
@@ -42,8 +42,8 @@ const pillars = [
         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
       </svg>
     ),
-    title: "Rapid Delivery",
-    description: "Agile methodologies and tight feedback loops mean faster launches without compromised quality.",
+    title: "Built to Scale",
+    description: "Every architecture layer is optimized to grow with your business — agile methodologies and tight feedback loops ensure faster launches, never holding you back.",
   },
 ];
 
@@ -96,7 +96,7 @@ export default function TrustSection() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.4}>
-              <LiquidButton href="/contact">
+              <LiquidButton href="/#contact">
                 Start Your Project →
               </LiquidButton>
             </ScrollReveal>

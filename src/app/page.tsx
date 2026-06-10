@@ -30,19 +30,17 @@ export const metadata: Metadata = {
 import TrustSection from "@/components/home/TrustSection";
 import ServicesOverview from "@/components/home/ServicesOverview";
 import RAKlyticsSection from "@/components/home/RAKlyticsSection";
-import WhyUsSection from "@/components/home/WhyUsSection";
 import RecentProjects from "@/components/home/RecentProjects";
-import CTABanner from "@/components/home/CTABanner";
+import HomeContactSection from "@/components/home/HomeContactSection";
 import SectionNav from "@/components/ui/SectionNav";
 
 const sections = [
   { id: "hero",      label: "Home" },
   { id: "trust",     label: "About" },
-  { id: "services",  label: "Solutions" },
+  { id: "services",  label: "Services" },
   { id: "raklytics", label: "Analytics" },
-  { id: "why-us",    label: "Why Us" },
   { id: "projects",  label: "Projects" },
-  { id: "cta",       label: "Contact" },
+  { id: "contact",   label: "Contact" },
 ];
 
 export default function HomePage() {
@@ -54,9 +52,8 @@ export default function HomePage() {
       <div id="trust"><TrustSection /></div>
       <div id="services"><ServicesOverview /></div>
       <div id="raklytics"><RAKlyticsSection /></div>
-      <div id="why-us"><WhyUsSection /></div>
       <div id="projects"><RecentProjects /></div>
-      <div id="cta"><CTABanner /></div>
+      <div id="contact"><HomeContactSection /></div>
     </>
   );
 }

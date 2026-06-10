@@ -142,7 +142,7 @@ export default function WhyUsSection() {
 
         <ScrollReveal delay={0.15}>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <LiquidButton href="/contact">
+            <LiquidButton href="/#contact">
               Work With Us →
             </LiquidButton>
             <a

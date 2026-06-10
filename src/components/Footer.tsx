@@ -38,22 +38,22 @@ interface FooterLink {
 
 const footerLinks: Record<string, FooterLink[]> = {
   Company: [
-    { label: "About Us",   href: "/about" },
-    { label: "Solutions",  href: "/solutions" },
-    { label: "Analytics",  href: "/analytics" },
-    { label: "Contact",    href: "/contact" },
+    { label: "About Us",    href: "/about" },
+    { label: "Solutions",   href: "/solutions" },
+    { label: "RAKlytics™",  href: "/analytics" },
+    { label: "Pricing",     href: "/#services" },
+    { label: "Contact",     href: "/#contact" },
   ],
-  Solutions: [
-    { label: "Web Development",   href: "/solutions#web" },
-    { label: "Software Systems",  href: "/solutions#software" },
-    { label: "Data & Analytics",  href: "/solutions#data" },
-    { label: "Automation & AI",   href: "/solutions#automation" },
-    { label: "IT Consulting",     href: "/solutions#consulting" },
+  Services: [
+    { label: "Web Development",     href: "/solutions#web" },
+    { label: "Software Development", href: "/solutions#software" },
+    { label: "CRM Systems",         href: "/solutions#crm" },
+    { label: "RAKlytics™ Analytics", href: "/analytics" },
   ],
   Connect: [
-    { label: "Request a Solution",        href: "/contact",                        icon: <ArrowIcon /> },
+    { label: "Request a Solution",        href: "/#contact",                        icon: <ArrowIcon /> },
     { label: "info@raktechnologies.co.za", href: "mailto:info@raktechnologies.co.za", external: true, icon: <EmailIcon /> },
-    { label: "WhatsApp",                  href: "https://wa.link/d8eib5",          external: true, icon: <WhatsAppIcon /> },
+    { label: "WhatsApp",                  href: "https://wa.link/d8eib5",           external: true, icon: <WhatsAppIcon /> },
   ],
 };
 

@@ -6,12 +6,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { EASE } from "@/lib/motion";
 import ThemeToggle from "@/components/ui/ThemeToggle";
+import { useSEOAudit } from "@/context/SEOAuditContext";
 
 const navLinks: { label: string; href: string; branded?: boolean }[] = [
   { label: "About",     href: "/about" },
   { label: "Solutions", href: "/solutions" },
   { label: "Analytics", href: "/analytics", branded: true },
-  { label: "Contact",   href: "/contact" },
+  { label: "Contact",   href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -19,6 +20,7 @@ export default function Navbar() {
   const [menuOpen,  setMenuOpen]  = useState(false);
   const [mounted,   setMounted]   = useState(false);
   const pathname  = usePathname();
+  const { open: openAudit } = useSEOAudit();
 
   useEffect(() => { setMounted(true); }, []);
 
@@ -114,13 +116,13 @@ export default function Navbar() {
           {/* CTA + Toggle + Burger */}
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Link
-              href="/contact"
-              className="hidden md:flex items-center gap-2 text-sm font-500 px-5 py-2.5 rounded-xl text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-md active:scale-[0.97] shadow-sm"
+            <button
+              onClick={openAudit}
+              className="hidden md:flex items-center gap-2 text-sm font-500 px-5 py-2.5 rounded-xl text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-md active:scale-[0.97] shadow-sm cursor-pointer"
               style={{ background: "linear-gradient(135deg, #4F46E5, #7C3AED)" }}
             >
-              Request a Solution
-            </Link>
+              Free SEO Audit
+            </button>
 
             {/* Burger */}
             <button
@@ -190,7 +192,7 @@ export default function Navbar() {
                   >
                     <span
                       className={`font-display font-800 leading-tight tracking-tight transition-all duration-300 ${
-                        link.branded || link.href === "/contact"
+                        link.branded || link.href === "/#contact"
                           ? "gradient-text"
                           : "text-slate-800 dark:text-slate-100 group-hover:gradient-text"
                       }`}
@@ -216,13 +218,13 @@ export default function Navbar() {
                 transition={{ delay: 0.42, duration: 0.45 }}
                 className="mt-8 flex flex-col gap-4"
               >
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center text-white font-600 px-8 py-4 rounded-xl text-base shadow-md w-full sm:w-auto sm:self-start"
+                <button
+                  onClick={() => { setMenuOpen(false); openAudit(); }}
+                  className="inline-flex items-center justify-center text-white font-600 px-8 py-4 rounded-xl text-base shadow-md w-full sm:w-auto sm:self-start cursor-pointer"
                   style={{ background: "linear-gradient(135deg, #4F46E5, #7C3AED)" }}
                 >
-                  Request a Solution
-                </Link>
+                  Free SEO Audit
+                </button>
                 <div className="flex flex-wrap items-center gap-3 text-slate-400 text-[13px]">
                   <a href="mailto:info@raktechnologies.co.za" className="hover:text-indigo-500 transition-colors duration-200 truncate">
                     info@raktechnologies.co.za

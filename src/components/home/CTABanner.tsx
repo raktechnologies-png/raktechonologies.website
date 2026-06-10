@@ -70,7 +70,7 @@ export default function CTABanner() {
 
               {/* Right */}
               <div className="flex flex-col gap-4 items-center md:items-end shrink-0">
-                <LiquidButton href="/contact" dark>
+                <LiquidButton href="/#contact" dark>
                   Request a Solution →
                 </LiquidButton>
                 <a

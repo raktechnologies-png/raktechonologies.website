@@ -9,6 +9,7 @@ import CustomCursor from "@/components/ui/CustomCursor";
 import PageLoader from "@/components/ui/PageLoader";
 import CookieConsent from "@/components/ui/CookieConsent";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { SEOAuditProvider } from "@/context/SEOAuditContext";
 import "./globals.css";
 
 // Plus Jakarta Sans → body copy
@@ -93,6 +94,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen antialiased" suppressHydrationWarning>
         <ThemeProvider>
+        <SEOAuditProvider>
         {/* GTM noscript fallback — must be first child of body */}
         <noscript>
           <iframe
@@ -191,6 +193,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','${GTM_ID}');`}
         </Script>
+        </SEOAuditProvider>
         </ThemeProvider>
       </body>
     </html>

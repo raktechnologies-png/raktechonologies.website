@@ -342,7 +342,7 @@ export default function RaklyticsPage() {
                 transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
                 className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto"
               >
-                <LiquidButton href="/contact" className="w-full sm:w-auto justify-center">
+                <LiquidButton href="/#contact" className="w-full sm:w-auto justify-center">
                   Request a Demo →
                 </LiquidButton>
                 <a
@@ -782,9 +782,9 @@ export default function RaklyticsPage() {
               transform the way your organisation tracks, engages, and reports on student outcomes.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <LiquidButton href="/contact">Request a Demo →</LiquidButton>
+              <LiquidButton href="/#contact">Request a Demo →</LiquidButton>
               <a
-                href="/contact"
+                href="/#contact"
                 className="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 dark:hover:border-slate-600 hover:bg-white dark:hover:bg-slate-800 transition-all duration-200"
               >
                 Speak With Us

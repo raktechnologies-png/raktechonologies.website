@@ -4,15 +4,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const solutionTypes = [
-  "RAKlytics™ System",
   "Web Development",
-  "Custom Software System",
-  "Data & Analytics",
-  "Automation & AI",
+  "CRM System",
+  "Software Development",
+  "RAKlytics™ Analytics System",
   "IT Consulting / Advisory",
-  "System Modernisation / Migration",
-  "Mobile Application",
-  "API Development & Integration",
   "Other / Not Sure Yet",
 ];
 
