@@ -186,13 +186,37 @@ export default function Navbar() {
                   exit={{ opacity: 0, x: 32 }}
                   transition={{ delay: 0.06 + i * 0.07, duration: 0.48, ease: EASE }}
                 >
+                  {link.href === "/#contact" ? (
+                    <button
+                      onClick={() => {
+                        setMenuOpen(false);
+                        const el = document.getElementById("contact");
+                        if (el) {
+                          setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 120);
+                        } else {
+                          window.location.href = "/#contact";
+                        }
+                      }}
+                      className="group flex items-baseline justify-between py-4 border-b border-slate-50 dark:border-slate-800 hover:border-indigo-100 dark:hover:border-indigo-900 transition-colors duration-200 w-full text-left"
+                    >
+                      <span
+                        className="gradient-text font-display font-800 leading-tight tracking-tight"
+                        style={{ fontSize: "clamp(1.75rem, 9vw, 3.25rem)" }}
+                      >
+                        {link.label}
+                      </span>
+                      <span className="text-slate-200 dark:text-slate-700 group-hover:text-indigo-400 text-2xl ml-4 transition-all duration-200 group-hover:translate-x-1.5">
+                        →
+                      </span>
+                    </button>
+                  ) : (
                   <Link
                     href={link.href}
                     className="group flex items-baseline justify-between py-4 border-b border-slate-50 dark:border-slate-800 hover:border-indigo-100 dark:hover:border-indigo-900 transition-colors duration-200"
                   >
                     <span
                       className={`font-display font-800 leading-tight tracking-tight transition-all duration-300 ${
-                        link.branded || link.href === "/#contact"
+                        link.branded
                           ? "gradient-text"
                           : "text-slate-800 dark:text-slate-100 group-hover:gradient-text"
                       }`}
@@ -208,6 +232,7 @@ export default function Navbar() {
                       →
                     </span>
                   </Link>
+                  )}
                 </motion.div>
               ))}
 
