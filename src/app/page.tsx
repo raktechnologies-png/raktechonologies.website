@@ -2,28 +2,47 @@ import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
 
 export const metadata: Metadata = {
-  title: "RAK Technologies — Software Development & IT Consulting South Africa",
+  title: "RAK Technologies — Website & Software Development Pretoria | South Africa",
   description:
-    "RAK Technologies builds custom software, AI integrations, web applications, and data analytics platforms for businesses in South Africa. Based in Pretoria. If it's tech, trust us — we can build it.",
+    "RAK Technologies builds websites from R4,500, custom software, CRM systems, and AI automation for businesses in Pretoria, Johannesburg, Centurion, and across South Africa. If it's tech, trust us — we can build it.",
   keywords: [
-    "software development company South Africa",
-    "IT consulting South Africa",
-    "AI integration South Africa",
-    "software companies in South Africa",
-    "custom software development Pretoria",
-    "web development South Africa",
-    "data analytics South Africa",
-    "tech company South Africa",
-    "digital transformation South Africa",
-    "business automation South Africa",
+    // Hyperlocal intent
+    "website development Pretoria",
+    "web design Pretoria",
+    "website design Pretoria",
+    "IT company Pretoria",
     "software development Pretoria",
+    "tech company Pretoria",
+    "IT consulting Pretoria",
+    "website development Centurion",
+    "website development Midrand",
+    "website development Sandton",
+    "website development Johannesburg",
+    "web design Centurion",
+    "IT company Gauteng",
+    "software company Tshwane",
+    // Services
+    "affordable website South Africa",
+    "small business website Pretoria",
+    "WhatsApp automation South Africa",
+    "CRM development South Africa",
+    "custom software development South Africa",
+    "AI integration South Africa",
+    "business automation South Africa",
+    "e-commerce website South Africa",
+    "app development Pretoria",
+    // Brand
+    "RAK Technologies",
+    "RAK Technologies Pretoria",
+    "software companies in South Africa",
     "IT solutions South Africa",
+    "digital transformation South Africa",
   ],
   alternates: { canonical: "/" },
   openGraph: {
-    title: "RAK Technologies — Software Development & IT Consulting South Africa",
+    title: "RAK Technologies — Website & Software Development Pretoria | South Africa",
     description:
-      "Custom software, AI integrations, web apps, and data platforms for South African businesses. Based in Pretoria. If it's tech, trust us — we can build it.",
+      "Websites from R4,500, custom software, CRM systems & AI automation for SA businesses. Based in Pretoria. Serving Johannesburg, Centurion, Sandton & beyond.",
     url: "https://raktechnologies.co.za",
   },
 };

@@ -2,20 +2,35 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Solutions — Custom Software & AI Development in South Africa",
+  title: "Solutions — Website & Software Development Pretoria | South Africa",
   description:
-    "RAK Technologies builds custom web applications, enterprise software systems, AI integrations, data analytics platforms, and automation solutions for businesses in South Africa. Get a tailored tech solution today.",
+    "RAK Technologies builds affordable websites from R4,500, custom software, CRM systems, and WhatsApp automation for businesses in Pretoria, Johannesburg, Centurion, and across South Africa. Request a free quote.",
   keywords: [
+    "website development Pretoria",
+    "web design Pretoria",
+    "affordable website Pretoria",
+    "small business website Pretoria",
+    "website design Centurion",
+    "website development Johannesburg",
+    "website development Sandton",
+    "website development Midrand",
+    "web design Gauteng",
     "custom software development South Africa",
-    "web development company South Africa",
-    "AI integration South Africa",
-    "data analytics solutions South Africa",
+    "CRM development South Africa",
+    "CRM system Pretoria",
+    "WhatsApp automation South Africa",
+    "WhatsApp Business API South Africa",
     "business automation South Africa",
-    "IT solutions Pretoria",
-    "enterprise software development South Africa",
-    "software development services South Africa",
-    "digital transformation company South Africa",
+    "AI integration South Africa",
+    "web development company South Africa",
+    "affordable website South Africa",
+    "e-commerce website South Africa",
+    "app development Pretoria",
+    "website R4500",
+    "cheap website development South Africa",
+    "affordable web design Pretoria",
     "React developer South Africa",
+    "Next.js development South Africa",
     "Node.js development South Africa",
     "Python development South Africa",
     "cloud solutions South Africa",
@@ -23,11 +38,89 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/solutions" },
   openGraph: {
-    title: "Solutions — Custom Software & AI Development | RAK Technologies South Africa",
+    title: "Solutions — Website & Software Development Pretoria | RAK Technologies",
     description:
-      "Custom web apps, AI integrations, data analytics, and automation solutions built for South African businesses. End-to-end software development from Pretoria.",
+      "Websites from R4,500, CRM systems, WhatsApp automation & custom software for SA businesses. Based in Pretoria. Serving Johannesburg, Centurion, Sandton & Midrand.",
     url: "https://raktechnologies.co.za/solutions",
   },
+};
+
+const orgRef = { "@id": "https://raktechnologies.co.za/#organization" };
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://raktechnologies.co.za/solutions#starter-website",
+      name: "Starter Website",
+      description:
+        "A professional, mobile-optimised business website starting from R4,500. Includes up to 5 pages, contact form, Google Maps integration, and basic SEO setup. Ideal for small businesses in Pretoria and across South Africa.",
+      provider: orgRef,
+      areaServed: [
+        { "@type": "City", name: "Pretoria" },
+        { "@type": "City", name: "Centurion" },
+        { "@type": "City", name: "Johannesburg" },
+        { "@type": "State", name: "Gauteng" },
+        { "@type": "Country", name: "South Africa" },
+      ],
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "ZAR",
+        price: "4500",
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          minPrice: "4500",
+          priceCurrency: "ZAR",
+        },
+        eligibleRegion: { "@type": "Country", name: "South Africa" },
+      },
+      serviceType: "Website Development",
+      url: "https://raktechnologies.co.za/solutions",
+    },
+    {
+      "@type": "Service",
+      "@id": "https://raktechnologies.co.za/solutions#business-hub",
+      name: "Business Hub",
+      description:
+        "Full-stack web application with CRM, WhatsApp automation, client portal, lead management, and custom integrations. Built for growing South African businesses ready to scale their operations.",
+      provider: orgRef,
+      areaServed: { "@type": "Country", name: "South Africa" },
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "ZAR",
+        price: "15000",
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          minPrice: "15000",
+          priceCurrency: "ZAR",
+        },
+        eligibleRegion: { "@type": "Country", name: "South Africa" },
+      },
+      serviceType: "Custom Software Development",
+      url: "https://raktechnologies.co.za/solutions",
+    },
+    {
+      "@type": "Service",
+      "@id": "https://raktechnologies.co.za/solutions#custom-build",
+      name: "Custom Build",
+      description:
+        "End-to-end custom software development for enterprises and scale-ups. AI integrations, data analytics platforms, mobile apps, microservices, and bespoke digital transformation solutions for South African businesses.",
+      provider: orgRef,
+      areaServed: { "@type": "Country", name: "South Africa" },
+      serviceType: "Enterprise Software Development",
+      url: "https://raktechnologies.co.za/solutions",
+    },
+  ],
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://raktechnologies.co.za" },
+    { "@type": "ListItem", position: 2, name: "Solutions", item: "https://raktechnologies.co.za/solutions" },
+  ],
 };
 
 const faqSchema = {
@@ -36,18 +129,34 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "How much does custom software development cost in South Africa?",
+      name: "How much does a website cost in South Africa?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Custom software development costs in South Africa vary depending on the complexity, scope, and timeline of the project. RAK Technologies provides tailored proposals after an initial consultation — there is no fixed pricing as every project is unique. Contact us to request a free proposal.",
+        text: "RAK Technologies offers professional business websites starting from R4,500. This includes a mobile-optimised, multi-page website with contact form, Google Maps, and basic SEO. Larger projects like CRM systems and custom platforms start from R15,000. Contact us for a free quote tailored to your needs.",
       },
     },
     {
       "@type": "Question",
-      name: "How long does it take to build a custom software solution?",
+      name: "How much does custom software development cost in South Africa?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Timelines depend on the scope of the project. RAK Technologies follows a structured 6-phase process: Discovery (Week 1), Architecture (Week 1–2), Aligned Proposal (Week 2), Agile Build (sprint-based), Launch (final sprint), and Ongoing Support. Simple projects can launch in 4–6 weeks, while larger enterprise systems may take 3–6 months.",
+        text: "Custom software development costs in South Africa vary depending on the complexity, scope, and timeline. RAK Technologies provides tailored proposals after an initial consultation. Simple web applications start from R15,000. Contact us to request a free proposal.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long does it take to build a website in Pretoria?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A standard business website can be delivered in as little as 5–10 business days. Larger projects with custom functionality, CRM integration, or e-commerce features typically take 3–6 weeks. RAK Technologies is based in Pretoria and serves clients across Gauteng and South Africa.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does RAK Technologies set up WhatsApp automation for businesses?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. RAK Technologies builds WhatsApp Business API integrations that automate lead capture, customer replies, order confirmations, appointment reminders, and follow-ups — all without manual effort. This is especially popular with South African SMEs looking to reduce response time and convert more leads.",
       },
     },
     {
@@ -76,18 +185,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Do you provide ongoing support after the software is launched?",
+      name: "Is RAK Technologies based in Pretoria?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. RAK Technologies provides ongoing support, maintenance, performance monitoring, and iterative improvements after launch. We treat every client engagement as a long-term partnership, not a once-off project.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is RAK Technologies based in South Africa?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. RAK Technologies is a South African software development and IT consulting company headquartered in Pretoria, Gauteng. We serve clients across South Africa and beyond.",
+        text: "Yes. RAK Technologies is a South African software development and IT consulting company headquartered in Pretoria, Gauteng. We serve clients across Pretoria, Centurion, Johannesburg, Sandton, Midrand, and beyond.",
       },
     },
   ],
@@ -97,10 +198,9 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       {children}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     </>
   );
 }
