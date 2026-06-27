@@ -20,10 +20,9 @@ const projects = [
     status: "Live",
   },
   {
-    hidden:     true,
     client:     "SonKhoz Advisory",
-    url:        "",
-    displayUrl: "",
+    url:        "https://www.sonkhoz.co.za",
+    displayUrl: "www.sonkhoz.co.za",
     industry:   "Financial Advisory",
     location:   "Sandton, Johannesburg",
     year:       "2025",
