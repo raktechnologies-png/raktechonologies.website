@@ -29,7 +29,7 @@ const projects = [
     year:       "2025",
     tagline:    "Where Data Meets Strategic Foresight.",
     description:
-      "SonKhoz Advisory is a Sandton-based financial consulting firm delivering institutional-grade financial modelling, business valuation, pricing strategy, and data analytics to start-ups, SMEs, and financial services firms.",
+      "SonKhoz Advisory is a Midrand-based financial consulting firm delivering institutional-grade financial modelling, business valuation, and pricing strategy. We designed and built their full website — giving them a polished digital presence to engage start-ups, SMEs, and financial services firms across South Africa.",
     accent: "#C2A476",
     status: "Live",
   },
