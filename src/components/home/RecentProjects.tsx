@@ -72,7 +72,7 @@ export default function RecentProjects() {
 
         {/* Cards */}
         <div className="grid md:grid-cols-2 gap-5">
-          {projects.filter(p => !p.hidden).map((project, i) => (
+          {projects.map((project, i) => (
             <ScrollReveal key={i} delay={i * 0.08}>
               <motion.div
                 whileHover={{ scale: 1.003 }}
