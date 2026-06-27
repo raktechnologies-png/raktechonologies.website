@@ -21,8 +21,8 @@ const projects = [
   },
   {
     client:     "SonKhoz Advisory",
-    url:        "https://www.sonkhoz.co.za",
-    displayUrl: "www.sonkhoz.co.za",
+    url:        "https://www.sonkhozadivsory.co.za",
+    displayUrl: "www.sonkhozadivsory.co.za",
     industry:   "Financial Advisory",
     location:   "Sandton, Johannesburg",
     year:       "2025",
