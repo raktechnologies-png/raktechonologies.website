@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
@@ -24,7 +25,7 @@ const projects = [
     url:        "https://www.sonkhozadvisory.co.za",
     displayUrl: "www.sonkhozadvisory.co.za",
     industry:   "Financial Advisory",
-    location:   "Sandton, Johannesburg",
+    location:   "Midrand, Johannesburg",
     year:       "2025",
     tagline:    "Where Data Meets Strategic Foresight.",
     description:
@@ -41,6 +42,8 @@ const ArrowUpRight = () => (
 );
 
 export default function RecentProjects() {
+  const [failed, setFailed] = useState<Record<number, boolean>>({});
+
   return (
     <section className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
       <div className="section-divider absolute top-0 inset-x-0" />
@@ -88,13 +91,28 @@ export default function RecentProjects() {
                 {/* Website preview screenshot */}
                 {project.url && (
                   <div className="relative w-full overflow-hidden bg-slate-100 dark:bg-slate-800" style={{ height: "200px" }}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={`/api/screenshot?url=${encodeURIComponent(project.url)}`}
-                      alt={`${project.client} website preview`}
-                      className="w-full h-full object-cover object-top"
-                      style={{ display: "block" }}
-                    />
+                    {failed[i] ? (
+                      <div
+                        className="w-full h-full flex items-center justify-center"
+                        style={{ background: `linear-gradient(135deg, ${project.accent}22, ${project.accent}08)` }}
+                      >
+                        <span
+                          className="font-display font-800 text-2xl"
+                          style={{ color: project.accent, letterSpacing: "-0.02em" }}
+                        >
+                          {project.client}
+                        </span>
+                      </div>
+                    ) : (
+                      /* eslint-disable-next-line @next/next/no-img-element */
+                      <img
+                        src={`/api/screenshot?url=${encodeURIComponent(project.url)}`}
+                        alt={`${project.client} website preview`}
+                        className="w-full h-full object-cover object-top"
+                        style={{ display: "block" }}
+                        onError={() => setFailed((prev) => ({ ...prev, [i]: true }))}
+                      />
+                    )}
                     {/* Fade bottom edge */}
                     <div
                       className="absolute inset-x-0 bottom-0 h-12 pointer-events-none"
