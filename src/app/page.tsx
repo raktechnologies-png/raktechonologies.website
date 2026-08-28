@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 };
 import TrustSection from "@/components/home/TrustSection";
 import ServicesOverview from "@/components/home/ServicesOverview";
-import RAKlyticsSection from "@/components/home/RAKlyticsSection";
+import ActSciSection from "@/components/home/ActSciSection";
 import RecentProjects from "@/components/home/RecentProjects";
 import HomeContactSection from "@/components/home/HomeContactSection";
 import SectionNav from "@/components/ui/SectionNav";
@@ -57,7 +57,7 @@ const sections = [
   { id: "hero",      label: "Home" },
   { id: "trust",     label: "About" },
   { id: "services",  label: "Services" },
-  { id: "raklytics", label: "Analytics" },
+  { id: "actsci",    label: "ActSci AI" },
   { id: "projects",  label: "Projects" },
   { id: "contact",   label: "Contact" },
 ];
@@ -70,7 +70,7 @@ export default function HomePage() {
       <div id="hero"><Hero /></div>
       <div id="trust"><TrustSection /></div>
       <div id="services"><ServicesOverview /></div>
-      <div id="raklytics"><RAKlyticsSection /></div>
+      <div id="actsci"><ActSciSection /></div>
       <div id="projects"><RecentProjects /></div>
       <div id="contact"><HomeContactSection /></div>
     </>

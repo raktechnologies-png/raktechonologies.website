@@ -7,7 +7,7 @@ const solutionTypes = [
   "Web Development",
   "CRM System",
   "Software Development",
-  "RAKlytics™ Analytics System",
+  "ActSci AI-Style Exam Platform",
   "IT Consulting / Advisory",
   "Other / Not Sure Yet",
 ];

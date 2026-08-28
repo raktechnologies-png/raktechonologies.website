@@ -11,7 +11,7 @@ import { useSEOAudit } from "@/context/SEOAuditContext";
 const navLinks: { label: string; href: string; branded?: boolean }[] = [
   { label: "About",     href: "/about" },
   { label: "Solutions", href: "/solutions" },
-  { label: "Analytics", href: "/analytics", branded: true },
+  { label: "ActSci AI", href: "/actsci", branded: true },
   { label: "Contact",   href: "/#contact" },
 ];
 
@@ -96,8 +96,7 @@ export default function Navbar() {
                 >
                   {link.branded ? (
                     <span className="font-display font-700">
-                      RAK<span className="gradient-text">lytics</span>
-                      <sup style={{ fontSize: "0.6em", verticalAlign: "super", lineHeight: 0 }} className="text-slate-400 font-normal ml-[0.04em]">™</sup>
+                      ActSci<sup style={{ fontSize: "0.6em", verticalAlign: "super", lineHeight: 0 }} className="gradient-text ml-[0.04em]">AI</sup>
                     </span>
                   ) : (
                     link.label
@@ -223,7 +222,7 @@ export default function Navbar() {
                       style={{ fontSize: "clamp(1.75rem, 9vw, 3.25rem)" }}
                     >
                       {link.branded ? (
-                        <>RAK<span>lytics</span><sup style={{ fontSize: "0.45em", verticalAlign: "super", lineHeight: 0 }} className="font-normal ml-[0.04em]">™</sup></>
+                        <>ActSci<sup style={{ fontSize: "0.45em", verticalAlign: "super", lineHeight: 0 }} className="font-normal ml-[0.04em]">AI</sup></>
                       ) : (
                         link.label
                       )}

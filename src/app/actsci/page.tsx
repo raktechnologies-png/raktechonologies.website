@@ -9,24 +9,24 @@ import LiquidButton from "@/components/ui/LiquidButton";
 import { EASE } from "@/lib/motion";
 
 // ── Inline brand mark ─────────────────────────────────────────────────────────
-function TM() {
+function AISup() {
   return (
     <sup
       style={{ fontSize: "0.42em", verticalAlign: "super", lineHeight: 0, letterSpacing: 0 }}
-      className="text-slate-400 font-normal ml-[0.05em]"
+      className="gradient-text font-display font-800 ml-[0.05em]"
     >
-      ™
+      AI
     </sup>
   );
 }
 
 // ── Animated dashboard mockup ─────────────────────────────────────────────────
 function DashboardMockup() {
-  const industries = [
-    { label: "Technology", pct: 85, color: "#4F46E5" },
-    { label: "Finance",    pct: 65, color: "#7C3AED" },
-    { label: "Education",  pct: 45, color: "#0284C7" },
-    { label: "Healthcare", pct: 35, color: "#059669" },
+  const topics = [
+    { label: "ALM",           pct: 85, color: "#4F46E5" },
+    { label: "CAPM",          pct: 65, color: "#7C3AED" },
+    { label: "Mortality",     pct: 45, color: "#0284C7" },
+    { label: "Pension Funds", pct: 35, color: "#059669" },
   ];
 
   return (
@@ -41,7 +41,7 @@ function DashboardMockup() {
         }}
       />
 
-      {/* Top card: employment rate */}
+      {/* Top card: AI-marked score */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -50,13 +50,13 @@ function DashboardMockup() {
       >
         <div className="flex items-center justify-between mb-3">
           <p className="text-slate-400 text-[11px] font-600 tracking-[0.14em] uppercase">
-            Graduate Employment Rate
+            AI-Marked Exam Score
           </p>
           <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 font-600 border border-emerald-100 flex items-center gap-1">
             <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <polyline points="18 15 12 9 6 15" />
             </svg>
-            +3.2%
+            +5.2%
           </span>
         </div>
         <div className="flex items-end gap-3 mb-4">
@@ -64,17 +64,17 @@ function DashboardMockup() {
             className="font-display gradient-text leading-none"
             style={{ fontSize: "2.8rem", fontWeight: 900, letterSpacing: "-0.04em" }}
           >
-            87.4<span style={{ fontSize: "0.55em" }}>%</span>
+            78<span style={{ fontSize: "0.55em" }}>%</span>
           </span>
           <div className="flex flex-col gap-0.5 pb-1 text-slate-400" style={{ fontSize: "11px" }}>
-            <span>of 2024 cohort</span>
-            <span>employed within 6mo</span>
+            <span>benchmarked to</span>
+            <span>the official memo</span>
           </div>
         </div>
         <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
-            animate={{ width: "87.4%" }}
+            animate={{ width: "78%" }}
             transition={{ duration: 1.4, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="h-full rounded-full"
             style={{ background: "linear-gradient(90deg, #4F46E5, #7C3AED)" }}
@@ -90,12 +90,12 @@ function DashboardMockup() {
         className="absolute bg-white rounded-xl border border-slate-100 shadow-lg p-4 z-10"
         style={{ top: "42%", left: 0, width: "47%" }}
       >
-        <p className="text-slate-400 font-500 mb-2" style={{ fontSize: "11px" }}>Active Students</p>
+        <p className="text-slate-400 font-500 mb-2" style={{ fontSize: "11px" }}>Exam Questions</p>
         <p
           className="font-display gradient-text"
           style={{ fontSize: "1.75rem", fontWeight: 800, lineHeight: 1, letterSpacing: "-0.03em" }}
         >
-          1,247
+          186
         </p>
       </motion.div>
 
@@ -106,16 +106,16 @@ function DashboardMockup() {
         className="absolute bg-white rounded-xl border border-slate-100 shadow-lg p-4 z-10"
         style={{ top: "42%", right: 0, width: "47%" }}
       >
-        <p className="text-slate-400 font-500 mb-2" style={{ fontSize: "11px" }}>Active Cohorts</p>
+        <p className="text-slate-400 font-500 mb-2" style={{ fontSize: "11px" }}>Notes Indexed</p>
         <p
           className="font-display"
           style={{ fontSize: "1.75rem", fontWeight: 800, lineHeight: 1, letterSpacing: "-0.03em", color: "#7C3AED" }}
         >
-          12
+          500+
         </p>
       </motion.div>
 
-      {/* Bottom: industry chart */}
+      {/* Bottom: topic mastery chart */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -123,10 +123,10 @@ function DashboardMockup() {
         className="absolute inset-x-0 bottom-0 bg-white rounded-2xl border border-slate-100 shadow-xl p-5 z-10"
       >
         <p className="text-slate-400 font-600 tracking-[0.14em] uppercase mb-3" style={{ fontSize: "11px" }}>
-          Top Graduate Industries
+          Topic Mastery
         </p>
         <div className="flex flex-col gap-2.5">
-          {industries.map((item, i) => (
+          {topics.map((item, i) => (
             <div key={item.label} className="flex items-center gap-2.5">
               <span className="text-slate-500 font-500 w-20 shrink-0" style={{ fontSize: "11px" }}>{item.label}</span>
               <div className="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden">
@@ -148,22 +148,22 @@ function DashboardMockup() {
 }
 
 // ── Data ──────────────────────────────────────────────────────────────────────
-const orgs = [
-  { icon: "🎓", title: "Universities & Colleges",   desc: "Track student progression, graduation rates, and long-term alumni outcomes across every faculty.", accent: "#4F46E5", bg: "#EEF2FF", border: "#C7D2FE" },
-  { icon: "💼", title: "Bursary Programmes",         desc: "Monitor the career impact of your investment across every beneficiary cohort in real time.", accent: "#7C3AED", bg: "#F5F3FF", border: "#DDD6FE" },
-  { icon: "🏢", title: "Career Services Depts",      desc: "Measure placement success, track employer relationships, and report graduate outcomes to leadership.", accent: "#0284C7", bg: "#E0F2FE", border: "#BAE6FD" },
-  { icon: "📚", title: "Training Institutions",      desc: "Manage course completions, certifications, and learner progression records in one place.", accent: "#059669", bg: "#ECFDF5", border: "#A7F3D0" },
-  { icon: "🤝", title: "Internship Programmes",      desc: "Track placement outcomes, conversion rates, and host-organisation data across all cohorts.", accent: "#9333EA", bg: "#FAF5FF", border: "#E9D5FF" },
-  { icon: "🌍", title: "NGOs & Foundations",         desc: "Demonstrate impact to funders with verified graduate outcome data and sponsor-ready reports.", accent: "#0891B2", bg: "#ECFEFF", border: "#A5F3FC" },
-  { icon: "⚡", title: "Any Student-Focused Org",   desc: "The platform adapts to the specific reporting, operational, and engagement needs of your organisation.", accent: "#D97706", bg: "#FFFBEB", border: "#FDE68A" },
+const candidates = [
+  { icon: "🎓", title: "First-Time Candidates",             desc: "Build exam technique from day one with AI feedback on every practice answer, before the real exam.", accent: "#4F46E5", bg: "#EEF2FF", border: "#C7D2FE" },
+  { icon: "🔁", title: "Repeat Sitters",                     desc: "Pinpoint exactly which topics cost you marks last time and drill them until they're mastered.", accent: "#7C3AED", bg: "#F5F3FF", border: "#DDD6FE" },
+  { icon: "💼", title: "Working Actuarial Analysts",         desc: "Study around a full-time job with an always-available AI coach and unlimited generated practice.", accent: "#0284C7", bg: "#E0F2FE", border: "#BAE6FD" },
+  { icon: "👥", title: "Study Groups & Peer Tutors",         desc: "Share a growing, exam-standard question bank instead of relying on a handful of past papers.", accent: "#059669", bg: "#ECFDF5", border: "#A7F3D0" },
+  { icon: "🏫", title: "Universities & Actuarial Societies", desc: "Group licensing to prepare entire cohorts of candidates for professional exams.", accent: "#9333EA", bg: "#FAF5FF", border: "#E9D5FF" },
+  { icon: "🧮", title: "Career-Changers",                    desc: "Learn the exact marking convention examiners use, without the cost of years of in-person tuition.", accent: "#0891B2", bg: "#ECFEFF", border: "#A5F3FC" },
+  { icon: "⚡", title: "Any Actuarial Exam Candidate",       desc: "The platform adapts to whichever subject and exam body you're preparing for, grounded in your own notes.", accent: "#D97706", bg: "#FFFBEB", border: "#FDE68A" },
 ];
 
 const problems = [
-  "Maintaining up-to-date graduate contact and employment records",
-  "Tracking career outcomes and employment rates after programme completion",
-  "Staying connected with alumni for engagement, events, and re-engagement",
-  "Monitoring student progression across multiple cohorts simultaneously",
-  "Producing reliable impact reports for sponsors, funders, and stakeholders",
+  "Expensive in-person tuition is the only reliable path to exam-standard feedback",
+  "Self-study with past-paper PDFs comes with zero feedback on written answers",
+  "Actuarial exam pass rates remain notoriously low across South Africa",
+  "Candidates rarely get to practise under real exam conditions before the exam that counts",
+  "Generic AI tools give plausible-sounding answers that don't match how examiners actually mark",
 ];
 
 const capabilities = [
@@ -173,18 +173,18 @@ const capabilities = [
         <rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
       </svg>
     ),
-    title: "Employment Tracking",
-    desc: "Track employment status and career progression for every graduate in your system.",
+    title: "AI Exam Engine",
+    desc: "Answer professional-standard questions under timed conditions, with every command verb — Define, Describe, Explain, Discuss, Assess.",
     accent: "#4F46E5", bg: "#EEF2FF",
   },
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2a7 7 0 017 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 017-7z" /><circle cx="12" cy="9" r="2.5" />
+        <path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" />
       </svg>
     ),
-    title: "Graduate Locations",
-    desc: "See where your graduates are currently employed — by company, city, or sector.",
+    title: "Official-Standard Memoranda",
+    desc: "186 questions, each with a full examiner-standard memo in exact • [statement] [½] format.",
     accent: "#7C3AED", bg: "#F5F3FF",
   },
   {
@@ -193,8 +193,8 @@ const capabilities = [
         <path d="M18 20V10M12 20V4M6 20v-6" />
       </svg>
     ),
-    title: "Industry Analytics",
-    desc: "Analyse top industries, job roles, and employer trends across your graduate population.",
+    title: "AI Feedback & Marking",
+    desc: "Streamed feedback benchmarked against the official memorandum, with specific gap analysis on every submission.",
     accent: "#0284C7", bg: "#E0F2FE",
   },
   {
@@ -203,19 +203,29 @@ const capabilities = [
         <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" />
       </svg>
     ),
-    title: "Outcome Monitoring",
-    desc: "Monitor graduation, employment, and progression metrics for every cohort in real time.",
+    title: "AI Question Generator",
+    desc: "Generate original exam-standard questions for any topic, constrained strictly to your uploaded course notes.",
     accent: "#059669", bg: "#ECFDF5",
   },
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" />
+        <circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" />
       </svg>
     ),
-    title: "Academic Calendar",
-    desc: "Manage test dates, exam periods, important milestones, and cohort timelines centrally.",
+    title: "RAG-Powered Study Intelligence",
+    desc: "500+ chunks of course notes embedded in Supabase pgvector — every AI interaction grounded in your syllabus.",
     accent: "#9333EA", bg: "#FAF5FF",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 3v18h18" /><path d="M18 17V9M13 17V5M8 17v-3" />
+      </svg>
+    ),
+    title: "Topic Mastery Tracking",
+    desc: "Topic-by-topic mastery scores and personalised study recommendations based on your weakest areas.",
+    accent: "#D97706", bg: "#FFFBEB",
   },
   {
     icon: (
@@ -223,19 +233,8 @@ const capabilities = [
         <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 01-3.46 0" />
       </svg>
     ),
-    title: "Smart Messaging",
-    desc: "Send announcements, exam wishes, and birthday messages automatically at scale.",
-    accent: "#D97706", bg: "#FFFBEB",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-      </svg>
-    ),
-    title: "Alumni Engagement",
-    desc: "Improve engagement, plan events, and build lasting alumni networks at institutional scale.",
+    title: "AI Study Coach",
+    desc: "An always-available tutor for conceptual questions, constrained to your own course material — precise, on-syllabus answers.",
     accent: "#0891B2", bg: "#ECFEFF",
   },
   {
@@ -245,28 +244,28 @@ const capabilities = [
         <path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
       </svg>
     ),
-    title: "Centralised Records",
-    desc: "Maintain updated student and alumni records in one unified, accessible system.",
+    title: "Session History & Progression",
+    desc: "Full session history and mark progression tracked over time, so improvement is visible, not just felt.",
     accent: "#DC2626", bg: "#FEF2F2",
   },
 ];
 
-const reportingFeatures = [
-  { title: "Built-in Dashboards",      desc: "Visual analytics for all key metrics — no setup or configuration required.", accent: "#4F46E5" },
-  { title: "Exportable Reports",        desc: "Generate PDF and Excel reports for leadership, sponsors, and funders.", accent: "#7C3AED" },
-  { title: "Employment Insights",       desc: "Track graduate employment rates, time-to-hire, and industry placement data.", accent: "#059669" },
-  { title: "Industry Trend Analysis",   desc: "Understand where your graduates are going and which sectors are growing.", accent: "#0284C7" },
-  { title: "Sponsor-Ready Reports",     desc: "Pre-formatted impact reports aligned to common funder requirements.", accent: "#9333EA" },
-  { title: "Data-Driven Decisions",     desc: "Move from intuition to evidence across every institutional decision you make.", accent: "#D97706" },
+const feedbackFeatures = [
+  { title: "Streamed Examiner-Style Feedback", desc: "AI feedback that mirrors how a human examiner would critique your response, delivered in real time.", accent: "#4F46E5" },
+  { title: "Mark Benchmarking",                desc: "Every answer marked out of the available marks, benchmarked against the official memorandum.", accent: "#7C3AED" },
+  { title: "Gap Analysis",                     desc: "Specific breakdowns of which points were missed, which were vague, and what earns credit in the real exam.", accent: "#059669" },
+  { title: "Command-Verb Aware Marking",       desc: "Define, Describe, Explain, Discuss, Assess — every verb enforces the exact convention examiners use.", accent: "#0284C7" },
+  { title: "Memo-Grounded Accuracy",           desc: "Every memorandum is grounded in real South African actuarial practice — SAM, Prudential Authority, FSCA, JSE, Regulation 28.", accent: "#9333EA" },
+  { title: "Half-Mark Precision",              desc: "Every half mark is earned with a precise, examinable statement — just like the real exam.", accent: "#D97706" },
 ];
 
-const crmFeatures = [
-  { icon: "📢", title: "Announcements",        desc: "Broadcast updates to students, graduates, or specific cohorts instantly.", accent: "#4F46E5", bg: "#EEF2FF", border: "#C7D2FE" },
-  { icon: "🎂", title: "Birthday Wishes",      desc: "Automated personalised birthday messages sent to every graduate.", accent: "#9333EA", bg: "#FAF5FF", border: "#E9D5FF" },
-  { icon: "📅", title: "Exam Reminders",       desc: "Timely exam and deadline reminders delivered directly to students.", accent: "#0284C7", bg: "#E0F2FE", border: "#BAE6FD" },
-  { icon: "🤝", title: "Alumni Re-engagement", desc: "Re-engage lost alumni through targeted, timely outreach campaigns.", accent: "#059669", bg: "#ECFDF5", border: "#A7F3D0" },
-  { icon: "🎉", title: "Event Planning",       desc: "Plan and communicate alumni events, reunions, and industry meetups.", accent: "#D97706", bg: "#FFFBEB", border: "#FDE68A" },
-  { icon: "💬", title: "Communication Tools",  desc: "Manage all student and alumni communication from one central interface.", accent: "#0891B2", bg: "#ECFEFF", border: "#A5F3FC" },
+const studyFeatures = [
+  { icon: "📊", title: "Topic Mastery Scores",          desc: "See exactly which topics you've mastered and which need more work, updated after every session.", accent: "#4F46E5", bg: "#EEF2FF", border: "#C7D2FE" },
+  { icon: "🎯", title: "Personalised Recommendations",  desc: "Study suggestions generated from your weakest areas — no guessing what to revise next.", accent: "#9333EA", bg: "#FAF5FF", border: "#E9D5FF" },
+  { icon: "🧬", title: "AI Question Generator",         desc: "Generate original exam-standard questions on any topic, constrained strictly to your own course notes.", accent: "#0284C7", bg: "#E0F2FE", border: "#BAE6FD" },
+  { icon: "🧑‍🏫", title: "AI Study Coach",               desc: "An always-available tutor that answers conceptual questions using only your uploaded course material.", accent: "#059669", bg: "#ECFDF5", border: "#A7F3D0" },
+  { icon: "🔍", title: "RAG-Powered Search",            desc: "500+ chunks of course notes embedded and searchable — every answer grounded in your syllabus.", accent: "#D97706", bg: "#FFFBEB", border: "#FDE68A" },
+  { icon: "📈", title: "Progress & Session History",    desc: "Track mark progression and session history over time, so improvement is visible, not just felt.", accent: "#0891B2", bg: "#ECFEFF", border: "#A5F3FC" },
 ];
 
 const customTech = [
@@ -279,7 +278,7 @@ const customTech = [
 ];
 
 // ── Page ──────────────────────────────────────────────────────────────────────
-export default function RaklyticsPage() {
+export default function ActSciPage() {
   return (
     <div className="pt-[68px] bg-white dark:bg-[#0B0F1A]">
 
@@ -315,10 +314,10 @@ export default function RaklyticsPage() {
                 className="font-display text-slate-900 dark:text-slate-100 mb-6"
                 style={{ fontSize: "clamp(2.4rem, 5.5vw, 5rem)", fontWeight: 900, lineHeight: 1.0, letterSpacing: "-0.04em" }}
               >
-                Student & Alumni
+                Practise Like an
                 <br className="hidden sm:block" />
-                Intelligence,{" "}
-                <span className="gradient-text">Reimagined.</span>
+                Examiner{" "}
+                <span className="gradient-text">Marks.</span>
               </motion.h1>
 
               <motion.p
@@ -329,11 +328,11 @@ export default function RaklyticsPage() {
                 style={{ letterSpacing: "-0.01em" }}
               >
                 <span className="font-display font-800 text-slate-900 dark:text-slate-100">
-                  RAK<span className="gradient-text">lytics</span><TM />
+                  ActSci<AISup />
                 </span>{" "}
-                is a centralised intelligence platform that helps organisations track student
-                progression, graduate outcomes, engagement, and institutional impact — all in one
-                unified system.
+                is South Africa&apos;s first AI-native actuarial exam prep platform — combining
+                official-standard exam questions, AI-powered marking, and personalised study
+                intelligence in a single product.
               </motion.p>
 
               <motion.div
@@ -342,8 +341,8 @@ export default function RaklyticsPage() {
                 transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
                 className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto"
               >
-                <LiquidButton href="/#contact" className="w-full sm:w-auto justify-center">
-                  Request a Demo →
+                <LiquidButton href="https://actsci.co.za" className="w-full sm:w-auto justify-center">
+                  Start Free 7-Day Trial →
                 </LiquidButton>
                 <a
                   href="#capabilities"
@@ -380,38 +379,38 @@ export default function RaklyticsPage() {
               className="font-display text-slate-900 dark:text-slate-100"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
-              Designed for organisations{" "}
-              <span className="gradient-text">that shape futures.</span>
+              Designed for candidates{" "}
+              <span className="gradient-text">who refuse to guess.</span>
             </AnimatedHeading>
             <ScrollReveal delay={0.15}>
               <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed max-w-2xl mt-4">
-                The platform can be fully tailored to fit the operational and reporting needs of each
-                organisation — regardless of size, structure, or sector.
+                The platform adapts to whichever subject and professional exam body you&apos;re preparing
+                for — grounded in your own uploaded course notes.
               </p>
             </ScrollReveal>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {orgs.map((org, i) => (
+            {candidates.map((c, i) => (
               <AnimatedCard
-                key={org.title}
+                key={c.title}
                 delay={i * 0.07}
                 hoverY={-5}
                 className="group bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 flex flex-col gap-4 shadow-sm card-ring card-shimmer"
               >
                 <span
                   className="text-2xl w-11 h-11 rounded-xl flex items-center justify-center border shrink-0"
-                  style={{ background: org.bg, borderColor: org.border }}
+                  style={{ background: c.bg, borderColor: c.border }}
                 >
-                  {org.icon}
+                  {c.icon}
                 </span>
                 <div className="flex flex-col gap-2">
                   <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 leading-snug" style={{ fontSize: "0.95rem", letterSpacing: "-0.025em" }}>
-                    {org.title}
+                    {c.title}
                   </h3>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{org.desc}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{c.desc}</p>
                 </div>
-                <div className="mt-auto w-6 h-0.5 group-hover:w-10 transition-all duration-400" style={{ background: org.accent }} />
+                <div className="mt-auto w-6 h-0.5 group-hover:w-10 transition-all duration-400" style={{ background: c.accent }} />
               </AnimatedCard>
             ))}
           </div>
@@ -434,20 +433,21 @@ export default function RaklyticsPage() {
                 className="font-display text-slate-900 dark:text-slate-100"
                 style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
               >
-                Institutions are flying{" "}
+                Self-study is flying{" "}
                 <span className="gradient-text">blind.</span>
               </AnimatedHeading>
               <ScrollReveal delay={0.15}>
                 <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-5 max-w-lg">
-                  Fragmented spreadsheets, disconnected systems, and outdated records make it nearly
-                  impossible for organisations to understand what&apos;s happening with their students and
-                  graduates — let alone report on it meaningfully.
+                  Actuarial candidates in South Africa historically had two options: expensive
+                  in-person tuition, or self-study with past-paper PDFs and no feedback at all.
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
                 <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-3 max-w-lg">
-                  The result: poor engagement, missed opportunities, and impact reports that don&apos;t
-                  tell the full story. RAK<span className="gradient-text font-display font-800">lytics</span><TM /> fixes this.
+                  Candidates don&apos;t struggle because they lack knowledge — they struggle because
+                  they can&apos;t practise under exam conditions and get meaningful feedback before the
+                  real exam. ActSci<span className="gradient-text font-display font-800">AI</span> closes
+                  that gap entirely.
                 </p>
               </ScrollReveal>
             </div>
@@ -491,8 +491,8 @@ export default function RaklyticsPage() {
               className="font-display text-slate-900 dark:text-slate-100"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
-              Everything your institution{" "}
-              <span className="gradient-text">needs to know.</span>
+              Everything your exam prep{" "}
+              <span className="gradient-text">needs, in one place.</span>
             </AnimatedHeading>
           </div>
 
@@ -523,7 +523,7 @@ export default function RaklyticsPage() {
         </div>
       </section>
 
-      {/* ══ 5. DASHBOARDS & REPORTING ════════════════════════════════════════ */}
+      {/* ══ 5. AI FEEDBACK & MARKING ═════════════════════════════════════════ */}
       <section className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -532,26 +532,26 @@ export default function RaklyticsPage() {
             {/* Left — features list */}
             <div>
               <ScrollReveal>
-                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Dashboards & Reporting</p>
+                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">AI Feedback & Marking</p>
               </ScrollReveal>
               <AnimatedHeading
                 delay={0.1}
                 className="font-display text-slate-900 dark:text-slate-100"
                 style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
               >
-                Real-time intelligence{" "}
-                <span className="gradient-text">at scale.</span>
+                Feedback that reads like{" "}
+                <span className="gradient-text">an examiner marked it.</span>
               </AnimatedHeading>
               <ScrollReveal delay={0.15}>
                 <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-5 max-w-lg">
-                  Stop guessing. RAK<span className="gradient-text font-display font-800">lytics</span><TM /> gives
-                  leadership, administrators, and sponsors a clear, verified picture of institutional
-                  impact — updated in real time.
+                  Stop guessing what earns marks. ActSci<span className="gradient-text font-display font-800">AI</span> gives
+                  every candidate a clear, memorandum-grounded picture of exactly where their answer
+                  gained or lost marks — updated the moment they submit.
                 </p>
               </ScrollReveal>
 
               <div className="flex flex-col gap-3 mt-8">
-                {reportingFeatures.map((f, i) => (
+                {feedbackFeatures.map((f, i) => (
                   <ScrollReveal key={f.title} delay={i * 0.07}>
                     <div className="flex items-start gap-4 group">
                       <div
@@ -584,7 +584,7 @@ export default function RaklyticsPage() {
                       <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
                     </div>
                     <div className="flex-1 h-5 rounded bg-slate-800 mx-4 flex items-center px-3">
-                      <span className="text-slate-500 text-[10px] font-mono">app.raklytics.co.za/reports</span>
+                      <span className="text-slate-500 text-[10px] font-mono">actsci.co.za/exam-review</span>
                     </div>
                   </div>
 
@@ -593,8 +593,8 @@ export default function RaklyticsPage() {
                     {/* Report header */}
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-slate-900 font-700 text-sm">Impact Report · Q2 2025</p>
-                        <p className="text-slate-400 text-xs mt-0.5">University of Johannesburg · Bursary Division</p>
+                        <p className="text-slate-900 font-700 text-sm">Exam Review · Attempt #14</p>
+                        <p className="text-slate-400 text-xs mt-0.5">SAM Framework · CA1 Paper</p>
                       </div>
                       <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 font-600 border border-emerald-100">Live</span>
                     </div>
@@ -602,10 +602,10 @@ export default function RaklyticsPage() {
                     {/* 4 metric tiles */}
                     <div className="grid grid-cols-2 gap-2.5">
                       {[
-                        { label: "Graduates Tracked", value: "2,841", color: "#4F46E5" },
-                        { label: "Employment Rate",   value: "87.4%", color: "#059669" },
-                        { label: "Avg Time-to-Hire",  value: "34 days", color: "#7C3AED" },
-                        { label: "Active Cohorts",    value: "12",     color: "#0284C7" },
+                        { label: "Questions Answered", value: "142",   color: "#4F46E5" },
+                        { label: "Latest Mark",         value: "78%",   color: "#059669" },
+                        { label: "Avg Marking Time",    value: "8s",    color: "#7C3AED" },
+                        { label: "Topics Covered",      value: "18",    color: "#0284C7" },
                       ].map((metric) => (
                         <div key={metric.label} className="bg-slate-50 rounded-xl p-3.5 border border-slate-100">
                           <p className="text-slate-400 text-[10px] font-500 mb-1.5 uppercase tracking-wide">{metric.label}</p>
@@ -618,13 +618,13 @@ export default function RaklyticsPage() {
 
                     {/* Mini bar chart */}
                     <div className="bg-slate-50 rounded-xl p-4 border border-slate-100">
-                      <p className="text-slate-500 text-[10px] font-600 uppercase tracking-[0.12em] mb-3">Industry Placement</p>
+                      <p className="text-slate-500 text-[10px] font-600 uppercase tracking-[0.12em] mb-3">Topic Mastery</p>
                       <div className="flex flex-col gap-2">
                         {[
-                          { label: "Technology",  w: "78%", color: "#4F46E5" },
-                          { label: "Finance",     w: "62%", color: "#7C3AED" },
-                          { label: "Education",   w: "44%", color: "#0284C7" },
-                          { label: "Healthcare",  w: "32%", color: "#059669" },
+                          { label: "ALM",       w: "78%", color: "#4F46E5" },
+                          { label: "CAPM",      w: "62%", color: "#7C3AED" },
+                          { label: "Mortality", w: "44%", color: "#0284C7" },
+                          { label: "Pensions",  w: "32%", color: "#059669" },
                         ].map((bar) => (
                           <div key={bar.label} className="flex items-center gap-2">
                             <span className="text-slate-400 text-[10px] w-16 shrink-0">{bar.label}</span>
@@ -640,7 +640,7 @@ export default function RaklyticsPage() {
                     {/* Export button row */}
                     <div className="flex items-center gap-2">
                       <div className="flex-1 h-8 rounded-lg bg-slate-900 flex items-center justify-center">
-                        <span className="text-white text-[11px] font-600">Export PDF Report</span>
+                        <span className="text-white text-[11px] font-600">Export Feedback Report</span>
                       </div>
                       <div className="w-8 h-8 rounded-lg border border-slate-200 flex items-center justify-center shrink-0">
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748B" strokeWidth="1.5" strokeLinecap="round">
@@ -656,33 +656,33 @@ export default function RaklyticsPage() {
         </div>
       </section>
 
-      {/* ══ 6. ENGAGEMENT & LIFECYCLE CRM ════════════════════════════════════ */}
+      {/* ══ 6. STUDY INTELLIGENCE ════════════════════════════════════════════ */}
       <section className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="mb-12">
             <ScrollReveal>
-              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Engagement & Lifecycle</p>
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Study Intelligence</p>
             </ScrollReveal>
             <AnimatedHeading
               delay={0.1}
               className="font-display text-slate-900 dark:text-slate-100"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
-              More than a dashboard.{" "}
-              <span className="gradient-text">A relationship engine.</span>
+              More than a question bank.{" "}
+              <span className="gradient-text">A study intelligence engine.</span>
             </AnimatedHeading>
             <ScrollReveal delay={0.15}>
               <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-5 max-w-2xl">
-                RAK<span className="gradient-text font-display font-800">lytics</span><TM /> acts as an intelligent
-                institutional CRM layer — keeping your organisation connected with students and alumni at
-                every stage of their journey, automatically.
+                ActSci<span className="gradient-text font-display font-800">AI</span> is built on a
+                Retrieval-Augmented Generation system on Supabase pgvector — every AI interaction
+                grounded in your own course notes, not generic internet knowledge.
               </p>
             </ScrollReveal>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {crmFeatures.map((feature, i) => (
+            {studyFeatures.map((feature, i) => (
               <AnimatedCard
                 key={feature.title}
                 delay={i * 0.07}
@@ -715,7 +715,7 @@ export default function RaklyticsPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <ScrollReveal>
-                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Beyond RAKlytics™</p>
+                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Beyond ActSci AI</p>
               </ScrollReveal>
               <AnimatedHeading
                 delay={0.1}
@@ -774,20 +774,20 @@ export default function RaklyticsPage() {
               className="font-display text-slate-900 dark:text-slate-100 mb-5 mx-auto"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08, maxWidth: "680px" }}
             >
-              Ready to modernise student & alumni{" "}
-              <span className="gradient-text">intelligence?</span>
+              Ready to pass with{" "}
+              <span className="gradient-text">confidence?</span>
             </h2>
             <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed max-w-lg mx-auto mb-10">
-              Book a demo and see how RAK<span className="gradient-text font-display font-800">lytics</span><TM /> can
-              transform the way your organisation tracks, engages, and reports on student outcomes.
+              Start a free 7-day trial — no card required — and see how ActSci<span className="gradient-text font-display font-800">AI</span> turns
+              practice into a real mark improvement before the exam that counts.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <LiquidButton href="/#contact">Request a Demo →</LiquidButton>
+              <LiquidButton href="https://actsci.co.za">Start Free Trial →</LiquidButton>
               <a
                 href="/#contact"
                 className="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 dark:hover:border-slate-600 hover:bg-white dark:hover:bg-slate-800 transition-all duration-200"
               >
-                Speak With Us
+                Talk to RAK Technologies
               </a>
             </div>
           </ScrollReveal>

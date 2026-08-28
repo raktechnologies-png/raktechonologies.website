@@ -26,6 +26,11 @@ const nextConfig: NextConfig = {
         destination: "/solutions",
         permanent: true,
       },
+      {
+        source: "/analytics",
+        destination: "/actsci",
+        permanent: true,
+      },
     ];
   },
 

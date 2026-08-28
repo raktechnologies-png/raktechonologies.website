@@ -40,7 +40,7 @@ const footerLinks: Record<string, FooterLink[]> = {
   Company: [
     { label: "About Us",    href: "/about" },
     { label: "Solutions",   href: "/solutions" },
-    { label: "RAKlytics™",  href: "/analytics" },
+    { label: "ActSci™AI",  href: "/actsci" },
     { label: "Pricing",     href: "/#services" },
     { label: "Contact",     href: "/#contact" },
   ],
@@ -48,7 +48,7 @@ const footerLinks: Record<string, FooterLink[]> = {
     { label: "Web Development",     href: "/solutions#web" },
     { label: "Software Development", href: "/solutions#software" },
     { label: "CRM Systems",         href: "/solutions#crm" },
-    { label: "RAKlytics™ Analytics", href: "/analytics" },
+    { label: "ActSci™AI Exam Platform", href: "/actsci" },
   ],
   Connect: [
     { label: "Request a Solution",        href: "/#contact",                        icon: <ArrowIcon /> },

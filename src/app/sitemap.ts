@@ -17,8 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/analytics`,
-      lastModified: new Date("2026-06-17"),
+      url: `${BASE_URL}/actsci`,
+      lastModified: new Date("2026-08-28"),
       changeFrequency: "monthly",
       priority: 0.9,
     },

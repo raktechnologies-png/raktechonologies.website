@@ -7,14 +7,14 @@ import LiquidButton from "@/components/ui/LiquidButton";
 import { EASE } from "@/lib/motion";
 
 const metrics = [
-  { value: "87.4%", label: "Avg Employment Rate",  color: "#4F46E5" },
-  { value: "1,247", label: "Students Tracked",      color: "#7C3AED" },
-  { value: "34d",   label: "Avg Time-to-Hire",      color: "#0284C7" },
-  { value: "Real-time", label: "Live Analytics",    color: "#059669" },
+  { value: "186",       label: "Exam-Standard Questions",  color: "#4F46E5" },
+  { value: "500+",      label: "Course Note Chunks (RAG)", color: "#7C3AED" },
+  { value: "AI-Marked", label: "Examiner-Style Feedback",  color: "#0284C7" },
+  { value: "7-Day",     label: "Free Trial, No Card",      color: "#059669" },
 ];
 
 
-export default function RAKlyticsSection() {
+export default function ActSciSection() {
   return (
     <section className="py-12 md:py-20 relative overflow-hidden bg-white dark:bg-[#0B0F1A]">
       <div className="section-divider absolute top-0 inset-x-0" />
@@ -50,33 +50,35 @@ export default function RAKlyticsSection() {
                   letterSpacing: "-0.04em",
                 }}
               >
-                RAK<span className="gradient-text">lytics</span>
+                ActSci
                 <sup
-                  style={{ fontSize: "0.38em", verticalAlign: "super", lineHeight: 0 }}
-                  className="text-slate-400 font-normal ml-[0.05em]"
+                  style={{ fontSize: "0.42em", verticalAlign: "super", lineHeight: 0 }}
+                  className="gradient-text ml-[0.05em]"
                 >
-                  ™
+                  AI
                 </sup>
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={0.14}>
               <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed max-w-lg mb-8" style={{ letterSpacing: "-0.01em" }}>
-                Track graduate outcomes, career progression, and institutional impact — all in one platform.
-                Built for universities, bursaries, and NGOs.
+                South Africa&apos;s first AI-native actuarial exam prep platform — official-standard
+                questions, AI marking, and study intelligence grounded in your own course notes.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={0.22}>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <LiquidButton href="/analytics" className="w-full sm:w-auto justify-center">
-                  Explore Analytics →
+                <LiquidButton href="/actsci" className="w-full sm:w-auto justify-center">
+                  Explore ActSci AI →
                 </LiquidButton>
                 <a
-                  href="/#contact"
+                  href="https://actsci.co.za"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200 w-full sm:w-auto"
                 >
-                  Request a Demo
+                  Visit actsci.co.za
                 </a>
               </div>
             </ScrollReveal>
@@ -110,12 +112,12 @@ export default function RAKlyticsSection() {
             >
               <div className="flex flex-col gap-1">
                 <p className="font-display font-800 text-slate-900 dark:text-slate-50" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)", letterSpacing: "-0.02em" }}>
-                  Student & Alumni Intelligence
+                  Practise like an examiner marks.
                 </p>
-                <p className="text-slate-400 dark:text-slate-500 text-sm">Built for universities, bursaries, NGOs & more</p>
+                <p className="text-slate-400 dark:text-slate-500 text-sm">Built for actuarial candidates across South Africa</p>
               </div>
               <motion.a
-                href="/analytics"
+                href="/actsci"
                 whileHover={{ x: 4 }}
                 transition={{ duration: 0.2 }}
                 className="shrink-0 flex items-center gap-1.5 text-indigo-600 font-600 text-sm"
