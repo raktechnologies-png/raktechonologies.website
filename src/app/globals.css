@@ -204,6 +204,19 @@
   .card-shimmer:hover::after {
     transform: translateX(120%);
   }
+
+  /* Infinite horizontal ticker — hero tag marquee */
+  .marquee-track {
+    animation: marquee-scroll 26s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* ── Dark mode heading overrides (outside @layer so they beat Tailwind utilities) ── */

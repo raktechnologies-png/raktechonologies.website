@@ -7,10 +7,10 @@ import LiquidButton from "@/components/ui/LiquidButton";
 import { EASE } from "@/lib/motion";
 
 const metrics = [
-  { value: "186",       label: "Exam-Standard Questions",  color: "#4F46E5" },
-  { value: "500+",      label: "Course Note Chunks (RAG)", color: "#7C3AED" },
-  { value: "AI-Marked", label: "Examiner-Style Feedback",  color: "#0284C7" },
-  { value: "7-Day",     label: "Free Trial, No Card",      color: "#059669" },
+  { value: "< 60s", label: "Live Feedback",   color: "#4F46E5" },
+  { value: "10+",   label: "Smart Features",  color: "#7C3AED" },
+  { value: "4",     label: "AI Checkpoints",  color: "#0284C7" },
+  { value: "7-Day", label: "Free Trial, No Card", color: "#059669" },
 ];
 
 
@@ -62,8 +62,9 @@ export default function ActSciSection() {
 
             <ScrollReveal delay={0.14}>
               <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed max-w-lg mb-8" style={{ letterSpacing: "-0.01em" }}>
-                South Africa&apos;s first AI-native actuarial exam prep platform — official-standard
-                questions, AI marking, and study intelligence grounded in your own course notes.
+                Write your answer — your mark appears in real time. No submit button. Exact
+                feedback, an AI exam coach, and a prediction of how many weeks until you&apos;re
+                ready to pass.
               </p>
             </ScrollReveal>
 
@@ -112,7 +113,7 @@ export default function ActSciSection() {
             >
               <div className="flex flex-col gap-1">
                 <p className="font-display font-800 text-slate-900 dark:text-slate-50" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)", letterSpacing: "-0.02em" }}>
-                  Practise like an examiner marks.
+                  Your actuarial answers, marked live.
                 </p>
                 <p className="text-slate-400 dark:text-slate-500 text-sm">Built for actuarial candidates across South Africa</p>
               </div>

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "ActSci™AI — AI Actuarial Exam Prep Platform | South Africa",
+  title: "ActSci™AI — Your Actuarial Answers, Marked Live | South Africa",
   description:
-    "ActSci™AI by RAK Technologies is South Africa's first AI-native actuarial exam prep platform — official-standard exam questions, AI marking benchmarked against real memoranda, and study intelligence grounded in your own course notes. Start a free 7-day trial.",
+    "ActSci™AI by RAK Technologies marks your actuarial exam answers in real time as you write — no submit button. Get exact marks, an AI exam coach, and a prediction of how many weeks until you're ready to pass. Free for 7 days, no card required.",
   keywords: [
     "actuarial exam prep South Africa",
     "actuarial exam practice questions",
@@ -12,23 +12,21 @@ export const metadata: Metadata = {
     "actuarial past papers South Africa",
     "actuarial science study platform",
     "actuarial exam feedback AI",
-    "SAM framework exam prep",
-    "actuarial memoranda South Africa",
+    "A311 actuarial risk management",
     "actuarial tuition alternative South Africa",
     "actuarial exam pass rate South Africa",
     "ActSci AI",
-    "AI study coach actuarial",
+    "AI exam coach actuarial",
     "actuarial candidate study tool",
-    "actuarial exam co-pilot",
-    "RAG actuarial study platform",
-    "actuarial exam questions and memos",
+    "actuarial readiness prediction",
+    "command verb analysis actuarial",
     "RAK Technologies actuarial",
   ],
   alternates: { canonical: "/actsci" },
   openGraph: {
-    title: "ActSci™AI — AI Actuarial Exam Prep Platform | RAK Technologies",
+    title: "ActSci™AI — Your Actuarial Answers, Marked Live | RAK Technologies",
     description:
-      "Official-standard exam questions, AI marking, and personalised study intelligence — all grounded in your own course notes. South Africa's first AI-native actuarial exam platform.",
+      "Write your answer — your mark appears in real time. No submit button. AI marking, an exam coach, and a readiness prediction for South African actuarial students.",
     url: "https://raktechnologies.co.za/actsci",
   },
 };
@@ -51,29 +49,30 @@ const softwareSchema = {
   applicationCategory: "EducationApplication",
   operatingSystem: "Web",
   description:
-    "ActSci™AI is South Africa's first AI-native actuarial exam prep platform, combining official-standard exam questions, AI-powered marking, and personalised study intelligence for candidates sitting professional actuarial examinations.",
+    "ActSci™AI marks actuarial exam answers in real time as candidates write them — no submit button. It provides exact mark breakdowns, an AI exam coach, command verb analysis, and a prediction of how many weeks until a candidate is exam-ready.",
   url: "https://actsci.co.za",
   offers: {
     "@type": "Offer",
-    price: "500",
     priceCurrency: "ZAR",
+    description: "Free 7-day trial, no card required. EFT billing after trial.",
     availability: "https://schema.org/InStock",
     seller: { "@id": "https://raktechnologies.co.za/#organization" },
   },
   author: { "@id": "https://raktechnologies.co.za/#organization" },
   publisher: { "@id": "https://raktechnologies.co.za/#organization" },
   featureList: [
-    "AI exam engine with timed, command-verb-aware questions",
-    "186 official-standard marking memoranda",
-    "Streamed AI feedback benchmarked against examiner memos",
-    "AI question generator grounded in uploaded course notes",
-    "RAG-powered study intelligence via Supabase pgvector",
-    "Topic mastery and progress tracking",
-    "Always-available AI study coach",
+    "Real-time AI marking as you write, no submit button",
+    "Exact mark breakdown with reasons for lost marks",
+    "AI exam coach that answers follow-up questions on your answer",
+    "Readiness prediction — weeks until pass mark",
+    "Command verb analysis",
+    "Unlimited AI-generated practice questions",
+    "Study activity tracker and shareable performance card",
+    "Employer verification portal",
   ],
   audience: {
     "@type": "Audience",
-    audienceType: "Actuarial exam candidates, actuarial students, actuarial societies, universities",
+    audienceType: "Actuarial exam candidates, actuarial students",
     geographicArea: { "@type": "Country", name: "South Africa" },
   },
 };

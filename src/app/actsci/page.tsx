@@ -8,6 +8,8 @@ import PebbleGrid from "@/components/ui/PebbleGrid";
 import LiquidButton from "@/components/ui/LiquidButton";
 import { EASE } from "@/lib/motion";
 
+const SIGNUP_URL = "https://actsci.co.za";
+
 // ── Inline brand mark ─────────────────────────────────────────────────────────
 function AISup() {
   return (
@@ -20,261 +22,135 @@ function AISup() {
   );
 }
 
-// ── Animated dashboard mockup ─────────────────────────────────────────────────
-function DashboardMockup() {
-  const topics = [
-    { label: "ALM",           pct: 85, color: "#4F46E5" },
-    { label: "CAPM",          pct: 65, color: "#7C3AED" },
-    { label: "Mortality",     pct: 45, color: "#0284C7" },
-    { label: "Pension Funds", pct: 35, color: "#059669" },
-  ];
+// ── Small icon primitives ─────────────────────────────────────────────────────
+const CheckIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M5 12l4.5 4.5 9-9" />
+  </svg>
+);
+const CrossIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+    <path d="M18 6L6 18M6 6l12 12" />
+  </svg>
+);
 
-  return (
-    <div className="relative" style={{ width: "100%", maxWidth: 440, height: 490 }}>
-      {/* Ambient glow */}
-      <div
-        className="absolute pointer-events-none rounded-3xl"
-        style={{
-          inset: "-28px",
-          background: "radial-gradient(ellipse at 50% 50%, rgba(79,70,229,0.13) 0%, transparent 70%)",
-          filter: "blur(32px)",
-        }}
-      />
-
-      {/* Top card: AI-marked score */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.75, delay: 0.5, ease: EASE }}
-        className="absolute inset-x-0 top-0 bg-white rounded-2xl border border-slate-100 shadow-xl p-5 z-10"
-      >
-        <div className="flex items-center justify-between mb-3">
-          <p className="text-slate-400 text-[11px] font-600 tracking-[0.14em] uppercase">
-            AI-Marked Exam Score
-          </p>
-          <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 font-600 border border-emerald-100 flex items-center gap-1">
-            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <polyline points="18 15 12 9 6 15" />
-            </svg>
-            +5.2%
-          </span>
-        </div>
-        <div className="flex items-end gap-3 mb-4">
-          <span
-            className="font-display gradient-text leading-none"
-            style={{ fontSize: "2.8rem", fontWeight: 900, letterSpacing: "-0.04em" }}
-          >
-            78<span style={{ fontSize: "0.55em" }}>%</span>
-          </span>
-          <div className="flex flex-col gap-0.5 pb-1 text-slate-400" style={{ fontSize: "11px" }}>
-            <span>benchmarked to</span>
-            <span>the official memo</span>
-          </div>
-        </div>
-        <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: "78%" }}
-            transition={{ duration: 1.4, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="h-full rounded-full"
-            style={{ background: "linear-gradient(90deg, #4F46E5, #7C3AED)" }}
-          />
-        </div>
-      </motion.div>
-
-      {/* Small metric cards */}
-      <motion.div
-        initial={{ opacity: 0, x: -12 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.65, delay: 0.75, ease: EASE }}
-        className="absolute bg-white rounded-xl border border-slate-100 shadow-lg p-4 z-10"
-        style={{ top: "42%", left: 0, width: "47%" }}
-      >
-        <p className="text-slate-400 font-500 mb-2" style={{ fontSize: "11px" }}>Exam Questions</p>
-        <p
-          className="font-display gradient-text"
-          style={{ fontSize: "1.75rem", fontWeight: 800, lineHeight: 1, letterSpacing: "-0.03em" }}
-        >
-          186
-        </p>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, x: 12 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.65, delay: 0.85, ease: EASE }}
-        className="absolute bg-white rounded-xl border border-slate-100 shadow-lg p-4 z-10"
-        style={{ top: "42%", right: 0, width: "47%" }}
-      >
-        <p className="text-slate-400 font-500 mb-2" style={{ fontSize: "11px" }}>Notes Indexed</p>
-        <p
-          className="font-display"
-          style={{ fontSize: "1.75rem", fontWeight: 800, lineHeight: 1, letterSpacing: "-0.03em", color: "#7C3AED" }}
-        >
-          500+
-        </p>
-      </motion.div>
-
-      {/* Bottom: topic mastery chart */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 1.0, ease: EASE }}
-        className="absolute inset-x-0 bottom-0 bg-white rounded-2xl border border-slate-100 shadow-xl p-5 z-10"
-      >
-        <p className="text-slate-400 font-600 tracking-[0.14em] uppercase mb-3" style={{ fontSize: "11px" }}>
-          Topic Mastery
-        </p>
-        <div className="flex flex-col gap-2.5">
-          {topics.map((item, i) => (
-            <div key={item.label} className="flex items-center gap-2.5">
-              <span className="text-slate-500 font-500 w-20 shrink-0" style={{ fontSize: "11px" }}>{item.label}</span>
-              <div className="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: `${item.pct}%` }}
-                  transition={{ duration: 0.9, delay: 1.2 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                  className="h-full rounded-full"
-                  style={{ background: item.color }}
-                />
-              </div>
-              <span className="text-slate-400 font-500 w-7 text-right" style={{ fontSize: "11px" }}>{item.pct}%</span>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-    </div>
-  );
-}
-
-// ── Data ──────────────────────────────────────────────────────────────────────
-const candidates = [
-  { icon: "🎓", title: "First-Time Candidates",             desc: "Build exam technique from day one with AI feedback on every practice answer, before the real exam.", accent: "#4F46E5", bg: "#EEF2FF", border: "#C7D2FE" },
-  { icon: "🔁", title: "Repeat Sitters",                     desc: "Pinpoint exactly which topics cost you marks last time and drill them until they're mastered.", accent: "#7C3AED", bg: "#F5F3FF", border: "#DDD6FE" },
-  { icon: "💼", title: "Working Actuarial Analysts",         desc: "Study around a full-time job with an always-available AI coach and unlimited generated practice.", accent: "#0284C7", bg: "#E0F2FE", border: "#BAE6FD" },
-  { icon: "👥", title: "Study Groups & Peer Tutors",         desc: "Share a growing, exam-standard question bank instead of relying on a handful of past papers.", accent: "#059669", bg: "#ECFDF5", border: "#A7F3D0" },
-  { icon: "🏫", title: "Universities & Actuarial Societies", desc: "Group licensing to prepare entire cohorts of candidates for professional exams.", accent: "#9333EA", bg: "#FAF5FF", border: "#E9D5FF" },
-  { icon: "🧮", title: "Career-Changers",                    desc: "Learn the exact marking convention examiners use, without the cost of years of in-person tuition.", accent: "#0891B2", bg: "#ECFEFF", border: "#A5F3FC" },
-  { icon: "⚡", title: "Any Actuarial Exam Candidate",       desc: "The platform adapts to whichever subject and exam body you're preparing for, grounded in your own notes.", accent: "#D97706", bg: "#FFFBEB", border: "#FDE68A" },
+// ── Hero ticker pills ─────────────────────────────────────────────────────────
+const tickerPills = [
+  "Live AI Marking",
+  "South Africa",
+  "Actuarial Students",
+  "A311 · F102 · F103",
+  "No Submit Button",
+  "Real-Time Feedback",
+  "7 Days Free",
+  "Readiness Prediction",
+  "Command Verb Intelligence",
+  "Exam Coach AI",
 ];
 
-const problems = [
-  "Expensive in-person tuition is the only reliable path to exam-standard feedback",
-  "Self-study with past-paper PDFs comes with zero feedback on written answers",
-  "Actuarial exam pass rates remain notoriously low across South Africa",
-  "Candidates rarely get to practise under real exam conditions before the exam that counts",
-  "Generic AI tools give plausible-sounding answers that don't match how examiners actually mark",
+// ── Stats row ─────────────────────────────────────────────────────────────────
+const stats = [
+  { value: "< 60s",  label: "Live feedback",     sub: "from the moment you pause",          color: "#4F46E5" },
+  { value: "10+",    label: "Smart features",    sub: "built into every session",           color: "#7C3AED" },
+  { value: "4",      label: "AI checkpoints",    sub: "per answer, every time",              color: "#0284C7" },
+  { value: "7 days", label: "Free trial",        sub: "full access, no card needed",         color: "#059669" },
 ];
 
-const capabilities = [
+// ── Set the record straight — comparison rows ─────────────────────────────────
+const comparisons = [
+  { bad: "Submit, then wait to see your mark",              good: "Mark updates in real time as you write" },
+  { bad: "Generic feedback copied from a template",         good: "Feedback on your exact answer — nothing generic" },
+  { bad: "“Great effort!” on a technically wrong answer", good: "Exact marks: what you got, what you missed, why" },
+  { bad: "No signal on whether you'll pass",                good: "Predicted weeks until you hit the pass mark" },
+  { bad: "Repeat the same past papers until memorised",     good: "Unlimited fresh questions on any topic, instantly" },
+  { bad: "Guessing what the examiner actually wants",       good: "Command verb intelligence — flagged when your answer misses the mark" },
+];
+
+// ── What you get — feature grid ───────────────────────────────────────────────
+const features = [
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
+        <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" />
       </svg>
     ),
-    title: "AI Exam Engine",
-    desc: "Answer professional-standard questions under timed conditions, with every command verb — Define, Describe, Explain, Discuss, Assess.",
+    title: "Readiness Prediction",
+    desc: "See how many weeks until you hit the pass mark — based on your real improvement rate, not guesswork.",
     accent: "#4F46E5", bg: "#EEF2FF",
   },
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" />
+        <path d="M4 20l4-1 10-10a2.1 2.1 0 00-3-3L5 16l-1 4z" /><path d="M13 7l3 3" />
       </svg>
     ),
-    title: "Official-Standard Memoranda",
-    desc: "186 questions, each with a full examiner-standard memo in exact • [statement] [½] format.",
+    title: "Command Verb Analysis",
+    desc: "Find out which verbs cost you most — Discuss, Outline, Calculate — and know exactly where to focus.",
     accent: "#7C3AED", bg: "#F5F3FF",
   },
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M18 20V10M12 20V4M6 20v-6" />
+        <path d="M17 3l4 4-4 4" /><path d="M3 11V9a4 4 0 014-4h14" />
+        <path d="M7 21l-4-4 4-4" /><path d="M21 13v2a4 4 0 01-4 4H3" />
       </svg>
     ),
-    title: "AI Feedback & Marking",
-    desc: "Streamed feedback benchmarked against the official memorandum, with specific gap analysis on every submission.",
+    title: "AI Question Generator",
+    desc: "Never run out of practice material. Generate new exam-style questions for any topic, instantly.",
     accent: "#0284C7", bg: "#E0F2FE",
   },
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" />
+        <rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" />
+        <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" />
       </svg>
     ),
-    title: "AI Question Generator",
-    desc: "Generate original exam-standard questions for any topic, constrained strictly to your uploaded course notes.",
+    title: "Study Activity Tracker",
+    desc: "A visual calendar of every day you studied. See your consistency grow and build the exam-passing habit.",
     accent: "#059669", bg: "#ECFDF5",
   },
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" />
+        <rect x="2" y="5" width="20" height="14" rx="2" /><circle cx="9" cy="12" r="2.5" />
+        <path d="M15 10h4M15 14h4" />
       </svg>
     ),
-    title: "RAG-Powered Study Intelligence",
-    desc: "500+ chunks of course notes embedded in Supabase pgvector — every AI interaction grounded in your syllabus.",
-    accent: "#9333EA", bg: "#FAF5FF",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 3v18h18" /><path d="M18 17V9M13 17V5M8 17v-3" />
-      </svg>
-    ),
-    title: "Topic Mastery Tracking",
-    desc: "Topic-by-topic mastery scores and personalised study recommendations based on your weakest areas.",
+    title: "Performance Card",
+    desc: "Generate a shareable results card and send it to study groups, mentors, or paste it in your LinkedIn.",
     accent: "#D97706", bg: "#FFFBEB",
   },
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 01-3.46 0" />
+        <rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
+        <path d="M9 13a2 2 0 104 0 2 2 0 00-4 0z" />
       </svg>
     ),
-    title: "AI Study Coach",
-    desc: "An always-available tutor for conceptual questions, constrained to your own course material — precise, on-syllabus answers.",
+    title: "Employer Portal",
+    desc: "Employers verify your actuarial exam preparation from a single link — no spreadsheets, no back-and-forth.",
     accent: "#0891B2", bg: "#ECFEFF",
   },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <ellipse cx="12" cy="5" rx="9" ry="3" />
-        <path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
-      </svg>
-    ),
-    title: "Session History & Progression",
-    desc: "Full session history and mark progression tracked over time, so improvement is visible, not just felt.",
-    accent: "#DC2626", bg: "#FEF2F2",
-  },
 ];
 
-const feedbackFeatures = [
-  { title: "Streamed Examiner-Style Feedback", desc: "AI feedback that mirrors how a human examiner would critique your response, delivered in real time.", accent: "#4F46E5" },
-  { title: "Mark Benchmarking",                desc: "Every answer marked out of the available marks, benchmarked against the official memorandum.", accent: "#7C3AED" },
-  { title: "Gap Analysis",                     desc: "Specific breakdowns of which points were missed, which were vague, and what earns credit in the real exam.", accent: "#059669" },
-  { title: "Command-Verb Aware Marking",       desc: "Define, Describe, Explain, Discuss, Assess — every verb enforces the exact convention examiners use.", accent: "#0284C7" },
-  { title: "Memo-Grounded Accuracy",           desc: "Every memorandum is grounded in real South African actuarial practice — SAM, Prudential Authority, FSCA, JSE, Regulation 28.", accent: "#9333EA" },
-  { title: "Half-Mark Precision",              desc: "Every half mark is earned with a precise, examinable statement — just like the real exam.", accent: "#D97706" },
+// ── Coverage — subjects ───────────────────────────────────────────────────────
+const subjects = [
+  { code: "A311", name: "Actuarial Risk Management", status: "OPEN" },
+  { code: "F102", name: "Life Insurance",             status: "SOON" },
+  { code: "F103", name: "General Insurance",          status: "SOON" },
+  { code: "F105", name: "Finance & Investment",       status: "SOON" },
+  { code: "F106", name: "Enterprise Risk",            status: "SOON" },
+  { code: "F108", name: "Health & Benefits",          status: "SOON" },
 ];
 
-const studyFeatures = [
-  { icon: "📊", title: "Topic Mastery Scores",          desc: "See exactly which topics you've mastered and which need more work, updated after every session.", accent: "#4F46E5", bg: "#EEF2FF", border: "#C7D2FE" },
-  { icon: "🎯", title: "Personalised Recommendations",  desc: "Study suggestions generated from your weakest areas — no guessing what to revise next.", accent: "#9333EA", bg: "#FAF5FF", border: "#E9D5FF" },
-  { icon: "🧬", title: "AI Question Generator",         desc: "Generate original exam-standard questions on any topic, constrained strictly to your own course notes.", accent: "#0284C7", bg: "#E0F2FE", border: "#BAE6FD" },
-  { icon: "🧑‍🏫", title: "AI Study Coach",               desc: "An always-available tutor that answers conceptual questions using only your uploaded course material.", accent: "#059669", bg: "#ECFDF5", border: "#A7F3D0" },
-  { icon: "🔍", title: "RAG-Powered Search",            desc: "500+ chunks of course notes embedded and searchable — every answer grounded in your syllabus.", accent: "#D97706", bg: "#FFFBEB", border: "#FDE68A" },
-  { icon: "📈", title: "Progress & Session History",    desc: "Track mark progression and session history over time, so improvement is visible, not just felt.", accent: "#0891B2", bg: "#ECFEFF", border: "#A5F3FC" },
-];
-
-const customTech = [
-  "Custom Portals & Internal Systems",
-  "Automation & Workflow Solutions",
-  "Analytics Platforms & Dashboards",
-  "Web Applications & SaaS Products",
-  "AI-Enhanced Business Systems",
-  "API Development & Integrations",
+// ── Final CTA — feature chips ─────────────────────────────────────────────────
+const closingFeatures = [
+  "Live AI feedback",
+  "7-day free trial",
+  "AI Exam Coach",
+  "Readiness prediction",
+  "Employer portal",
 ];
 
 // ── Page ──────────────────────────────────────────────────────────────────────
@@ -283,513 +159,470 @@ export default function ActSciPage() {
     <div className="pt-[68px] bg-white dark:bg-[#0B0F1A]">
 
       {/* ══ 1. HERO ══════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A]" style={{ minHeight: "88vh" }}>
+      <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A]">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse 70% 55% at 50% -5%, rgba(79,70,229,0.07) 0%, transparent 70%)" }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 w-full py-20 md:py-28 flex items-center" style={{ minHeight: "88vh" }}>
-          <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center w-full">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-10 w-full pt-20 md:pt-28 pb-14 text-center flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.1, ease: EASE }}
+            className="mb-6"
+          >
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-200 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 text-xs font-600 tracking-[0.14em] uppercase shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse shrink-0" />
+              South Africa · Actuarial Exams
+            </span>
+          </motion.div>
 
-            {/* Left — copy */}
-            <div className="flex flex-col items-start">
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.1, ease: EASE }}
-                className="mb-6"
-              >
-                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-200 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 text-xs font-600 tracking-wide shadow-sm">
-                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse shrink-0" />
-                  Flagship Platform · RAK Technologies
-                </span>
-              </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.2, ease: EASE }}
+            className="font-display text-slate-900 dark:text-slate-100 mb-6"
+            style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)", fontWeight: 900, lineHeight: 1.03, letterSpacing: "-0.04em" }}
+          >
+            Your actuarial answers,{" "}
+            <span className="gradient-text">marked live.</span>
+          </motion.h1>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.85, delay: 0.2, ease: EASE }}
-                className="font-display text-slate-900 dark:text-slate-100 mb-6"
-                style={{ fontSize: "clamp(2.4rem, 5.5vw, 5rem)", fontWeight: 900, lineHeight: 1.0, letterSpacing: "-0.04em" }}
-              >
-                Practise Like an
-                <br className="hidden sm:block" />
-                Examiner{" "}
-                <span className="gradient-text">Marks.</span>
-              </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.38, ease: EASE }}
+            className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed max-w-2xl mb-9"
+            style={{ letterSpacing: "-0.01em" }}
+          >
+            Write your answer — your mark appears in real time. No submit button. No waiting.
+            You get feedback on exactly what you wrote, an AI coach that answers every follow-up
+            question, and a dashboard that tracks how many weeks until you&apos;re ready to pass.
+          </motion.p>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.38, ease: EASE }}
-                className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed max-w-lg mb-8"
-                style={{ letterSpacing: "-0.01em" }}
-              >
-                <span className="font-display font-800 text-slate-900 dark:text-slate-100">
-                  ActSci<AISup />
-                </span>{" "}
-                is South Africa&apos;s first AI-native actuarial exam prep platform — combining
-                official-standard exam questions, AI-powered marking, and personalised study
-                intelligence in a single product.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
-                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto"
-              >
-                <LiquidButton href="https://actsci.co.za" className="w-full sm:w-auto justify-center">
-                  Start Free 7-Day Trial →
-                </LiquidButton>
-                <a
-                  href="#capabilities"
-                  className="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200 w-full sm:w-auto"
-                >
-                  Explore Capabilities
-                </a>
-              </motion.div>
-            </div>
-
-            {/* Right — dashboard mockup */}
-            <motion.div
-              initial={{ opacity: 0, x: 32 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9, delay: 0.3, ease: EASE }}
-              className="hidden lg:flex justify-end items-center"
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
+            className="flex flex-col sm:flex-row items-center gap-4"
+          >
+            <LiquidButton href={SIGNUP_URL} className="w-full sm:w-auto justify-center">
+              Begin Free Trial →
+            </LiquidButton>
+            <a
+              href={SIGNUP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-500 dark:text-slate-400 font-500 text-base hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
             >
-              <DashboardMockup />
-            </motion.div>
+              Sign In
+            </a>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.62 }}
+            className="text-slate-400 dark:text-slate-500 text-xs mt-5"
+          >
+            Free for 7 days · No card required · EFT billing after trial
+          </motion.p>
+        </div>
+
+        {/* Ticker marquee */}
+        <div className="relative z-10 border-y border-slate-100 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-900/40 py-4 overflow-hidden">
+          <div className="flex w-max marquee-track">
+            {[...tickerPills, ...tickerPills].map((pill, i) => (
+              <span
+                key={i}
+                className="flex items-center gap-2 px-5 text-slate-400 dark:text-slate-500 text-xs font-600 tracking-[0.1em] uppercase shrink-0"
+              >
+                {pill}
+                <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700" />
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ══ 2. WHO IT'S BUILT FOR ═══════════════════════════════════════════ */}
+      {/* ══ 2. STATS ═════════════════════════════════════════════════════════ */}
+      <section className="py-12 md:py-16 relative bg-white dark:bg-[#0B0F1A]">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {stats.map((s, i) => (
+              <AnimatedCard
+                key={s.label}
+                delay={i * 0.08}
+                hoverY={-4}
+                className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 shadow-sm card-ring flex flex-col gap-1.5"
+              >
+                <p className="font-display font-800" style={{ fontSize: "clamp(1.5rem, 3vw, 2.1rem)", letterSpacing: "-0.03em", color: s.color }}>
+                  {s.value}
+                </p>
+                <p className="text-slate-700 dark:text-slate-300 text-sm font-600">{s.label}</p>
+                <p className="text-slate-400 dark:text-slate-500 text-xs leading-snug">{s.sub}</p>
+              </AnimatedCard>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 3. SET THE RECORD STRAIGHT ═══════════════════════════════════════ */}
       <section className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="mb-12">
+        <div className="max-w-5xl mx-auto px-6 md:px-10">
+          <div className="text-center mb-12">
             <ScrollReveal>
-              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Who It&apos;s Built For</p>
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Set The Record Straight</p>
             </ScrollReveal>
             <AnimatedHeading
               delay={0.1}
-              className="font-display text-slate-900 dark:text-slate-100"
+              className="font-display text-slate-900 dark:text-slate-100 mx-auto"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
-              Designed for candidates{" "}
-              <span className="gradient-text">who refuse to guess.</span>
+              AI-powered{" "}
+              <span className="text-slate-300 dark:text-slate-700 line-through decoration-2">tutoring</span>{" "}
+              <span className="gradient-text">exam prep.</span>
             </AnimatedHeading>
             <ScrollReveal delay={0.15}>
-              <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed max-w-2xl mt-4">
-                The platform adapts to whichever subject and professional exam body you&apos;re preparing
-                for — grounded in your own uploaded course notes.
+              <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed max-w-2xl mx-auto mt-5">
+                We don&apos;t explain content. We grade your answer, tell you exactly which marks you
+                lost and why, then predict how many weeks until you&apos;re exam-ready. No one ever
+                passed by watching a 2-hour video. Just saying.
               </p>
             </ScrollReveal>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {candidates.map((c, i) => (
-              <AnimatedCard
-                key={c.title}
-                delay={i * 0.07}
-                hoverY={-5}
-                className="group bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 flex flex-col gap-4 shadow-sm card-ring card-shimmer"
-              >
-                <span
-                  className="text-2xl w-11 h-11 rounded-xl flex items-center justify-center border shrink-0"
-                  style={{ background: c.bg, borderColor: c.border }}
-                >
-                  {c.icon}
-                </span>
-                <div className="flex flex-col gap-2">
-                  <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 leading-snug" style={{ fontSize: "0.95rem", letterSpacing: "-0.025em" }}>
-                    {c.title}
-                  </h3>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{c.desc}</p>
+          <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-3">
+            <p className="text-slate-400 dark:text-slate-500 text-xs font-600 tracking-[0.16em] uppercase pl-1">Elsewhere</p>
+            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.16em] uppercase pl-1 hidden sm:block">With ActSci AI</p>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            {comparisons.map((row, i) => (
+              <ScrollReveal key={i} delay={i * 0.06}>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <div className="flex items-start gap-3 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl p-4">
+                    <span className="w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="w-3 h-3"><CrossIcon /></span>
+                    </span>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{row.bad}</p>
+                  </div>
+                  <div className="flex items-start gap-3 bg-white dark:bg-slate-900 border border-indigo-100 dark:border-indigo-900 rounded-xl p-4 shadow-sm">
+                    <span className="w-5 h-5 rounded-full bg-indigo-50 dark:bg-indigo-950 text-indigo-500 dark:text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="w-3 h-3"><CheckIcon /></span>
+                    </span>
+                    <p className="text-slate-800 dark:text-slate-200 text-sm leading-relaxed font-500">{row.good}</p>
+                  </div>
                 </div>
-                <div className="mt-auto w-6 h-0.5 group-hover:w-10 transition-all duration-400" style={{ background: c.accent }} />
-              </AnimatedCard>
+              </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal delay={0.1}>
+            <p className="text-slate-400 dark:text-slate-500 text-sm text-center mt-8">
+              No flashcards. No videos. No &ldquo;good job&rdquo; for getting it wrong.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* ══ 3. THE CORE PROBLEM ══════════════════════════════════════════════ */}
+      {/* ══ 4. WHAT YOU GET ══════════════════════════════════════════════════ */}
       <section className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
-        <div className="section-divider absolute top-0 inset-x-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
-
-            {/* Left — headline */}
-            <div>
-              <ScrollReveal>
-                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">The Problem</p>
-              </ScrollReveal>
-              <AnimatedHeading
-                delay={0.1}
-                className="font-display text-slate-900 dark:text-slate-100"
-                style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
-              >
-                Self-study is flying{" "}
-                <span className="gradient-text">blind.</span>
-              </AnimatedHeading>
-              <ScrollReveal delay={0.15}>
-                <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-5 max-w-lg">
-                  Actuarial candidates in South Africa historically had two options: expensive
-                  in-person tuition, or self-study with past-paper PDFs and no feedback at all.
-                </p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.2}>
-                <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-3 max-w-lg">
-                  Candidates don&apos;t struggle because they lack knowledge — they struggle because
-                  they can&apos;t practise under exam conditions and get meaningful feedback before the
-                  real exam. ActSci<span className="gradient-text font-display font-800">AI</span> closes
-                  that gap entirely.
-                </p>
-              </ScrollReveal>
-            </div>
-
-            {/* Right — pain points */}
-            <div className="flex flex-col gap-3">
-              {problems.map((problem, i) => (
-                <ScrollReveal key={i} delay={i * 0.08}>
-                  <motion.div
-                    whileHover={{ x: 4 }}
-                    transition={{ duration: 0.2 }}
-                    className="flex items-start gap-4 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl p-5 shadow-sm card-ring group"
-                  >
-                    <div
-                      className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-all duration-300 group-hover:scale-110"
-                      style={{ background: "#FEF2F2", border: "1px solid #FECACA" }}
-                    >
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DC2626" strokeWidth="2" strokeLinecap="round">
-                        <circle cx="12" cy="12" r="10" /><path d="M12 8v4M12 16h.01" />
-                      </svg>
-                    </div>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{problem}</p>
-                  </motion.div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 4. PLATFORM CAPABILITIES ═════════════════════════════════════════ */}
-      <section id="capabilities" className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="mb-12">
             <ScrollReveal>
-              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Platform Capabilities</p>
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">What You Get</p>
             </ScrollReveal>
             <AnimatedHeading
               delay={0.1}
               className="font-display text-slate-900 dark:text-slate-100"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
-              Everything your exam prep{" "}
-              <span className="gradient-text">needs, in one place.</span>
+              Every tool you need.{" "}
+              <span className="gradient-text">Nothing you don&apos;t.</span>
             </AnimatedHeading>
+            <ScrollReveal delay={0.15}>
+              <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed max-w-2xl mt-4">
+                Features built specifically for actuarial exams — not adapted from generic study apps.
+              </p>
+            </ScrollReveal>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {capabilities.map((cap, i) => (
-              <AnimatedCard
-                key={cap.title}
-                delay={i * 0.06}
-                hoverY={-6}
-                className="group bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 flex flex-col gap-4 shadow-sm card-ring"
-              >
-                <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border transition-all duration-300 group-hover:scale-110"
-                  style={{ color: cap.accent, background: cap.bg, borderColor: `${cap.accent}20` }}
-                >
-                  <div className="w-5 h-5">{cap.icon}</div>
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 leading-snug" style={{ fontSize: "0.95rem", letterSpacing: "-0.025em" }}>
-                    {cap.title}
-                  </h3>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{cap.desc}</p>
-                </div>
-                <div className="mt-auto w-6 h-0.5 group-hover:w-10 transition-all duration-400" style={{ background: cap.accent }} />
-              </AnimatedCard>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 5. AI FEEDBACK & MARKING ═════════════════════════════════════════ */}
-      <section className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
-        <div className="section-divider absolute top-0 inset-x-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
-
-            {/* Left — features list */}
-            <div>
-              <ScrollReveal>
-                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">AI Feedback & Marking</p>
-              </ScrollReveal>
-              <AnimatedHeading
-                delay={0.1}
-                className="font-display text-slate-900 dark:text-slate-100"
-                style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
-              >
-                Feedback that reads like{" "}
-                <span className="gradient-text">an examiner marked it.</span>
-              </AnimatedHeading>
-              <ScrollReveal delay={0.15}>
-                <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-5 max-w-lg">
-                  Stop guessing what earns marks. ActSci<span className="gradient-text font-display font-800">AI</span> gives
-                  every candidate a clear, memorandum-grounded picture of exactly where their answer
-                  gained or lost marks — updated the moment they submit.
+          {/* Two large showcase panels */}
+          <div className="grid lg:grid-cols-2 gap-5 mb-5">
+            {/* Live marking mock */}
+            <ScrollReveal>
+              <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 md:p-7 shadow-sm card-ring h-full flex flex-col">
+                <span className="inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 text-[10px] font-600 tracking-[0.1em] uppercase border border-emerald-100 dark:border-emerald-900 mb-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  Live — Updates As You Type
+                </span>
+                <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 mb-2" style={{ fontSize: "1.35rem", letterSpacing: "-0.02em" }}>
+                  Your mark appears before you finish writing
+                </h3>
+                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                  No submit button. The moment you pause, four independent AI checks run —
+                  marking breadth, depth, command verb compliance, and calculations. Your mark
+                  updates in real time.
                 </p>
-              </ScrollReveal>
 
-              <div className="flex flex-col gap-3 mt-8">
-                {feedbackFeatures.map((f, i) => (
-                  <ScrollReveal key={f.title} delay={i * 0.07}>
-                    <div className="flex items-start gap-4 group">
-                      <div
-                        className="w-1.5 h-1.5 rounded-full shrink-0 mt-2.5 transition-all duration-300 group-hover:scale-150"
-                        style={{ background: f.accent }}
-                      />
-                      <div>
-                        <p className="text-slate-900 dark:text-slate-100 font-600 text-sm mb-0.5">{f.title}</p>
-                        <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{f.desc}</p>
-                      </div>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
-            </div>
-
-            {/* Right — mock reporting visual */}
-            <ScrollReveal delay={0.2} direction="left">
-              <div className="relative">
-                <div
-                  className="absolute -inset-4 rounded-3xl pointer-events-none"
-                  style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.08) 0%, transparent 70%)", filter: "blur(24px)" }}
-                />
-                <div className="relative bg-white rounded-2xl border border-slate-100 shadow-xl overflow-hidden">
-                  {/* Header bar */}
-                  <div className="bg-slate-900 px-5 py-4 flex items-center gap-3">
-                    <div className="flex gap-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-                    </div>
-                    <div className="flex-1 h-5 rounded bg-slate-800 mx-4 flex items-center px-3">
-                      <span className="text-slate-500 text-[10px] font-mono">actsci.co.za/exam-review</span>
-                    </div>
+                <div className="mt-auto bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 rounded-xl p-4">
+                  <p className="text-slate-400 dark:text-slate-500 text-[10px] font-600 tracking-[0.14em] uppercase mb-2">Your Answer</p>
+                  <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                    &ldquo;The risk transfer mechanism works by shifting the financial impact of...&rdquo;
+                  </p>
+                  <div className="flex items-end justify-between border-t border-slate-200 dark:border-slate-700 pt-3">
+                    <span className="text-slate-400 dark:text-slate-500 text-xs">Live score</span>
+                    <span className="font-display gradient-text font-800" style={{ fontSize: "1.6rem", letterSpacing: "-0.03em" }}>
+                      7.5<span className="text-slate-300 dark:text-slate-600 text-base font-500"> / 10</span>
+                    </span>
                   </div>
+                </div>
+              </div>
+            </ScrollReveal>
 
-                  {/* Mock dashboard content */}
-                  <div className="p-5 flex flex-col gap-4">
-                    {/* Report header */}
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-slate-900 font-700 text-sm">Exam Review · Attempt #14</p>
-                        <p className="text-slate-400 text-xs mt-0.5">SAM Framework · CA1 Paper</p>
-                      </div>
-                      <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 font-600 border border-emerald-100">Live</span>
-                    </div>
+            {/* AI coach mock */}
+            <ScrollReveal delay={0.1}>
+              <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 md:p-7 shadow-sm card-ring h-full flex flex-col">
+                <span className="inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 text-[10px] font-600 tracking-[0.1em] uppercase border border-indigo-100 dark:border-indigo-900 mb-4">
+                  AI Exam Coach
+                </span>
+                <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 mb-2" style={{ fontSize: "1.35rem", letterSpacing: "-0.02em" }}>
+                  A coach that knows exactly what you wrote
+                </h3>
+                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                  Ask it what you missed. It knows the question, the marks, and your answer — so
+                  every response is specific.
+                </p>
 
-                    {/* 4 metric tiles */}
-                    <div className="grid grid-cols-2 gap-2.5">
-                      {[
-                        { label: "Questions Answered", value: "142",   color: "#4F46E5" },
-                        { label: "Latest Mark",         value: "78%",   color: "#059669" },
-                        { label: "Avg Marking Time",    value: "8s",    color: "#7C3AED" },
-                        { label: "Topics Covered",      value: "18",    color: "#0284C7" },
-                      ].map((metric) => (
-                        <div key={metric.label} className="bg-slate-50 rounded-xl p-3.5 border border-slate-100">
-                          <p className="text-slate-400 text-[10px] font-500 mb-1.5 uppercase tracking-wide">{metric.label}</p>
-                          <p className="font-display font-800" style={{ fontSize: "1.35rem", letterSpacing: "-0.03em", color: metric.color, lineHeight: 1 }}>
-                            {metric.value}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Mini bar chart */}
-                    <div className="bg-slate-50 rounded-xl p-4 border border-slate-100">
-                      <p className="text-slate-500 text-[10px] font-600 uppercase tracking-[0.12em] mb-3">Topic Mastery</p>
-                      <div className="flex flex-col gap-2">
-                        {[
-                          { label: "ALM",       w: "78%", color: "#4F46E5" },
-                          { label: "CAPM",      w: "62%", color: "#7C3AED" },
-                          { label: "Mortality", w: "44%", color: "#0284C7" },
-                          { label: "Pensions",  w: "32%", color: "#059669" },
-                        ].map((bar) => (
-                          <div key={bar.label} className="flex items-center gap-2">
-                            <span className="text-slate-400 text-[10px] w-16 shrink-0">{bar.label}</span>
-                            <div className="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden">
-                              <div className="h-full rounded-full" style={{ width: bar.w, background: bar.color }} />
-                            </div>
-                            <span className="text-slate-400 text-[10px] w-6 text-right">{bar.w}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Export button row */}
-                    <div className="flex items-center gap-2">
-                      <div className="flex-1 h-8 rounded-lg bg-slate-900 flex items-center justify-center">
-                        <span className="text-white text-[11px] font-600">Export Feedback Report</span>
-                      </div>
-                      <div className="w-8 h-8 rounded-lg border border-slate-200 flex items-center justify-center shrink-0">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748B" strokeWidth="1.5" strokeLinecap="round">
-                          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                        </svg>
-                      </div>
-                    </div>
+                <div className="mt-auto flex flex-col gap-3">
+                  <div className="self-end max-w-[85%] bg-indigo-600 text-white text-sm rounded-2xl rounded-br-sm px-4 py-3 leading-relaxed">
+                    I got 5/8 — what am I missing?
+                  </div>
+                  <div className="self-start max-w-[92%] bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-300 text-sm rounded-2xl rounded-bl-sm px-4 py-3 leading-relaxed">
+                    Link the three lines of defence to board accountability and reference the SA
+                    regulatory angle — those 3 marks come from applying it locally.
                   </div>
                 </div>
               </div>
             </ScrollReveal>
           </div>
+
+          {/* Smaller feature grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+            {features.map((f, i) => (
+              <AnimatedCard
+                key={f.title}
+                delay={i * 0.06}
+                hoverY={-5}
+                className="group bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 flex flex-col gap-4 shadow-sm card-ring"
+              >
+                <div
+                  className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border transition-all duration-300 group-hover:scale-110"
+                  style={{ color: f.accent, background: f.bg, borderColor: `${f.accent}20` }}
+                >
+                  <div className="w-5 h-5">{f.icon}</div>
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 leading-snug" style={{ fontSize: "0.95rem", letterSpacing: "-0.025em" }}>
+                    {f.title}
+                  </h3>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{f.desc}</p>
+                </div>
+                <div className="mt-auto w-6 h-0.5 group-hover:w-10 transition-all duration-400" style={{ background: f.accent }} />
+              </AnimatedCard>
+            ))}
+          </div>
+
+          {/* Trial CTA banner */}
+          <ScrollReveal>
+            <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900 bg-indigo-50/60 dark:bg-indigo-950/40 p-8 flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
+              <div>
+                <p className="font-display text-slate-900 dark:text-slate-100 font-700" style={{ fontSize: "1.15rem", letterSpacing: "-0.02em" }}>
+                  Try everything free for 7 days
+                </p>
+                <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
+                  Full access to all features. No card required. Cancel any time.
+                </p>
+              </div>
+              <LiquidButton href={SIGNUP_URL} className="shrink-0 w-full sm:w-auto justify-center">
+                Start Free →
+              </LiquidButton>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* ══ 6. STUDY INTELLIGENCE ════════════════════════════════════════════ */}
+      {/* ══ 5. COVERAGE ══════════════════════════════════════════════════════ */}
       <section className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="mb-12">
             <ScrollReveal>
-              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Study Intelligence</p>
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Coverage</p>
             </ScrollReveal>
             <AnimatedHeading
               delay={0.1}
               className="font-display text-slate-900 dark:text-slate-100"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
-              More than a question bank.{" "}
-              <span className="gradient-text">A study intelligence engine.</span>
+              Built for actuarial{" "}
+              <span className="gradient-text">examinations</span>
             </AnimatedHeading>
             <ScrollReveal delay={0.15}>
-              <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-5 max-w-2xl">
-                ActSci<span className="gradient-text font-display font-800">AI</span> is built on a
-                Retrieval-Augmented Generation system on Supabase pgvector — every AI interaction
-                grounded in your own course notes, not generic internet knowledge.
+              <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed max-w-2xl mt-4">
+                More subjects added each semester.
               </p>
             </ScrollReveal>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {studyFeatures.map((feature, i) => (
-              <AnimatedCard
-                key={feature.title}
-                delay={i * 0.07}
-                hoverY={-5}
-                className="group bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 flex flex-col gap-4 shadow-sm card-ring card-shimmer"
-              >
-                <span
-                  className="text-2xl w-11 h-11 rounded-xl flex items-center justify-center border shrink-0"
-                  style={{ background: feature.bg, borderColor: feature.border }}
+            {subjects.map((s, i) => {
+              const open = s.status === "OPEN";
+              return (
+                <AnimatedCard
+                  key={s.code}
+                  delay={i * 0.06}
+                  hoverY={open ? -5 : 0}
+                  className={`rounded-2xl p-6 flex flex-col gap-3 border ${
+                    open
+                      ? "bg-white dark:bg-slate-900 border-indigo-200 dark:border-indigo-800 shadow-sm card-ring card-shimmer"
+                      : "bg-white/60 dark:bg-slate-900/40 border-slate-100 dark:border-slate-800"
+                  }`}
                 >
-                  {feature.icon}
-                </span>
-                <div className="flex flex-col gap-1.5">
-                  <h3 className="font-display text-slate-900 dark:text-slate-100 font-700" style={{ fontSize: "0.95rem", letterSpacing: "-0.025em" }}>
-                    {feature.title}
-                  </h3>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{feature.desc}</p>
-                </div>
-                <div className="mt-auto w-6 h-0.5 group-hover:w-10 transition-all duration-400" style={{ background: feature.accent }} />
-              </AnimatedCard>
-            ))}
+                  <div className="flex items-start justify-between">
+                    <p className="font-display font-800 text-slate-900 dark:text-slate-100" style={{ fontSize: "1.5rem", letterSpacing: "-0.03em" }}>
+                      {s.code}
+                    </p>
+                    <span
+                      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-600 tracking-[0.1em] uppercase border ${
+                        open
+                          ? "bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 border-emerald-100 dark:border-emerald-900"
+                          : "bg-slate-50 dark:bg-slate-800 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-700"
+                      }`}
+                    >
+                      {open && <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />}
+                      {s.status}
+                    </span>
+                  </div>
+                  <p className={`text-sm ${open ? "text-slate-600 dark:text-slate-300" : "text-slate-400 dark:text-slate-500"}`}>
+                    {s.name}
+                  </p>
+                </AnimatedCard>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ══ 7. CUSTOM TECHNOLOGY ══════════════════════════════════════════════ */}
+      {/* ══ 6. WHO BUILT THIS ════════════════════════════════════════════════ */}
       <section className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <ScrollReveal>
-                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Beyond ActSci AI</p>
-              </ScrollReveal>
-              <AnimatedHeading
-                delay={0.1}
-                className="font-display text-slate-900 dark:text-slate-100"
-                style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
-              >
-                Need something{" "}
-                <span className="gradient-text">custom?</span>
-              </AnimatedHeading>
-              <ScrollReveal delay={0.15}>
-                <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-5 max-w-lg">
-                  RAK Technologies also designs and develops fully custom technology solutions — from
-                  internal portals to AI-enhanced business systems.{" "}
-                  <span className="text-slate-900 dark:text-slate-100 font-600">If it&apos;s tech, trust us — we can build it.</span>
-                </p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.2}>
-                <div className="mt-8">
-                  <LiquidButton href="/solutions">Explore Our Services →</LiquidButton>
-                </div>
-              </ScrollReveal>
-            </div>
+        <div className="max-w-4xl mx-auto px-6 md:px-10">
+          <ScrollReveal>
+            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-6 text-center">Who Built This</p>
+          </ScrollReveal>
 
-            <div className="grid sm:grid-cols-2 gap-3">
-              {customTech.map((item, i) => (
-                <ScrollReveal key={item} delay={i * 0.07}>
-                  <motion.div
-                    whileHover={{ x: 4 }}
-                    transition={{ duration: 0.2 }}
-                    className="flex items-center gap-3 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl p-4 shadow-sm card-ring group"
+          <ScrollReveal delay={0.1}>
+            <div className="bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 rounded-2xl p-8 md:p-10">
+              <svg width="32" height="24" viewBox="0 0 32 24" fill="none" className="text-indigo-200 dark:text-indigo-900 mb-5">
+                <path d="M0 24V13.6C0 5.4 4.6 0.6 12 0L13 3.4C8.4 4.6 6.2 7.4 6 11.2H12V24H0ZM18 24V13.6C18 5.4 22.6 0.6 30 0L31 3.4C26.4 4.6 24.2 7.4 24 11.2H30V24H18Z" fill="currentColor" />
+              </svg>
+              <p className="text-slate-600 dark:text-slate-300 text-base md:text-lg leading-relaxed mb-4">
+                ActSci was built by an actuarial science graduate, currently working as an actuarial
+                analyst — someone who has walked the exact same path and is in the later stages of
+                qualifying.
+              </p>
+              <p className="text-slate-600 dark:text-slate-300 text-base md:text-lg leading-relaxed mb-4">
+                The problem was never the content. It was writing an answer with no idea whether it
+                was good enough, losing marks for reasons that were never explained, and repeating
+                the same mistakes because there was no real feedback. This platform exists to fix
+                that — instant, structured, examiner-style marking for every answer you write, built
+                by someone who needed exactly this and couldn&apos;t find it.
+              </p>
+              <p className="text-slate-600 dark:text-slate-300 text-base md:text-lg leading-relaxed mb-8">
+                And while ActSci<AISup /> is AI-powered, there is constant human oversight behind the
+                scenes — ensuring every piece of feedback stays grounded in the syllabus, nothing
+                more, nothing less.
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {["Actuarial Science Graduate", "Practicing Actuarial Analyst", "In The Later Stages Of Qualifying"].map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 text-xs font-600 tracking-wide"
                   >
-                    <div
-                      className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110"
-                      style={{ background: "linear-gradient(135deg, #EEF2FF, #F5F3FF)", border: "1px solid #C7D2FE" }}
-                    >
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="2" strokeLinecap="round">
-                        <path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" />
-                      </svg>
-                    </div>
-                    <span className="text-slate-600 dark:text-slate-400 text-sm font-500 leading-snug">{item}</span>
-                  </motion.div>
-                </ScrollReveal>
-              ))}
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* ══ 8. CTA ═══════════════════════════════════════════════════════════ */}
+      {/* ══ 7. START TODAY ═══════════════════════════════════════════════════ */}
       <section className="py-16 md:py-24 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
           <ScrollReveal>
-            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-5">Get Started</p>
+            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-5">Start Today</p>
             <h2
               className="font-display text-slate-900 dark:text-slate-100 mb-5 mx-auto"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08, maxWidth: "680px" }}
             >
-              Ready to pass with{" "}
-              <span className="gradient-text">confidence?</span>
+              Ready to{" "}
+              <span className="gradient-text">pass?</span>
             </h2>
             <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed max-w-lg mx-auto mb-10">
-              Start a free 7-day trial — no card required — and see how ActSci<span className="gradient-text font-display font-800">AI</span> turns
-              practice into a real mark improvement before the exam that counts.
+              7 days free. Full access. No card. Cancel before the trial ends and you pay nothing.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <LiquidButton href="https://actsci.co.za">Start Free Trial →</LiquidButton>
-              <a
-                href="/#contact"
-                className="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 dark:hover:border-slate-600 hover:bg-white dark:hover:bg-slate-800 transition-all duration-200"
-              >
-                Talk to RAK Technologies
-              </a>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
+              <LiquidButton href={SIGNUP_URL}>Create Free Account →</LiquidButton>
             </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+              {closingFeatures.map((f) => (
+                <span key={f} className="inline-flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm">
+                  <span className="w-4 h-4 rounded-full bg-indigo-50 dark:bg-indigo-950 text-indigo-500 dark:text-indigo-400 flex items-center justify-center shrink-0">
+                    <span className="w-2.5 h-2.5"><CheckIcon /></span>
+                  </span>
+                  {f}
+                </span>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ══ 8. BEYOND ACTSCI AI ══════════════════════════════════════════════ */}
+      <section className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
+        <div className="section-divider absolute top-0 inset-x-0" />
+        <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
+          <ScrollReveal>
+            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Beyond ActSci AI</p>
+          </ScrollReveal>
+          <AnimatedHeading
+            delay={0.1}
+            className="font-display text-slate-900 dark:text-slate-100 mx-auto"
+            style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.1, maxWidth: "640px" }}
+          >
+            Need something{" "}
+            <span className="gradient-text">custom?</span>
+          </AnimatedHeading>
+          <ScrollReveal delay={0.15}>
+            <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed max-w-lg mx-auto mt-5 mb-8">
+              ActSci<AISup /> was designed and built by RAK Technologies. We build custom platforms,
+              AI systems, and software for businesses across South Africa too.{" "}
+              <span className="text-slate-900 dark:text-slate-100 font-600">If it&apos;s tech, trust us — we can build it.</span>
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={0.2}>
+            <LiquidButton href="/solutions">Explore Our Services →</LiquidButton>
           </ScrollReveal>
         </div>
       </section>
