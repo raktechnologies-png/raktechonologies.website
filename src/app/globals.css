@@ -154,6 +154,40 @@
     font-variant-numeric: tabular-nums;
   }
 
+  /* Editorial container — strict 1290px, section wrappers stay full-bleed */
+  .container-editorial {
+    width: 100%;
+    max-width: 1290px;
+    margin-inline: auto;
+  }
+
+  /* Editorial vertical rhythm — 120px desktop, scaled down for smaller viewports */
+  .section-pad {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  @media (min-width: 768px) {
+    .section-pad { padding-top: 88px; padding-bottom: 88px; }
+  }
+  @media (min-width: 1024px) {
+    .section-pad { padding-top: 120px; padding-bottom: 120px; }
+  }
+
+  /* Bottom-border-only form fields */
+  .field-underline {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #E2E8F0;
+    border-radius: 0;
+    padding: 12px 2px;
+  }
+  .dark .field-underline { border-bottom-color: #334155; }
+  .field-underline:focus {
+    outline: none;
+    border-bottom-color: #4F46E5;
+  }
+  .dark .field-underline:focus { border-bottom-color: #818CF8; }
+
   /* Accent gradient text */
   .gradient-text {
     background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);

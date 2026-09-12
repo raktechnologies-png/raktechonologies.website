@@ -1,62 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion } from "framer-motion";
-import AnimatedCard from "@/components/ui/AnimatedCard";
-import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-
-function LiquidAccentButton({
-  href,
-  accent,
-  accentBg,
-  accentBorder,
-  children,
-}: {
-  href: string;
-  accent: string;
-  accentBg: string;
-  accentBorder: string;
-  children: React.ReactNode;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [origin, setOrigin] = useState({ x: 50, y: 50 });
-  const [filled, setFilled] = useState(false);
-
-  const onMouseEnter = (e: React.MouseEvent) => {
-    if (!ref.current) return;
-    const r = ref.current.getBoundingClientRect();
-    setOrigin({ x: ((e.clientX - r.left) / r.width) * 100, y: ((e.clientY - r.top) / r.height) * 100 });
-    setFilled(true);
-  };
-
-  return (
-    <div
-      ref={ref}
-      className="relative inline-flex overflow-hidden rounded-xl w-full"
-      style={{ background: accentBg, border: `1px solid ${accentBorder}` }}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={() => setFilled(false)}
-      onTouchStart={() => { setOrigin({ x: 50, y: 50 }); setFilled(true); }}
-      onTouchEnd={() => setFilled(false)}
-    >
-      <motion.span
-        aria-hidden="true"
-        className="absolute pointer-events-none rounded-full"
-        style={{ left: `${origin.x}%`, top: `${origin.y}%`, translateX: "-50%", translateY: "-50%", background: accent, width: 10, height: 10 }}
-        animate={filled ? { scale: 60, opacity: 1 } : { scale: 0, opacity: 1 }}
-        transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
-      />
-      <a
-        href={href}
-        className={`relative z-10 inline-flex items-center justify-center gap-2 text-sm font-600 px-5 py-2.5 w-full transition-colors duration-200 delay-75 ${filled ? "text-white" : ""}`}
-        style={filled ? {} : { color: accent }}
-      >
-        {children}
-      </a>
-    </div>
-  );
-}
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 
 const services = [
   {
@@ -64,163 +9,86 @@ const services = [
     title: "Web Development",
     description:
       "Modern, fast, responsive websites built with Next.js and Tailwind CSS. From landing pages to full-stack web applications.",
-    features: ["Custom Design", "Mobile-First", "SEO Optimised", "Lightning Fast"],
-    pricePrefix: "From",
-    price: "R4,500",
-    priceNote: "Starter websites & landing pages",
     accent: "#4F46E5",
-    accentBg: "#EEF2FF",
-    accentBorder: "#C7D2FE",
   },
   {
     id: "02",
     title: "CRM Systems",
     description:
       "Purpose-built CRM platforms that manage your clients, projects, invoices, and workflows — all in one place.",
-    features: ["Client Management", "Invoicing", "Project Tracking", "Analytics & Reports"],
-    pricePrefix: "From",
-    price: "R15,000",
-    priceNote: "Full business hub & CRM",
     accent: "#0284C7",
-    accentBg: "#E0F2FE",
-    accentBorder: "#BAE6FD",
   },
   {
     id: "03",
     title: "Software Development",
     description:
       "Custom software solutions tailored to your business. From internal tools and dashboards to full-stack applications.",
-    features: ["Custom Applications", "API Development", "System Integration", "Scalable Architecture"],
-    pricePrefix: null,
-    price: "Custom",
-    priceNote: "Scoped to your project",
     accent: "#7C3AED",
-    accentBg: "#F5F3FF",
-    accentBorder: "#DDD6FE",
   },
 ];
 
 export default function ServicesOverview() {
   return (
-    <section className="py-14 md:py-24 relative bg-white dark:bg-[#0B0F1A]">
+    <section className="section-pad relative bg-white dark:bg-[#0B0F1A]">
       <div className="section-divider absolute top-0 inset-x-0" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-        {/* Header */}
-        <div className="text-center mb-10 md:mb-14">
-          <ScrollReveal>
-            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-3">
-              What We Build
-            </p>
-          </ScrollReveal>
-          <AnimatedHeading
-            delay={0.1}
-            className="font-display text-slate-900 dark:text-slate-100 leading-[1.03] tracking-tight mb-3"
-            style={{ fontSize: "clamp(1.9rem, 4vw, 3.25rem)", fontWeight: 800 }}
-          >
-            Everything your business needs{" "}
-            <span className="text-indigo-600 dark:text-indigo-400">to thrive.</span>
-          </AnimatedHeading>
-          <ScrollReveal delay={0.15}>
-            <p className="text-slate-400 dark:text-slate-500 text-sm">
-              Transparent starting prices — final scope confirmed during discovery.
-            </p>
-          </ScrollReveal>
-        </div>
+      <div className="container-editorial px-6 md:px-10">
+        <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
 
-        {/* 3-column horizontal cards */}
-        <div className="grid md:grid-cols-3 gap-5">
-          {services.map((svc, i) => (
-            <AnimatedCard
-              key={svc.id}
-              delay={i * 0.1}
-              hoverY={-6}
-              className="group relative bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm card-ring card-shimmer flex flex-col"
+          {/* Sticky left — title */}
+          <div className="lg:w-[34%] lg:sticky lg:top-[150px] shrink-0">
+            <ScrollReveal>
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-4">
+                What We Build
+              </p>
+            </ScrollReveal>
+            <AnimatedHeading
+              delay={0.1}
+              className="font-display text-slate-900 dark:text-slate-100 leading-[1.05] tracking-tight mb-5"
+              style={{ fontSize: "clamp(1.9rem, 3.2vw, 2.75rem)", fontWeight: 800 }}
             >
-              <div className="flex flex-col flex-1 p-7 gap-5">
-                {/* Number + title + description */}
-                <div className="flex flex-col gap-2">
-                  <span className="text-xs font-700 font-label" style={{ color: svc.accent }}>
-                    {svc.id}
-                  </span>
-                  <h3
-                    className="font-display text-slate-900 dark:text-slate-50 font-800 leading-tight"
-                    style={{ fontSize: "clamp(1.2rem, 2vw, 1.5rem)" }}
-                  >
-                    {svc.title}
-                  </h3>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+              Everything your business needs{" "}
+              <span className="text-indigo-600 dark:text-indigo-400">to thrive.</span>
+            </AnimatedHeading>
+            <ScrollReveal delay={0.15}>
+              <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed max-w-xs mb-8">
+                Three focused service areas, each scoped to your project during a short discovery call.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2}>
+              <a
+                href="/#contact"
+                className="inline-block text-sm font-600 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors"
+              >
+                We also offer IT Consulting &amp; Advisory →
+              </a>
+            </ScrollReveal>
+          </div>
+
+          {/* Right — borderless card stack */}
+          <div className="flex-1 w-full flex flex-col">
+            {services.map((svc) => (
+              <ScrollReveal key={svc.id}>
+                <div className="flex flex-col gap-3 py-9 border-t border-slate-200 dark:border-slate-800 last:border-b">
+                  <div className="flex items-baseline gap-4">
+                    <span className="text-xs font-700 font-label" style={{ color: svc.accent }}>
+                      {svc.id}
+                    </span>
+                    <h3
+                      className="font-display text-slate-900 dark:text-slate-50 font-800 leading-tight"
+                      style={{ fontSize: "clamp(1.5rem, 2.4vw, 2rem)" }}
+                    >
+                      {svc.title}
+                    </h3>
+                  </div>
+                  <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed max-w-xl">
                     {svc.description}
                   </p>
                 </div>
-
-                {/* Feature checklist */}
-                <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5">
-                  {svc.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2">
-                      <span
-                        className="flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center"
-                        style={{ background: svc.accentBg, border: `1px solid ${svc.accentBorder}` }}
-                      >
-                        <svg width="8" height="8" viewBox="0 0 12 12" fill="none">
-                          <path d="M2 6l3 3 5-5" stroke={svc.accent} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </span>
-                      <span className="text-slate-600 dark:text-slate-400 text-xs font-500">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Price block */}
-                <div className="mt-auto">
-                  <div className="h-px bg-slate-100 dark:bg-slate-800 mb-4" />
-                  <div className="flex items-baseline gap-1.5 mb-0.5">
-                    {svc.pricePrefix && (
-                      <span className="text-slate-400 dark:text-slate-500 text-xs font-500">{svc.pricePrefix}</span>
-                    )}
-                    <span
-                      className="font-display font-figures font-800 leading-none tracking-tight"
-                      style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: svc.accent }}
-                    >
-                      {svc.price}
-                    </span>
-                  </div>
-                  <p className="text-slate-400 dark:text-slate-500 text-xs mb-4">{svc.priceNote}</p>
-
-                  <LiquidAccentButton
-                    href="/#contact"
-                    accent={svc.accent}
-                    accentBg={svc.accentBg}
-                    accentBorder={svc.accentBorder}
-                  >
-                    Get This Quote
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </LiquidAccentButton>
-                </div>
-              </div>
-            </AnimatedCard>
-          ))}
-        </div>
-
-        {/* IT Consulting callout */}
-        <ScrollReveal delay={0.2}>
-          <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-b border-slate-200 dark:border-slate-800 px-1 py-5">
-            <div>
-              <p className="text-slate-800 dark:text-slate-200 text-sm font-600">We also offer IT Consulting &amp; Advisory</p>
-              <p className="text-slate-500 dark:text-slate-400 text-sm mt-0.5">
-                Need something custom or not sure where to start? Reach out and let&apos;s talk.
-              </p>
-            </div>
-            <a
-              href="/#contact"
-              className="shrink-0 text-sm font-600 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors whitespace-nowrap"
-            >
-              Let&apos;s Talk →
-            </a>
+              </ScrollReveal>
+            ))}
           </div>
-        </ScrollReveal>
+        </div>
       </div>
     </section>
   );

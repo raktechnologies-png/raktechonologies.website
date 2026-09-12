@@ -126,9 +126,9 @@ export default function SEOAuditModal({ isOpen, onClose }: { isOpen: boolean; on
   })();
 
   const inputClass =
-    "w-full bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-slate-100 text-sm placeholder:text-slate-300 dark:placeholder:text-slate-600 focus:outline-none focus:border-indigo-300 dark:focus:border-indigo-600 focus:ring-2 focus:ring-indigo-50 dark:focus:ring-indigo-950 transition-all duration-200";
+    "field-underline w-full text-slate-900 dark:text-slate-100 text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-colors duration-200";
 
-  const labelClass = "text-slate-600 dark:text-slate-400 text-xs font-600 tracking-wide block mb-2";
+  const labelClass = "text-slate-500 dark:text-slate-400 text-xs font-600 tracking-[0.08em] uppercase font-label block mb-2";
 
   return (
     <AnimatePresence>

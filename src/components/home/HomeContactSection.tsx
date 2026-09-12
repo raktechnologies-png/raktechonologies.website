@@ -48,7 +48,7 @@ const whyContact = [
 
 export default function HomeContactSection() {
   return (
-    <section className="py-16 md:py-28 relative overflow-hidden bg-[#0B0F1A]">
+    <section className="section-pad relative overflow-hidden bg-[#0B0F1A]">
       <PebbleGrid color="165,180,252" className="opacity-30" />
       <div
         className="absolute inset-0 pointer-events-none"
@@ -66,7 +66,7 @@ export default function HomeContactSection() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+      <div className="container-editorial px-6 md:px-10 relative z-10">
         {/* Section header */}
         <ScrollReveal className="mb-10 md:mb-14">
           <p className="text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-5">

@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     url: "https://raktechnologies.co.za",
   },
 };
-import TrustSection from "@/components/home/TrustSection";
+import PartnersSection from "@/components/home/PartnersSection";
 import ServicesOverview from "@/components/home/ServicesOverview";
 import ActSciSection from "@/components/home/ActSciSection";
 import RecentProjects from "@/components/home/RecentProjects";
@@ -55,7 +55,6 @@ import SectionNav from "@/components/ui/SectionNav";
 
 const sections = [
   { id: "hero",      label: "Home" },
-  { id: "trust",     label: "About" },
   { id: "services",  label: "Services" },
   { id: "actsci",    label: "ActSci AI" },
   { id: "projects",  label: "Projects" },
@@ -68,7 +67,7 @@ export default function HomePage() {
       <SectionNav sections={sections} />
 
       <div id="hero"><Hero /></div>
-      <div id="trust"><TrustSection /></div>
+      <PartnersSection />
       <div id="services"><ServicesOverview /></div>
       <div id="actsci"><ActSciSection /></div>
       <div id="projects"><RecentProjects /></div>

@@ -146,7 +146,7 @@ export default function TermsPage() {
           className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse 60% 50% at 50% -5%, rgba(79,70,229,0.06) 0%, transparent 70%)" }}
         />
-        <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+        <div className="container-editorial px-6 md:px-10 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}

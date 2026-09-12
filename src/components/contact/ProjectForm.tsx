@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const solutionTypes = [
@@ -56,6 +56,16 @@ export default function ProjectForm() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => setForm((f) => ({ ...f, [field]: e.target.value }));
 
+  useEffect(() => {
+    try {
+      const lead = sessionStorage.getItem("rak_lead_description");
+      if (lead) {
+        setForm((f) => ({ ...f, description: lead }));
+        sessionStorage.removeItem("rak_lead_description");
+      }
+    } catch {}
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -83,9 +93,9 @@ export default function ProjectForm() {
   };
 
   const inputClass =
-    "w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-slate-100 text-sm placeholder:text-slate-300 dark:placeholder:text-slate-600 focus:outline-none focus:border-indigo-300 dark:focus:border-indigo-600 focus:ring-2 focus:ring-indigo-50 dark:focus:ring-indigo-950 transition-all duration-200";
+    "field-underline w-full text-slate-900 dark:text-slate-100 text-base placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-colors duration-200";
 
-  const labelClass = "text-slate-600 dark:text-slate-400 text-xs font-600 tracking-wide block mb-2";
+  const labelClass = "text-slate-500 dark:text-slate-400 text-xs font-600 tracking-[0.08em] uppercase font-label block mb-2";
 
   return (
     <AnimatePresence mode="wait">
@@ -192,9 +202,9 @@ export default function ProjectForm() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onSubmit={handleSubmit}
-          className="flex flex-col gap-5 p-8"
+          className="flex flex-col gap-8 p-8"
         >
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-x-6 gap-y-8">
             <div>
               <label className={labelClass}>Full Name *</label>
               <input type="text" required placeholder="John Doe" value={form.name} onChange={set("name")} className={inputClass} />
@@ -205,82 +215,95 @@ export default function ProjectForm() {
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-x-6 gap-y-8">
             <div>
-              <label className={labelClass}>Company <span className="text-slate-300 font-400">(optional)</span></label>
+              <label className={labelClass}>Company <span className="text-slate-300 font-400 normal-case">(optional)</span></label>
               <input type="text" placeholder="Acme Corp" value={form.company} onChange={set("company")} className={inputClass} />
             </div>
-            <div>
+            <div className="relative">
               <label className={labelClass}>Type of Solution Needed *</label>
-              <select required value={form.solutionType} onChange={set("solutionType")} className={`${inputClass} appearance-none cursor-pointer`}>
+              <select required value={form.solutionType} onChange={set("solutionType")} className={`${inputClass} appearance-none cursor-pointer pr-6`}>
                 <option value="">Select a solution type…</option>
                 {solutionTypes.map((s) => <option key={s} value={s}>{s}</option>)}
               </select>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="absolute right-1 bottom-4 text-slate-400 pointer-events-none">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
             </div>
           </div>
 
           <div>
             <label className={labelClass}>Describe Your Problem or Idea *</label>
             <textarea
-              required rows={5}
+              required rows={4}
               placeholder="Tell us about the challenge you're facing or the idea you want to build. The more detail, the better our initial response will be…"
               value={form.description} onChange={set("description")}
               className={`${inputClass} resize-none`}
             />
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div>
+          <div className="grid sm:grid-cols-2 gap-x-6 gap-y-8">
+            <div className="relative">
               <label className={labelClass}>
-                Budget Range <span className="text-slate-300 font-400">(optional, confidential)</span>
+                Budget Range <span className="text-slate-300 font-400 normal-case">(optional, confidential)</span>
               </label>
-              <select value={form.budget} onChange={set("budget")} className={`${inputClass} appearance-none cursor-pointer`}>
+              <select value={form.budget} onChange={set("budget")} className={`${inputClass} appearance-none cursor-pointer pr-6`}>
                 <option value="">Select a range…</option>
                 {budgetRanges.map((b) => <option key={b} value={b}>{b}</option>)}
               </select>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="absolute right-1 bottom-4 text-slate-400 pointer-events-none">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
             </div>
-            <div>
-              <label className={labelClass}>Timeline <span className="text-slate-300 font-400">(optional)</span></label>
-              <select value={form.timeline} onChange={set("timeline")} className={`${inputClass} appearance-none cursor-pointer`}>
+            <div className="relative">
+              <label className={labelClass}>Timeline <span className="text-slate-300 font-400 normal-case">(optional)</span></label>
+              <select value={form.timeline} onChange={set("timeline")} className={`${inputClass} appearance-none cursor-pointer pr-6`}>
                 <option value="">Select a timeline…</option>
                 {timelines.map((t) => <option key={t} value={t}>{t}</option>)}
               </select>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="absolute right-1 bottom-4 text-slate-400 pointer-events-none">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
             </div>
           </div>
 
-          {error && (
-            <motion.p
-              initial={{ opacity: 0, y: -4 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-red-500 text-sm text-center bg-red-50 border border-red-100 rounded-xl px-4 py-3"
-            >
-              {error}
-            </motion.p>
-          )}
-
-          <motion.button
-            type="submit"
-            disabled={loading}
-            whileHover={!loading ? { scale: 1.015 } : {}}
-            whileTap={!loading ? { scale: 0.985 } : {}}
-            className="mt-2 w-full py-4 rounded-xl text-white font-600 text-base transition-all duration-200 disabled:opacity-60 cursor-pointer shadow-md hover:shadow-lg"
-            style={{ background: "linear-gradient(135deg, #4F46E5, #7C3AED)" }}
-          >
-            {loading ? (
-              <span className="flex items-center justify-center gap-2">
-                <motion.span
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-                  className="block w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
-                />
-                Sending…
-              </span>
-            ) : (
-              "Submit Project Request →"
+          {/* Reserved space — error message never shifts layout */}
+          <div className="min-h-[20px]">
+            {error && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-red-500 text-sm leading-tight"
+              >
+                {error}
+              </motion.p>
             )}
-          </motion.button>
+          </div>
 
-          <p className="text-slate-400 text-xs text-center leading-relaxed">
+          <div>
+            <motion.button
+              type="submit"
+              disabled={loading}
+              whileTap={!loading ? { scale: 0.985 } : {}}
+              className="inline-block text-white font-600 text-base transition-all duration-200 disabled:opacity-60 cursor-pointer"
+              style={{ background: "linear-gradient(135deg, #4F46E5, #7C3AED)", padding: "20px 40px" }}
+            >
+              {loading ? (
+                <span className="flex items-center justify-center gap-2">
+                  <motion.span
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+                    className="block w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+                  />
+                  Sending…
+                </span>
+              ) : (
+                "Submit Project Request →"
+              )}
+            </motion.button>
+          </div>
+
+          <p className="text-slate-400 text-xs leading-relaxed">
             Your request is sent directly to our team — no middleman.{" "}
             Budget information is confidential and never shared.
           </p>

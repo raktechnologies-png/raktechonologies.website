@@ -141,13 +141,13 @@ export default function SolutionsPage() {
     <div className="pt-[68px] bg-white dark:bg-[#0B0F1A]">
 
       {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
-      <section className="relative py-16 md:py-24 overflow-hidden bg-white dark:bg-[#0B0F1A]">
+      <section className="relative section-pad overflow-hidden bg-white dark:bg-[#0B0F1A]">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse 60% 50% at 50% -5%, rgba(79,70,229,0.06) 0%, transparent 70%)" }}
         />
-        <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+        <div className="container-editorial px-6 md:px-10 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
 
             {/* Left — copy */}
@@ -172,12 +172,7 @@ export default function SolutionsPage() {
               </p>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <LiquidButton href="/#contact">Start a Project →</LiquidButton>
-                <a
-                  href="#how-we-work"
-                  className="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-500 px-7 py-4 rounded-xl text-base hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200"
-                >
-                  How We Work
-                </a>
+                <LiquidButton href="#how-we-work">How We Work</LiquidButton>
               </div>
             </motion.div>
 
@@ -216,7 +211,7 @@ export default function SolutionsPage() {
       {/* ══ SERVICE LIST ══════════════════════════════════════════════════════ */}
       <section className="relative pb-16 md:pb-24 bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10 pt-12 flex flex-col gap-4">
+        <div className="container-editorial px-6 md:px-10 pt-12 flex flex-col gap-4">
           {services.map((svc) => (
             <ScrollReveal key={svc.id} delay={0.05}>
               <motion.div
@@ -246,20 +241,6 @@ export default function SolutionsPage() {
                       </h2>
                       <p className="text-sm font-600" style={{ color: svc.accent }}>{svc.subtitle}</p>
                       <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mt-1">{svc.description}</p>
-
-                      {/* Price */}
-                      <div className="flex items-baseline gap-1.5 mt-3">
-                        {svc.pricePrefix && (
-                          <span className="text-slate-400 dark:text-slate-500 text-xs font-500">{svc.pricePrefix}</span>
-                        )}
-                        <span
-                          className="font-display font-figures font-800 leading-none tracking-tight"
-                          style={{ fontSize: "clamp(1.4rem, 2vw, 1.8rem)", color: svc.accent }}
-                        >
-                          {svc.price}
-                        </span>
-                      </div>
-                      <p className="text-slate-400 dark:text-slate-500 text-xs mb-1">{svc.priceNote}</p>
 
                       <LiquidButton href="/#contact" className="mt-3">Get This Quote →</LiquidButton>
                     </div>
@@ -298,7 +279,7 @@ export default function SolutionsPage() {
 
       {/* ══ IT CONSULTING CALLOUT ════════════════════════════════════════════ */}
       <section className="pb-6 relative bg-slate-50 dark:bg-slate-900/50">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="container-editorial px-6 md:px-10">
           <ScrollReveal>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-b border-slate-200 dark:border-slate-800 px-1 py-5">
               <div>
@@ -322,9 +303,9 @@ export default function SolutionsPage() {
       </section>
 
       {/* ══ HOW WE WORK — CASE TYPES ═════════════════════════════════════════ */}
-      <section id="how-we-work" className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
+      <section id="how-we-work" className="section-pad relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="container-editorial px-6 md:px-10">
           <div className="mb-14">
             <ScrollReveal>
               <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-4">How We Work</p>
@@ -367,9 +348,9 @@ export default function SolutionsPage() {
       </section>
 
       {/* ══ PROCESS ══════════════════════════════════════════════════════════ */}
-      <section className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
+      <section className="section-pad relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="container-editorial px-6 md:px-10">
           <div className="mb-14">
             <ScrollReveal>
               <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-4">The Process</p>
@@ -435,9 +416,9 @@ export default function SolutionsPage() {
       </section>
 
       {/* ══ BOTTOM CTA ═══════════════════════════════════════════════════════ */}
-      <section className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
+      <section className="section-pad relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
+        <div className="container-editorial px-6 md:px-10 text-center">
           <ScrollReveal>
             <h2
               className="font-display text-slate-900 dark:text-slate-100 mb-4"

@@ -163,8 +163,8 @@ export default function ActSciPage() {
       </section>
 
       {/* ══ 2. STATS ═════════════════════════════════════════════════════════ */}
-      <section className="py-12 md:py-16 relative bg-white dark:bg-[#0B0F1A]">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+      <section className="section-pad relative bg-white dark:bg-[#0B0F1A]">
+        <div className="container-editorial px-6 md:px-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {stats.map((s, i) => (
               <AnimatedCard
@@ -185,7 +185,7 @@ export default function ActSciPage() {
       </section>
 
       {/* ══ 3. WHY IT'S DIFFERENT ════════════════════════════════════════════ */}
-      <section className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
+      <section className="section-pad relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-6xl mx-auto px-6 md:px-10">
           <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 items-center">
@@ -259,7 +259,7 @@ export default function ActSciPage() {
       </section>
 
       {/* ══ 4. COVERAGE + WHO BUILT THIS ═════════════════════════════════════ */}
-      <section className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
+      <section className="section-pad relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-6xl mx-auto px-6 md:px-10">
           <div className="grid lg:grid-cols-2 gap-8">
@@ -326,9 +326,9 @@ export default function ActSciPage() {
       </section>
 
       {/* ══ 5. START TODAY ═══════════════════════════════════════════════════ */}
-      <section className="py-16 md:py-24 relative bg-slate-50 dark:bg-slate-900/50">
+      <section className="section-pad relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
+        <div className="container-editorial px-6 md:px-10 text-center">
           <ScrollReveal>
             <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-5">Start Today</p>
             <h2
@@ -360,9 +360,9 @@ export default function ActSciPage() {
       </section>
 
       {/* ══ 6. BEYOND ACTSCI AI ══════════════════════════════════════════════ */}
-      <section className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
+      <section className="section-pad relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
+        <div className="container-editorial px-6 md:px-10 text-center">
           <ScrollReveal>
             <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-4">Beyond ActSci AI</p>
           </ScrollReveal>

@@ -1,9 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import AnimatedCard from "@/components/ui/AnimatedCard";
-import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PebbleGrid from "@/components/ui/PebbleGrid";
 import LiquidButton from "@/components/ui/LiquidButton";
@@ -49,22 +48,96 @@ const capabilities = [
   "Digital Transformation Roadmaps",
 ];
 
+const tabs = [
+  { id: "story", label: "Our Story" },
+  { id: "values", label: "What We Value" },
+  { id: "capabilities", label: "What We're Capable Of" },
+] as const;
+
+type TabId = (typeof tabs)[number]["id"];
+
+function TabPanel({ active }: { active: TabId }) {
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={active}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.25 }}
+      >
+        {active === "story" && (
+          <div className="flex flex-col gap-4 text-slate-500 dark:text-slate-400 text-lg leading-relaxed max-w-xl">
+            <p>
+              We started RAK Technologies with a straightforward premise: South African businesses
+              deserve access to world-class technology consulting — without the world-class price
+              tag that often comes with it. Founded in 2024 and based in Pretoria, we serve
+              clients across South Africa and beyond.
+            </p>
+            <p>
+              Our team brings together expertise across software engineering, data science,
+              cloud infrastructure, and business consulting. This cross-disciplinary depth means
+              we can tackle complex challenges that span technical and organisational boundaries.
+            </p>
+            <p>
+              We&apos;ve worked with healthcare providers, financial services firms, retail brands,
+              and government-adjacent organisations — each with unique constraints, each
+              requiring a tailored approach.
+            </p>
+            <div className="flex items-center gap-3 pt-2">
+              <div className="w-8 h-0.5" style={{ background: "linear-gradient(90deg, #4F46E5, #7C3AED)" }} />
+              <span className="text-slate-400 dark:text-slate-500 text-sm">Est. 2024 · Pretoria, South Africa</span>
+            </div>
+          </div>
+        )}
+
+        {active === "values" && (
+          <div className="flex flex-col max-w-xl">
+            {values.map((v) => (
+              <div key={v.number} className="flex items-start gap-5 py-6 border-t border-slate-200 dark:border-slate-800 last:border-b">
+                <span className="font-label text-indigo-400 dark:text-indigo-500 text-sm pt-0.5 shrink-0">{v.number}</span>
+                <div className="flex flex-col gap-2">
+                  <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 text-[1.05rem]">{v.title}</h3>
+                  <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed">{v.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {active === "capabilities" && (
+          <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-4 max-w-xl">
+            {capabilities.map((cap) => (
+              <li key={cap} className="flex items-center gap-2.5 text-base text-slate-600 dark:text-slate-400 py-2 border-t border-slate-200 dark:border-slate-800">
+                {cap}
+              </li>
+            ))}
+          </ul>
+        )}
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
 export default function AboutPage() {
+  const [active, setActive] = useState<TabId>("story");
+
   return (
     <div className="pt-[68px] bg-white dark:bg-[#0B0F1A]">
-      {/* ── Hero ── */}
-      <section className="relative py-16 md:py-24 overflow-hidden bg-white dark:bg-[#0B0F1A]">
+
+      {/* ── Hero — asymmetric offset ── */}
+      <section className="section-pad relative overflow-hidden bg-white dark:bg-[#0B0F1A]">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse 60% 50% at 50% -5%, rgba(79,70,229,0.06) 0%, transparent 70%)" }}
         />
-        <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+        <div className="container-editorial px-6 md:px-10 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-4xl"
+            className="lg:pr-[22%] xl:pr-[32%]"
           >
             <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-5">
               About RAK Technologies
@@ -72,7 +145,7 @@ export default function AboutPage() {
             <h1
               className="font-display text-slate-900 dark:text-slate-100 mb-8"
               style={{
-                fontSize: "clamp(2.8rem, 7vw, 6.5rem)",
+                fontSize: "clamp(2.8rem, 6.5vw, 5.5rem)",
                 fontWeight: 900,
                 lineHeight: 1.0,
                 letterSpacing: "-0.04em",
@@ -82,7 +155,7 @@ export default function AboutPage() {
               <span className="text-indigo-600 dark:text-indigo-400">people and purpose.</span>
             </h1>
             <p
-              className="text-slate-500 dark:text-slate-400 text-xl md:text-2xl leading-relaxed max-w-2xl"
+              className="text-slate-500 dark:text-slate-400 text-xl leading-relaxed"
               style={{ fontWeight: 400, letterSpacing: "-0.015em" }}
             >
               RAK Technologies is a South African IT consulting and software development firm
@@ -92,122 +165,57 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story */}
-      <section className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
+      {/* ── Tabbed: Story / Values / Capabilities ── */}
+      <section className="section-pad relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
-            <ScrollReveal>
-              <div className="flex flex-col gap-6">
-                <AnimatedHeading
-                  className="font-display text-slate-900 dark:text-slate-100"
-                  style={{ fontSize: "clamp(2rem, 3.5vw, 3.25rem)", fontWeight: 800, lineHeight: 1.06, letterSpacing: "-0.035em" }}
-                >
-                  A firm built on outcomes,{" "}
-                  <span className="text-indigo-600 dark:text-indigo-400">not outputs.</span>
-                </AnimatedHeading>
-                <div className="flex flex-col gap-4 text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
-                  <p>
-                    We started RAK Technologies with a straightforward premise: South African businesses
-                    deserve access to world-class technology consulting — without the world-class price
-                    tag that often comes with it. Founded in 2024 and based in Pretoria, we serve
-                    clients across South Africa and beyond.
-                  </p>
-                  <p>
-                    Our team brings together expertise across software engineering, data science,
-                    cloud infrastructure, and business consulting. This cross-disciplinary depth means
-                    we can tackle complex challenges that span technical and organisational boundaries.
-                  </p>
-                  <p>
-                    We&apos;ve worked with healthcare providers, financial services firms, retail brands,
-                    and government-adjacent organisations — each with unique constraints, each
-                    requiring a tailored approach.
-                  </p>
-                </div>
-                <div className="flex items-center gap-3 pt-2">
-                  <div className="w-8 h-0.5" style={{ background: "linear-gradient(90deg, #4F46E5, #7C3AED)" }} />
-                  <span className="text-slate-400 dark:text-slate-500 text-sm">Est. 2024 · Pretoria, South Africa</span>
-                </div>
-              </div>
-            </ScrollReveal>
+        <div className="container-editorial px-6 md:px-10">
+          <div className="flex flex-col lg:flex-row gap-16">
 
-            <ScrollReveal delay={0.15} direction="left">
-              <div className="flex flex-col gap-5">
-                {/* Server rack image */}
-                <div className="relative">
-                  <div
-                    className="absolute -inset-3 rounded-3xl pointer-events-none"
-                    style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(79,70,229,0.08) 0%, transparent 70%)", filter: "blur(20px)" }}
-                  />
-                  <motion.div
-                    whileHover={{ scale: 1.015 }}
-                    transition={{ duration: 0.5 }}
-                    className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-100 dark:border-slate-700"
-                    style={{ aspectRatio: "4/3" }}
+            {/* Left — heavy column: tabs + panel */}
+            <div className="lg:w-[58%]">
+              <div className="flex items-center gap-8 mb-10 border-b border-slate-200 dark:border-slate-800">
+                {tabs.map((t) => (
+                  <button
+                    key={t.id}
+                    onClick={() => setActive(t.id)}
+                    className={`relative pb-4 text-sm font-600 tracking-wide transition-opacity duration-200 cursor-pointer ${
+                      active === t.id
+                        ? "text-slate-900 dark:text-slate-100 opacity-100"
+                        : "text-slate-400 dark:text-slate-500 opacity-70 hover:opacity-100"
+                    }`}
                   >
-                    <Image
-                      src="/Organized Server Rack.png"
-                      alt="RAK Technologies infrastructure and engineering capability"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(255,255,255,0.12) 0%, transparent 60%)" }} />
-                  </motion.div>
-                </div>
+                    {t.label}
+                    {active === t.id && (
+                      <motion.span
+                        layoutId="about-tab-underline"
+                        className="absolute left-0 right-0 -bottom-px h-[2px] bg-indigo-500"
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
 
-                {/* Capabilities list below the image */}
-                <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
-                  <p className="text-slate-400 dark:text-slate-500 text-xs font-600 tracking-[0.15em] uppercase font-label mb-4">
-                    What we&apos;re capable of
-                  </p>
-                  <ul className="grid grid-cols-2 gap-2">
-                    {capabilities.map((cap, i) => (
-                      <li key={i} className="flex items-center gap-2.5 text-sm text-slate-600 dark:text-slate-400">
-                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />
-                        {cap}
-                      </li>
-                    ))}
-                  </ul>
+              <TabPanel active={active} />
+            </div>
+
+            {/* Right — light column: constant image */}
+            <ScrollReveal delay={0.15} direction="left" className="lg:w-[42%]">
+              <div className="relative">
+                <div
+                  className="absolute -inset-3 rounded-3xl pointer-events-none"
+                  style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(79,70,229,0.08) 0%, transparent 70%)", filter: "blur(20px)" }}
+                />
+                <div className="relative rounded-2xl overflow-hidden shadow-lg" style={{ aspectRatio: "4/3" }}>
+                  <Image
+                    src="/Organized Server Rack.png"
+                    alt="RAK Technologies infrastructure and engineering capability"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(255,255,255,0.12) 0%, transparent 60%)" }} />
                 </div>
               </div>
             </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
-        <div className="section-divider absolute top-0 inset-x-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="text-center mb-16">
-            <ScrollReveal>
-              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-4">
-                What We Stand For
-              </p>
-            </ScrollReveal>
-            <AnimatedHeading
-              delay={0.1}
-              className="font-display text-slate-900 dark:text-slate-100 leading-[1.05] tracking-tight"
-              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 800 }}
-            >
-              Our <span className="text-indigo-600 dark:text-indigo-400">Values</span>
-            </AnimatedHeading>
-          </div>
-          <div className="grid md:grid-cols-2 gap-x-10">
-            {values.map((v, i) => (
-              <AnimatedCard
-                key={i}
-                delay={i * 0.08}
-                hoverY={0}
-                className="group flex items-start gap-5 py-6 border-t border-slate-200 dark:border-slate-800"
-              >
-                <span className="font-label text-indigo-400 dark:text-indigo-500 text-sm pt-0.5 shrink-0">{v.number}</span>
-                <div className="flex flex-col gap-2">
-                  <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 text-[1.1rem] group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-200">{v.title}</h3>
-                  <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed">{v.description}</p>
-                </div>
-              </AnimatedCard>
-            ))}
           </div>
         </div>
       </section>
@@ -216,9 +224,9 @@ export default function AboutPage() {
       <WhyUsSection />
 
       {/* CTA */}
-      <section className="py-16 md:py-24 relative bg-slate-50 dark:bg-slate-900/50">
+      <section className="section-pad relative bg-white dark:bg-[#0B0F1A]">
         <div className="section-divider absolute top-0 inset-x-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
+        <div className="container-editorial px-6 md:px-10 text-center">
           <ScrollReveal>
             <h2
               className="font-display text-slate-900 dark:text-slate-100 leading-[1.05] tracking-tight mb-5"

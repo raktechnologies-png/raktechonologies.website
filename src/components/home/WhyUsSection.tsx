@@ -46,10 +46,10 @@ const differentiators = [
 
 export default function WhyUsSection() {
   return (
-    <section className="py-10 md:py-16 relative bg-slate-50 dark:bg-slate-900/50 overflow-hidden">
+    <section className="section-pad relative bg-slate-50 dark:bg-slate-900/50 overflow-hidden">
       <div className="section-divider absolute top-0 inset-x-0" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+      <div className="container-editorial px-6 md:px-10">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
           <ScrollReveal>
@@ -101,12 +101,9 @@ export default function WhyUsSection() {
             <LiquidButton href="/#contact">
               Work With Us →
             </LiquidButton>
-            <a
-              href="/about"
-              className="flex items-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-200 dark:hover:border-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-950 font-500 px-6 py-4 rounded-xl text-sm transition-all duration-200"
-            >
+            <LiquidButton href="/about">
               Learn About Us
-            </a>
+            </LiquidButton>
           </div>
         </ScrollReveal>
       </div>

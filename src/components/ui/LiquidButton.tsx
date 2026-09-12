@@ -6,7 +6,11 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 interface Props {
-  href: string;
+  /** Renders as a Link when set; otherwise renders as a <button>. */
+  href?: string;
+  onClick?: () => void;
+  type?: "button" | "submit";
+  disabled?: boolean;
   children: ReactNode;
   className?: string;
   external?: boolean;
@@ -16,6 +20,9 @@ interface Props {
 
 export default function LiquidButton({
   href,
+  onClick,
+  type = "button",
+  disabled = false,
   children,
   className,
   external,
@@ -27,7 +34,7 @@ export default function LiquidButton({
 
   // Mouse — desktop liquid fill from cursor entry point
   const onMouseEnter = (e: React.MouseEvent) => {
-    if (!wrapperRef.current) return;
+    if (!wrapperRef.current || disabled) return;
     const r = wrapperRef.current.getBoundingClientRect();
     setOrigin({
       x: ((e.clientX - r.left) / r.width)  * 100,
@@ -38,7 +45,7 @@ export default function LiquidButton({
   const onMouseLeave = () => setFilled(false);
 
   // Touch — fill from centre on press, release to clear
-  const onTouchStart = () => { setOrigin({ x: 50, y: 50 }); setFilled(true); };
+  const onTouchStart = () => { if (!disabled) { setOrigin({ x: 50, y: 50 }); setFilled(true); } };
   const onTouchEnd   = () => setFilled(false);
 
   // ── Visual tokens ────────────────────────────────────────────────────────
@@ -48,6 +55,10 @@ export default function LiquidButton({
 
   const textDefault = dark ? "text-white" : "text-indigo-600 dark:text-indigo-400";
   const fillGradient = "linear-gradient(135deg, #4F46E5, #7C3AED)";
+
+  const innerClassName = `relative z-10 inline-flex items-center justify-center gap-2.5 font-600 px-8 sm:px-9 py-4 text-base transition-colors duration-200 delay-75 ${
+    filled ? "text-white" : textDefault
+  } ${disabled ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`;
 
   return (
     <div
@@ -71,20 +82,29 @@ export default function LiquidButton({
           width:  10,
           height: 10,
         }}
-        animate={filled ? { scale: 60, opacity: 1 } : { scale: 0, opacity: 1 }}
+        animate={filled && !disabled ? { scale: 60, opacity: 1 } : { scale: 0, opacity: 1 }}
         transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
       />
 
-      <Link
-        href={href}
-        target={external ? "_blank" : undefined}
-        rel={external    ? "noopener noreferrer" : undefined}
-        className={`relative z-10 inline-flex items-center justify-center gap-2.5 font-600 px-8 sm:px-9 py-4 text-base transition-colors duration-200 delay-75 ${
-          filled ? "text-white" : textDefault
-        }`}
-      >
-        {children}
-      </Link>
+      {href ? (
+        <Link
+          href={href}
+          target={external ? "_blank" : undefined}
+          rel={external    ? "noopener noreferrer" : undefined}
+          className={innerClassName}
+        >
+          {children}
+        </Link>
+      ) : (
+        <button
+          type={type}
+          onClick={onClick}
+          disabled={disabled}
+          className={innerClassName}
+        >
+          {children}
+        </button>
+      )}
     </div>
   );
 }
