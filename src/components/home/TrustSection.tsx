@@ -8,40 +8,22 @@ import LiquidButton from "@/components/ui/LiquidButton";
 
 const pillars = [
   {
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-      </svg>
-    ),
+    number: "01",
     title: "Modern Tech",
     description: "We use the latest high-performance frameworks and tools — no outdated, slow, or bloated templates.",
   },
   {
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-        <circle cx="12" cy="12" r="3" />
-        <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
-      </svg>
-    ),
+    number: "02",
     title: "Partner, Not Vendor",
     description: "We work integrated alongside your business workflow, not just for you. Your business goals guide our infrastructure.",
   },
   {
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-        <path d="M9 12l2 2 4-4" />
-        <path d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z" />
-      </svg>
-    ),
+    number: "03",
     title: "You Own Everything",
     description: "Full source code access, secure direct database configurations, and absolute project ownership with zero vendor lock-in.",
   },
   {
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-      </svg>
-    ),
+    number: "04",
     title: "Built to Scale",
     description: "Every architecture layer is optimized to grow with your business — agile methodologies and tight feedback loops ensure faster launches, never holding you back.",
   },
@@ -58,7 +40,7 @@ export default function TrustSection() {
           {/* Left — headline */}
           <MagneticSection className="flex flex-col gap-6" maxX={12} maxY={6}>
             <ScrollReveal>
-              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase">
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label">
                 Our Commitment
               </p>
             </ScrollReveal>
@@ -68,7 +50,7 @@ export default function TrustSection() {
               style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)", fontWeight: 800 }}
             >
               We turn ideas into{" "}
-              <span className="gradient-text">scalable systems.</span>
+              <span className="text-indigo-600 dark:text-indigo-400">scalable systems.</span>
             </AnimatedHeading>
             <ScrollReveal delay={0.22}>
               <p className="hidden md:block text-slate-500 dark:text-slate-400 text-lg md:text-xl leading-relaxed max-w-lg">
@@ -91,7 +73,7 @@ export default function TrustSection() {
                   ))}
                 </div>
                 <p className="text-slate-500 dark:text-slate-400 text-base">
-                  Trusted by <span className="text-slate-900 dark:text-slate-50 font-600">50+ clients</span> across industries
+                  Trusted by <span className="text-slate-900 dark:text-slate-50 font-600 font-figures">50+ clients</span> across industries
                 </p>
               </div>
             </ScrollReveal>
@@ -102,22 +84,19 @@ export default function TrustSection() {
             </ScrollReveal>
           </MagneticSection>
 
-          {/* Right — pillars */}
-          <div className="grid grid-cols-1 gap-3">
+          {/* Right — pillars, editorial list */}
+          <div className="flex flex-col">
             {pillars.map((pillar, i) => (
               <AnimatedCard
                 key={i}
                 delay={i * 0.08}
                 direction="left"
-                hoverY={-3}
-                hoverScale={1.005}
-                className="group flex items-start gap-4 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl p-6 shadow-sm card-ring"
+                hoverY={0}
+                className="group flex items-start gap-5 py-5 border-t border-slate-200 dark:border-slate-800 last:border-b"
               >
-                <div className="w-11 h-11 rounded-lg bg-indigo-50 dark:bg-indigo-950 border border-indigo-100 dark:border-indigo-900 flex items-center justify-center text-indigo-500 group-hover:text-violet-600 group-hover:bg-violet-50 group-hover:border-violet-100 transition-all duration-300 shrink-0">
-                  {pillar.icon}
-                </div>
+                <span className="font-label text-indigo-400 dark:text-indigo-500 text-sm pt-0.5 shrink-0">{pillar.number}</span>
                 <div className="flex flex-col gap-1.5">
-                  <h3 className="text-slate-900 dark:text-slate-100 text-base font-600">{pillar.title}</h3>
+                  <h3 className="text-slate-900 dark:text-slate-100 text-base font-600 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-200">{pillar.title}</h3>
                   <p className="hidden md:block text-slate-500 dark:text-slate-400 text-base leading-relaxed">{pillar.description}</p>
                 </div>
               </AnimatedCard>

@@ -95,7 +95,7 @@ export default function ActSciSection() {
                 className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 shadow-sm card-ring flex flex-col gap-3"
               >
                 <p
-                  className="font-display font-800 leading-none"
+                  className="font-display font-figures font-800 leading-none"
                   style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)", letterSpacing: "-0.03em", color: m.color }}
                 >
                   {m.value}

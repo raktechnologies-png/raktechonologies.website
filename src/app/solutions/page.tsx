@@ -17,7 +17,7 @@ const services = [
     title: "Web Development",
     subtitle: "Modern, fast, responsive websites built to perform.",
     description:
-      "Modern, fast, responsive websites built with React and Tailwind CSS. From highly polished landing pages to robust multi-tier web applications — designed to look great, load instantly, and turn visitors into paying customers.",
+      "Modern, fast, responsive websites built with React and Tailwind CSS. From highly polished landing pages to multi-tier web applications — designed to look great, load instantly, and turn visitors into paying customers.",
     outcomes: [
       "Custom Design",
       "Mobile-First Execution",
@@ -42,7 +42,7 @@ const services = [
     title: "CRM & Internal Hubs",
     subtitle: "Your entire business operation, in one interface.",
     description:
-      "Purpose-built central management platforms designed to seamlessly control your customer flows, project tasks, automated invoicing, and business pipelines — completely in one interface.",
+      "Purpose-built central management platforms that put your customer flows, project tasks, automated invoicing, and business pipelines in one interface.",
     outcomes: [
       "Client Management Database",
       "Direct Mobile Quote & Invoicing",
@@ -90,10 +90,10 @@ const services = [
 
 // ── How we work data ───────────────────────────────────────────────────────────
 const caseTypes = [
-  { title: "Build from Scratch",     description: "You have an idea and need a technical team to bring it to life. We architect, design, build, and launch from the ground up.", icon: "◎", accent: "#4F46E5", bg: "#EEF2FF" },
-  { title: "System Modernisation",   description: "You have a legacy system slowing you down. We audit, plan, and execute the migration to a modern, high-performance architecture.", icon: "◈", accent: "#7C3AED", bg: "#F5F3FF" },
-  { title: "Scale What You Have",    description: "Your system works but can't handle growth. We identify bottlenecks, redesign for scale, and implement without disrupting your operations.", icon: "◉", accent: "#0284C7", bg: "#E0F2FE" },
-  { title: "Replace Manual Work",    description: "Your team is spending hours on repetitive tasks. We map your workflows, automate the bottlenecks, and wire it into your existing systems.", icon: "◎", accent: "#059669", bg: "#ECFDF5" },
+  { number: "01", title: "Build from Scratch",   description: "You have an idea and need a technical team to bring it to life. We architect, design, build, and launch from the ground up.", accent: "#4F46E5" },
+  { number: "02", title: "System Modernisation", description: "You have a legacy system slowing you down. We audit, plan, and execute the migration to a modern, high-performance architecture.", accent: "#7C3AED" },
+  { number: "03", title: "Scale What You Have",  description: "Your system works but can't handle growth. We identify bottlenecks, redesign for scale, and implement without disrupting your operations.", accent: "#0284C7" },
+  { number: "04", title: "Replace Manual Work",  description: "Your team is spending hours on repetitive tasks. We map your workflows, automate the bottlenecks, and wire it into your existing systems.", accent: "#059669" },
 ];
 
 const phases = [
@@ -156,7 +156,7 @@ export default function SolutionsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: EASE }}
             >
-              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-5">
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-5">
                 Services & Solutions
               </p>
               <h1
@@ -164,7 +164,7 @@ export default function SolutionsPage() {
                 style={{ fontSize: "clamp(2.4rem, 5.5vw, 5rem)", fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.04em" }}
               >
                 What we build,{" "}
-                <span className="gradient-text">and how we build it.</span>
+                <span className="text-indigo-600 dark:text-indigo-400">and how we build it.</span>
               </h1>
               <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed max-w-lg mb-8" style={{ letterSpacing: "-0.01em" }}>
                 Three focused service areas — websites, custom software, and CRM systems — delivered
@@ -253,7 +253,7 @@ export default function SolutionsPage() {
                           <span className="text-slate-400 dark:text-slate-500 text-xs font-500">{svc.pricePrefix}</span>
                         )}
                         <span
-                          className="font-display font-800 leading-none tracking-tight"
+                          className="font-display font-figures font-800 leading-none tracking-tight"
                           style={{ fontSize: "clamp(1.4rem, 2vw, 1.8rem)", color: svc.accent }}
                         >
                           {svc.price}
@@ -261,13 +261,13 @@ export default function SolutionsPage() {
                       </div>
                       <p className="text-slate-400 dark:text-slate-500 text-xs mb-1">{svc.priceNote}</p>
 
-                      <LiquidButton href="/#contact" className="mt-3">Get Started →</LiquidButton>
+                      <LiquidButton href="/#contact" className="mt-3">Get This Quote →</LiquidButton>
                     </div>
 
                     {/* Right */}
                     <div className="md:col-span-8 grid md:grid-cols-2 gap-6">
                       <div className="flex flex-col gap-3">
-                        <p className="text-slate-900 dark:text-slate-100 text-xs font-600 tracking-widest uppercase">What we deliver</p>
+                        <p className="text-slate-900 dark:text-slate-100 text-xs font-600 tracking-widest uppercase font-label">What we deliver</p>
                         <ul className="flex flex-col gap-2.5">
                           {svc.outcomes.map((o, j) => (
                             <li key={j} className="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-400">
@@ -278,7 +278,7 @@ export default function SolutionsPage() {
                         </ul>
                       </div>
                       <div className="flex flex-col gap-3">
-                        <p className="text-slate-900 dark:text-slate-100 text-xs font-600 tracking-widest uppercase">Problems we solve</p>
+                        <p className="text-slate-900 dark:text-slate-100 text-xs font-600 tracking-widest uppercase font-label">Problems we solve</p>
                         <ul className="flex flex-col gap-3">
                           {svc.problems.map((p, j) => (
                             <AnimatedCard key={j} hoverY={-2} className="text-sm text-slate-500 dark:text-slate-400 italic leading-relaxed px-3 py-2 rounded-lg" style={{ background: svc.accentLight }}>
@@ -300,22 +300,15 @@ export default function SolutionsPage() {
       <section className="pb-6 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <ScrollReveal>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl px-6 py-5 shadow-sm">
-              <div className="flex items-start gap-4">
-                <span className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-900 flex items-center justify-center shrink-0 text-indigo-500 dark:text-indigo-400">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2a10 10 0 1 0 10 10" /><path d="M12 6v6l4 2" /><path d="M18 2v4h4" />
-                  </svg>
-                </span>
-                <div>
-                  <p className="text-slate-800 dark:text-slate-200 text-sm font-600">
-                    We also offer IT Consulting &amp; Advisory
-                  </p>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm mt-0.5 max-w-lg">
-                    Need a technology audit, a migration strategy, or just expert guidance on what to build?
-                    If you want something custom — reach out and let&apos;s talk.
-                  </p>
-                </div>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-b border-slate-200 dark:border-slate-800 px-1 py-5">
+              <div>
+                <p className="text-slate-800 dark:text-slate-200 text-sm font-600">
+                  We also offer IT Consulting &amp; Advisory
+                </p>
+                <p className="text-slate-500 dark:text-slate-400 text-sm mt-0.5 max-w-lg">
+                  Need a technology audit, a migration strategy, or just expert guidance on what to build?
+                  If you want something custom — reach out and let&apos;s talk.
+                </p>
               </div>
               <a
                 href="/#contact"
@@ -334,7 +327,7 @@ export default function SolutionsPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="mb-14">
             <ScrollReveal>
-              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">How We Work</p>
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-4">How We Work</p>
             </ScrollReveal>
             <AnimatedHeading
               delay={0.1}
@@ -342,7 +335,7 @@ export default function SolutionsPage() {
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
               Every situation{" "}
-              <span className="gradient-text">we handle.</span>
+              <span className="text-indigo-600 dark:text-indigo-400">we handle.</span>
             </AnimatedHeading>
             <ScrollReveal delay={0.15}>
               <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-4 max-w-2xl">
@@ -352,27 +345,21 @@ export default function SolutionsPage() {
             </ScrollReveal>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid md:grid-cols-2 gap-x-10">
             {caseTypes.map((ct, i) => (
               <AnimatedCard
                 key={i}
                 delay={i * 0.08}
-                hoverY={-5}
-                className="group bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-7 flex flex-col gap-4 shadow-sm card-ring"
+                hoverY={0}
+                className="group flex items-start gap-5 py-6 border-t border-slate-200 dark:border-slate-800"
               >
-                <span
-                  className="text-2xl w-10 h-10 rounded-xl flex items-center justify-center border"
-                  style={{ color: ct.accent, background: ct.bg, borderColor: `${ct.accent}20` }}
-                >
-                  {ct.icon}
-                </span>
+                <span className="font-label text-sm pt-0.5 shrink-0" style={{ color: ct.accent }}>{ct.number}</span>
                 <div className="flex flex-col gap-2">
                   <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 leading-snug" style={{ fontSize: "1rem", letterSpacing: "-0.025em" }}>
                     {ct.title}
                   </h3>
                   <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{ct.description}</p>
                 </div>
-                <div className="mt-auto w-6 h-0.5 group-hover:w-12 transition-all duration-400" style={{ background: ct.accent }} />
               </AnimatedCard>
             ))}
           </div>
@@ -385,7 +372,7 @@ export default function SolutionsPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="mb-14">
             <ScrollReveal>
-              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">The Process</p>
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-4">The Process</p>
             </ScrollReveal>
             <AnimatedHeading
               delay={0.1}
@@ -393,7 +380,7 @@ export default function SolutionsPage() {
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
               From problem to{" "}
-              <span className="gradient-text">production.</span>
+              <span className="text-indigo-600 dark:text-indigo-400">production.</span>
             </AnimatedHeading>
           </div>
 
@@ -407,7 +394,7 @@ export default function SolutionsPage() {
                 >
                   {/* Phase bubble */}
                   <div
-                    className="relative z-10 w-11 h-11 rounded-full border-2 flex items-center justify-center shrink-0 font-display font-700 text-sm transition-all duration-300 group-hover:scale-110"
+                    className="relative z-10 w-11 h-11 rounded-full border-2 flex items-center justify-center shrink-0 font-label text-sm transition-colors duration-300"
                     style={{ background: phase.accentLight, borderColor: `${phase.accent}30`, color: phase.accent }}
                   >
                     {phase.number}
@@ -429,7 +416,7 @@ export default function SolutionsPage() {
                       <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{phase.description}</p>
                     </div>
                     <div className="flex flex-col gap-2">
-                      <p className="text-slate-900 dark:text-slate-100 text-xs font-600 tracking-widest uppercase">Deliverables</p>
+                      <p className="text-slate-900 dark:text-slate-100 text-xs font-600 tracking-widest uppercase font-label">Deliverables</p>
                       <ul className="flex flex-col gap-1.5">
                         {phase.deliverables.map((d, j) => (
                           <li key={j} className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
@@ -456,7 +443,7 @@ export default function SolutionsPage() {
               className="font-display text-slate-900 dark:text-slate-100 mb-4"
               style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.1 }}
             >
-              Ready to <span className="gradient-text">start the process?</span>
+              Ready to <span className="text-indigo-600 dark:text-indigo-400">start the process?</span>
             </h2>
             <p className="text-slate-500 dark:text-slate-400 text-base mb-8 max-w-md mx-auto">
               Submit your project request and we&apos;ll respond with a tailored technical approach within 24 hours.

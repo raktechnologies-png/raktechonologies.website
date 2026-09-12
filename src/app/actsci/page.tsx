@@ -173,7 +173,7 @@ export default function ActSciPage() {
                 hoverY={-4}
                 className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 shadow-sm card-ring flex flex-col gap-1.5"
               >
-                <p className="font-display font-800" style={{ fontSize: "clamp(1.5rem, 3vw, 2.1rem)", letterSpacing: "-0.03em", color: s.color }}>
+                <p className="font-display font-figures font-800" style={{ fontSize: "clamp(1.5rem, 3vw, 2.1rem)", letterSpacing: "-0.03em", color: s.color }}>
                   {s.value}
                 </p>
                 <p className="text-slate-700 dark:text-slate-300 text-sm font-600">{s.label}</p>
@@ -193,7 +193,7 @@ export default function ActSciPage() {
             {/* Left — copy + checklist */}
             <div>
               <ScrollReveal>
-                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Why It&apos;s Different</p>
+                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-4">Why It&apos;s Different</p>
               </ScrollReveal>
               <AnimatedHeading
                 delay={0.1}
@@ -202,7 +202,7 @@ export default function ActSciPage() {
               >
                 AI-powered{" "}
                 <span className="text-slate-300 dark:text-slate-700 line-through decoration-2">tutoring</span>{" "}
-                <span className="gradient-text">exam prep.</span>
+                <span className="text-indigo-600 dark:text-indigo-400">exam prep.</span>
               </AnimatedHeading>
               <ScrollReveal delay={0.15}>
                 <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed mt-5 mb-8">
@@ -247,7 +247,7 @@ export default function ActSciPage() {
                   </p>
                   <div className="flex items-end justify-between border-t border-slate-200 dark:border-slate-700 pt-3">
                     <span className="text-slate-400 dark:text-slate-500 text-xs">Live score</span>
-                    <span className="font-display gradient-text font-800" style={{ fontSize: "1.6rem", letterSpacing: "-0.03em" }}>
+                    <span className="font-display font-figures text-indigo-600 dark:text-indigo-400 font-800" style={{ fontSize: "1.6rem", letterSpacing: "-0.03em" }}>
                       7.5<span className="text-slate-300 dark:text-slate-600 text-base font-500"> / 10</span>
                     </span>
                   </div>
@@ -267,7 +267,7 @@ export default function ActSciPage() {
             {/* Coverage */}
             <ScrollReveal>
               <div className="bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 rounded-2xl p-7 h-full flex flex-col">
-                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-3">Coverage</p>
+                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-3">Coverage</p>
                 <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 mb-2" style={{ fontSize: "1.3rem", letterSpacing: "-0.02em" }}>
                   Built for actuarial examinations
                 </h3>
@@ -299,7 +299,7 @@ export default function ActSciPage() {
             {/* Who built this */}
             <ScrollReveal delay={0.1}>
               <div className="bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 rounded-2xl p-7 h-full flex flex-col">
-                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-3">Who Built This</p>
+                <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-3">Who Built This</p>
                 <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
                   ActSci<AISup /> was built by an actuarial science graduate working as an actuarial
                   analyst, in the later stages of qualifying — someone who lost marks with no
@@ -330,13 +330,13 @@ export default function ActSciPage() {
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
           <ScrollReveal>
-            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-5">Start Today</p>
+            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-5">Start Today</p>
             <h2
               className="font-display text-slate-900 dark:text-slate-100 mb-5 mx-auto"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08, maxWidth: "680px" }}
             >
               Ready to{" "}
-              <span className="gradient-text">pass?</span>
+              <span className="text-indigo-600 dark:text-indigo-400">pass?</span>
             </h2>
             <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed max-w-lg mx-auto mb-10">
               7 days free. Full access. No card. Cancel before the trial ends and you pay nothing.
@@ -364,7 +364,7 @@ export default function ActSciPage() {
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
           <ScrollReveal>
-            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">Beyond ActSci AI</p>
+            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-4">Beyond ActSci AI</p>
           </ScrollReveal>
           <AnimatedHeading
             delay={0.1}
@@ -372,7 +372,7 @@ export default function ActSciPage() {
             style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.1, maxWidth: "640px" }}
           >
             Need something{" "}
-            <span className="gradient-text">custom?</span>
+            <span className="text-indigo-600 dark:text-indigo-400">custom?</span>
           </AnimatedHeading>
           <ScrollReveal delay={0.15}>
             <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed max-w-lg mx-auto mt-5 mb-8">

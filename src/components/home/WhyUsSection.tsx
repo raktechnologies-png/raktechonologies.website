@@ -1,11 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import AnimatedCard from "@/components/ui/AnimatedCard";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import LiquidButton from "@/components/ui/LiquidButton";
-import { EASE } from "@/lib/motion";
 
 const differentiators = [
   {
@@ -46,23 +44,16 @@ const differentiators = [
   },
 ];
 
-const stats = [
-  { v: "50+",  l: "Projects Completed" },
-  { v: "100%", l: "Client Satisfaction" },
-  { v: "24h",  l: "Average Response Time" },
-  { v: "5",    l: "Technology Domains" },
-];
-
 export default function WhyUsSection() {
   return (
-    <section className="py-12 md:py-20 relative bg-slate-50 dark:bg-slate-900/50 overflow-hidden">
+    <section className="py-10 md:py-16 relative bg-slate-50 dark:bg-slate-900/50 overflow-hidden">
       <div className="section-divider absolute top-0 inset-x-0" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
           <ScrollReveal>
-            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">
+            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-4">
               Why RAK Technologies
             </p>
           </ScrollReveal>
@@ -72,7 +63,7 @@ export default function WhyUsSection() {
             style={{ fontSize: "clamp(2.25rem, 5vw, 4rem)", fontWeight: 800, maxWidth: "660px" }}
           >
             The consulting partner that{" "}
-            <span className="gradient-text">actually delivers.</span>
+            <span className="text-indigo-600 dark:text-indigo-400">actually delivers.</span>
           </AnimatedHeading>
         </div>
 
@@ -104,41 +95,6 @@ export default function WhyUsSection() {
             </AnimatedCard>
           ))}
         </div>
-
-        {/* Stats band — pebble glow on hover */}
-        <ScrollReveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm">
-            {stats.map((s, i) => (
-              <motion.div
-                key={i}
-                className="relative bg-white dark:bg-slate-900 px-6 py-7 overflow-hidden"
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-              >
-                {/* Radial glow pebble */}
-                <motion.div
-                  variants={{
-                    rest:  { scale: 0, opacity: 0 },
-                    hover: { scale: 2.2, opacity: 1 },
-                  }}
-                  transition={{ duration: 0.45, ease: EASE }}
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background: "radial-gradient(circle at 50% 50%, rgba(79,70,229,0.07), transparent 70%)",
-                  }}
-                />
-                <span
-                  className="relative block font-display gradient-text leading-none mb-1.5"
-                  style={{ fontSize: "clamp(1.85rem, 2.5vw, 2.5rem)", fontWeight: 800 }}
-                >
-                  {s.v}
-                </span>
-                <span className="relative text-slate-500 dark:text-slate-400 text-sm">{s.l}</span>
-              </motion.div>
-            ))}
-          </div>
-        </ScrollReveal>
 
         <ScrollReveal delay={0.15}>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -102,14 +102,14 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section className="py-12 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
+    <section className="py-14 md:py-24 relative bg-white dark:bg-[#0B0F1A]">
       <div className="section-divider absolute top-0 inset-x-0" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Header */}
         <div className="text-center mb-10 md:mb-14">
           <ScrollReveal>
-            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-3">
+            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-3">
               What We Build
             </p>
           </ScrollReveal>
@@ -119,7 +119,7 @@ export default function ServicesOverview() {
             style={{ fontSize: "clamp(1.9rem, 4vw, 3.25rem)", fontWeight: 800 }}
           >
             Everything your business needs{" "}
-            <span className="gradient-text">to thrive.</span>
+            <span className="text-indigo-600 dark:text-indigo-400">to thrive.</span>
           </AnimatedHeading>
           <ScrollReveal delay={0.15}>
             <p className="text-slate-400 dark:text-slate-500 text-sm">
@@ -137,16 +137,10 @@ export default function ServicesOverview() {
               hoverY={-6}
               className="group relative bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm card-ring card-shimmer flex flex-col"
             >
-              {/* Top accent bar */}
-              <div
-                className="h-0.5 w-full"
-                style={{ background: `linear-gradient(90deg, ${svc.accent}, transparent)` }}
-              />
-
               <div className="flex flex-col flex-1 p-7 gap-5">
                 {/* Number + title + description */}
                 <div className="flex flex-col gap-2">
-                  <span className="text-xs font-700 font-display" style={{ color: svc.accent }}>
+                  <span className="text-xs font-700 font-label" style={{ color: svc.accent }}>
                     {svc.id}
                   </span>
                   <h3
@@ -185,7 +179,7 @@ export default function ServicesOverview() {
                       <span className="text-slate-400 dark:text-slate-500 text-xs font-500">{svc.pricePrefix}</span>
                     )}
                     <span
-                      className="font-display font-800 leading-none tracking-tight"
+                      className="font-display font-figures font-800 leading-none tracking-tight"
                       style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: svc.accent }}
                     >
                       {svc.price}
@@ -199,7 +193,7 @@ export default function ServicesOverview() {
                     accentBg={svc.accentBg}
                     accentBorder={svc.accentBorder}
                   >
-                    Get Started
+                    Get This Quote
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
@@ -212,19 +206,12 @@ export default function ServicesOverview() {
 
         {/* IT Consulting callout */}
         <ScrollReveal delay={0.2}>
-          <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 rounded-2xl px-6 py-5">
-            <div className="flex items-start gap-4">
-              <span className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-900 flex items-center justify-center shrink-0 text-indigo-500 dark:text-indigo-400">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" /><path d="M12 8v4l3 3" />
-                </svg>
-              </span>
-              <div>
-                <p className="text-slate-800 dark:text-slate-200 text-sm font-600">We also offer IT Consulting &amp; Advisory</p>
-                <p className="text-slate-500 dark:text-slate-400 text-sm mt-0.5">
-                  Need something custom or not sure where to start? Reach out and let&apos;s talk.
-                </p>
-              </div>
+          <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-b border-slate-200 dark:border-slate-800 px-1 py-5">
+            <div>
+              <p className="text-slate-800 dark:text-slate-200 text-sm font-600">We also offer IT Consulting &amp; Advisory</p>
+              <p className="text-slate-500 dark:text-slate-400 text-sm mt-0.5">
+                Need something custom or not sure where to start? Reach out and let&apos;s talk.
+              </p>
             </div>
             <a
               href="/#contact"

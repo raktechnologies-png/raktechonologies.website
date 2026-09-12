@@ -78,7 +78,7 @@ export default function PageLoader() {
                 Technologies
               </span>
             </span>
-            <span className="text-slate-400 text-xs tracking-[0.18em] uppercase">
+            <span className="text-slate-400 text-xs tracking-[0.18em] uppercase font-label">
               Premium IT Consulting
             </span>
           </motion.div>

@@ -172,7 +172,7 @@ export default function PrivacyPage() {
               style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)", fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.04em" }}
             >
               Privacy{" "}
-              <span className="gradient-text">Policy</span>
+              <span className="text-indigo-600 dark:text-indigo-400">Policy</span>
             </h1>
             <p className="text-slate-500 text-lg leading-relaxed max-w-2xl" style={{ letterSpacing: "-0.01em" }}>
               We take your privacy seriously. This policy explains exactly what personal information

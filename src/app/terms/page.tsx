@@ -164,7 +164,7 @@ export default function TermsPage() {
               style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)", fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.04em" }}
             >
               Terms &{" "}
-              <span className="gradient-text">Conditions</span>
+              <span className="text-indigo-600 dark:text-indigo-400">Conditions</span>
             </h1>
             <p className="text-slate-500 text-lg leading-relaxed max-w-2xl" style={{ letterSpacing: "-0.01em" }}>
               Please read these terms carefully before using our website or engaging our services.
@@ -179,26 +179,19 @@ export default function TermsPage() {
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-3xl mx-auto px-6 md:px-10">
           <ScrollReveal>
-            <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-6">Key Points</p>
+            <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase font-label mb-6">Key Points</p>
           </ScrollReveal>
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-3 gap-x-8">
             {[
-              { icon: "🤝", title: "Fair Engagement", desc: "Project terms are agreed upfront. No surprises — scope, timeline, and costs are documented before work begins.", accent: "#4F46E5", bg: "#EEF2FF", border: "#C7D2FE" },
-              { icon: "🔒", title: "IP Ownership", desc: "Upon full payment, you own what we build for you. We retain ownership of reusable frameworks and tools.", accent: "#7C3AED", bg: "#F5F3FF", border: "#DDD6FE" },
-              { icon: "⚖️", title: "South African Law", desc: "These terms are governed by South African law. Any disputes will be resolved under South African jurisdiction.", accent: "#059669", bg: "#ECFDF5", border: "#A7F3D0" },
+              { number: "01", title: "Fair Engagement", desc: "Project terms are agreed upfront. No surprises — scope, timeline, and costs are documented before work begins.", accent: "#4F46E5" },
+              { number: "02", title: "IP Ownership", desc: "Upon full payment, you own what we build for you. We retain ownership of reusable frameworks and tools.", accent: "#7C3AED" },
+              { number: "03", title: "South African Law", desc: "These terms are governed by South African law. Any disputes will be resolved under South African jurisdiction.", accent: "#059669" },
             ].map((card) => (
               <ScrollReveal key={card.title} delay={0.07}>
-                <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-5 shadow-sm flex flex-col gap-3 card-ring h-full">
-                  <span
-                    className="text-xl w-10 h-10 rounded-xl flex items-center justify-center border shrink-0"
-                    style={{ background: card.bg, borderColor: card.border }}
-                  >
-                    {card.icon}
-                  </span>
-                  <div>
-                    <p className="font-display text-slate-900 dark:text-slate-100 font-700 text-sm mb-1" style={{ letterSpacing: "-0.02em" }}>{card.title}</p>
-                    <p className="text-slate-500 text-xs leading-relaxed">{card.desc}</p>
-                  </div>
+                <div className="flex flex-col gap-2.5 py-5 border-t sm:border-t-0 border-slate-200 dark:border-slate-800 h-full">
+                  <span className="font-label text-sm" style={{ color: card.accent }}>{card.number}</span>
+                  <p className="font-display text-slate-900 dark:text-slate-100 font-700 text-sm" style={{ letterSpacing: "-0.02em" }}>{card.title}</p>
+                  <p className="text-slate-500 text-xs leading-relaxed">{card.desc}</p>
                 </div>
               </ScrollReveal>
             ))}

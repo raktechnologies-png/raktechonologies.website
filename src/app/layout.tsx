@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
+import { DM_Sans, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/ui/CustomCursor";
@@ -24,6 +24,13 @@ const dmSans = DM_Sans({
   variable: "--font-dm",
   subsets: ["latin"],
   weight: ["600", "700", "800", "900"],
+});
+
+// JetBrains Mono → third type role: eyebrow labels, stats, figures
+const mono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -107,7 +114,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${jakarta.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${dmSans.variable} ${jakarta.variable} ${mono.variable}`} suppressHydrationWarning>
       <head>
         {/* Anti-FOUC: apply saved theme before React hydrates */}
         <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem('rak-theme');if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}` }} />

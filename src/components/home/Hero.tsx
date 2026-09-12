@@ -36,7 +36,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen overflow-hidden bg-white dark:bg-[#0B0F1A]"
+      className="relative overflow-hidden bg-white dark:bg-[#0B0F1A]"
     >
       {/* ── Background ── */}
       <div className="absolute inset-0 pointer-events-none select-none">
@@ -69,7 +69,7 @@ export default function Hero() {
             className="mb-5 sm:mb-7 flex flex-col gap-2 transition-colors"
           >
             {greeting && (
-              <p className="text-slate-400 dark:text-slate-500 text-xs tracking-[0.16em] uppercase">
+              <p className="text-slate-400 dark:text-slate-500 text-xs tracking-[0.16em] uppercase font-label">
                 {greeting}
               </p>
             )}
@@ -188,7 +188,7 @@ export default function Hero() {
                 </svg>
               </div>
               <div>
-                <p className="text-slate-900 dark:text-slate-50 text-xs font-600 leading-none mb-0.5">50+ Projects</p>
+                <p className="text-slate-900 dark:text-slate-50 text-xs font-600 font-figures leading-none mb-0.5">50+ Projects</p>
                 <p className="text-slate-400 dark:text-slate-500 text-[11px]">Delivered across Africa</p>
               </div>
             </motion.div>
@@ -211,7 +211,7 @@ export default function Hero() {
               className="bg-white dark:bg-slate-900 px-4 sm:px-6 py-5 sm:py-6 flex flex-col gap-1 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors duration-200"
             >
               <span
-                className="font-display gradient-text leading-none"
+                className="font-display font-figures text-indigo-600 dark:text-indigo-400 leading-none"
                 style={{ fontSize: "clamp(1.5rem, 3vw, 2.4rem)", fontWeight: 800, letterSpacing: "-0.03em" }}
               >
                 {m.value}

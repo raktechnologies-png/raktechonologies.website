@@ -52,7 +52,7 @@ export default function RecentProjects() {
         {/* Header */}
         <div className="mb-10">
           <ScrollReveal>
-            <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-4">
+            <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase font-label mb-4">
               Recent Work
             </p>
           </ScrollReveal>
@@ -63,7 +63,7 @@ export default function RecentProjects() {
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.08 }}
             >
               Projects we&apos;ve{" "}
-              <span className="gradient-text">shipped.</span>
+              <span className="text-indigo-600 dark:text-indigo-400">shipped.</span>
             </AnimatedHeading>
             <ScrollReveal delay={0.15}>
               <p className="text-slate-400 text-sm max-w-xs leading-relaxed">

@@ -61,11 +61,13 @@ export default function CookieConsent() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
 
               {/* Icon */}
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 text-lg border"
-                style={{ background: "#EEF2FF", borderColor: "#C7D2FE" }}
-              >
-                🍪
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 text-indigo-500 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900 bg-indigo-50 dark:bg-indigo-950">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5z" />
+                  <circle cx="8.5" cy="10.5" r="0.6" fill="currentColor" stroke="none" />
+                  <circle cx="13" cy="15" r="0.6" fill="currentColor" stroke="none" />
+                  <circle cx="10" cy="14" r="0.6" fill="currentColor" stroke="none" />
+                </svg>
               </div>
 
               {/* Text */}

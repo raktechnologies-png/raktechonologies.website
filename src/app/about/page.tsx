@@ -11,36 +11,28 @@ import WhyUsSection from "@/components/home/WhyUsSection";
 
 const values = [
   {
+    number: "01",
     title: "Integrity First",
     description:
       "We say what we'll do and do what we say. No overpromising, no black-box processes — just honest, transparent delivery.",
-    icon: "◈",
-    accent: "#4F46E5",
-    bg: "#EEF2FF",
   },
   {
+    number: "02",
     title: "Engineering Excellence",
     description:
       "We hold our work to the highest technical standard. Every system we build is clean, documented, tested, and maintainable.",
-    icon: "◉",
-    accent: "#7C3AED",
-    bg: "#F5F3FF",
   },
   {
+    number: "03",
     title: "Impact Over Output",
     description:
       "Lines of code don't measure success — business outcomes do. We focus on solutions that move the needle for your organisation.",
-    icon: "◎",
-    accent: "#0284C7",
-    bg: "#E0F2FE",
   },
   {
+    number: "04",
     title: "Continuous Growth",
     description:
       "The technology landscape never stops evolving. Neither do we. Our team continuously learns to bring you the best solutions available.",
-    icon: "◈",
-    accent: "#059669",
-    bg: "#ECFDF5",
   },
 ];
 
@@ -74,7 +66,7 @@ export default function AboutPage() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-4xl"
           >
-            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-5">
+            <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-5">
               About RAK Technologies
             </p>
             <h1
@@ -87,7 +79,7 @@ export default function AboutPage() {
               }}
             >
               Technology that serves{" "}
-              <span className="gradient-text">people and purpose.</span>
+              <span className="text-indigo-600 dark:text-indigo-400">people and purpose.</span>
             </h1>
             <p
               className="text-slate-500 dark:text-slate-400 text-xl md:text-2xl leading-relaxed max-w-2xl"
@@ -112,7 +104,7 @@ export default function AboutPage() {
                   style={{ fontSize: "clamp(2rem, 3.5vw, 3.25rem)", fontWeight: 800, lineHeight: 1.06, letterSpacing: "-0.035em" }}
                 >
                   A firm built on outcomes,{" "}
-                  <span className="gradient-text">not outputs.</span>
+                  <span className="text-indigo-600 dark:text-indigo-400">not outputs.</span>
                 </AnimatedHeading>
                 <div className="flex flex-col gap-4 text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
                   <p>
@@ -165,7 +157,7 @@ export default function AboutPage() {
 
                 {/* Capabilities list below the image */}
                 <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
-                  <p className="text-slate-400 dark:text-slate-500 text-xs font-600 tracking-[0.15em] uppercase mb-4">
+                  <p className="text-slate-400 dark:text-slate-500 text-xs font-600 tracking-[0.15em] uppercase font-label mb-4">
                     What we&apos;re capable of
                   </p>
                   <ul className="grid grid-cols-2 gap-2">
@@ -189,7 +181,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="text-center mb-16">
             <ScrollReveal>
-              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-4">
+              <p className="text-indigo-500 dark:text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-4">
                 What We Stand For
               </p>
             </ScrollReveal>
@@ -198,25 +190,20 @@ export default function AboutPage() {
               className="font-display text-slate-900 dark:text-slate-100 leading-[1.05] tracking-tight"
               style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 800 }}
             >
-              Our <span className="gradient-text">Values</span>
+              Our <span className="text-indigo-600 dark:text-indigo-400">Values</span>
             </AnimatedHeading>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid md:grid-cols-2 gap-x-10">
             {values.map((v, i) => (
               <AnimatedCard
                 key={i}
                 delay={i * 0.08}
-                hoverY={-5}
-                className="group bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-7 flex flex-col gap-4 shadow-sm card-ring"
+                hoverY={0}
+                className="group flex items-start gap-5 py-6 border-t border-slate-200 dark:border-slate-800"
               >
-                <span
-                  className="text-2xl w-11 h-11 rounded-xl flex items-center justify-center border"
-                  style={{ color: v.accent, background: v.bg, borderColor: `${v.accent}20` }}
-                >
-                  {v.icon}
-                </span>
-                <div className="flex flex-col gap-2.5">
-                  <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 text-[1.1rem]">{v.title}</h3>
+                <span className="font-label text-indigo-400 dark:text-indigo-500 text-sm pt-0.5 shrink-0">{v.number}</span>
+                <div className="flex flex-col gap-2">
+                  <h3 className="font-display text-slate-900 dark:text-slate-100 font-700 text-[1.1rem] group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-200">{v.title}</h3>
                   <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed">{v.description}</p>
                 </div>
               </AnimatedCard>
@@ -229,25 +216,23 @@ export default function AboutPage() {
       <WhyUsSection />
 
       {/* CTA */}
-      <section className="py-14 md:py-20 relative bg-slate-50 dark:bg-slate-900/50">
+      <section className="py-16 md:py-24 relative bg-slate-50 dark:bg-slate-900/50">
         <div className="section-divider absolute top-0 inset-x-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
           <ScrollReveal>
-            <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-10 md:p-14 text-center shadow-sm">
-              <h2
-                className="font-display text-slate-900 dark:text-slate-100 leading-[1.05] tracking-tight mb-5"
-                style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 800 }}
-              >
-                Work with a team that <span className="gradient-text">cares.</span>
-              </h2>
-              <p className="text-slate-500 dark:text-slate-400 text-lg mb-8 max-w-lg mx-auto">
-                Let&apos;s discuss your project and show you what thoughtful technology consulting looks like.
-              </p>
-              <div className="flex justify-center">
-                <LiquidButton href="/#contact">
-                  Request a Solution →
-                </LiquidButton>
-              </div>
+            <h2
+              className="font-display text-slate-900 dark:text-slate-100 leading-[1.05] tracking-tight mb-5"
+              style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 800 }}
+            >
+              Work with a team that <span className="text-indigo-600 dark:text-indigo-400">cares.</span>
+            </h2>
+            <p className="text-slate-500 dark:text-slate-400 text-lg mb-8 max-w-lg mx-auto">
+              Let&apos;s discuss your project and show you what thoughtful technology consulting looks like.
+            </p>
+            <div className="flex justify-center">
+              <LiquidButton href="/#contact">
+                Request a Solution →
+              </LiquidButton>
             </div>
           </ScrollReveal>
         </div>

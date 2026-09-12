@@ -110,7 +110,7 @@ export default function Footer() {
           {/* Link columns */}
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section} className="flex flex-col gap-4">
-              <h4 className="text-slate-900 dark:text-slate-100 text-xs font-600 tracking-widest uppercase">
+              <h4 className="text-slate-900 dark:text-slate-100 text-xs font-600 tracking-widest uppercase font-label">
                 {section}
               </h4>
               <ul className="flex flex-col gap-1">

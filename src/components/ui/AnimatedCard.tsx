@@ -30,8 +30,8 @@ export default function AnimatedCard({
   style,
   delay = 0,
   direction = "up",
-  hoverY = -5,
-  hoverScale = 1.01,
+  hoverY = -4,
+  hoverScale = 1,
   duration = 0.6,
 }: Props) {
   const ref = useRef(null);

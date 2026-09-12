@@ -69,16 +69,16 @@ export default function HomeContactSection() {
       <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
         {/* Section header */}
         <ScrollReveal className="mb-10 md:mb-14">
-          <p className="text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase mb-5">
+          <p className="text-indigo-400 text-xs font-600 tracking-[0.18em] uppercase font-label mb-5">
             Ready to start?
           </p>
           <AnimatedHeading
             className="font-display leading-[1.04] tracking-tight mb-5"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 800 }}
           >
-            <span className="gradient-text-dark">Tell us your problem.</span>
+            <span className="text-white">Tell us your problem.</span>
             <br />
-            <span className="gradient-text">We build the solution.</span>
+            <span className="text-indigo-400">We build the solution.</span>
           </AnimatedHeading>
           <p className="text-slate-400 text-base leading-relaxed max-w-2xl">
             Whether you&apos;re starting from scratch, scaling an existing system, or automating
@@ -91,29 +91,22 @@ export default function HomeContactSection() {
 
           {/* Sidebar */}
           <div className="md:col-span-2 flex flex-col gap-4 md:sticky md:top-24">
-            {contactDetails.map((c) => (
+            {contactDetails.map((c, i) => (
               <AnimatedCard
                 key={c.label}
                 direction="right"
-                hoverY={-3}
-                className="group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden"
+                hoverY={0}
+                className="group"
               >
                 <a
                   href={c.href}
                   target={c.external ? "_blank" : undefined}
                   rel={c.external ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-4 p-5 w-full"
+                  className={`flex items-center gap-4 py-4 border-t border-slate-800 w-full ${i === contactDetails.length - 1 ? "border-b" : ""}`}
                 >
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-                    style={{
-                      color: c.accent,
-                      background: c.accentBg,
-                      border: `1px solid ${c.accentBorder}`,
-                    }}
-                  >
+                  <span style={{ color: c.accent }} className="shrink-0">
                     {c.icon}
-                  </div>
+                  </span>
                   <div className="flex flex-col min-w-0">
                     <span className="text-slate-500 text-xs mb-0.5">{c.label}</span>
                     <span className="text-slate-200 text-sm font-500 truncate">{c.value}</span>
@@ -127,7 +120,7 @@ export default function HomeContactSection() {
 
             <ScrollReveal delay={0.2}>
               <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col gap-4">
-                <p className="text-slate-300 text-xs font-600 tracking-widest uppercase">
+                <p className="text-slate-300 text-xs font-600 tracking-widest uppercase font-label">
                   What to expect
                 </p>
                 <ul className="flex flex-col gap-3">

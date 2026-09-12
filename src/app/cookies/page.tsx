@@ -151,7 +151,7 @@ export default function CookiesPage() {
               style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)", fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.04em" }}
             >
               Cookie{" "}
-              <span className="gradient-text">Policy</span>
+              <span className="text-indigo-600 dark:text-indigo-400">Policy</span>
             </h1>
             <p className="text-slate-500 text-lg leading-relaxed max-w-2xl" style={{ letterSpacing: "-0.01em" }}>
               This policy explains how RAK Technologies uses cookies and similar technologies on
@@ -166,7 +166,7 @@ export default function CookiesPage() {
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-3xl mx-auto px-6 md:px-10">
           <ScrollReveal>
-            <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase mb-6">
+            <p className="text-indigo-500 text-xs font-600 tracking-[0.18em] uppercase font-label mb-6">
               Cookie Categories
             </p>
           </ScrollReveal>
