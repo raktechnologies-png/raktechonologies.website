@@ -107,9 +107,9 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Link columns */}
+          {/* Link columns — Services hidden on mobile, duplicates Company's links */}
           {Object.entries(footerLinks).map(([section, links]) => (
-            <div key={section} className="flex flex-col gap-4">
+            <div key={section} className={`flex-col gap-4 ${section === "Services" ? "hidden md:flex" : "flex"}`}>
               <h4 className="text-slate-900 dark:text-slate-100 text-xs font-600 tracking-widest uppercase font-label">
                 {section}
               </h4>

@@ -7,13 +7,6 @@ import { EASE } from "@/lib/motion";
 import LiquidButton from "@/components/ui/LiquidButton";
 import { useSEOAudit } from "@/context/SEOAuditContext";
 
-const metrics = [
-  { value: "50+",  label: "Projects Delivered" },
-  { value: "100%", label: "Client Retention" },
-  { value: "5",    label: "Technology Domains" },
-  { value: "3+",   label: "Years of Excellence" },
-];
-
 function useTimeGreeting() {
   const [greeting, setGreeting] = useState("");
   useEffect(() => {
@@ -148,26 +141,6 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
-
-        {/* ── Metrics row ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.55, ease: EASE }}
-          className="flex flex-wrap justify-center gap-x-10 gap-y-6 mt-16 md:mt-20 pt-10 border-t border-slate-100 dark:border-slate-800"
-        >
-          {metrics.map((m, i) => (
-            <div key={i} className="flex flex-col items-center gap-1 text-center">
-              <span
-                className="font-display font-figures text-indigo-600 dark:text-indigo-400 leading-none"
-                style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: 800, letterSpacing: "-0.03em" }}
-              >
-                {m.value}
-              </span>
-              <span className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm">{m.label}</span>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

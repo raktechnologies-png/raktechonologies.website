@@ -7,8 +7,9 @@ const partners = [
   { name: "University of the Free State",                          src: "/partners/ufs.jpg" },
 ];
 
-// Duplicated for a seamless infinite loop
-const track = [...partners, ...partners, ...partners];
+// Duplicated exactly once — must match the shared -50% marquee-track keyframe
+// (tripling this broke the loop: the seam landed mid-cycle instead of on a repeat)
+const track = [...partners, ...partners];
 
 export default function PartnersSection() {
   return (
