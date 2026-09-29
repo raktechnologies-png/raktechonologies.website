@@ -6,6 +6,7 @@ import { DM_Sans, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/ui/CustomCursor";
+import AshCursorMount from "@/components/AshCursorMount";
 import PageLoader from "@/components/ui/PageLoader";
 import CookieConsent from "@/components/ui/CookieConsent";
 import { ThemeProvider } from "@/context/ThemeContext";
@@ -133,6 +134,7 @@ export default function RootLayout({
         </noscript>
         <PageLoader />
         <CustomCursor />
+        <AshCursorMount />
         <Navbar />
         <main>{children}</main>
         <Footer />
