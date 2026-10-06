@@ -25,12 +25,14 @@ export default function PartnersSection() {
     let raf = 0;
     let offset = 0;
     let last = performance.now();
-    const SPEED = 40; // px per second
+
+    // Faster on mobile, where the strip is narrow and a slow crawl reads as stalled.
+    const speed = () => (window.innerWidth < 768 ? 90 : 45); // px per second
 
     const tick = (now: number) => {
       const dt = Math.min((now - last) / 1000, 0.05);
       last = now;
-      offset -= SPEED * dt;
+      offset -= speed() * dt;
       const half = el.scrollWidth / 2;
       if (half > 0 && -offset >= half) offset += half; // seamless wrap
       el.style.transform = `translateX(${offset}px)`;
