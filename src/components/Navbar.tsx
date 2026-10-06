@@ -165,19 +165,6 @@ export default function Navbar() {
               }}
             />
 
-            {/* Close */}
-            <motion.button
-              onClick={() => setMenuOpen(false)}
-              aria-label="Close menu"
-              initial={{ opacity: 0, rotate: -90 }}
-              animate={{ opacity: 1, rotate: 0 }}
-              transition={{ delay: 0.18, duration: 0.35, ease: EASE }}
-              className="absolute top-5 right-4 sm:right-6 p-2 text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors z-50"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                <path d="M18 6L6 18M6 6l12 12" />
-              </svg>
-            </motion.button>
 
             {/* Nav items */}
             <div className="flex flex-col justify-center h-full px-6 sm:px-12 gap-1 pt-16">
