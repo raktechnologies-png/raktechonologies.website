@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Solutions — Website & Software Development Pretoria | South Africa",
+  title: { absolute: "Website, Software & CRM Development in Pretoria | RAK Technologies" },
   description:
     "RAK Technologies builds affordable websites from R4,500, custom software, CRM systems, and WhatsApp automation for businesses in Pretoria, Johannesburg, Centurion, and across South Africa. Request a free quote.",
   keywords: [
@@ -42,6 +42,9 @@ export const metadata: Metadata = {
     description:
       "Websites from R4,500, CRM systems, WhatsApp automation & custom software for SA businesses. Based in Pretoria. Serving Johannesburg, Centurion, Sandton & Midrand.",
     url: "https://raktechnologies.co.za/solutions",
+    siteName: "RAK Technologies",
+    locale: "en_ZA",
+    type: "website",
   },
 };
 

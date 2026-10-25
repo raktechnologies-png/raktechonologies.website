@@ -200,6 +200,8 @@ export default function RootLayout({
                 },
               ],
               sameAs: ["https://wa.link/d8eib5"],
+              telephone: "+27606396756",
+              email: "info@raktechnologies.co.za",
               areaServed: [
                 { "@type": "City", name: "Pretoria" },
                 { "@type": "City", name: "Centurion" },
@@ -256,14 +258,7 @@ export default function RootLayout({
               url: "https://raktechnologies.co.za",
               description: "Website development, custom software, CRM systems and AI automation for South African businesses.",
               publisher: { "@id": "https://raktechnologies.co.za/#organization" },
-              potentialAction: {
-                "@type": "SearchAction",
-                target: {
-                  "@type": "EntryPoint",
-                  urlTemplate: "https://raktechnologies.co.za/contact?q={search_term_string}",
-                },
-                "query-input": "required name=search_term_string",
-              },
+              inLanguage: "en-ZA",
             }),
           }}
         />

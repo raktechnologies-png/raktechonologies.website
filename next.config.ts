@@ -21,6 +21,13 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // One canonical host: send www → apex so Google doesn't index duplicates
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.raktechnologies.co.za" }],
+        destination: "https://raktechnologies.co.za/:path*",
+        permanent: true,
+      },
       {
         source: "/services",
         destination: "/solutions",

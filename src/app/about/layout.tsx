@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "About Us — IT Company in Pretoria, South Africa | RAK Technologies",
+  title: { absolute: "About RAK Technologies — IT & Software Company in Pretoria" },
   description:
     "RAK Technologies is a software development and IT consulting company founded in 2024 and based in Pretoria, Gauteng. We build websites, custom software, CRM systems, and AI automation for businesses across South Africa.",
   keywords: [
@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     description:
       "Founded in 2024 in Pretoria, RAK Technologies builds websites, custom software, CRM systems, and AI automation for businesses across South Africa.",
     url: "https://raktechnologies.co.za/about",
+    siteName: "RAK Technologies",
+    locale: "en_ZA",
+    type: "website",
   },
 };
 

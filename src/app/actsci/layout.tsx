@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "ActSci™AI — Your Actuarial Answers, Marked Live | South Africa",
+  title: { absolute: "ActSci™AI — AI Actuarial Exam Prep, Marked Live | RAK Technologies" },
   description:
     "ActSci™AI by RAK Technologies marks your actuarial exam answers in real time as you write — no submit button. Get exact marks, an AI exam coach, and a prediction of how many weeks until you're ready to pass. Free for 7 days, no card required.",
   keywords: [
@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     description:
       "Write your answer — your mark appears in real time. No submit button. AI marking, an exam coach, and a readiness prediction for South African actuarial students.",
     url: "https://raktechnologies.co.za/actsci",
+    siteName: "RAK Technologies",
+    locale: "en_ZA",
+    type: "website",
   },
 };
 

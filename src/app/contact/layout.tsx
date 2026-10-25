@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Contact — Get a Free Website or Software Quote | RAK Technologies Pretoria",
+  title: { absolute: "Contact RAK Technologies — Free Website & Software Quote, Pretoria" },
   description:
     "Contact RAK Technologies in Pretoria, South Africa. Get a free quote for your website, custom software, CRM system, or WhatsApp automation. We respond within 24 hours. Serving Johannesburg, Centurion, Sandton & Midrand.",
   keywords: [
@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     description:
       "Get a free quote for your website, custom software, CRM, or WhatsApp automation. RAK Technologies — based in Pretoria, serving all of South Africa.",
     url: "https://raktechnologies.co.za/contact",
+    siteName: "RAK Technologies",
+    locale: "en_ZA",
+    type: "website",
   },
 };
 
