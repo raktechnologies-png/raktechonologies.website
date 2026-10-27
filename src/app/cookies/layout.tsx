@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Cookie Policy | RAK Technologies",
     description: "How the RAK Technologies website uses cookies and similar technologies.",
-    url: "https://raktechnologies.co.za/cookies",
+    url: "https://www.raktechnologies.co.za/cookies",
     siteName: "RAK Technologies",
     locale: "en_ZA",
     type: "website",

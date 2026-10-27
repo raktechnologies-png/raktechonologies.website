@@ -41,21 +41,21 @@ export const metadata: Metadata = {
     title: "Solutions — Website & Software Development Pretoria | RAK Technologies",
     description:
       "Websites from R4,500, CRM systems, WhatsApp automation & custom software for SA businesses. Based in Pretoria. Serving Johannesburg, Centurion, Sandton & Midrand.",
-    url: "https://raktechnologies.co.za/solutions",
+    url: "https://www.raktechnologies.co.za/solutions",
     siteName: "RAK Technologies",
     locale: "en_ZA",
     type: "website",
   },
 };
 
-const orgRef = { "@id": "https://raktechnologies.co.za/#organization" };
+const orgRef = { "@id": "https://www.raktechnologies.co.za/#organization" };
 
 const servicesSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://raktechnologies.co.za/solutions#starter-website",
+      "@id": "https://www.raktechnologies.co.za/solutions#starter-website",
       name: "Starter Website",
       description:
         "A professional, mobile-optimised business website starting from R4,500. Includes up to 5 pages, contact form, Google Maps integration, and basic SEO setup. Ideal for small businesses in Pretoria and across South Africa.",
@@ -79,11 +79,11 @@ const servicesSchema = {
         eligibleRegion: { "@type": "Country", name: "South Africa" },
       },
       serviceType: "Website Development",
-      url: "https://raktechnologies.co.za/solutions",
+      url: "https://www.raktechnologies.co.za/solutions",
     },
     {
       "@type": "Service",
-      "@id": "https://raktechnologies.co.za/solutions#business-hub",
+      "@id": "https://www.raktechnologies.co.za/solutions#business-hub",
       name: "Business Hub",
       description:
         "Full-stack web application with CRM, WhatsApp automation, client portal, lead management, and custom integrations. Built for growing South African businesses ready to scale their operations.",
@@ -101,18 +101,18 @@ const servicesSchema = {
         eligibleRegion: { "@type": "Country", name: "South Africa" },
       },
       serviceType: "Custom Software Development",
-      url: "https://raktechnologies.co.za/solutions",
+      url: "https://www.raktechnologies.co.za/solutions",
     },
     {
       "@type": "Service",
-      "@id": "https://raktechnologies.co.za/solutions#custom-build",
+      "@id": "https://www.raktechnologies.co.za/solutions#custom-build",
       name: "Custom Build",
       description:
         "End-to-end custom software development for enterprises and scale-ups. AI integrations, data analytics platforms, mobile apps, microservices, and bespoke digital transformation solutions for South African businesses.",
       provider: orgRef,
       areaServed: { "@type": "Country", name: "South Africa" },
       serviceType: "Enterprise Software Development",
-      url: "https://raktechnologies.co.za/solutions",
+      url: "https://www.raktechnologies.co.za/solutions",
     },
   ],
 };
@@ -121,8 +121,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://raktechnologies.co.za" },
-    { "@type": "ListItem", position: 2, name: "Solutions", item: "https://raktechnologies.co.za/solutions" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.raktechnologies.co.za" },
+    { "@type": "ListItem", position: 2, name: "Solutions", item: "https://www.raktechnologies.co.za/solutions" },
   ],
 };
 

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Privacy Policy | RAK Technologies",
     description: "How RAK Technologies collects, uses and protects your personal information in line with POPIA.",
-    url: "https://raktechnologies.co.za/privacy",
+    url: "https://www.raktechnologies.co.za/privacy",
     siteName: "RAK Technologies",
     locale: "en_ZA",
     type: "website",

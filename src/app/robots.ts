@@ -17,7 +17,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/"],
       },
     ],
-    sitemap: "https://raktechnologies.co.za/sitemap.xml",
-    host: "https://raktechnologies.co.za",
+    sitemap: "https://www.raktechnologies.co.za/sitemap.xml",
+    host: "https://www.raktechnologies.co.za",
   };
 }

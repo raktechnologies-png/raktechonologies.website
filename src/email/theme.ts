@@ -4,7 +4,7 @@
  * Mirrors the RAK Technologies website visual language.
  */
 
-export const SITE_URL    = "https://raktechnologies.co.za";
+export const SITE_URL    = "https://www.raktechnologies.co.za";
 export const APP_URL     = "https://app.raklytics.co.za";
 export const LOGO_URL    = `${SITE_URL}/rak-logo.png`;
 export const SUPPORT_EMAIL = "info@raktechnologies.co.za";

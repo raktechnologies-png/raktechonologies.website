@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "RAK Technologies — Website & Software Development Pretoria | South Africa",
     description:
       "Websites from R4,500, custom software, CRM systems & AI automation for SA businesses. Based in Pretoria. Serving Johannesburg, Centurion, Sandton & beyond.",
-    url: "https://raktechnologies.co.za",
+    url: "https://www.raktechnologies.co.za",
   },
 };
 import PartnersSection from "@/components/home/PartnersSection";

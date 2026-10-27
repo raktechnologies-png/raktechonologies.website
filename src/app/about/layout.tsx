@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "About RAK Technologies — IT Company in Pretoria, South Africa",
     description:
       "Founded in 2024 in Pretoria, RAK Technologies builds websites, custom software, CRM systems, and AI automation for businesses across South Africa.",
-    url: "https://raktechnologies.co.za/about",
+    url: "https://www.raktechnologies.co.za/about",
     siteName: "RAK Technologies",
     locale: "en_ZA",
     type: "website",
@@ -40,21 +40,21 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://raktechnologies.co.za" },
-    { "@type": "ListItem", position: 2, name: "About", item: "https://raktechnologies.co.za/about" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.raktechnologies.co.za" },
+    { "@type": "ListItem", position: 2, name: "About", item: "https://www.raktechnologies.co.za/about" },
   ],
 };
 
 const aboutPageSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  "@id": "https://raktechnologies.co.za/about#webpage",
+  "@id": "https://www.raktechnologies.co.za/about#webpage",
   name: "About RAK Technologies",
-  url: "https://raktechnologies.co.za/about",
+  url: "https://www.raktechnologies.co.za/about",
   description:
     "RAK Technologies is a Pretoria-based software development and IT consulting company. We build websites, custom software, CRM systems, and AI automation for businesses across South Africa.",
-  about: { "@id": "https://raktechnologies.co.za/#organization" },
-  breadcrumb: { "@id": "https://raktechnologies.co.za/about#breadcrumb" },
+  about: { "@id": "https://www.raktechnologies.co.za/#organization" },
+  breadcrumb: { "@id": "https://www.raktechnologies.co.za/about#breadcrumb" },
 };
 
 export default function Layout({ children }: { children: ReactNode }) {

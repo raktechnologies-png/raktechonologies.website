@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Terms of Service | RAK Technologies",
     description: "Terms and conditions for RAK Technologies website, software and IT consulting services.",
-    url: "https://raktechnologies.co.za/terms",
+    url: "https://www.raktechnologies.co.za/terms",
     siteName: "RAK Technologies",
     locale: "en_ZA",
     type: "website",

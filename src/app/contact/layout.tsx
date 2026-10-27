@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Contact RAK Technologies — Free Website & Software Quote | Pretoria",
     description:
       "Get a free quote for your website, custom software, CRM, or WhatsApp automation. RAK Technologies — based in Pretoria, serving all of South Africa.",
-    url: "https://raktechnologies.co.za/contact",
+    url: "https://www.raktechnologies.co.za/contact",
     siteName: "RAK Technologies",
     locale: "en_ZA",
     type: "website",
@@ -40,21 +40,21 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://raktechnologies.co.za" },
-    { "@type": "ListItem", position: 2, name: "Contact", item: "https://raktechnologies.co.za/contact" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.raktechnologies.co.za" },
+    { "@type": "ListItem", position: 2, name: "Contact", item: "https://www.raktechnologies.co.za/contact" },
   ],
 };
 
 const contactPageSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  "@id": "https://raktechnologies.co.za/contact#webpage",
+  "@id": "https://www.raktechnologies.co.za/contact#webpage",
   name: "Contact RAK Technologies",
-  url: "https://raktechnologies.co.za/contact",
+  url: "https://www.raktechnologies.co.za/contact",
   description:
     "Get in touch with RAK Technologies in Pretoria for a free quote on website development, custom software, CRM systems, or WhatsApp automation.",
-  mainEntity: { "@id": "https://raktechnologies.co.za/#organization" },
-  breadcrumb: { "@id": "https://raktechnologies.co.za/contact#breadcrumb" },
+  mainEntity: { "@id": "https://www.raktechnologies.co.za/#organization" },
+  breadcrumb: { "@id": "https://www.raktechnologies.co.za/contact#breadcrumb" },
 };
 
 export default function Layout({ children }: { children: ReactNode }) {

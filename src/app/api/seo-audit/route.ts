@@ -262,7 +262,7 @@ function buildEmail(
 
   <tr><td style="background:#F8FAFC;border-top:1px solid #E2E8F0;border-radius:0 0 16px 16px;padding:18px 36px;text-align:center;color:#94A3B8;font-size:12px;">
     RAK Technologies · Pretoria, South Africa ·
-    <a href="https://raktechnologies.co.za" style="color:#6366F1;text-decoration:none;">raktechnologies.co.za</a>
+    <a href="https://www.raktechnologies.co.za" style="color:#6366F1;text-decoration:none;">raktechnologies.co.za</a>
   </td></tr>
 
 </table></td></tr></table>

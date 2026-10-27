@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "ActSci™AI — Your Actuarial Answers, Marked Live | RAK Technologies",
     description:
       "Write your answer — your mark appears in real time. No submit button. AI marking, an exam coach, and a readiness prediction for South African actuarial students.",
-    url: "https://raktechnologies.co.za/actsci",
+    url: "https://www.raktechnologies.co.za/actsci",
     siteName: "RAK Technologies",
     locale: "en_ZA",
     type: "website",
@@ -38,15 +38,15 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://raktechnologies.co.za" },
-    { "@type": "ListItem", position: 2, name: "ActSci™AI", item: "https://raktechnologies.co.za/actsci" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.raktechnologies.co.za" },
+    { "@type": "ListItem", position: 2, name: "ActSci™AI", item: "https://www.raktechnologies.co.za/actsci" },
   ],
 };
 
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "@id": "https://raktechnologies.co.za/actsci#actsci-ai",
+  "@id": "https://www.raktechnologies.co.za/actsci#actsci-ai",
   name: "ActSci™AI",
   alternateName: "ActSci AI",
   applicationCategory: "EducationApplication",
@@ -59,10 +59,10 @@ const softwareSchema = {
     priceCurrency: "ZAR",
     description: "Free 7-day trial, no card required. EFT billing after trial.",
     availability: "https://schema.org/InStock",
-    seller: { "@id": "https://raktechnologies.co.za/#organization" },
+    seller: { "@id": "https://www.raktechnologies.co.za/#organization" },
   },
-  author: { "@id": "https://raktechnologies.co.za/#organization" },
-  publisher: { "@id": "https://raktechnologies.co.za/#organization" },
+  author: { "@id": "https://www.raktechnologies.co.za/#organization" },
+  publisher: { "@id": "https://www.raktechnologies.co.za/#organization" },
   featureList: [
     "Real-time AI marking as you write, no submit button",
     "Exact mark breakdown with reasons for lost marks",

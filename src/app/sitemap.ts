@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://raktechnologies.co.za";
+const BASE_URL = "https://www.raktechnologies.co.za";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
