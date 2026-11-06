@@ -11,7 +11,7 @@ const metrics = [
 
 export default function ActSciSection() {
   return (
-    <section className="py-14 md:py-20 relative bg-white dark:bg-[#0B0F1A]">
+    <section className="py-14 md:py-20 relative bg-white dark:bg-[#102C40]">
       <div className="section-divider absolute top-0 inset-x-0" />
 
       <div className="container-editorial px-6 md:px-10">
@@ -58,7 +58,7 @@ export default function ActSciSection() {
               <LiquidButton href="/actsci">Explore ActSci AI →</LiquidButton>
               <a
                 href="/#contact"
-                className="text-sm font-600 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors"
+                className="text-sm font-600 text-indigo-600 dark:text-indigo-400 hover:text-navy dark:hover:text-lime transition-colors underline-offset-4 decoration-2 decoration-lime hover:underline"
               >
                 Let&apos;s Talk →
               </a>

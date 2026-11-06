@@ -249,8 +249,7 @@ export default function SEOAuditModal({ isOpen, onClose }: { isOpen: boolean; on
                         type="submit"
                         whileHover={{ scale: 1.015 }}
                         whileTap={{ scale: 0.985 }}
-                        className="mt-1 w-full py-3.5 rounded-xl text-white font-600 text-sm transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer"
-                        style={{ background: "linear-gradient(135deg, #4F46E5, #7C3AED)" }}
+                        className="btn-lime mt-1 w-full py-3.5 rounded-xl font-600 text-sm cursor-pointer"
                       >
                         Run Free Audit →
                       </motion.button>
@@ -277,10 +276,10 @@ export default function SEOAuditModal({ isOpen, onClose }: { isOpen: boolean; on
                       <motion.div
                         animate={{ rotate: 360 }}
                         transition={{ duration: 1.3, repeat: Infinity, ease: "linear" }}
-                        className="absolute inset-0 rounded-full border-[3px] border-indigo-100 dark:border-indigo-950 border-t-indigo-500"
+                        className="absolute inset-0 rounded-full border-[3px] border-indigo-100 dark:border-indigo-950 border-t-lime"
                       />
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="1.6" strokeLinecap="round">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#102C40" strokeWidth="1.6" strokeLinecap="round">
                           <circle cx="11" cy="11" r="8" />
                           <path d="m21 21-4.35-4.35" />
                         </svg>
@@ -380,8 +379,7 @@ export default function SEOAuditModal({ isOpen, onClose }: { isOpen: boolean; on
                       <a
                         href="/#contact"
                         onClick={onClose}
-                        className="inline-flex items-center gap-2 text-white font-600 text-sm px-6 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
-                        style={{ background: "linear-gradient(135deg, #4F46E5, #7C3AED)" }}
+                        className="btn-lime inline-flex items-center gap-2 font-600 text-sm px-6 py-2.5 rounded-xl hover:scale-[1.02]"
                       >
                         Let&apos;s Talk →
                       </a>
@@ -416,7 +414,7 @@ export default function SEOAuditModal({ isOpen, onClose }: { isOpen: boolean; on
                     </div>
                     <button
                       onClick={() => { setStep("form"); setError(null); }}
-                      className="text-sm font-600 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors cursor-pointer"
+                      className="text-sm font-600 text-indigo-600 dark:text-indigo-400 hover:text-navy dark:hover:text-lime transition-colors underline-offset-4 decoration-2 decoration-lime hover:underline cursor-pointer"
                     >
                       ← Try Again
                     </button>

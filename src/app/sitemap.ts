@@ -6,33 +6,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: BASE_URL,
-      lastModified: new Date("2026-10-25"),
+      lastModified: new Date("2026-11-06"),
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
       url: `${BASE_URL}/solutions`,
-      lastModified: new Date("2026-10-25"),
+      lastModified: new Date("2026-11-06"),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/actsci`,
-      lastModified: new Date("2026-10-25"),
+      lastModified: new Date("2026-11-06"),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/about`,
-      lastModified: new Date("2026-10-25"),
+      lastModified: new Date("2026-11-06"),
       changeFrequency: "monthly",
       priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/contact`,
-      lastModified: new Date("2026-10-25"),
-      changeFrequency: "yearly",
-      priority: 0.7,
     },
     {
       url: `${BASE_URL}/privacy`,

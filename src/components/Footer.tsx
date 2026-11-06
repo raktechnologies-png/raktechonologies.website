@@ -75,21 +75,21 @@ export default function Footer() {
   useEffect(() => { setYear(new Date().getFullYear()); }, []);
 
   return (
-    <footer className="relative border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-[#0B0F1A]">
+    <footer className="relative border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-[#102C40]">
       {/* Top accent line */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(79,70,229,0.3), rgba(124,58,237,0.2), transparent)",
+            "linear-gradient(90deg, transparent, rgba(16,44,64,0.3), rgba(44,90,124,0.2), transparent)",
         }}
       />
 
       <div className="container-editorial px-6 md:px-10">
-        <div className="grid md:grid-cols-4 gap-12 py-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 md:gap-12 py-12 md:py-16">
 
           {/* Brand col */}
-          <div className="flex flex-col gap-5">
+          <div className="col-span-2 md:col-span-1 flex flex-col gap-5">
             <Link href="/" className="flex items-center gap-2.5 w-fit">
               <div className="w-10 h-10 rounded-full overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm shrink-0">
                 <img src="/rak-logo.png" alt="RAK Technologies Logo" className="w-full h-full object-cover" />
@@ -102,7 +102,7 @@ export default function Footer() {
               If it&apos;s tech, trust us — we can build it. Premium IT consulting &amp; software solutions from South Africa.
             </p>
             <div className="flex items-center gap-2 mt-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-lime ring-2 ring-navy/10 animate-pulse" />
               <span className="text-slate-400 dark:text-slate-500 text-xs">Pretoria, South Africa</span>
             </div>
           </div>
@@ -143,7 +143,7 @@ export default function Footer() {
                       href={link.href}
                       target={link.external ? "_blank" : undefined}
                       rel={link.external ? "noopener noreferrer" : undefined}
-                      className="relative block text-slate-500 dark:text-slate-400 text-sm hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 py-1.5 break-all"
+                      className="relative block text-slate-500 dark:text-slate-400 text-sm hover:text-navy dark:hover:text-lime transition-colors duration-200 underline-offset-4 decoration-2 decoration-lime hover:underline py-1.5 break-all"
                     >
                       {link.label}
                     </Link>
@@ -170,7 +170,7 @@ export default function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 dark:text-slate-500 text-xs hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-200 px-1.5"
+                  className="text-slate-400 dark:text-slate-500 text-xs hover:text-navy dark:hover:text-lime transition-colors duration-200 underline-offset-4 decoration-2 decoration-lime hover:underline px-1.5"
                 >
                   {link.label}
                 </a>

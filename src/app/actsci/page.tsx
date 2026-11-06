@@ -42,10 +42,10 @@ const tickerPills = [
 
 // ── Stats row ─────────────────────────────────────────────────────────────────
 const stats = [
-  { value: "< 60s",  label: "Live feedback", sub: "from the moment you pause",  color: "#4F46E5" },
-  { value: "10+",    label: "Smart features", sub: "built into every session", color: "#7C3AED" },
-  { value: "4",      label: "AI checkpoints", sub: "per answer, every time",    color: "#0284C7" },
-  { value: "7 days", label: "Free trial",    sub: "full access, no card needed", color: "#059669" },
+  { value: "< 60s",  label: "Live feedback", sub: "from the moment you pause",  color: "#102C40" },
+  { value: "10+",    label: "Smart features", sub: "built into every session", color: "#2C5A7C" },
+  { value: "4",      label: "AI checkpoints", sub: "per answer, every time",    color: "#1D4766" },
+  { value: "7 days", label: "Free trial",    sub: "full access, no card needed", color: "#455D70" },
 ];
 
 // ── What you get — condensed checklist ────────────────────────────────────────
@@ -71,14 +71,14 @@ const subjects = [
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function ActSciPage() {
   return (
-    <div className="pt-[68px] bg-white dark:bg-[#0B0F1A]">
+    <div className="pt-[68px] bg-white dark:bg-[#102C40]">
 
       {/* ══ 1. HERO ══════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A]">
+      <section className="relative overflow-hidden bg-white dark:bg-[#102C40]">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse 70% 55% at 50% -5%, rgba(79,70,229,0.07) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse 70% 55% at 50% -5%, rgba(16,44,64,0.07) 0%, transparent 70%)" }}
         />
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-10 w-full pt-20 md:pt-28 pb-14 text-center flex flex-col items-center">
@@ -130,7 +130,7 @@ export default function ActSciPage() {
               href={SIGNUP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-500 dark:text-slate-400 font-500 text-base hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
+              className="text-slate-500 dark:text-slate-400 font-500 text-base hover:text-navy dark:hover:text-lime transition-colors duration-200 underline-offset-4 decoration-2 decoration-lime hover:underline"
             >
               Sign In
             </a>
@@ -163,7 +163,7 @@ export default function ActSciPage() {
       </section>
 
       {/* ══ 2. STATS ═════════════════════════════════════════════════════════ */}
-      <section className="section-pad relative bg-white dark:bg-[#0B0F1A]">
+      <section className="section-pad relative bg-white dark:bg-[#102C40]">
         <div className="container-editorial px-6 md:px-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {stats.map((s, i) => (
@@ -259,7 +259,7 @@ export default function ActSciPage() {
       </section>
 
       {/* ══ 4. COVERAGE + WHO BUILT THIS ═════════════════════════════════════ */}
-      <section className="section-pad relative bg-white dark:bg-[#0B0F1A]">
+      <section className="section-pad relative bg-white dark:bg-[#102C40]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-6xl mx-auto px-6 md:px-10">
           <div className="grid lg:grid-cols-2 gap-8">
@@ -360,7 +360,7 @@ export default function ActSciPage() {
       </section>
 
       {/* ══ 6. BEYOND ACTSCI AI ══════════════════════════════════════════════ */}
-      <section className="section-pad relative bg-white dark:bg-[#0B0F1A]">
+      <section className="section-pad relative bg-white dark:bg-[#102C40]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="container-editorial px-6 md:px-10 text-center">
           <ScrollReveal>

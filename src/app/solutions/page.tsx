@@ -33,8 +33,8 @@ const services = [
     pricePrefix: "From",
     price: "R4,500",
     priceNote: "Starter websites & landing pages",
-    accent: "#4F46E5",
-    accentLight: "#EEF2FF",
+    accent: "#102C40",
+    accentLight: "#EEF4F8",
   },
   {
     id: "crm",
@@ -58,8 +58,8 @@ const services = [
     pricePrefix: "From",
     price: "R15,000",
     priceNote: "Full business hub & CRM",
-    accent: "#0284C7",
-    accentLight: "#E0F2FE",
+    accent: "#1D4766",
+    accentLight: "#EEF4F8",
   },
   {
     id: "software",
@@ -83,17 +83,17 @@ const services = [
     pricePrefix: null,
     price: "Custom",
     priceNote: "Scoped to your project",
-    accent: "#7C3AED",
-    accentLight: "#F5F3FF",
+    accent: "#2C5A7C",
+    accentLight: "#EEF4F8",
   },
 ];
 
 // ── How we work data ───────────────────────────────────────────────────────────
 const caseTypes = [
-  { number: "01", title: "Build from Scratch",   description: "You have an idea and need a technical team to bring it to life. We architect, design, build, and launch from the ground up.", accent: "#4F46E5" },
-  { number: "02", title: "System Modernisation", description: "You have a legacy system slowing you down. We audit, plan, and execute the migration to a modern, high-performance architecture.", accent: "#7C3AED" },
-  { number: "03", title: "Scale What You Have",  description: "Your system works but can't handle growth. We identify bottlenecks, redesign for scale, and implement without disrupting your operations.", accent: "#0284C7" },
-  { number: "04", title: "Replace Manual Work",  description: "Your team is spending hours on repetitive tasks. We map your workflows, automate the bottlenecks, and wire it into your existing systems.", accent: "#059669" },
+  { number: "01", title: "Build from Scratch",   description: "You have an idea and need a technical team to bring it to life. We architect, design, build, and launch from the ground up.", accent: "#102C40" },
+  { number: "02", title: "System Modernisation", description: "You have a legacy system slowing you down. We audit, plan, and execute the migration to a modern, high-performance architecture.", accent: "#2C5A7C" },
+  { number: "03", title: "Scale What You Have",  description: "Your system works but can't handle growth. We identify bottlenecks, redesign for scale, and implement without disrupting your operations.", accent: "#1D4766" },
+  { number: "04", title: "Replace Manual Work",  description: "Your team is spending hours on repetitive tasks. We map your workflows, automate the bottlenecks, and wire it into your existing systems.", accent: "#455D70" },
 ];
 
 const phases = [
@@ -101,13 +101,13 @@ const phases = [
     number: "01", title: "Discovery & Problem Definition", duration: "Week 1",
     description: "Every engagement begins with deep listening. We run structured discovery sessions to understand your organisation, your challenge, and what success looks like.",
     deliverables: ["Problem statement document", "Stakeholder map", "Requirements specification", "Preliminary scope"],
-    accent: "#4F46E5", accentLight: "#EEF2FF",
+    accent: "#102C40", accentLight: "#EEF4F8",
   },
   {
     number: "02", title: "Architecture & Technical Design", duration: "Week 1–2",
     description: "Once we understand the problem, we design the right solution. Our architects evaluate technology options, design system architecture, and produce technical specifications.",
     deliverables: ["Technical architecture document", "Technology stack recommendation", "Data model design", "Integration plan"],
-    accent: "#7C3AED", accentLight: "#F5F3FF",
+    accent: "#2C5A7C", accentLight: "#EEF4F8",
   },
   {
     number: "03", title: "Aligned Proposal", duration: "Week 2",
@@ -119,13 +119,13 @@ const phases = [
     number: "04", title: "Agile Build & Delivery", duration: "Sprint-based",
     description: "Development proceeds in short sprints with regular demos, testing milestones, and open communication. You see progress weekly.",
     deliverables: ["Weekly sprint demos", "Tested, deployable increments", "Automated test suites", "Progress reports"],
-    accent: "#0284C7", accentLight: "#E0F2FE",
+    accent: "#1D4766", accentLight: "#EEF4F8",
   },
   {
     number: "05", title: "Launch & Handover", duration: "Final Sprint",
     description: "We deploy to production, run final acceptance testing, and complete a thorough handover including documentation, training, and source code transfer.",
     deliverables: ["Production deployment", "Technical documentation", "Training session", "Source code handover"],
-    accent: "#059669", accentLight: "#ECFDF5",
+    accent: "#455D70", accentLight: "#EEF3F7",
   },
   {
     number: "06", title: "Ongoing Support & Evolution", duration: "Ongoing",
@@ -138,14 +138,14 @@ const phases = [
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function SolutionsPage() {
   return (
-    <div className="pt-[68px] bg-white dark:bg-[#0B0F1A]">
+    <div className="pt-[68px] bg-white dark:bg-[#102C40]">
 
       {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
-      <section className="relative section-pad overflow-hidden bg-white dark:bg-[#0B0F1A]">
+      <section className="relative section-pad overflow-hidden bg-white dark:bg-[#102C40]">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse 60% 50% at 50% -5%, rgba(79,70,229,0.06) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse 60% 50% at 50% -5%, rgba(16,44,64,0.06) 0%, transparent 70%)" }}
         />
         <div className="container-editorial px-6 md:px-10 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -186,7 +186,7 @@ export default function SolutionsPage() {
               <div className="relative">
                 <div
                   className="absolute -inset-6 rounded-3xl pointer-events-none"
-                  style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.1) 0%, transparent 70%)", filter: "blur(24px)" }}
+                  style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(44,90,124,0.1) 0%, transparent 70%)", filter: "blur(24px)" }}
                 />
                 <motion.div
                   whileHover={{ scale: 1.02, rotate: -1 }}
@@ -195,7 +195,7 @@ export default function SolutionsPage() {
                   style={{ width: 440, height: 500 }}
                 >
                   <Image
-                    src="/Abstract 3D Illustration.png"
+                    src="/abstract-3d-illustration.webp"
                     alt="Abstract 3D architecture illustration"
                     fill
                     className="object-cover"
@@ -293,7 +293,7 @@ export default function SolutionsPage() {
               </div>
               <a
                 href="/#contact"
-                className="shrink-0 text-sm font-600 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors whitespace-nowrap"
+                className="shrink-0 text-sm font-600 text-indigo-600 dark:text-indigo-400 hover:text-navy dark:hover:text-lime transition-colors underline-offset-4 decoration-2 decoration-lime hover:underline whitespace-nowrap"
               >
                 Let&apos;s Talk →
               </a>
@@ -303,7 +303,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* ══ HOW WE WORK — CASE TYPES ═════════════════════════════════════════ */}
-      <section id="how-we-work" className="section-pad relative bg-white dark:bg-[#0B0F1A]">
+      <section id="how-we-work" className="section-pad relative bg-white dark:bg-[#102C40]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="container-editorial px-6 md:px-10">
           <div className="mb-14">
@@ -416,7 +416,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* ══ BOTTOM CTA ═══════════════════════════════════════════════════════ */}
-      <section className="section-pad relative bg-white dark:bg-[#0B0F1A]">
+      <section className="section-pad relative bg-white dark:bg-[#102C40]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="container-editorial px-6 md:px-10 text-center">
           <ScrollReveal>

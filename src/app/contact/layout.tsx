@@ -24,7 +24,10 @@ export const metadata: Metadata = {
     "get in touch RAK Technologies",
     "RAK Technologies contact Pretoria",
   ],
-  alternates: { canonical: "/contact" },
+  // This route only redirects to the homepage contact section, so the
+  // homepage is the canonical page and /contact stays out of the index.
+  alternates: { canonical: "/" },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Contact RAK Technologies — Free Website & Software Quote | Pretoria",
     description:

@@ -7,7 +7,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/ui/CustomCursor";
 import AshCursorMount from "@/components/AshCursorMount";
-import PageLoader from "@/components/ui/PageLoader";
 import CookieConsent from "@/components/ui/CookieConsent";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { SEOAuditProvider } from "@/context/SEOAuditContext";
@@ -92,13 +91,11 @@ export const metadata: Metadata = {
     siteName: "RAK Technologies",
     locale: "en_ZA",
     type: "website",
-    images: [{ url: "/RAK Technologies Logo.png", width: 800, height: 800, alt: "RAK Technologies — IT Consulting & Software Development Pretoria" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "RAK Technologies — Website & Software Development Pretoria",
     description: "Websites, custom software, CRM & AI automation for SA businesses. Based in Pretoria. From R4,500.",
-    images: ["/RAK Technologies Logo.png"],
   },
   robots: {
     index: true,
@@ -132,7 +129,6 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <PageLoader />
         <CustomCursor />
         <AshCursorMount />
         <Navbar />
@@ -157,7 +153,7 @@ export default function RootLayout({
                 width: 500,
                 height: 500,
               },
-              image: "https://www.raktechnologies.co.za/RAK Technologies Logo.png",
+              image: "https://www.raktechnologies.co.za/opengraph-image",
               description:
                 "RAK Technologies builds websites, custom software, CRM systems, WhatsApp automation, and AI integrations for businesses in Pretoria, Johannesburg, and across South Africa. Affordable, fast delivery. From R4,500.",
               slogan: "If it's tech, trust us — we can build it.",

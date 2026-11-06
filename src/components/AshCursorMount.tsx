@@ -1,7 +1,10 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useTheme } from "@/context/ThemeContext";
-import { AshCursor } from "@/components/AshCursor";
+
+// Loaded after the page is interactive — the fluid sim is decoration, not content.
+const AshCursor = dynamic(() => import("@/components/AshCursor").then((m) => m.AshCursor), { ssr: false });
 
 export default function AshCursorMount() {
   const { isDark } = useTheme();

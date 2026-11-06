@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import LiquidButton from "@/components/ui/LiquidButton";
@@ -14,6 +14,7 @@ const projects = [
     location:   "Ga-Mphahlele, Limpopo",
     year:       "2025",
     tagline:    "Urban Street Food. Rural Heart.",
+    image:      "/projects/rakeng.webp",
     accent: "#D4FF00",
   },
   {
@@ -24,15 +25,14 @@ const projects = [
     location:   "Midrand, Johannesburg",
     year:       "2025",
     tagline:    "Where Data Meets Strategic Foresight.",
+    image:      "/projects/sonkhoz.webp",
     accent: "#C2A476",
   },
 ];
 
 export default function RecentProjects() {
-  const [failed, setFailed] = useState<Record<number, boolean>>({});
-
   return (
-    <section className="section-pad relative bg-white dark:bg-[#0B0F1A]">
+    <section className="section-pad relative bg-white dark:bg-[#102C40]">
       <div className="section-divider absolute top-0 inset-x-0" />
       <div className="container-editorial px-6 md:px-10">
 
@@ -69,33 +69,13 @@ export default function RecentProjects() {
                   className="relative w-full overflow-hidden bg-slate-100 dark:bg-slate-800"
                   style={{ aspectRatio: "16/10" }}
                 >
-                  {failed[i] ? (
-                    <div
-                      className="w-full h-full flex items-center justify-center"
-                      style={{ background: `linear-gradient(135deg, ${project.accent}22, ${project.accent}08)` }}
-                    >
-                      <span
-                        className="font-display font-800 text-2xl"
-                        style={{ color: project.accent, letterSpacing: "-0.02em" }}
-                      >
-                        {project.client}
-                      </span>
-                    </div>
-                  ) : (
-                    /* eslint-disable-next-line @next/next/no-img-element */
-                    <img
-                      src={`/api/screenshot?url=${encodeURIComponent(project.url)}`}
-                      alt={`${project.client} website preview`}
-                      className="w-full h-full object-cover object-top"
-                      style={{
-                        display: "block",
-                        transition: "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                      }}
-                      onError={() => setFailed((prev) => ({ ...prev, [i]: true }))}
-                      onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.05)"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
-                    />
-                  )}
+                  <Image
+                    src={project.image}
+                    alt={`${project.client} website — built by RAK Technologies`}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
                 </div>
 
                 {/* Title — 20px below image */}

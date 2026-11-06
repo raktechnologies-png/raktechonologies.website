@@ -7,7 +7,7 @@ export default function ContactRedirect() {
     window.location.replace("/#contact");
   }, []);
   return (
-    <div className="pt-[68px] min-h-screen flex items-center justify-center bg-white dark:bg-[#0B0F1A]">
+    <div className="pt-[68px] min-h-screen flex items-center justify-center bg-white dark:bg-[#102C40]">
       <p className="text-slate-400 text-sm">Redirecting…</p>
     </div>
   );

@@ -49,15 +49,19 @@ export default function LiquidButton({
   const onTouchEnd   = () => setFilled(false);
 
   // ── Visual tokens ────────────────────────────────────────────────────────
+  // Brand rule: clickable = electric lime. Light sections get a solid lime
+  // button that floods navy on hover; dark sections get a lime outline that
+  // floods lime. Text on lime is always navy.
   const wrapperBase = dark
-    ? "border border-white/20 bg-transparent"
-    : "border border-indigo-200 dark:border-indigo-800 bg-white dark:bg-slate-900 shadow-sm";
+    ? "ring-1 ring-inset ring-lime/60 bg-transparent"
+    : "bg-lime shadow-sm";
 
-  const textDefault = dark ? "text-white" : "text-indigo-600 dark:text-indigo-400";
-  const fillGradient = "linear-gradient(135deg, #4F46E5, #7C3AED)";
+  const textDefault = dark ? "text-lime" : "text-navy";
+  const textFilled = dark ? "text-navy" : "text-lime";
+  const fillGradient = dark ? "#DBFF00" : "#102C40";
 
   const innerClassName = `relative z-10 inline-flex items-center justify-center gap-2.5 font-600 px-8 sm:px-9 py-4 text-base transition-colors duration-200 delay-75 ${
-    filled ? "text-white" : textDefault
+    filled ? textFilled : textDefault
   } ${disabled ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`;
 
   return (
@@ -82,7 +86,7 @@ export default function LiquidButton({
           width:  10,
           height: 10,
         }}
-        animate={filled && !disabled ? { scale: 60, opacity: 1 } : { scale: 0, opacity: 1 }}
+        animate={filled && !disabled ? { scale: 140, opacity: 1 } : { scale: 0, opacity: 1 }}
         transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
       />
 

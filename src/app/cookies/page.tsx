@@ -11,8 +11,8 @@ const cookieTypes = [
   {
     name: "Strictly Necessary",
     badge: "Always Active",
-    badgeColor: "#059669",
-    badgeBg: "#ECFDF5",
+    badgeColor: "#455D70",
+    badgeBg: "#EEF3F7",
     badgeBorder: "#A7F3D0",
     description:
       "These cookies are essential for the website to function properly. They enable core features such as security, session management, and accessibility. These cookies cannot be disabled.",
@@ -25,8 +25,8 @@ const cookieTypes = [
   {
     name: "Functional",
     badge: "Optional",
-    badgeColor: "#0284C7",
-    badgeBg: "#E0F2FE",
+    badgeColor: "#1D4766",
+    badgeBg: "#EEF4F8",
     badgeBorder: "#BAE6FD",
     description:
       "These cookies enable enhanced functionality and personalisation. They may be set by us or by third-party providers whose services we use. If you disable these cookies, some features may not work as intended.",
@@ -38,8 +38,8 @@ const cookieTypes = [
   {
     name: "Analytics",
     badge: "Optional",
-    badgeColor: "#7C3AED",
-    badgeBg: "#F5F3FF",
+    badgeColor: "#2C5A7C",
+    badgeBg: "#EEF4F8",
     badgeBorder: "#DDD6FE",
     description:
       "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This helps us improve the site's content, structure, and performance.",
@@ -124,14 +124,14 @@ const sections = [
 
 export default function CookiesPage() {
   return (
-    <div className="pt-[68px] bg-white dark:bg-[#0B0F1A]">
+    <div className="pt-[68px] bg-white dark:bg-[#102C40]">
 
       {/* ── Hero ── */}
-      <section className="relative py-16 md:py-24 overflow-hidden bg-white dark:bg-[#0B0F1A]">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-white dark:bg-[#102C40]">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse 60% 50% at 50% -5%, rgba(79,70,229,0.06) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse 60% 50% at 50% -5%, rgba(16,44,64,0.06) 0%, transparent 70%)" }}
         />
         <div className="container-editorial px-6 md:px-10 relative z-10">
           <motion.div
@@ -202,7 +202,7 @@ export default function CookiesPage() {
       </section>
 
       {/* ── Main content sections ── */}
-      <section className="py-12 md:py-16 relative bg-white dark:bg-[#0B0F1A]">
+      <section className="py-12 md:py-16 relative bg-white dark:bg-[#102C40]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-3xl mx-auto px-6 md:px-10">
           <div className="flex flex-col gap-10">
@@ -248,9 +248,9 @@ export default function CookiesPage() {
             <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 md:p-8 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-                style={{ background: "#EEF2FF", border: "1px solid #C7D2FE" }}
+                style={{ background: "#EEF4F8", border: "1px solid #BCD2E2" }}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#102C40" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
               </div>

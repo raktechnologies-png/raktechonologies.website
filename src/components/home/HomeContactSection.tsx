@@ -13,9 +13,9 @@ const contactDetails = [
     value: "info@raktechnologies.co.za",
     href: "mailto:info@raktechnologies.co.za",
     external: false,
-    accent: "#818CF8",
-    accentBg: "rgba(79,70,229,0.12)",
-    accentBorder: "rgba(129,140,248,0.25)",
+    accent: "#8FB3CD",
+    accentBg: "rgba(16,44,64,0.12)",
+    accentBorder: "rgba(143,179,205,0.25)",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -48,13 +48,13 @@ const whyContact = [
 
 export default function HomeContactSection() {
   return (
-    <section className="section-pad relative overflow-hidden bg-[#0B0F1A]">
+    <section className="section-pad relative overflow-hidden bg-[#102C40]">
       <PebbleGrid color="165,180,252" className="opacity-30" />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(79,70,229,0.14) 0%, transparent 70%)",
+            "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(16,44,64,0.14) 0%, transparent 70%)",
         }}
       />
       {/* Top gradient line */}
@@ -62,7 +62,7 @@ export default function HomeContactSection() {
         className="absolute top-0 left-0 right-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(99,102,241,0.5), rgba(167,139,250,0.35), transparent)",
+            "linear-gradient(90deg, transparent, rgba(143,179,205,0.5), rgba(157,189,212,0.35), transparent)",
         }}
       />
 

@@ -29,7 +29,7 @@ export default function PageLoader() {
           {/* Subtle ambient glow */}
           <div
             className="absolute inset-0 pointer-events-none"
-            style={{ background: "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(79,70,229,0.05) 0%, transparent 70%)" }}
+            style={{ background: "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(16,44,64,0.05) 0%, transparent 70%)" }}
           />
 
           {/* Logo */}
@@ -69,7 +69,7 @@ export default function PageLoader() {
               RAK
               <span
                 style={{
-                  background: "linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%)",
+                  background: "linear-gradient(135deg, #102C40 0%, #2C5A7C 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -95,7 +95,7 @@ export default function PageLoader() {
               animate={{ x: "0%" }}
               transition={{ duration: 1.5, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="h-full w-full rounded-full"
-              style={{ background: "linear-gradient(90deg, #4F46E5, #7C3AED)" }}
+              style={{ background: "#DBFF00" }}
             />
           </motion.div>
         </motion.div>

@@ -99,8 +99,7 @@ export default function CookieConsent() {
                 </button>
                 <button
                   onClick={accept}
-                  className="flex-1 sm:flex-none text-xs font-600 px-5 py-2.5 rounded-xl text-white cursor-pointer transition-all duration-200 hover:opacity-90 hover:shadow-lg"
-                  style={{ background: "linear-gradient(135deg, #4F46E5, #7C3AED)" }}
+                  className="btn-lime flex-1 sm:flex-none text-xs font-600 px-5 py-2.5 rounded-xl cursor-pointer"
                 >
                   Accept All
                 </button>

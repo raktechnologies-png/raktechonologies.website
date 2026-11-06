@@ -100,7 +100,7 @@ export default function CustomCursor() {
         }}
         animate={{
           scale:           isPointer ? 1.7 : 1,
-          backgroundColor: isPointer ? "#7C3AED" : "#4F46E5",
+          backgroundColor: isPointer ? "#DBFF00" : "#102C40",
         }}
         transition={{ duration: 0.14, ease: "easeOut" }}
       />

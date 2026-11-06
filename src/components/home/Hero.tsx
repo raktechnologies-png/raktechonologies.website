@@ -1,11 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { EASE } from "@/lib/motion";
 import LiquidButton from "@/components/ui/LiquidButton";
-import { useSEOAudit } from "@/context/SEOAuditContext";
 
 function useTimeGreeting() {
   const [greeting, setGreeting] = useState("");
@@ -16,35 +13,32 @@ function useTimeGreeting() {
   return greeting;
 }
 
+// Entrance animations are CSS (.rise) rather than framer-motion, so the
+// headline and image paint immediately instead of waiting for hydration.
+const delay = (ms: number) => ({ animationDelay: `${ms}ms` });
+
 export default function Hero() {
   const greeting = useTimeGreeting();
-  const { open: openAudit } = useSEOAudit();
 
   return (
-    <section className="relative section-pad bg-white dark:bg-[#0B0F1A]">
+    <section className="relative overflow-hidden bg-white dark:bg-[#102C40] pt-[92px] pb-14 md:pt-[110px] md:pb-[88px] lg:pt-[120px] lg:pb-[120px]">
       <div className="container-editorial px-6 md:px-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-          {/* ── Left: copy ── */}
+          {/* ── Copy ── */}
           <div className="flex flex-col items-start text-left">
-            {greeting && (
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.05, ease: EASE }}
-                className="text-slate-400 dark:text-slate-500 text-xs tracking-[0.16em] uppercase font-label mb-4"
-              >
-                {greeting}
-              </motion.p>
-            )}
+            <p
+              className="rise text-slate-400 dark:text-slate-500 text-xs tracking-[0.16em] uppercase font-label mb-4 min-h-[1.2em]"
+              style={delay(0)}
+            >
+              {greeting || " "}
+            </p>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.85, delay: 0.15, ease: EASE }}
-              className="font-display text-slate-900 dark:text-slate-100 mb-7"
+            <h1
+              className="rise font-display text-slate-900 dark:text-slate-100 mb-6"
               style={{
-                fontSize: "clamp(2.2rem, 6vw, 5.5rem)",
+                ...delay(80),
+                fontSize: "clamp(2.6rem, 6vw, 5.5rem)",
                 fontWeight: 900,
                 lineHeight: 1.0,
                 letterSpacing: "-0.04em",
@@ -55,91 +49,66 @@ export default function Hero() {
               <br />
               <span className="text-slate-900 dark:text-slate-100">we can </span>
               <span className="gradient-text">build it.</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
-              className="text-slate-500 dark:text-slate-400 text-base sm:text-lg leading-relaxed max-w-lg mb-9"
-              style={{ fontWeight: 400, letterSpacing: "-0.01em" }}
+            <p
+              className="rise text-slate-500 dark:text-slate-400 text-[17px] sm:text-lg leading-relaxed max-w-lg mb-8"
+              style={{ ...delay(180), fontWeight: 400, letterSpacing: "-0.01em" }}
             >
               From websites and online stores to custom software, automation, and AI —
-              we build the technology your business needs to grow.
-            </motion.p>
+              we build the technology your business needs to grow. Based in Pretoria,
+              working with businesses across South Africa.
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.42, ease: EASE }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto"
-            >
-              <LiquidButton href="/#contact" className="w-full sm:w-auto justify-center">
+            <div className="rise flex items-center gap-6 w-full sm:w-auto" style={delay(260)}>
+              <LiquidButton href="/#contact" className="flex-1 sm:flex-none justify-center">
                 Request a Solution →
               </LiquidButton>
-              <LiquidButton onClick={openAudit} className="w-full sm:w-auto justify-center">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
-                  <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
-                </svg>
-                Free SEO Audit
-                <span className="text-[10px] font-700 px-1.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 leading-none">
-                  FREE
-                </span>
-              </LiquidButton>
-            </motion.div>
+              <a
+                href="/#projects"
+                className="shrink-0 text-[15px] font-600 text-slate-900 dark:text-slate-100 underline decoration-lime decoration-2 underline-offset-[6px] hover:decoration-[3px]"
+              >
+                See our work
+              </a>
+            </div>
           </div>
 
-          {/* ── Right: image ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.0, delay: 0.25, ease: EASE }}
-            className="flex items-center justify-center lg:justify-end"
-          >
-            <div className="relative w-full max-w-[480px] lg:max-w-none">
-              <div
-                className="absolute -inset-4 rounded-3xl pointer-events-none"
-                style={{
-                  background: "radial-gradient(ellipse at 50% 50%, rgba(147,51,234,0.12) 0%, transparent 70%)",
-                  filter: "blur(24px)",
-                }}
-              />
-              <div
-                className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100/60 dark:border-slate-700/40"
-                style={{ aspectRatio: "3/4", maxHeight: "60vh" }}
-              >
+          {/* ── Image ── */}
+          <div className="rise flex items-center justify-center lg:justify-end" style={delay(200)}>
+            <div className="relative w-full max-w-[520px] lg:max-w-none pr-3 pb-3 lg:pr-0 lg:pb-0">
+              {/* Offset navy frame — gives the card depth on small screens */}
+              <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-3xl bg-navy dark:bg-slate-800 lg:hidden" aria-hidden="true" />
+
+              <div className="relative rounded-3xl lg:rounded-2xl overflow-hidden shadow-2xl aspect-[5/4] lg:aspect-[3/4] lg:max-h-[60vh]">
                 <Image
-                  src="/Futuristic AR Glasses.png"
-                  alt="Futuristic augmented reality technology"
+                  src="/futuristic-ar-glasses.webp"
+                  alt="Augmented-reality technology — custom software and AI by RAK Technologies"
                   fill
-                  className="object-cover object-center"
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  className="object-cover object-[50%_30%]"
                   priority
+                  fetchPriority="high"
                 />
                 <div
                   className="absolute inset-0 pointer-events-none"
-                  style={{ background: "linear-gradient(to bottom, transparent 60%, rgba(255,255,255,0.15) 100%)" }}
+                  style={{ background: "linear-gradient(to top, rgba(16,44,64,0.78) 0%, rgba(16,44,64,0.15) 45%, transparent 70%)" }}
                 />
-              </div>
 
-              {/* Floating badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.75, ease: EASE }}
-                className="absolute -bottom-4 -left-4 sm:-bottom-5 sm:-left-6 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl px-3 py-2.5 sm:px-4 sm:py-3 shadow-lg flex items-center gap-3"
-              >
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center shrink-0">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="2" strokeLinecap="round">
-                    <path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" />
-                  </svg>
+                {/* Stat — inside the image on every screen size */}
+                <div className="absolute left-4 right-4 bottom-4 sm:left-5 sm:bottom-5 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-cloud flex items-center justify-center shrink-0">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#102C40" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-white text-base font-700 font-figures leading-none mb-1">50+ Projects</p>
+                    <p className="text-slate-200 text-xs">Delivered across Africa</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-slate-900 dark:text-slate-50 text-xs font-600 font-figures leading-none mb-0.5">50+ Projects</p>
-                  <p className="text-slate-400 dark:text-slate-500 text-[11px]">Delivered across Africa</p>
-                </div>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

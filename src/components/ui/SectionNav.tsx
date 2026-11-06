@@ -59,7 +59,7 @@ export default function SectionNav({ sections }: { sections: NavSection[] }) {
             <motion.div
               animate={{
                 width:           isActive ? 22 : 8,
-                backgroundColor: isActive ? "#4F46E5" : "#CBD5E1",
+                backgroundColor: isActive ? "#DBFF00" : "#C8D5DF",
                 opacity:         isActive ? 1 : 0.6,
               }}
               transition={{ duration: 0.35, ease: EASE }}

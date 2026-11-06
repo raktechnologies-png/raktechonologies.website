@@ -47,6 +47,7 @@ export const metadata: Metadata = {
   },
 };
 import PartnersSection from "@/components/home/PartnersSection";
+import ServicesTicker from "@/components/home/ServicesTicker";
 import ServicesOverview from "@/components/home/ServicesOverview";
 import ActSciSection from "@/components/home/ActSciSection";
 import RecentProjects from "@/components/home/RecentProjects";
@@ -67,6 +68,7 @@ export default function HomePage() {
       <SectionNav sections={sections} />
 
       <div id="hero"><Hero /></div>
+      <ServicesTicker />
       <PartnersSection />
       <div id="services"><ServicesOverview /></div>
       <div id="actsci"><ActSciSection /></div>

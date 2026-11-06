@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useRef, useEffect } from "react";
 
 const partners = [
-  { name: "SAGEA — South African Graduate Employers Association", src: "/partners/sagea.png" },
-  { name: "University of the Free State",                          src: "/partners/ufs.jpg" },
+  { name: "SAGEA — South African Graduate Employers Association", src: "/partners/sagea-logo.png" },
+  { name: "University of the Free State",                          src: "/partners/ufs-logo.webp" },
 ];
 
 // Duplicated once so the first half scrolls fully out as the second takes its place.
@@ -61,8 +61,7 @@ export default function PartnersSection() {
           {track.map((p, i) => (
             <div
               key={i}
-              className="flex items-center justify-center shrink-0 mx-14 md:mx-20"
-              style={{ width: 460, height: 200 }}
+              className="flex items-center justify-center shrink-0 mx-8 md:mx-16 w-[200px] h-[60px] md:w-[400px] md:h-[110px]"
             >
               <div className="relative w-full h-full grayscale contrast-125 opacity-90 hover:grayscale-0 hover:contrast-100 hover:opacity-100 transition-all duration-300">
                 <Image
@@ -70,7 +69,7 @@ export default function PartnersSection() {
                   alt={p.name}
                   fill
                   className="object-contain"
-                  sizes="460px"
+                  sizes="(min-width: 768px) 400px, 200px"
                 />
               </div>
             </div>

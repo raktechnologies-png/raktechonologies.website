@@ -16,7 +16,7 @@ export default function OgImage() {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "flex-end",
-          background: "#ffffff",
+          background: "#F7FAFC",
           padding: "72px 80px",
           fontFamily: "sans-serif",
           position: "relative",
@@ -29,8 +29,8 @@ export default function OgImage() {
             top: 0,
             left: 0,
             right: 0,
-            height: "4px",
-            background: "linear-gradient(90deg, #4F46E5, #7C3AED)",
+            height: "8px",
+            background: "#DBFF00",
           }}
         />
         <div
@@ -40,7 +40,7 @@ export default function OgImage() {
             right: 0,
             width: "600px",
             height: "400px",
-            background: "radial-gradient(ellipse at top right, rgba(79,70,229,0.08), transparent 70%)",
+            background: "radial-gradient(ellipse at top right, rgba(16,44,64,0.08), transparent 70%)",
           }}
         />
 
@@ -50,13 +50,13 @@ export default function OgImage() {
             display: "flex",
             alignItems: "center",
             marginBottom: "28px",
-            background: "#EEF2FF",
-            border: "1px solid #C7D2FE",
+            background: "#EEF4F8",
+            border: "1px solid #BCD2E2",
             borderRadius: "100px",
             padding: "8px 20px",
           }}
         >
-          <span style={{ color: "#4F46E5", fontSize: "14px", fontWeight: 600, letterSpacing: "0.1em" }}>
+          <span style={{ color: "#102C40", fontSize: "14px", fontWeight: 600, letterSpacing: "0.1em" }}>
             PRETORIA, SOUTH AFRICA
           </span>
         </div>
@@ -66,21 +66,21 @@ export default function OgImage() {
           style={{
             fontSize: "64px",
             fontWeight: 900,
-            color: "#0F172A",
+            color: "#102C40",
             lineHeight: 1.05,
             letterSpacing: "-0.03em",
             marginBottom: "24px",
           }}
         >
           RAK{" "}
-          <span style={{ color: "#4F46E5" }}>Technologies</span>
+          <span style={{ color: "#102C40" }}>Technologies</span>
         </div>
 
         {/* Subheading */}
         <div
           style={{
             fontSize: "24px",
-            color: "#64748B",
+            color: "#627A8D",
             marginBottom: "48px",
             letterSpacing: "-0.01em",
           }}
@@ -94,12 +94,12 @@ export default function OgImage() {
             <div
               key={tag}
               style={{
-                background: "#F8FAFC",
-                border: "1px solid #E2E8F0",
+                background: "#F7FAFC",
+                border: "1px solid #E1E9EF",
                 borderRadius: "8px",
                 padding: "8px 16px",
                 fontSize: "15px",
-                color: "#475569",
+                color: "#455D70",
                 fontWeight: 500,
               }}
             >
@@ -115,7 +115,7 @@ export default function OgImage() {
             top: "72px",
             right: "80px",
             fontSize: "16px",
-            color: "#94A3B8",
+            color: "#93A7B7",
             letterSpacing: "0.02em",
           }}
         >

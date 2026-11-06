@@ -85,7 +85,7 @@ function TabPanel({ active }: { active: TabId }) {
               requiring a tailored approach.
             </p>
             <div className="flex items-center gap-3 pt-2">
-              <div className="w-8 h-0.5" style={{ background: "linear-gradient(90deg, #4F46E5, #7C3AED)" }} />
+              <div className="w-8 h-0.5" style={{ background: "linear-gradient(90deg, #102C40, #2C5A7C)" }} />
               <span className="text-slate-400 dark:text-slate-500 text-sm">Est. 2024 · Pretoria, South Africa</span>
             </div>
           </div>
@@ -123,14 +123,14 @@ export default function AboutPage() {
   const [active, setActive] = useState<TabId>("story");
 
   return (
-    <div className="pt-[68px] bg-white dark:bg-[#0B0F1A]">
+    <div className="pt-[68px] bg-white dark:bg-[#102C40]">
 
       {/* ── Hero — asymmetric offset ── */}
-      <section className="section-pad relative overflow-hidden bg-white dark:bg-[#0B0F1A]">
+      <section className="section-pad relative overflow-hidden bg-white dark:bg-[#102C40]">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse 60% 50% at 50% -5%, rgba(79,70,229,0.06) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse 60% 50% at 50% -5%, rgba(16,44,64,0.06) 0%, transparent 70%)" }}
         />
         <div className="container-editorial px-6 md:px-10 relative z-10">
           <motion.div
@@ -203,11 +203,11 @@ export default function AboutPage() {
               <div className="relative">
                 <div
                   className="absolute -inset-3 rounded-3xl pointer-events-none"
-                  style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(79,70,229,0.08) 0%, transparent 70%)", filter: "blur(20px)" }}
+                  style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(16,44,64,0.08) 0%, transparent 70%)", filter: "blur(20px)" }}
                 />
                 <div className="relative rounded-2xl overflow-hidden shadow-lg" style={{ aspectRatio: "4/3" }}>
                   <Image
-                    src="/Organized Server Rack.png"
+                    src="/organized-server-rack.webp"
                     alt="RAK Technologies infrastructure and engineering capability"
                     fill
                     className="object-cover"
@@ -224,7 +224,7 @@ export default function AboutPage() {
       <WhyUsSection />
 
       {/* CTA */}
-      <section className="section-pad relative bg-white dark:bg-[#0B0F1A]">
+      <section className="section-pad relative bg-white dark:bg-[#102C40]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="container-editorial px-6 md:px-10 text-center">
           <ScrollReveal>

@@ -91,11 +91,11 @@ export default function Navbar() {
                   } ${
                     link.branded
                       ? active
-                        ? "bg-indigo-50 dark:bg-indigo-950 font-600"
-                        : "hover:bg-indigo-50/60 dark:hover:bg-indigo-950/60 font-500"
+                        ? "bg-lime text-navy font-600"
+                        : "hover:bg-lime/30 dark:hover:bg-lime/15 font-500"
                       : active
-                        ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 font-500"
-                        : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800"
+                        ? "text-navy bg-lime font-600"
+                        : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-lime/30 dark:hover:bg-lime/15"
                   }`}
                 >
                   {link.branded ? (
@@ -108,7 +108,7 @@ export default function Navbar() {
                   {active && (
                     <motion.span
                       layoutId="nav-indicator"
-                      className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-indigo-500"
+                      className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-navy"
                     />
                   )}
                 </Link>
@@ -121,10 +121,18 @@ export default function Navbar() {
             <ThemeToggle />
             <button
               onClick={openAudit}
-              className="hidden md:flex items-center gap-2 text-sm font-500 px-5 py-2.5 rounded-xl text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-md active:scale-[0.97] shadow-sm cursor-pointer"
-              style={{ background: "linear-gradient(135deg, #4F46E5, #7C3AED)" }}
+              className="btn-lime hidden md:flex items-center gap-2 text-sm font-600 px-5 py-2.5 rounded-xl hover:scale-[1.03] active:scale-[0.97] cursor-pointer"
             >
               Free SEO Audit
+            </button>
+
+            <button
+              onClick={openAudit}
+              className="btn-lime md:hidden inline-flex items-center gap-1.5 text-[13px] font-600 px-3.5 py-2 rounded-lg cursor-pointer"
+              aria-label="Free SEO Audit"
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
+              Free Audit
             </button>
 
             {/* Burger */}
@@ -154,13 +162,13 @@ export default function Navbar() {
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
-                background: "radial-gradient(ellipse 70% 50% at 0% 100%, rgba(79,70,229,0.05) 0%, transparent 70%)",
+                background: "radial-gradient(ellipse 70% 50% at 0% 100%, rgba(16,44,64,0.05) 0%, transparent 70%)",
               }}
             />
             <div
               className="absolute inset-0 pointer-events-none opacity-[0.025]"
               style={{
-                backgroundImage: "radial-gradient(circle, #94A3B8 1px, transparent 1px)",
+                backgroundImage: "radial-gradient(circle, #93A7B7 1px, transparent 1px)",
                 backgroundSize: "28px 28px",
               }}
             />
@@ -195,7 +203,7 @@ export default function Navbar() {
                       >
                         {link.label}
                       </span>
-                      <span className="text-slate-200 dark:text-slate-700 group-hover:text-indigo-400 text-2xl ml-4 transition-all duration-200 group-hover:translate-x-1.5">
+                      <span className="text-slate-200 dark:text-slate-700 group-hover:text-lime text-2xl ml-4 transition-all duration-200 group-hover:translate-x-1.5">
                         →
                       </span>
                     </button>
@@ -218,7 +226,7 @@ export default function Navbar() {
                         link.label
                       )}
                     </span>
-                    <span className="text-slate-200 dark:text-slate-700 group-hover:text-indigo-400 text-2xl ml-4 transition-all duration-200 group-hover:translate-x-1.5">
+                    <span className="text-slate-200 dark:text-slate-700 group-hover:text-lime text-2xl ml-4 transition-all duration-200 group-hover:translate-x-1.5">
                       →
                     </span>
                   </Link>
@@ -235,13 +243,12 @@ export default function Navbar() {
               >
                 <button
                   onClick={() => { setMenuOpen(false); openAudit(); }}
-                  className="inline-flex items-center justify-center text-white font-600 px-8 py-4 rounded-xl text-base shadow-md w-full sm:w-auto sm:self-start cursor-pointer"
-                  style={{ background: "linear-gradient(135deg, #4F46E5, #7C3AED)" }}
+                  className="btn-lime inline-flex items-center justify-center font-600 px-8 py-4 rounded-xl text-base w-full sm:w-auto sm:self-start cursor-pointer"
                 >
                   Free SEO Audit
                 </button>
                 <div className="flex flex-wrap items-center gap-3 text-slate-400 text-[13px]">
-                  <a href="mailto:info@raktechnologies.co.za" className="hover:text-indigo-500 transition-colors duration-200 truncate">
+                  <a href="mailto:info@raktechnologies.co.za" className="hover:text-lime transition-colors duration-200 truncate">
                     info@raktechnologies.co.za
                   </a>
                 </div>

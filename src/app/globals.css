@@ -3,32 +3,80 @@
 /* Class-based dark mode for Tailwind v4 */
 @variant dark (&:where(.dark, .dark *));
 
+/* ─── RAK brand palette ───────────────────────────────────────────────
+   Midnight Navy  #102C40 — text, headings, dark sections
+   Cloud White    #F7FAFC — page backgrounds, text on navy
+   Electric Lime  #DBFF00 — ONLY on things people click (buttons, CTAs,
+                            active states). Always navy text on lime;
+                            never lime text on a light background.
+   The slate / indigo / violet / purple scales are remapped below so every
+   existing utility class (text-slate-900, text-indigo-600, …) follows the
+   brand without touching each component. */
+@theme {
+  --color-navy:        #102C40;
+  --color-navy-deep:   #0A1D2B;
+  --color-cloud:       #F7FAFC;
+  --color-lime:        #DBFF00;
+  --color-lime-hover:  #C8EB00;
+
+  --color-slate-50:  #F7FAFC;
+  --color-slate-100: #EEF3F7;
+  --color-slate-200: #E1E9EF;
+  --color-slate-300: #C8D5DF;
+  --color-slate-400: #93A7B7;
+  --color-slate-500: #627A8D;
+  --color-slate-600: #455D70;
+  --color-slate-700: #2F4759;
+  --color-slate-800: #1B3446;
+  --color-slate-900: #102C40;
+  --color-slate-950: #0A1D2B;
+
+  --color-indigo-50:  #EEF4F8;
+  --color-indigo-100: #DBE7F0;
+  --color-indigo-200: #BCD2E2;
+  --color-indigo-300: #9DBDD4;
+  --color-indigo-400: #8FB3CD;
+  --color-indigo-500: #2C5A7C;
+  --color-indigo-600: #1D4766;
+  --color-indigo-700: #163A54;
+  --color-indigo-800: #102C40;
+  --color-indigo-900: #0C2232;
+  --color-indigo-950: #0E2638;
+
+  --color-violet-50:  #EEF4F8;
+  --color-violet-100: #DBE7F0;
+  --color-violet-500: #2C5A7C;
+  --color-violet-600: #1D4766;
+  --color-purple-50:  #EEF4F8;
+  --color-purple-950: #0E2638;
+}
+
 @theme inline {
   /* ─── Light design system ─── */
 
   /* Backgrounds */
-  --color-bg:        #FFFFFF;
-  --color-surface:   #F8FAFC;
-  --color-surface-2: #F1F5F9;
+  --color-bg:        #F7FAFC;
+  --color-surface:   #FFFFFF;
+  --color-surface-2: #EEF3F7;
 
   /* Borders */
-  --color-border:    #E2E8F0;
-  --color-border-2:  #CBD5E1;
+  --color-border:    #E1E9EF;
+  --color-border-2:  #C8D5DF;
 
-  /* Accent — indigo → violet */
-  --color-accent:    #4F46E5;
-  --color-accent-2:  #7C3AED;
-  --color-accent-light: #EEF2FF;
+  /* Accent — navy text accents; lime is reserved for clickable areas */
+  --color-accent:    #102C40;
+  --color-accent-2:  #DBFF00;
+  --color-accent-light: #EEF4F8;
 
   /* Typography */
-  --color-foreground: #0F172A;
-  --color-muted:      #64748B;
-  --color-muted-2:    #94A3B8;
+  --color-foreground: #102C40;
+  --color-muted:      #627A8D;
+  --color-muted-2:    #93A7B7;
 
   /* Dark inverse (CTA banner) */
-  --color-dark-bg:      #0B0F1A;
-  --color-dark-surface: #111827;
-  --color-dark-border:  #1E293B;
+  --color-dark-bg:      #102C40;
+  --color-dark-surface: #163A54;
+  --color-dark-border:  #1B3446;
 
   /* ── Typography — Plus Jakarta Sans body, DM Sans display, JetBrains Mono for labels/figures ── */
   --font-sans:    var(--font-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, Roboto, sans-serif;
@@ -43,19 +91,19 @@
   html {
     font-size: 17px;
     scroll-behavior: smooth;
-    background: #FFFFFF;
+    background: #F7FAFC;
     text-rendering: optimizeLegibility;
     -webkit-text-size-adjust: 100%;
     transition: background 0.3s ease, color 0.3s ease;
   }
   html.dark {
-    background: #0B0F1A;
-    color: #F8FAFC;
+    background: #0A1D2B;
+    color: #F7FAFC;
   }
 
   body {
-    background: #FFFFFF;
-    color: #0F172A;
+    background: #F7FAFC;
+    color: #102C40;
     font-family: var(--font-sans);
     line-height: 1.65;
     overflow-x: hidden;
@@ -64,8 +112,8 @@
     transition: background 0.3s ease, color 0.3s ease;
   }
   .dark body {
-    background: #0B0F1A;
-    color: #F8FAFC;
+    background: #0A1D2B;
+    color: #F7FAFC;
   }
 
   /* ── Heading defaults — tight kerning, clean geometric ── */
@@ -74,19 +122,21 @@
     line-height: 1.05;
     letter-spacing: -0.035em;
     font-weight: 800;
-    color: #0F172A;
+    color: #102C40;
     text-wrap: balance;
     transition: color 0.3s ease;
   }
 
   /* ── Visible keyboard focus — never removed, never identical to hover ── */
   :focus-visible {
-    outline: 2px solid #4F46E5;
+    outline: 2px solid #102C40;
+    box-shadow: 0 0 0 4px #DBFF00;
     outline-offset: 2px;
     border-radius: 4px;
   }
   .dark :focus-visible {
-    outline-color: #818CF8;
+    outline-color: #DBFF00;
+    box-shadow: none;
   }
 
   p {
@@ -108,21 +158,21 @@
   }
 
   ::selection {
-    background: #EEF2FF;
-    color: #4F46E5;
+    background: #DBFF00;
+    color: #102C40;
   }
   .dark ::selection {
-    background: #312E81;
-    color: #A5B4FC;
+    background: #DBFF00;
+    color: #102C40;
   }
 
   ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: #F1F5F9; }
-  ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }
-  ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
-  .dark ::-webkit-scrollbar-track { background: #0F172A; }
-  .dark ::-webkit-scrollbar-thumb { background: #334155; }
-  .dark ::-webkit-scrollbar-thumb:hover { background: #475569; }
+  ::-webkit-scrollbar-track { background: #EEF3F7; }
+  ::-webkit-scrollbar-thumb { background: #C8D5DF; border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: #102C40; }
+  .dark ::-webkit-scrollbar-track { background: #0A1D2B; }
+  .dark ::-webkit-scrollbar-thumb { background: #2F4759; }
+  .dark ::-webkit-scrollbar-thumb:hover { background: #DBFF00; }
 
   /* ── Mobile base ── */
   @media (max-width: 640px) {
@@ -177,28 +227,35 @@
   .field-underline {
     background: transparent;
     border: none;
-    border-bottom: 1px solid #E2E8F0;
+    border-bottom: 1px solid #C8D5DF;
     border-radius: 0;
     padding: 12px 2px;
   }
-  .dark .field-underline { border-bottom-color: #334155; }
+  .dark .field-underline { border-bottom-color: #2F4759; }
   .field-underline:focus {
     outline: none;
-    border-bottom-color: #4F46E5;
+    border-bottom-color: #102C40;
+    box-shadow: 0 2px 0 0 #DBFF00;
   }
-  .dark .field-underline:focus { border-bottom-color: #818CF8; }
+  .dark .field-underline:focus { border-bottom-color: #DBFF00; box-shadow: none; }
 
   /* Accent gradient text */
   .gradient-text {
-    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    background: linear-gradient(135deg, #102C40 0%, #2C5A7C 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
+  .dark .gradient-text {
+    background: linear-gradient(135deg, #F7FAFC 0%, #9DBDD4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
   /* Dark inverse sections */
   .gradient-text-dark {
-    background: linear-gradient(160deg, #FFFFFF 30%, #A5B4FC 100%);
+    background: linear-gradient(160deg, #FFFFFF 30%, #9DBDD4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -207,10 +264,10 @@
   /* Section separator */
   .section-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, #E2E8F0 30%, #E2E8F0 70%, transparent);
+    background: linear-gradient(90deg, transparent, #E1E9EF 30%, #E1E9EF 70%, transparent);
   }
   .dark .section-divider {
-    background: linear-gradient(90deg, transparent, #1E293B 30%, #1E293B 70%, transparent);
+    background: linear-gradient(90deg, transparent, #1B3446 30%, #1B3446 70%, transparent);
   }
 
   /* Card hover ring — gradient border on hover */
@@ -223,7 +280,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, rgba(79,70,229,0.25), rgba(124,58,237,0.12), transparent);
+    background: linear-gradient(135deg, rgba(219,255,0,0.95), rgba(219,255,0,0.35), transparent 70%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -248,7 +305,7 @@
     background: linear-gradient(
       105deg,
       transparent 35%,
-      rgba(79, 70, 229, 0.055) 50%,
+      rgba(16, 44, 64, 0.05) 50%,
       transparent 65%
     );
     transform: translateX(-120%);
@@ -260,6 +317,14 @@
     transform: translateX(120%);
   }
 
+  /* Primary clickable surface — electric lime with navy text */
+  .btn-lime {
+    background: #DBFF00;
+    color: #102C40;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-lime:hover { background: #C8EB00; box-shadow: 0 6px 20px -8px rgba(16, 44, 64, 0.45); }
+
   /* Infinite horizontal ticker — hero tag marquee */
   .marquee-track {
     animation: marquee-scroll 26s linear infinite;
@@ -268,6 +333,13 @@
     .marquee-track { animation: none; }
   }
 }
+
+/* Hero entrance — pure CSS so the headline paints before JavaScript loads */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+.rise { animation: rise 0.75s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
 @keyframes marquee-scroll {
   from { transform: translateX(0); }
@@ -281,10 +353,10 @@
 .dark h4,
 .dark h5,
 .dark h6 {
-  color: #E2E8F0; /* slate-200 — readable but not harsh white */
+  color: #F7FAFC; /* cloud white */
 }
 
 /* Body text in dark mode */
 .dark body {
-  color: #CBD5E1; /* slate-300 — easy on the eyes */
+  color: #C8D5DF; /* soft cloud on navy */
 }

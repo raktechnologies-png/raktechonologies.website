@@ -137,14 +137,14 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <div className="pt-[68px] bg-white dark:bg-[#0B0F1A]">
+    <div className="pt-[68px] bg-white dark:bg-[#102C40]">
 
       {/* ── Hero ── */}
-      <section className="relative py-16 md:py-24 overflow-hidden bg-white dark:bg-[#0B0F1A]">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-white dark:bg-[#102C40]">
         <PebbleGrid />
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse 60% 50% at 50% -5%, rgba(79,70,229,0.06) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse 60% 50% at 50% -5%, rgba(16,44,64,0.06) 0%, transparent 70%)" }}
         />
         <div className="container-editorial px-6 md:px-10 relative z-10">
           <motion.div
@@ -183,9 +183,9 @@ export default function TermsPage() {
           </ScrollReveal>
           <div className="grid sm:grid-cols-3 gap-x-8">
             {[
-              { number: "01", title: "Fair Engagement", desc: "Project terms are agreed upfront. No surprises — scope, timeline, and costs are documented before work begins.", accent: "#4F46E5" },
-              { number: "02", title: "IP Ownership", desc: "Upon full payment, you own what we build for you. We retain ownership of reusable frameworks and tools.", accent: "#7C3AED" },
-              { number: "03", title: "South African Law", desc: "These terms are governed by South African law. Any disputes will be resolved under South African jurisdiction.", accent: "#059669" },
+              { number: "01", title: "Fair Engagement", desc: "Project terms are agreed upfront. No surprises — scope, timeline, and costs are documented before work begins.", accent: "#102C40" },
+              { number: "02", title: "IP Ownership", desc: "Upon full payment, you own what we build for you. We retain ownership of reusable frameworks and tools.", accent: "#2C5A7C" },
+              { number: "03", title: "South African Law", desc: "These terms are governed by South African law. Any disputes will be resolved under South African jurisdiction.", accent: "#455D70" },
             ].map((card) => (
               <ScrollReveal key={card.title} delay={0.07}>
                 <div className="flex flex-col gap-2.5 py-5 border-t sm:border-t-0 border-slate-200 dark:border-slate-800 h-full">
@@ -200,7 +200,7 @@ export default function TermsPage() {
       </section>
 
       {/* ── Full terms content ── */}
-      <section className="py-12 md:py-16 relative bg-white dark:bg-[#0B0F1A]">
+      <section className="py-12 md:py-16 relative bg-white dark:bg-[#102C40]">
         <div className="section-divider absolute top-0 inset-x-0" />
         <div className="max-w-3xl mx-auto px-6 md:px-10">
           <div className="flex flex-col gap-10">
@@ -249,9 +249,9 @@ export default function TermsPage() {
             <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 md:p-8 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-                style={{ background: "#EEF2FF", border: "1px solid #C7D2FE" }}
+                style={{ background: "#EEF4F8", border: "1px solid #BCD2E2" }}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#102C40" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" />
                 </svg>
               </div>
