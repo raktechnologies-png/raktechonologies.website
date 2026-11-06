@@ -42,7 +42,6 @@ const contactDetails = [
 const whyContact = [
   "We respond with a tailored technical approach — not a template",
   "No sales calls unless you want one — email is our default",
-  "Budget information is strictly confidential",
   "We'll tell you honestly if we're not the right fit",
 ];
 
