@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 export const metadata: Metadata = {
   title: { absolute: "Website, Software & CRM Development in Pretoria | RAK Technologies" },
   description:
-    "RAK Technologies builds affordable websites from R4,500, custom software, CRM systems, and WhatsApp automation for businesses in Pretoria, Johannesburg, Centurion, and across South Africa. Request a free quote.",
+    "RAK Technologies builds websites, custom software, CRM systems, and WhatsApp automation for businesses in Pretoria, Johannesburg, Centurion, and across South Africa. Request a free quote.",
   keywords: [
     "website development Pretoria",
     "web design Pretoria",
@@ -26,7 +26,6 @@ export const metadata: Metadata = {
     "affordable website South Africa",
     "e-commerce website South Africa",
     "app development Pretoria",
-    "website R4500",
     "cheap website development South Africa",
     "affordable web design Pretoria",
     "React developer South Africa",
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Solutions — Website & Software Development Pretoria | RAK Technologies",
     description:
-      "Websites from R4,500, CRM systems, WhatsApp automation & custom software for SA businesses. Based in Pretoria. Serving Johannesburg, Centurion, Sandton & Midrand.",
+      "Websites, CRM systems, WhatsApp automation & custom software for SA businesses. Based in Pretoria. Serving Johannesburg, Centurion, Sandton & Midrand.",
     url: "https://www.raktechnologies.co.za/solutions",
     siteName: "RAK Technologies",
     locale: "en_ZA",
@@ -58,7 +57,7 @@ const servicesSchema = {
       "@id": "https://www.raktechnologies.co.za/solutions#starter-website",
       name: "Starter Website",
       description:
-        "A professional, mobile-optimised business website starting from R4,500. Includes up to 5 pages, contact form, Google Maps integration, and basic SEO setup. Ideal for small businesses in Pretoria and across South Africa.",
+        "A professional, mobile-optimised business website. Includes up to 5 pages, contact form, Google Maps integration, and basic SEO setup. Ideal for small businesses in Pretoria and across South Africa.",
       provider: orgRef,
       areaServed: [
         { "@type": "City", name: "Pretoria" },
@@ -67,17 +66,6 @@ const servicesSchema = {
         { "@type": "State", name: "Gauteng" },
         { "@type": "Country", name: "South Africa" },
       ],
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "ZAR",
-        price: "4500",
-        priceSpecification: {
-          "@type": "PriceSpecification",
-          minPrice: "4500",
-          priceCurrency: "ZAR",
-        },
-        eligibleRegion: { "@type": "Country", name: "South Africa" },
-      },
       serviceType: "Website Development",
       url: "https://www.raktechnologies.co.za/solutions",
     },
@@ -89,17 +77,6 @@ const servicesSchema = {
         "Full-stack web application with CRM, WhatsApp automation, client portal, lead management, and custom integrations. Built for growing South African businesses ready to scale their operations.",
       provider: orgRef,
       areaServed: { "@type": "Country", name: "South Africa" },
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "ZAR",
-        price: "15000",
-        priceSpecification: {
-          "@type": "PriceSpecification",
-          minPrice: "15000",
-          priceCurrency: "ZAR",
-        },
-        eligibleRegion: { "@type": "Country", name: "South Africa" },
-      },
       serviceType: "Custom Software Development",
       url: "https://www.raktechnologies.co.za/solutions",
     },
@@ -135,7 +112,7 @@ const faqSchema = {
       name: "How much does a website cost in South Africa?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "RAK Technologies offers professional business websites starting from R4,500. This includes a mobile-optimised, multi-page website with contact form, Google Maps, and basic SEO. Larger projects like CRM systems and custom platforms start from R15,000. Contact us for a free quote tailored to your needs.",
+        text: "Every project is quoted individually after a short discovery call, based on the pages, features and integrations you need. RAK Technologies builds mobile-optimised business websites, CRM systems and custom platforms for businesses across South Africa. Contact us for a free, tailored quote.",
       },
     },
     {
@@ -143,7 +120,7 @@ const faqSchema = {
       name: "How much does custom software development cost in South Africa?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Custom software development costs in South Africa vary depending on the complexity, scope, and timeline. RAK Technologies provides tailored proposals after an initial consultation. Simple web applications start from R15,000. Contact us to request a free proposal.",
+        text: "Custom software development costs in South Africa vary depending on the complexity, scope, and timeline. RAK Technologies provides tailored proposals after an initial consultation. Contact us to request a free proposal.",
       },
     },
     {

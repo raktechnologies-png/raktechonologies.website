@@ -41,7 +41,6 @@ const footerLinks: Record<string, FooterLink[]> = {
     { label: "About Us",    href: "/about" },
     { label: "Solutions",   href: "/solutions" },
     { label: "ActSci™AI",  href: "/actsci" },
-    { label: "Pricing",     href: "/#services" },
     { label: "Contact",     href: "/#contact" },
   ],
   Services: [

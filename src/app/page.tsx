@@ -4,7 +4,7 @@ import Hero from "@/components/home/Hero";
 export const metadata: Metadata = {
   title: "RAK Technologies — Website & Software Development Pretoria | South Africa",
   description:
-    "RAK Technologies builds websites from R4,500, custom software, CRM systems, and AI automation for businesses in Pretoria, Johannesburg, Centurion, and across South Africa. If it's tech, trust us — we can build it.",
+    "RAK Technologies builds websites, custom software, CRM systems, and AI automation for businesses in Pretoria, Johannesburg, Centurion, and across South Africa. If it's tech, trust us — we can build it.",
   keywords: [
     // Hyperlocal intent
     "website development Pretoria",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "RAK Technologies — Website & Software Development Pretoria | South Africa",
     description:
-      "Websites from R4,500, custom software, CRM systems & AI automation for SA businesses. Based in Pretoria. Serving Johannesburg, Centurion, Sandton & beyond.",
+      "Websites, custom software, CRM systems & AI automation for SA businesses. Based in Pretoria. Serving Johannesburg, Centurion, Sandton & beyond.",
     url: "https://www.raktechnologies.co.za",
   },
 };

@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     template: "%s | RAK Technologies",
   },
   description:
-    "RAK Technologies builds websites, custom software, CRM systems, and AI automation for businesses in Pretoria, Johannesburg, and across South Africa. Affordable, fast, and built to grow your business. From R4,500.",
+    "RAK Technologies builds websites, custom software, CRM systems, and AI automation for businesses in Pretoria, Johannesburg, and across South Africa. Fast, modern, and built to grow your business.",
   keywords: [
     // Core local intent
     "website development Pretoria",
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "RAK Technologies — Website & Software Development Pretoria | South Africa",
     description:
-      "Websites, custom software, CRM systems & AI automation for SA businesses. Based in Pretoria. Serving Johannesburg, Centurion, Sandton & beyond. From R4,500.",
+      "Websites, custom software, CRM systems & AI automation for SA businesses. Based in Pretoria. Serving Johannesburg, Centurion, Sandton & beyond.",
     url: "https://www.raktechnologies.co.za",
     siteName: "RAK Technologies",
     locale: "en_ZA",
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "RAK Technologies — Website & Software Development Pretoria",
-    description: "Websites, custom software, CRM & AI automation for SA businesses. Based in Pretoria. From R4,500.",
+    description: "Websites, custom software, CRM & AI automation for SA businesses. Based in Pretoria.",
   },
   robots: {
     index: true,
@@ -155,10 +155,9 @@ export default function RootLayout({
               },
               image: "https://www.raktechnologies.co.za/opengraph-image",
               description:
-                "RAK Technologies builds websites, custom software, CRM systems, WhatsApp automation, and AI integrations for businesses in Pretoria, Johannesburg, and across South Africa. Affordable, fast delivery. From R4,500.",
+                "RAK Technologies builds websites, custom software, CRM systems, WhatsApp automation, and AI integrations for businesses in Pretoria, Johannesburg, and across South Africa.",
               slogan: "If it's tech, trust us — we can build it.",
               foundingDate: "2024",
-              priceRange: "R$$",
               openingHoursSpecification: [
                 {
                   "@type": "OpeningHoursSpecification",
